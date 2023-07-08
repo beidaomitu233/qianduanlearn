@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /* 递增递减有些类似于java里面的 ++ 有前置和后置
+        作用是可以简化过程 */
+        /* 想要实现加一的效果就得写很多行 */
+        var mun = 1;
+        mun = mun + 1
+        mun = mun + 1
+        mun = mun + 1
+        console.log(mun);
+
+        /* 两则的区别是应用和＋的顺序不同  ，单独写区别不大
+        ++是先加再应用  ，后++是先应用再相加  
+        这里的运用是指完成 ++e 或者e++的本身计算 再再去算+的时候就是已经加1了  */
+
+
+        /* 前置自增 */
+        /* 先++ 再返回值*/
+        var ppo = 5;
+        console.log(++ppo);
+        /* 后置自增 */
+        /* 先返回原来的值 ，然后再执行++*/
+        var ppoo = 5;
+        console.log(ppoo++);
+        console.log(ppoo)
+    </script>
+
+</body>
+
+</html>

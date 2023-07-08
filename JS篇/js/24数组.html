@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 数组的作用是只用一个变量就能存储一组数据 ， -->
+
+    <!-- array数组  -->
+    <script>
+        /* 第一种方法 new */
+        var shuzhu2 = new Array(1, 3, '辉辉',
+            true);
+
+        var zu22 = new Array() //创建了一个空数组
+        var zu2 = new Array(5) //创建了一个长度为5的数组
+
+        //创建并初始化的一个长度为2的组数
+        var arr2 = new Array(3)
+
+        //向数组中添加元素
+        arr2.push('文字')
+        arr2.push(123)
+
+        //取出元素
+        console.log(arr2[4]);
+        console.log(arr2[3]);
+
+        console.log(arr2.length());
+
+
+        /* 第二种方法字面量 里面的数据可以是字符串 数字 布尔 */
+        var suzhu = [1, 3, 4, '辉辉',
+            /*0   1  2   3  */
+            true
+        ]
+
+
+
+        var arr3 = [1, 2, 34, 4]
+        console.log('分割线------------------');
+
+        /* 当需要获取数组里面的数据的时候 这样写 格式 数组名[索引名]  */
+        /* 其中的索引名是 按照第一个元素开始数 并且从0开始计数 */
+
+        console.log(suzhu); /* 直接输出数组的话会得到里面的元素个数 */
+        console.log(suzhu[3]);
+        console.log(suzhu[10]); /* 当数组中没有第十个元素的时候就输出 undefined */
+        console.log('分割线------------------');
+        /* 遍历数组 ，就是把每个元素都访问一次 */
+
+        /* 配合循环就可以把数组内的每个元素取出来 */
+        /* 这里的i是计数器 当作索引号来用 */
+        /* 写<=就会取四个 写<则会取3个，一般只写一个符号 */
+        for (var i = 0; i < 4; i++) {
+            console.log(suzhu[i]);
+        }
+        console.log('分割线------------------');
+        /* 当数组内元素多了之后也没法确定有多少个 ，用lenght在这里的长度是素组的元素个数，其他数据类型也行 */
+        /* 优点还能动态监测元素个数 */
+        var suzhu3 = ['辉辉1', '辉辉2', '辉辉3', '辉辉4', '辉辉5', '辉辉6', 6]
+        for (var p = 0; p < suzhu3.length; p++) {
+            console.log(suzhu3[p]);
+        }
+        console.log('分割线------------------');
+
+
+        /* 小案例 1求数组的平均值还有和 */
+        /* 思路就是用for循环把各元素值相加 */
+        var mun = [5, 4, 3, 7, 9, 8, 4, 2, 1];
+        var sum = 0;
+        for (var l = 0; l < mun.length; l++) {
+            sum += mun[l]
+        }
+        console.log(sum);
+        /* 这里的意思是求平均值 把数的总和除元素的个数 */
+        var avre = sum / mun.length;
+        console.log(avre);
+        console.log('分割线------------------');
+        /* 案例二 输入数组中最大的数值 */
+        /* 思路就是通过循环进行把中间两与每个元素的大小对比 如比原来的大 就把大的值赋给中间量 */
+        var centerer = 0;
+        for (var q = 0; q < mun.length; q++) {
+            if (centerer <= mun[q]) {
+                centerer = mun[q]
+            } else {
+                continue;
+            }
+        }
+        console.log(centerer);
+        console.log('分割线------------------');
+        /* 字符串相加并间隔 */
+        var suzhu3 = ['辉辉1', '辉辉2', '辉辉3', '辉辉4', '辉辉5', '辉辉6', 6]
+        var str = '*';
+        var zaiti = '';
+        for (var p = 0; p < suzhu3.length; p++) {
+            zaiti += suzhu3[p] + str
+        }
+        console.log(zaiti);
+    </script>
+
+
+</body>
+
+</html>

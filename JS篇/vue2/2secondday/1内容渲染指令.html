@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 这个div是vue控制区域 -->
+    <div id="app">
+        <!-- 这个是vue内容渲染指令，属性值就属性名 -->
+        <p v-text="username"></p>
+        <!-- v-text会覆盖原本标签中的内容 -->
+        <p v-text="sex">这里的内容会被覆盖</p>
+        <hr>
+        <!-- 差值表达是把数据插入到标签内如中的某个位置 -->
+        <p>姓名：{{username}}</p>
+        <p>性别：{{sex}}</p>
+        <p>1+2={{1+2}}</p>
+        <p>{{tips}} 翻转的结果是{{tips.split('').reverse().join()}}</p>
+
+        <hr>
+        <!-- 可以插入html标签 -->
+        <div v-html="info"></div>
+
+
+    </div>
+
+
+    <!-- 导入vue文件 ，在window全局下就有了vue这个构造函数 -->
+    <script src="./vue.js"></script>
+    <!-- 创建vue实例对象 -->
+    <script>
+        const vm = new Vue({
+            /* el是固定的写法，表示当前vm实例要控制页面上的哪个区域，接受指是一个选择器 */
+            el: '#app',
+            //data对象表示要渲染到页面上的数据
+            data: {
+                tips: "请输入用户名",
+                username: 'zs',
+                sex: 'nv',
+                info: '<h4 style="color: red;font-weight: 400;">这是vue控制的标签</h4>'
+            }
+
+        })
+    </script>
+</body>
+
+</html>

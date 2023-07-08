@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .biaoge {
+        width: 150px;
+        height: 140px;
+        position: relative;
+        left: 50%;
+        margin-left: -75px;
+        text-align: center;
+
+        border: 1px solid greenyellow;
+        /* 合并内边框 */
+        border-collapse: collapse;
+      }
+      .biaoge th {
+        border: none;
+        color: white;
+      }
+      .biaoge tr {
+      }
+      .tittle {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 表格与表单  ,tr无宽度属性，宽度取决于 table ，
+        tr 有valign 属性可以控制内容垂直的位置，
+        tr 不建议用bacc有兼容性   
+
+
+    -->
+    <table class="biaoge" border="1">
+      <!-- 制作一个两行三列 -->
+      <!-- tr是行 td是列 th是表头 必须是行包括列 -->
+      <tr class="tittle">
+        <th>标题</th>
+        <th>标题</th>
+        <th>标题</th>
+      </tr>
+
+      <tr>
+        <td>内容</td>
+        <td>内容</td>
+        <td>内容</td>
+      </tr>
+
+      <tr>
+        <td>内容</td>
+        <td>内容</td>
+        <td>内容</td>
+      </tr>
+
+      <tr>
+        <td>内容</td>
+        <td>内容</td>
+        <td>内容</td>
+      </tr>
+
+      <tr>
+        <td>内容</td>
+        <td>内容</td>
+        <td>内容</td>
+      </tr>
+    </table>
+
+    <form action="">
+      <span>姓名：</span>
+      <input type="text" />
+      <span>性别</span>
+      <input type="checkbox" />
+      <input type="checkbox" />
+    </form>
+  </body>
+</html>

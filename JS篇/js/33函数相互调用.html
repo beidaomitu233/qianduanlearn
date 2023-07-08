@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 函数之间的相互调用 实现模块化 减少重复 比如一辆车里面的轮胎  -->
+    <script>
+        function yy1() {
+            console.log(33);
+            zz1();
+
+        }
+
+        function zz1() {
+            console.log(22);
+        }
+        yy1();
+
+        /* 调用小案例 */
+        function yearof() {
+            if (panduan()) {
+                console.log('是闰年2月有28天');
+            } else {
+                console.log('是闰年2月有29天');
+            }
+        }
+        yearof();
+
+        function panduan() {
+
+            var dateyearrun = prompt('年份');
+            var qued = false;
+            /* 取模的作用就是判断能不能被整除 */
+            if (dateyearrun % 4 == 0 && dateyearrun % 100 != 0 || dateyearrun % 400 == 0) {
+                qued = true
+
+            } else {
+                return qued
+            };
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 作用域链  内部函数是可以访问外部函数 -->
+    <script>
+        var mun = 9;
+
+        function op() {
+            var mun1 = 8
+
+
+            function opp() {
+                /* 在本级找不到之后 就去上一级找 ，找不到 再往外成找 */
+                console.log(mun);
+
+            }
+            opp();
+        }
+
+        op();
+        console.log(op());
+    </script>
+</body>
+
+</html>

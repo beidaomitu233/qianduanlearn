@@ -1,0 +1,39 @@
+.ddome7 {
+    width: 700px;
+    height: 90px;
+    margin: 400px auto;
+}
+
+/* 翻转导航栏效果 */
+.dome7 {
+    position: relative;
+    transform-style: preserve-3d;
+    width: 180px;
+    height: 40px;
+    transition: all 0.4s;
+
+}
+
+.qian,
+.bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.qian {
+    background-color: khaki;
+    /* 向前移是因为后面旋转的时候是围绕正方体的中线点旋转，所以把前这个面从中心点移到正方体的前面 */
+    transform: rotateZ(50%);
+}
+
+.bottom {
+    background-color: lawngreen;
+    transform: translateY(50%) rotateX(80deg);
+}
+
+.dome7:hover {
+    transform: rotateX(-90deg);
+}

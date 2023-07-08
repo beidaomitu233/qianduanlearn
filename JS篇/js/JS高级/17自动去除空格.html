@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" />
+    <button>提交</button>
+    <div></div>
+    <script>
+      //自动去除字符串中两侧空格 strim()
+      let input = document.querySelector("input");
+      let btn = document.querySelector("button");
+      let div = document.querySelector("div");
+
+      btn.addEventListener("click", function () {
+        let str = input.value.trim();
+        console.log(str.length);
+        div.innerHTML = str;
+      });
+
+      //一个对象中又包含多个对象，是以数组的形式存储
+      let dui = [
+        {
+          namee: "dasd",
+          agee: 11,
+        },
+        { namee: "qweqwe", agee: 21 },
+      ];
+      console.log(dui[0].namee);
+    </script>
+  </body>
+</html>

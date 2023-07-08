@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 style="text-align: center;"><a href="https://www.xzw8888.com/">星创网———最佳副业选择</a> </h1>
+    <p>95%的学员已通过学习实现创业盈利 教程详细，新人立即上手，还等什么，快来加入我们</p>
+    全网最新 最热门 最赚钱的项目 每天更新.....
+    <script>
+        //
+        let p = Promise.resolve(12312)
+        console.log(p);
+
+        //
+        // 使用 Promise.reject() 创建一个已拒绝的 Promise 对象
+        //     const rejectedPromise = Promise.reject(new Error('这是一个已拒绝的 Promise 对象'));
+        //     const rejectedPromise2 = Promise.reject(2312);
+        /*         console.log(rejectedPromise);
+                console.log(rejectedPromise2); */
+
+        //Promise.all
+        let p1 = new Promise((resolve, reject) => {
+            resolve('fail')
+        })
+
+        let p2 = Promise.resolve('success')
+        let p3 = Promise.resolve('fail')
+
+        const result = Promise.all([p1, p2, p3])
+        console.log(result);
+
+        //验证多个回调函数是否会调用
+        p1.then(value => {
+            console.log('调用第一个');
+        })
+        p1.then(value => {
+            console.log('调用第二个');
+        })
+        p1.then(value => {
+            console.log('调用第三个');
+        })
+
+        //链式调用
+        let p4 = new Promise((resolve, reject) => {
+            resolve('error')
+        })
+
+        p4.then(value => {
+                console.log(value)
+                return new Promise(() => {})
+            }).then(
+                value => {
+                    throw '结束'
+                }).then(value => console.log('第二次调用' + value))
+            .catch(reason => console.log(reason + '调用结束')) //错误不管是第几个错都会传到最后的catch中处理
+    </script>
+
+</body>
+
+</html>

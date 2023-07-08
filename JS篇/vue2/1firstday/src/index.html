@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- 在实际开发中是不会在这里引用，而是通过webpack进行导入 -->
+
+    <!-- 导入的是webpack处理过后的包 -->
+    <!-- html-webpack-plugin 会自动引入复制过的js，所以下面不用写 -->
+    <!-- <script src="/indexzz.js"></script> -->
+  </head>
+  <body>
+    <ul>
+      <li>这是第 112312 个</li>
+      <li>这是第 2 1个</li>
+      <li>这是第 3 个</li>
+      <li>这是第 4 个</li>
+      <li>这是第 5 个</li>
+      <li>这是第 6 个</li>
+      <li>这是第 7 个</li>
+      <li>这是第 8 个</li>
+    </ul>
+    <!-- 普通图片引入 -->
+    <img src="../upload/weixin.png" alt="" />
+    <!-- base64引入 -->
+    <img
+      src="data:image/png;base64,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"
+      alt=""
+    />
+
+    <img src="" alt="" class="img" />
+  </body>
+</html>

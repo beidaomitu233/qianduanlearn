@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //返回数组中所选元素的索引号，如果有多个相同的值就只返回第一个值的索引号
+        //如果找不到所选出的元素就返回-1
+        //从头开始往后找
+        var arr1 = ['zz', 'qq', 'yy', 'zz']
+        console.log(arr1.indexOf('zz'));
+        console.log(arr1.indexOf('zz1'));
+        console.log(arr1.indexOf('yy'))
+        console.log(arr1.indexOf('qq'))
+
+        //当值是一个字符串时效果也一样
+        console.log('----------------')
+        var arr3 = '抬头望明月，低头思故乡月'
+        /* 字符串的排序 是按照字符来排的 且也返回第一个  */
+        console.log(arr3.indexOf('月')); //返回4
+        //只会返回第一个字的位置
+        console.log(arr3.indexOf('低头'))
+
+        //数组名.lastindexOf 是从数组的候开始往前找，返回的索引号是一样的，根据场景选择
+        //并且有多个的时候也只是返回找到的第一个
+        console.log(arr1.lastIndexOf('zz'));
+    </script>
+
+
+</body>
+
+</html>

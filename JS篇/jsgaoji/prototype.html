@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function Singer(name, age, featrue) {
+            this.name = name
+            this.age = age
+            this.featrue = featrue
+        }
+
+        //都是歌手所以都会唱歌但是每次都实例化出同样的方法就会照成浪费。
+        const zhou = new Singer("周杰伦", 40, "highter")
+        const liu = new Singer("刘德华", 50, "yueyu")
+        //结果输出为true
+        console.log(zhou.__proto__ === Singer.prototype);
+        //可以将方法挂载到Object对象的prototype属性上，所有对象都可以调用。
+
+
+        console.log(Singer.prototype);
+        Singer.prototype.sing = function () {
+            console.log("sing");
+        }
+        //都能调用到这个方法
+
+        console.log(Singer.prototype);
+        //直接输出实例对象的原型对象的是undefined象，但是在原型上有sing方法。因为是静态对象
+        console.log(zhou.prototype);
+
+
+        function Singer2(name, age, featrue) {
+            this.name = name
+            this.age = age
+            this.featrue = featrue
+        }
+        console.log("-------修改prototype前--------");
+        console.log(Singer2.prototype);
+        Singer2.prototype = {
+            sing: function () {
+                console.log("sing");
+            },
+            dance: function () {
+                console.log("dance");
+            }
+        }
+        console.log("------修改prototype后---------");
+        console.log(Singer2.prototype);
+        //修改后constructor方法就没有了，所以需要重新指定
+        Singer2.prototype.constructor = Singer2
+    </script>
+
+</body>
+
+</html>

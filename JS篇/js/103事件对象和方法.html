@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="hui">
+
+        <li>dian zheg </li>
+        <button>阻止提交</button>
+        <a href="http://baidu.com">组织转跳</a>
+    </div>
+    <script>
+        let divn = document.querySelector('div')
+        let btn = document.querySelector('button')
+        let an = document.querySelector('a')
+        divn.addEventListener('click', funn)
+        // target type
+        function funn(e) {
+            //e.targe 输出的是当前被点击的元素 ,e.target 返回当前被触发的元素
+            console.log(e.target);
+            //this返回的事件源 就li
+            console.log(this);
+            // e.type返回的是操作情况，比如鼠标经过离开 点击
+            console.log(e.type)
+
+        }
+        an.addEventListener('click', function (e) {
+            //阻止默认行为
+            e.preventDefault();
+
+        })
+
+        //传统方式下 e.returnValue(); 也可以阻止而且是全兼容
+    </script>
+
+</body>
+
+</html>

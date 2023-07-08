@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="black.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <!-- 表单元素的一些操作  value的操作 -->
+    <input type="text" value="输入密码">
+    <button>点击登入</button>
+    <script>
+        let biaodan = document.querySelector('input')
+        let anniu = document.querySelector('button')
+
+        anniu.onclick = function () {
+            biaodan.value = '密码错误'
+
+            //如果想要禁用一些表单 用 disbled 或者按钮 等等 就这么写
+            anniu.disabled = 'true'
+
+            //也可以这么写  this  指向的被点击的对象
+            this.disabled = 'true'
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 字符类 [] 只要包含其中一个字符就行， {3，6}是范围    ()表示优先级,优先这个模块
+      let rgg = /(abc){3}/
+      let rg = /[abc]/
+      console.log(rg.test('ced'))
+      console.log(rg.test('aqwe'))
+      console.log(rg.test('zzz'))
+      console.log('-----------')
+      // 只能选一其中一个 ，才返回true
+      let rg2 = /^[abc]$/
+      console.log(rg2.test('ccc'))
+      console.log(rg2.test('a'))
+      console.log(rg2.test('aa'))
+      console.log('-----------')
+      // -  范围  A-z  大小写字母都行 从 A-z的范围 任选一个
+      let rg3 = /^[A-z]$/
+      console.log(rg3.test('cc'))
+      console.log(rg3.test('a'))
+      console.log(rg3.test('l'))
+      console.log(rg3.test('Y'))
+      console.log('-----------')
+      //且的写法 可以直接连起来
+      let rg4 = /^[A-z0-9]$/
+      console.log(rg4.test('cc'))
+      console.log(rg4.test('a'))
+      console.log(rg4.test('l'))
+      console.log(rg4.test('Y'))
+      console.log(rg4.test('4'))
+      console.log('-----------')
+      //           中括号里面加 ^ 的意思是取反 A-z 和0-9都不能取
+      let rg5 = /^[^A-z0-9]$/
+      console.log(rg5.test('cc'))
+      console.log(rg5.test('a'))
+      console.log(rg5.test('l'))
+      console.log(rg5.test('Y'))
+      console.log(rg5.test('4'))
+      console.log('-----------')
+      //
+    </script>
+  </body>
+</html>

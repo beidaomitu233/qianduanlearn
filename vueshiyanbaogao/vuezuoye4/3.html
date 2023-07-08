@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <select name="" id="" v-model="score">
+            <option value="66" selected>66分</option>
+            <option value="76">76分</option>
+            <option value="90">90分</option>
+        </select>
+        <span v-if="score > 80">优秀</span>
+        <span v-else-if="score >= 60">良好</span>
+        <span v-else>不合格</span>
+
+
+    </div>
+    <hr>
+    <p>21401070209 程崟</p>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    score: null
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

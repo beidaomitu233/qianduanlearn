@@ -1,0 +1,153 @@
+.seacher {
+    display: flex;
+    height: 45px;
+    /* background-image: -webkit-linear-gradient(to top left, rgb(238, 123, 123), rgb(117, 117, 252)); */
+    background-color: cadetblue;
+
+
+}
+
+.seacher_main {
+    flex: 1;
+}
+
+.qiandao {
+    margin-top: 5px;
+    width: 32px;
+    height: 32px;
+    background: url(../img/signin-b.png) no-repeat;
+    background-size: 32px 32px;
+}
+
+.seacher_main input {
+    margin-top: 3px;
+    margin-left: 25px;
+    width: 90%;
+    height: 38px;
+    /* background-color: chartreuse; */
+    border-radius: 15px;
+    border: skyblue 3px solid;
+}
+
+
+/* 功能区 */
+
+nav {
+    height: 195px;
+    background-color: springgreen;
+    margin-top: 4px;
+    border-radius: 15px 15px 0 0;
+    /* 当子盒子有背景颜色之后，再把盒子做圆角的时候，背景色会盖住 */
+    overflow: hidden;
+}
+
+/* 一定是要父级 */
+
+
+nav ul {
+    display: flex;
+    /* 百分比要配合换行来用 */
+    flex-wrap: wrap;
+
+
+}
+
+nav ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 64px;
+    flex: 20%;
+    border: white 2px solid;
+}
+
+.nav-icon1 {
+
+    display: block;
+    width: 42px;
+    height: 42px;
+    background: url(../img/nav.png) 42px -128px;
+    background-size: 42px 630px;
+}
+
+nav ul li:nth-of-type(1) {
+    background-image: -webkit-linear-gradient(to bottom, rgb(250, 90, 86), rgb(251, 133, 81));
+    background-image: linear-gradient(to bottom, rgb(250, 90, 86), rgb(251, 133, 81));
+
+}
+
+nav ul li:nth-of-type(2) {
+    background-image: -webkit-linear-gradient(to bottom, rgb(61, 133, 250), rgb(80, 178, 251));
+    background-image: linear-gradient(to bottom, rgb(61, 133, 250), rgb(80, 178, 251));
+
+}
+
+nav ul li:nth-of-type(3) {
+    background-image: -webkit-linear-gradient(to bottom, rgb(95, 132, 255), rgb(102, 163, 255));
+    background-image: linear-gradient(to bottom, rgb(95, 132, 255), rgb(102, 163, 255));
+
+}
+
+nav ul li:nth-of-type(4) {
+    background-image: -webkit-linear-gradient(to bottom, rgb(49, 196, 182), rgb(81, 217, 179));
+    background-image: linear-gradient(to bottom, rgb(49, 196, 182), rgb(81, 217, 179));
+
+}
+
+nav ul li:nth-of-type(5) {
+    background-image: -webkit-linear-gradient(to bottom, rgb(255, 138, 57), rgb(255, 166, 69));
+    background-image: linear-gradient(to bottom, rgb(255, 138, 57), rgb(255, 166, 69));
+
+}
+
+.count {
+    height: 148px;
+    display: flex;
+    background-color: coral;
+}
+
+.count_live {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: brown;
+}
+
+.count_live div {
+    flex: 1;
+}
+
+.count_live div:first-child {
+    /* float: left; */
+    height: 24px;
+    background: url(../uplode/0zc71120008g0ha4z93C6.png) no-repeat;
+    background-size: 24px 42px;
+}
+
+.count_live div:last-child {
+    height: 138px;
+    background-color: cyan;
+}
+
+
+.countselct {
+    background-color: burlywood;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.countselcttop {
+    height: 24px;
+    background-color: chartreuse;
+}
+
+.selctimg {
+    height: 135px;
+    display: flex;
+    flex-direction: row;
+}
+
+.selctimg div {
+    flex: 1;
+}

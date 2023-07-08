@@ -1,0 +1,61 @@
+.box1 {
+    background: url(../img/OIP-C.jpg);
+    /* 注意单位，往下走是负的再ps切片工具切了点属性再看具体数字
+    然后加负号就可以了 */
+    background-position: -303px -107px;
+    width: 100px;
+    height: 100px;
+}
+
+.logo {
+    background: url(../img/OIP-C.jpg);
+    /* 注意单位，往下走是负的再ps切片工具切了点属性再看具体数字
+    然后加负号就可以了 */
+    background-position: -303px -107px;
+    width: 100px;
+    height: 100px;
+    transition: all 0.4s ease;
+}
+
+.logo:hover {
+    background-position: -393px -107px;
+}
+
+
+.sanjiao {
+    /* 原理无宽高的时候每个边框都是三角形 */
+
+    width: 0;
+    height: 0;
+    /* 下面这两行是为了兼容低级浏览器 */
+    line-height: 0;
+    font-size: 0;
+
+    /* 边框越厚三角形越大  */
+    border: 30px solid transparent;
+    border-left-color: yellow;
+
+    position: absolute;
+    top: 30;
+    left: 190px;
+}
+
+.kuangkuang {
+    height: 60px;
+    width: 200px;
+    background-color: yellow;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* 空格是指 只要div里面有li就能找到，不需要一级一级对应*/
+
+div li {
+    background-color: transparent;
+}
+
+/* 大于号需要 一级一级对应 ，只有div第一个子元素是li时才能实现效果 */
+div>li {
+    background-color: transparent;
+}

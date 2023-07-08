@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        .box1 {
+            position: relative;
+            margin-left: 60px;
+            width: 190px;
+            height: 60px;
+            border: 1px solid red;
+        }
+
+        .box2 {
+            margin-left: 13px;
+            width: 120px;
+            height: 40px;
+            border: 1px solid aqua;
+
+        }
+    </style>
+
+</head>
+
+
+<div class="box1">
+
+    <div class="box2"></div>
+</div>
+
+<script>
+    let box1 = document.querySelector('.box1')
+    let box2 = document.querySelector('.box2')
+
+    console.log(box1.offsetTop);
+    console.log(box1.offsetLeft);
+
+    console.log(box2.offsetLeft);
+</script>
+
+<body>
+
+</body>
+
+</html>

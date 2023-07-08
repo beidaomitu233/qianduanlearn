@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //正则表达式是用于匹配字符串中字符组合的模式，在js中是对象
+      // 作用 验证表单 例如 验证邮箱和密码 是不是符合规范
+      // 替换页面中的敏感词，换成** ,从字符串中提取我们想要的特定部分；
+      // 灵活 逻辑 功能 都很强 ，快速简单达到复杂字符串控制
+      //实际运用复制按需求修改即可
+
+      //正则表达式的创建方式
+      //构造函数来创建
+      let regexp = new RegExp(/123/)
+      console.log(regexp)
+      //第二种字面量
+      let rg = /234/
+
+      //test方法用来检测字符串是否符合正则表达式的要求
+      //只要包含 234 这样就是显示true  不符合显示false
+      console.log(rg.test(/234/))
+      console.log(rg.test(149263234))
+      console.log(rg.test(149263))
+    </script>
+  </body>
+</html>

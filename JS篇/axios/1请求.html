@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .btn1 {
+            background-color: greenyellow;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+
+
+<body>
+
+    <button class="btn1">post请求</button>
+
+    <script>
+        let btn1 = document.querySelector('.btn1')
+
+        btn1.addEventListener('click', function () {
+            axios({
+                method: 'post',
+                url: 'http://localhost:3000/posts/3',
+                //向服务段发送数据,请求体
+                data: {
+                    title: "天气晴朗",
+                    auther: "zhenbucuo"
+                }
+                //返回的是promise对象，可以调用then方法
+            }).then(Response => {
+                console.log(Response);
+            });
+        })
+    </script>
+
+</body>
+
+</html>

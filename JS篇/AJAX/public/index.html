@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        //1、创建Ajax对象 ,用变量去接收这个对象
+        var xhr = new XMLHttpRequest();
+        //2、告诉Ajax请求地址及请求方式
+        //       请求方式  请求地址    第一次发送要写first /后面的内容需要在app.js中添加路由
+        xhr.open('get', 'http://localhost:3000/first');
+        //ajax传递参数的方式
+        /*  xhr.open('get', 'http://localhost:3000/responseData?a=50&b=80'); */
+
+        //设置请求头,一般吧身份校验放在这里传递给服务器
+        /*   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded') */
+        //                     属性    值
+        /*     xhr.setRequestHeader('name', 'atu') */
+        //3、发送请求
+        xhr.send();
+        //4、获取服务器端 给予客户端的响应数据
+        // 有change readystatechange load
+        xhr.onreadystatechange = function () {
+            //这么些是为了检测是否完全准备好
+            //判读ajax状态情况，==4就是准备好了
+            if (xhr.onreadystate === 4) {
+                //当 响应码为2xx时就是成功
+                if (xhr.status >= 200 & xhr.status <= 300) {
+                    //接收过来的是json字符串，要提取其中的数据时要转化成JavaScript对象
+                    /*                     console.log(xhr.responseText);
+                                        console.log(xhr.getAllResponseHeaders);
+                                        console.log(xhr.statusText);
+                                        console.log(xhr.statusz); */
+
+                    /* 
+                                        //返回的数据类型是字符串 ，而不是一个对象
+                                        console.log(typeof xhr.responseText)
+                                        //
+                                        var response = JSON.parse(xhr.responseText)
+                                        console.log(response);
+                                        //把对象和标签用字符串拼接，再插入网页中，就实现了整个流程效果
+                                        let userName = '<h1>' + response.name + '</h1>';
+                                        document.body.innerHTML = userName */
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

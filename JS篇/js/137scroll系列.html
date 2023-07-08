@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            background-color: aqua;
+            height: 120px;
+            width: 100px;
+            border: 5px solid bisque;
+            overflow: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div>好多内容好多内容好多内容好多内容好多内容好多内容好多内容好多内容好多内容好多内容好多内容好多内容</div>
+
+    <script>
+        //scroll系列 可以获取元素大小滚动距离等
+        let srcc = document.querySelector('div')
+
+        //返回的是内容的高度和宽度(不带单位喔) 不是div盒子的
+        console.log(srcc.scrollHeight);
+        console.log(srcc.scrollWidth);
+        //要和client区别开
+        console.log(srcc.clientHeight);
+
+        srcc.addEventListener('scroll', function () {
+            //top是滚动条拉下来的时候，上面看不见的部分单独长
+            //left是整个的长
+            console.log(srcc.scrollTop);
+            console.log(srcc.scrollLeft);
+        })
+    </script>
+
+</body>
+
+</html>

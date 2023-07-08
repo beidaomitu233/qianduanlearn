@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 删除元素 -->
+    <!-- none.removeChild(child) -->
+
+    <button>删除0</button>
+    <ul>
+        <a href="javascript:;">12321</a>
+        <p>456</p>
+        <p>4556</p>
+        <p>66</p>
+    </ul>
+    <script>
+        let anniu = document.querySelector('button')
+        let ul = document.querySelector('ul')
+
+        anniu.onclick = function () {
+            /* 加判断条件，当被删完时按钮就被禁止 */
+            if (ul.children.length == 0) {
+                /* 禁止*/
+                this.disabled = true
+
+            } else {
+                /* 否则继续删除 */
+                ul.removeChild(ul.children[0])
+            }
+        }
+
+        /* 当想要a标签不跳转时 添加 javascript:;的herf */
+    </script>
+
+
+</body>
+
+</html>

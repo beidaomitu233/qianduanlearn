@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //一共又三种方式写函数
+      function fu() {}
+      //匿名函数
+      let fun = function () {}
+
+      //实例化对象方式  了解就行，根本不用
+      /*  let f=new function('a','b','console.log(a+b)');
+      f(1,2) */
+
+      let o = {
+        say: function () {
+          console.log('das')
+        },
+      }
+
+      function star() {}
+
+      //所有的函数都是function的实例 ，函数也属于对象
+
+      //函数调用方式
+
+      //调用普通对象  ,this指向window
+      fu()
+      fu.call()
+      //对象方法   ，this指向方法所属对象
+      o.say()
+      //构造函数    this指向实例对象
+      new star()
+      //绑定事件函数,触发事件自动调用  this指向绑定事件的对象
+      btn.addEventListener('click', function () {})
+      //定时器函数 ,到达设定的事件后自动调用  this指向winows
+      setInterval(function () {}, 1000)
+      //立即执行函数 ,自动调用  this指向windo
+      ;(function () {
+        console.log('hui')
+      })()
+
+      //改变this指向 js又三种方法  利用call() apply() bind()
+    </script>
+  </body>
+</html>

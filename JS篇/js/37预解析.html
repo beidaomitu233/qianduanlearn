@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 面试经常问 -->
+    <!--预解析 js引擎执行 分为两步 预解析 代码执行 -->
+    <!-- 预解析  js引擎会把js里面的所有 var 和function 提到当前作用域的最前面 把变量声明提到最前面-->
+    <!-- 然后再执行代码 -->
+
+
+    <!-- 2预解析 分为 变量预解析（变量提升） 和函数解析（函数提升 -->
+    <!-- 变量提升 就是把所有的变量声明提到最前面执行 ，但是不赋值 -->
+    <!-- 函数提升 就是把所有函数声明踢到当前作用域前面 （提升fun里面的声明到当前的域的最前面） 但是不调用函数 -->
+    <script>
+        //这个会报错因为没有mun1
+        console.log(mun1);
+
+        //这个会undefind
+        console.log(mun2);
+        var mun2 = 15;
+
+        //实际执行顺序是
+        var mun2
+        console.log(mun2);
+        mun2 = 15;
+
+        /* 函数提升 */
+
+        beautuful();
+        function beautuful() {
+
+            var mun3 = 6
+        }
+        /* 上下是一样的 因为 函数提升 直接把 fun提到前面 然后在执行beau */
+        beautuful();
+
+
+        //这时会报错 找不到函数
+
+        var ffpp = function () {
+            var op = 9;
+        }
+        ffpp();
+
+        //因为执行顺序是:
+        var ffpp
+        ffpp();
+        ffpp = function () {
+            var op = 9;
+        }
+
+
+    </script>
+</body>
+
+</html>

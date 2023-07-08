@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //const比let效率高是因为不需要实时检查const的变化
+    // 用const声明的常量具有块级作用域 ，常量的值是不能被改变的，根本上是不能改变的是内存中的地址
+    //声明常量时就必须要赋初始值，不存在变量提升
+    if (true) {
+      const a = 10
+      console.log(a)
+    }
+    //这里就会undefined
+    /* console.log(a); */
+
+    //对于复杂数据类型，只要不更改内存中的地址就可以  ，这个是还在原来的位置，只是存了不同的东西
+    const z = ['asd', 213]
+    z[0] = 322
+    console.log(z)
+
+    const changhui = ['长辉', 16, 'wuhan']
+    changhui[1] = 18
+
+    //这样就算更改了 ，这个算是直接赋值 开辟新空间
+    /*     z = ["qqq", 222]; */
+
+    //
+
+    const USERNAME = '长辉'
+  </script>
+</body>
+
+</html>

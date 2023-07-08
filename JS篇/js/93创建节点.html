@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 在dom中是触发事件创建或修改某个标签属性 -->
+    <!-- 在节点中可以触发事件创建某个标签 -->
+
+    <ul>
+        <div>123</div>
+        <h2></h2>
+
+    </ul>
+
+    <script>
+        // 第一步 创建元素，2添加元素  (创建的元素只能用一次)
+
+        /* 绑定要添加在其前后的标签 */
+        let div = document.querySelector('div')
+        /*    变量名  这是要添加的元素     标签 */
+        let lizz = document.createElement('li')
+
+        /* 添加节点 ，添加子节点，添加div子节点 li标签 */
+        div.appendChild(lizz);
+
+        let lilz = document.createElement('h1')
+        let das=document.createEvent('span')
+        div.insertBefore(lilz, div.children[0]);
+
+
+        //0绑定要创作元素位置的前或者后一个
+        let hh2 = document.querySelector('h2')
+        //1创建元素
+        let yyzz = document.createElement('input')
+        //2添加元素 ,(在元素的前面创建)   0.insertBefore（1.children[0])
+        hh2.insertBefore(yyzz.children[0])
+    </script>
+
+</body>
+
+
+
+</html>

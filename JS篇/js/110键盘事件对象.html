@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 当我们用上面事件 ，就会有什么对象，就会返回相关的数据（属性和方法 -->
+    <script>
+        /* 判断用户按下什么键 */
+        document.addEventListener('keypress', function (e) {
+            console.log('按下啦,press');
+
+            //.key 属性是返回用户按下的值，之前的keycode是返回aci编码（已经被启用，绝对不能再用）
+            //选择用key来代替啊，并且直接就能获取到用户按下的键
+            //对于key来说down和press都能识别大小写了，但press 还是无法识别功能区
+            console.log(e.key);
+        })
+
+        //down的执行顺序比press高所以先输出 down
+        document.addEventListener('keydown', function (e) {
+            console.log('按下啦,down');
+            console.log(e.key);
+        })
+    </script>
+</body>
+
+</html>

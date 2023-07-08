@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bootstrap框架使用</title>
+    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <!-- 框架无需调用自己写的初始等等，已经全部写好了 -->
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!-- 这里必须要注释，因为注释后只有ie浏览器能识别 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        /* 这里是在原有的基础上再加修改 不是去修改原来的
+        而是用覆盖 再加一个类再去覆盖 */
+        .addwd {
+            width: 175px;
+            height: 28px;
+            font-size: 14px;
+        }
+
+        .bacc {
+            background-color: burlywood;
+            height: 50px;
+        }
+
+        [class^="col"] {
+            border: 2px darkorange solid;
+            height: 24px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- 框架其实就是家具，现在不用再去造家具，而是直接买家具放好
+    这些插件已经包括整体布局，按钮 导航栏等等工具 -->
+
+    <!-- 有两种开发方案
+     一个是container 
+     一个是container-fluid  这个是适用于手机端开发 基于百分比布局 占据全部视窗-->
+
+    <!-- 栅格系统的意思就是把内容去分成10份（列）（排） {单位} 和之前的rem的分份数相似
+    但这个是分的container里面的份数，而不是分body的-->
+
+    <!-- container 顾名思义就是内容的意思 ，所以只有放内容的div才引入
+    就是相当于有文字的那一块才引入其他的可以用w100% -->
+
+    <!-- 整体布局用行和列的概念来划分 -->
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous">
+    </script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
+    </script>
+
+
+    <!-- 引入字体图标  从官网看文档即可 -->
+    <span class="glyphicon glyphicon-search"></span>
+
+    <!-- 引入按钮 样式都写好了 -->
+    <button type="button" class="btn btn-warning addwd">（警告）Warning</button>
+
+    <div class="container bacc">12</div>
+
+    <div class="container">
+        <div class="row">
+            <!-- 列已经已定义好是12列 -->
+            <!-- 如果最后三个相加的加过大于12就会换行显示 -->
+            <!-- 小于就会留白 -->
+
+            <!-- 添加类前缀是为了实现列平均划分 -->
+            <div class="col-lg-4">123 均分</div>
+            <div class="col-lg-4">123 均分</div>
+            <div class="col-lg-4">123 均分</div>
+        </div>
+
+        <!-- 这是加了适应屏幕大小而改变占份数大小的写法 -->
+        <!-- 顺序是从小到大 一行有十二列 所以数字写多少就占多少份  
+        例如再中小屏中 一个元素占5份 就是一行能显示两个 以后直接调用类名写数字就好了 -->
+        <div class="row">
+            <div class="col-lg-3  col-xs-12 col-sm-5 col-md-4 col-lg-3"> 在不同屏幕大小下占份数设定123</div>
+            <div class="col-lg-3  col-xs-12 col-sm-5 col-md-4 col-lg-3"> 在不同屏幕大小下占份数设定123</div>
+            <div class="col-lg-3  col-xs-12 col-sm-5 col-md-4 col-lg-3"> 在不同屏幕大小下占份数设定123</div>
+            <div class="col-lg-3  col-xs-12 col-sm-5 col-md-4 col-lg-3"> 在不同屏幕大小下占份数设定123</div>
+        </div>
+
+        <!-- 列嵌套   就是将一行分成几份之后 再这里面再分成几份的写法  父里面也是等分成12份 所以一样的 
+        这个时候用row再嵌套一次效果会更好 所以叫列嵌套 -->
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <!-- 不加row列嵌套时父 子元素都会有padd  row有mar 和pad-15的效果-->
+                <div class="row">
+                    <div class="col-lg-4">123 列嵌套</div>
+                    <div class="col-lg-4">123列嵌套</div>
+                    <div class="col-lg-4">123列嵌套</div>
+                </div>
+            </div>
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4"></div>
+
+            <!-- 位偏移 col-lg-offset-n 可以让盒子向右移位置 其实就是给添加的元素一个左mar值实现的-->
+            <!-- 偏移值也是再份数计算范围内的 所以相加起来等于12才对 -->
+            <!-- 空中间写法 -->
+            <div class="row">
+                <div class="col-lg-4 ">123 位偏移</div>
+                <div class="col-lg-4 col-lg-offset-4">123 位偏移</div>
+            </div>
+
+            <!-- 空两边写法  这里相加起来没有等于12 是因为位偏移是一个左mar的效果所以给4份就能到中间，后面的不管-->
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-4">123 位偏移</div>
+            </div>
+
+        </div>
+
+        <!-- 列排序 可以调整前后顺序  推是向右推 拉是向左拉 拉的推的值是对方的份数即可调换位置 -->
+        <div class="row">
+            <div class="col-lg-4 col-md-push-8">左 排列</div>
+            <div class="col-lg-8 col-md-pull-4">右 排列</div>
+        </div>
+
+        <!-- 响应式工具 利用媒体查询 再不同的屏幕下显示或隐藏某个区域 -->
+        <!-- 想要在那种大小下隐藏就写上 hidden-xs hidden-sm hidden-md hidden-lg   -->
+        <!-- 还有一个是只显示，想要在某个屏幕下才显示就写visiable-sm 同上 -->
+        <div class="row">
+            <div class="col-lg-4 hidden-md">隐藏与显示1</div>
+            <div class="col-lg-8 visible-md col-md-5 col-md-offset-4">隐藏与显示2</div>
+        </div>
+    </div>
+</body>
+
+</html>

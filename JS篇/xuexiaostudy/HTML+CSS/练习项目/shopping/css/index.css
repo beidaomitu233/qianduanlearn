@@ -1,0 +1,165 @@
+/* 导航栏部分 */
+.nav {
+    border-top: red 2px solid;
+}
+
+.navcolumn {
+    margin-top: 15px;
+}
+
+
+.navcolumn li {
+    float: left;
+    width: 140px;
+    height: 40px;
+    border-radius: 7px;
+    line-height: 40px;
+    text-align: center;
+    transition: all 0.4s ease;
+    /* padding: 100px; */
+    margin: 0 45px;
+    background-color: white;
+    border-bottom: red 2px solid;
+}
+
+.navcolumn li::after {
+    content: '';
+    width: 145px;
+    height: 200px;
+    background-color: pink;
+    border-radius: 10px;
+
+}
+
+.navcolumn li:hover {
+    display: block;
+    width: 145px;
+    background-color: red;
+    border: white 3px solid;
+    border-radius: 7px;
+}
+
+.navcolumn li:hover::after {
+    display: block;
+}
+
+/* 轮播图 广告图部分 */
+.banner {
+    height: 600px;
+    background-color: white;
+    background: url(../upload/1628442582568.jpg) no-repeat;
+    background-size: 1200px;
+
+}
+
+/* 内容区 */
+/* 本月推荐 */
+.recom {
+    margin-top: 10px;
+    position: relative;
+    height: 350px;
+
+}
+
+
+.mrecom {
+    border-bottom: 2px solid red;
+    padding-bottom: 10px;
+
+}
+
+.mrecom h1 {
+    color: red;
+}
+
+.recom ul li {
+    float: left;
+    position: relative;
+    width: 230px;
+    height: 200px;
+    margin-left: 9px;
+    /* overflow: hidden; */
+}
+
+.recomitm {
+    background-color: darkturquoise;
+    height: 200px;
+}
+
+.recomitm ul li::before {
+    content: '';
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../images/recom.png);
+    width: 100%;
+    height: 100%;
+
+}
+
+.recomitm ul li:hover::before {
+    display: block;
+}
+
+.recom ul li img {
+    width: 230px;
+    height: 200px;
+}
+
+
+
+/* 楼层 */
+.souji,
+.book,
+.colse {
+    height: 300px;
+    margin: 20px 0px;
+}
+
+.box_hd {
+    height: 35px;
+    /* background-color: aquamarine; */
+    margin: 15px 0px;
+}
+
+.box_hd h1 {
+    font-size: 34px;
+    color: red;
+    border-bottom: 2px solid red;
+}
+
+/* 手机模块 */
+
+.tab_list {
+    height: 250px;
+    float: left;
+}
+
+.tab_list ul li {
+    padding: 0px 10px;
+    margin-top: 15px;
+    cursor: default;
+    font-size: 24px;
+    border-radius: 8px;
+    background-image: linear-gradient(to right, rgb(170, 140, 240), rgb(120, 237, 241));
+}
+
+.tab_content {
+    float: left;
+    margin-left: 10px;
+    width: 1050px;
+    height: 250px;
+    background-color: salmon;
+    border: 2px solid black;
+    overflow: hidden;
+    border-right: none;
+}
+
+.tab_content ul li {
+    float: left;
+    width: 209px;
+    height: 125px;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}

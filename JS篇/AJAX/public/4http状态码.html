@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <button>获取状态</button>
+
+
+    <script>
+        //ajax状态码是返回ajax运行的过程，是ajax对象返回的数据
+        //http状态码是返回请求处理结果，是服务器发送的
+
+        /* ajax错误处理
+        1.网络通畅 服务端能接收请求但是返回的结果不是预期的结果，解决：判断返回状态码进行处理
+        2.网络通常但服务器没有接收到请求，返回404（看请求地址是否写错，或请求不存在
+        3.玩咯通常 服务器能接收请求，服务端返回500，（是服务端出错，找后端解决‘
+        4网络中断，请求无法发送到服务器端， 要用onerror事件对错误处理
+        
+        对象.status 来获取http状态码
+        */
+
+        let btn = document.querySelector('button')
+        let ajaa = new XMLHttpRequest;
+
+        btn.addEventListener('click', function () {
+
+            ajaa.open('get', 'http://localhost:3000/error')
+            ajaa.send();
+            ajaa.onload = function () {
+                //输出http 状态
+                console.log(ajaa.status);
+                console.log(ajaa.responseText);
+
+                if (ajaa.status == 400) {
+                    alert('出错啦')
+                } else if (ajaa.status == 404) {
+                    alert('找不到结果喔')
+
+                } else if (500) {
+                    alert('出错啦请联系网址客服进行修复')
+
+                }
+                ajaa.onerror = function () {
+                    alert('网络中断，请检查一下网络那')
+
+                }
+
+            }
+        })
+    </script>
+
+
+
+</body>
+
+
+
+
+</html>

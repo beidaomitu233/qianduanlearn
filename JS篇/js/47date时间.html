@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- data是一个构造函数 使用这个构造函数的话 需要调用 new -->
+    <script>
+        /* 无参数返回的是当前时间 */
+        var shujian = new Date();
+        console.log(shujian);
+        /* 参数可以写 数型2020，8，6或者是字符'2019-10-1 0:2:3' */
+        var shu1jian = new Date(2020, 9, 6);
+        console.log(shu1jian);
+
+        var shu12jian = new Date('2019-10-1 0:2:3');
+        console.log(shu12jian);
+
+        /* 这样就可以输出我们想要的时间格式 */
+
+        var nian = shujian.getFullYear()
+        console.log(nian);
+
+        var yue = shujian.getMonth();
+        console.log(yue);
+
+
+        console.log(nian + '年-' + yue + '月');
+
+        /* 封装一个时间函数 */
+        function nowtime() {
+            var shujian = new Date();
+
+            var hou = shujian.getHours()
+            /* 当小于10的时候需要在前面补零 */
+            hou = hou < 10 ? '0' + hou : hou
+
+            var minn = shujian.getMinutes()
+            minn = minn < 10 ? '0' + minn : minn
+
+            var secc = shujian.getSeconds()
+            secc = secc < 10 ? '0' + secc : secc
+            /* return可以选择性的返回我们想要的结果 */
+            return hou + ':' + minn + ':' + secc
+        }
+        console.log(nowtime());
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="myButton">Click me!</button>
+    <button class="btn1">Click me!</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script>
+        // 获取按钮元素
+        const button = document.getElementById('myButton');
+
+        // 定义要进行防抖的函数
+        function handleClick() {
+            console.log('Button clicked!');
+        }
+
+        // 创建防抖函数
+        const debouncedClickHandler = _.debounce(handleClick, 1000);
+
+        // 绑定点击事件处理程序
+        button.addEventListener('click', debouncedClickHandler);
+
+        //链式写法。
+        document.querySelector('#myButton').addEventListener('click', _.debounce(() => {
+            console.log("触发防抖");
+        }, 1000))
+
+        //节流
+        document.querySelector('.btn1').addEventListener('click', _.throttle(() => {
+            console.log("触发节流");
+        }, 1000))
+    </script>
+</body>
+
+</html>

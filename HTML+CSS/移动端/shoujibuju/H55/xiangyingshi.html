@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式布局</title>
+    <!-- <link rel="stylesheet" href="../css/chushi.css"> -->
+</head>
+
+<style>
+    .container {
+        /* background-image: linear-gradient(to top right, rgb(94, 154, 223), rgb(241, 67, 233)); */
+        /* background-image: linear-gradient(to top left, rgb(250, 143, 143), rgb(84, 84, 253)); */
+        background-color: blueviolet;
+        margin: 0 auto;
+        height: 100px;
+    }
+
+    @media screen and (max-width:767px) {
+        .container {
+            width: 100%;
+        }
+
+    }
+
+    @media screen and (min-width:768px) {
+        .container {
+            width: 750px;
+        }
+
+    }
+
+
+    @media screen and (min-width:992px) {
+        .container {
+            width: 970px;
+        }
+
+    }
+
+    @media screen and (min-width:1200px) {
+        .container {
+            width: 1170px;
+        }
+
+    }
+
+
+
+
+
+
+    /* 这里的效果就是当到达某个大小的时候就改变宽度和变换样式
+    然后就能响应，就是写两套效果在不同大小下放 */
+    @media screen and (min-width:726px) {
+        .moder {
+            width: 720px;
+        }
+
+        .moder li {
+            width: 70px;
+        }
+
+    }
+
+    @media screen and (max-width:725px) {
+        .moder {
+            width: 100%;
+        }
+
+        .moder li {
+            width: 33.3%;
+        }
+
+
+    }
+
+    .moder {
+        background-color: blueviolet;
+        margin: 0 auto;
+        height: 24px;
+    }
+
+    .moder li {
+
+        list-style: none;
+        float: left;
+    }
+</style>
+
+<body>
+
+    <!-- 响应式开发的原理通过媒体查询 
+        改变布局盒子的大小，在改变盒子里面的
+    子元素排列（沿x 轴排 或沿Y周）和子元素大小 
+整体宽度是固定的 -->
+
+    <!--  -->
+
+    <!-- bootstrap是前端框架 -->
+    <div class="container"></div>
+    <div class="moder">
+        <ul>
+            <li>1223</li>
+            <li>1223</li>
+            <li>1223</li>
+            <li>1223</li>
+            <li>1223</li>
+            <li>1223</li>
+            <li>1223</li>
+            <li>1223</li>
+            <li>1223</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

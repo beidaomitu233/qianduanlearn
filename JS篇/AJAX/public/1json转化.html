@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var xhr = new XMLHttpRequest();
+        //自动转化，设置响应体的数据类型就可以
+        xhr.responseType = 'json';
+        xhr.open('get', 'http://localhost:3000/json');
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    //当接收到的是一个有多个属性的对象的时候不好处理里面的数据，所以要把json字符串转化为javascr对象
+                    //有两种方式，一个是手动转换，一个是自动转换
+                    /*  let data = JSON.parse(xhr.response)
+                     console.log(data); */
+
+                    //转化完成后直接就是从JavaScript对象中取属性值的意思
+                    console.log(xhr.response.namee);
+
+                }
+
+            }
+
+        }
+    </script>
+
+
+
+
+
+</body>
+
+</html>

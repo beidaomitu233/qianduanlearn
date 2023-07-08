@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="canle">取消请求</button>
+    <button id="btn">点击发送请求</button>
+
+    <!-- 当多次点击按钮时就会导致请求重复，然后增加服务器压力 -->
+    <script>
+        let btn = document.querySelector('#btn')
+        let canle = document.querySelector('#canle')
+        let xhr = null;
+        let falge = false
+
+        //利用falge 取消掉一样的请求，
+        btn.addEventListener('click', function () {
+            if (falge) {
+                xhr.abort();
+            }
+            xhr = new XMLHttpRequest();
+            falge = true;
+            xhr.responseType = 'json';
+            xhr.open('get', 'http://localhost:3000/ezk')
+            xhr.send();
+
+            if (xhr.readyState === 4) {
+                falge = false
+            }
+
+
+        })
+        canle.addEventListener('click', function () {
+            xhr.abort();
+        })
+    </script>
+</body>
+
+</html>

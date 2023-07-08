@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //箭头函数是新增的定义函数的方式 ,作用是简化函数定义的
+    //箭头函数不绑定 this ，里面的 this指向上层的函数，如果没有就是window
+    ;
+    () =>
+    //参数传递
+    {
+      //函数内容
+    }
+
+    //一般会这么赋值
+    const fn = () => {
+      console.log(123)
+    }
+    //就用常量名调用
+    fn()
+
+    const getAge = age => console.log(age);
+    getAge(16)
+
+    //如果形参只有一个甚至可以省略形参的括号
+    //箭头函数中如果代码只有一句话，并且执行结果就是返回值，就这样写
+    const sum = (n1, n2) => {
+      n1 + n2
+      console.log(this)
+    }
+
+    const resoutt = sum(10, 2)
+    console.log(resoutt)
+
+    //
+  </script>
+</body>
+
+</html>

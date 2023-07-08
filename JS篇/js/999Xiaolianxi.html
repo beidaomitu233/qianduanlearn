@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 517834 
+         157348
+         153478  算法步骤 将自身和后一个数对比，如果比后一个小就把后面一个数拿来继续比较  如果比后面的数大则会调换位置   
+                          需要多次循环 且不止一轮就能完成 需要多伦 所以需要双重循环  循环次数就是输入数组的长度 -->
+
+    <script>
+        var arr = [5, 1, 7, 8, 3, 4];
+        var len = arr.length
+        var temp = 0;
+        for (var i = 0; i < len - 1; i++) {
+            for (var y = 1; y < len; y++) {
+                /* 前大于后时 */
+                if (arr[i] > arr[y]) {
+                    temp = arr[i]
+                    arr[y] = arr[i]
+                    arr[y] = temp
+                    /* 后大于前时 */
+                    arr[i + 1]
+
+
+                }
+
+            }
+
+
+        }
+        console.log(arr);
+
+        function bubbleSort(arr) {
+            var len = arr.length;
+            for (var i = 0; i < len - 1; i++) {
+                for (var j = 0; j < len - 1 - i; j++) {
+                    if (arr[j] > arr[j + 1]) { // 相邻元素两两对比
+                        var temp = arr[j + 1]; // 元素交换
+                        arr[j + 1] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>

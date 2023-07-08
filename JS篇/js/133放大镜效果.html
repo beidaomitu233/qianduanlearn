@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入外部js方式 -->
+    <style src="./hui.js"></style>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .previweimg {
+            position: relative;
+            border: 1px solid aqua;
+            width: 300px;
+            height: 300px;
+
+
+        }
+
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 5;
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+            border: 1px solid black;
+            opacity: .5;
+            cursor: move;
+        }
+
+
+        .previweimg>img {
+
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+
+        }
+
+        .big {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 300px;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .bigimg {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 分为三步  第一步制作遮挡层（并改变鼠标状态 和放大后的图在右边（用overflhiddn隐藏图片溢出实现放大效果） -->
+    <!-- 第二部  让鼠标放上去 显示 离开隐藏 -->
+
+    <!-- 第二部    让遮挡层跟随鼠标（遮挡层的坐标设置：盒子是相对于div定位的所以我们要用的是鼠标在盒子内的位置，而不是页面中的位置（因为即使我们放鼠标在盒子的边框上也会
+    相对于页面有坐标，而在盒子里的位置就错了 -->
+
+
+    <div class="previweimg">
+        <img class="previweimg1" src="../img/jinglingtu.png" alt="">
+        <div class="mask"></div>
+        <div class="big">
+
+            <img class="bigimg" src="../img/jinglingtu.png" alt=""> </div>
+
+    </div>
+    <script>
+        //获取元素
+        let mask = document.querySelector('.mask')
+        let bigimg = document.querySelector('.big')
+        let previweimg = document.querySelector('.previweimg')
+        let previweimg1 = document.querySelector('.previweimg1')
+
+
+        //鼠标经过和离开显示消失效果
+        previweimg.addEventListener('mouseover', function () {
+            mask.style.display = 'block';
+            bigimg.style.display = 'block';
+        })
+        previweimg.addEventListener('mouseout', function () {
+
+            mask.style.display = 'none';
+            bigimg.style.display = 'none';
+        })
+
+        //添加鼠标和mask移动效果，mask获取的位置是鼠标在大盒子中的位置
+        //鼠标放在图片的盒子上然后mask跟着走
+        previweimg.addEventListener('mousemove', function (e) {
+
+
+            //鼠标在盒子中的位置
+            let mouserX = e.pageX - previweimg.offsetLeft;
+            let mouserY = e.pageY - previweimg.offsetTop;
+            //让mask的中心位置在鼠标上
+            let X = mouserX - mask.offsetWidth / 2
+            let Y = mouserY - mask.offsetHeight / 2
+
+            let maxx = previweimg.offsetWidth - mask.offsetWidth;
+            let maxy = previweimg.offsetHeight - mask.offsetHeight;
+
+            //让遮罩层不超出盒子，就是当让遮罩的位置等于0时就停在那个位置
+            //mask的移动距离计算，移动的时候是以左上为基准，当我们右边靠到边时是没法识别的
+            //但实际上只要限制向右移动的距离视觉上是同等效果 
+
+            if (X <= 0) {
+                X = 0;
+                //最大距离就是盒子的宽减去mask的宽
+            } else if (X >= maxx) {
+                X = maxx;
+            }
+
+            if (Y <= 0) {
+                Y = 0;
+                //最大距离就是盒子的宽减去mask的宽
+            } else if (Y >= maxy) {
+                Y = maxy;
+            }
+            mask.style.top = Y + 'px'
+            mask.style.left = X + 'px'
+
+            //mask 移动和大图片移动的绑定，mask的移动位置给 大图片当位置 position ，并且是以移动比例的形式给  ，比例结算方式
+            //mask移动距离/mask最大移动距离=大图片移动距离/最大移动距离 ，这里未知的是大图片移动距离，解方程
+            let bigimg1 = document.querySelector('.bigimg')
+            //大图片最大移动距离,就像刚才最大移动距离的道理是一样的
+            let bigmax = bigimg1.offsetWidth - bigimg.offsetWidth
+            //公式
+            let bigx = X * bigmax / maxx
+            let bigy = Y * bigmax / maxy
+
+            bigimg1.style.top = -bigy + 'px'
+            bigimg1.style.left = -bigx + 'px'
+
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

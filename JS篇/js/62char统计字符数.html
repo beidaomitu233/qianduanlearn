@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 创建对象 并创建属性 */
+        var ci = {
+            age: 18,
+
+        }
+        /* 这个的意思是查找ci这个对象里有没有age这个属性 */
+        if (ci['age']) {
+            console.log('有这个属性就输出这');
+        } else {
+            console.log('没有这个属性就输出这个');
+
+        }
+
+
+        /* 从一个字符串中计算某个或者多个字母的出现次数等等之类的场景 */
+        /* 可以用charAt抽取单个出来放进对象里面去 在用if判断是否有这个属性 
+        如果有就+1  ,没有就给对象让其等于1*/
+
+        //遍历对象逐个查找
+        var str = 'asiodupwjdw;odj;d';
+        var y = {};
+        for (var i = 0; i < str.length; i++) {
+            var luz = str.charAt(i)
+            if (y[luz]) {
+                //有
+                y[luz]++;
+
+            } else {
+                //没有
+                y[luz] = 1;
+
+            }
+
+        }
+        console.log(y);
+        //遍历数组 找出对象中值最大的（当一个比另一个大的时候把值给max
+        var max = 0;
+        var ch = ''
+
+        //k in y 的意思相当于这个str.charAt(i) 但这里k是得到的是属性名 y[k]得到的是属性值
+        for (var k in y) {
+            if (y[k] > max) {
+                max = y[k]
+                ch = k;
+            }
+        }
+        console.log(max);
+        console.log('输出最多的字符' + 'ch');
+    </script>
+
+</body>
+
+</html>

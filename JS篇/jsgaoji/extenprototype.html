@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //在js中可以通过原型来实现继承
+        //将一个对象的原型指向另一更大类的对象，这样就可以实现继承
+        const animo = {
+            name: "lis",
+            age: 20
+
+        }
+
+        function Dog(name, age) {
+            this.name = Dog.prototype.name,
+                this.age = Dog.prototype.age
+        }
+        Dog.prototype = animo
+        Dog.prototype.constructor = Dog
+        console.log(Dog.prototype);
+    </script>
+
+</body>
+
+</html>

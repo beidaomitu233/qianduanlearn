@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./black.css">
+
+    <style>
+        input {
+            border-bottom: aqua 2px solid;
+            width: 170px;
+            height: 50px;
+
+        }
+
+        .kuang {
+            margin: 240px auto;
+            width: 240px;
+            height: 50px;
+            background-color: darkgray;
+        }
+
+        button {
+            width: 65px;
+            height: 50px;
+            background-color: red;
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 失去焦点onblur 和获得焦点onfocus   就是检测鼠标是不是点了上去 并且光标再里面 ， -->
+    <!--得到焦点 就是点一下搜索框的那样 光标在搜索框里 ，就获得焦点了  -->
+    <!-- 失去焦点 就是原本在搜索框的光标，点了其他地方 就是失去焦点了 -->
+
+    <!-- 实现 点搜索框时 搜索框里面的提示字 就会消失-->
+    <!-- 分析  检测是否获得光标 获得光标时把 字隐藏 失去时在出现 -->
+
+
+
+    <!-- 如果使用value属性  要区分消失 是我们的提示字 而不是用户输入的字  -->
+    <!-- value的好处就是可以直接点击搜索  然后就会搜索value值，但是plac不行 -->
+
+
+    <div class="kuang">
+        <input type="search" placeholder="诗的锻造" onfocus="">
+        <button>搜索</button>
+    </div>
+
+    <script>
+        let weqq = document.querySelector('input')
+        weqq.onfocus = function () {
+            weqq.placeholder = '';
+
+        }
+        weqq.onblur = function () {
+            weqq.placeholder = '诗的锻造';
+        }
+
+
+        /*  用 value 时 需要修改巨小前后文字颜色  ，然后用if判断是否和默认文字一样，如果一 */
+    </script>
+
+
+</body>
+
+</html>

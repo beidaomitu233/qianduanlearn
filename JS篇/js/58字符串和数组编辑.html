@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arra = [1, 5, 6, 7, 9, 8],
+            arrc = [1, 6, 7, 11, 62, 12, 88],
+            arrp = [55],
+            arrg = [3, 8, 9, 4, 1, 2, 3]
+
+        //合并多个数组 并返回一个新的数组，不会修改原来的数组
+        /* 并且也有去重效果 */
+        //   数组1.concat(数组2)      作用是拼接字符串这个更常用
+
+        //合并两个
+        var arrb = arra.concat(arra);
+        //合并三个
+        var arrb = arra.concat(arra, arrp);
+
+        console.log(arrb);
+
+        /* 抽出数组中部分出来放入新数组 不改变原数组 slice(索引号1，索引号2) 第一个索引号是开始，第二个索引号是结束点  */
+        /* 并且是包含索引号1 不包含索引号2 的值 [1-6) */
+        var arrl = arrb.slice(1, 6)
+        console.log(arrl)
+        console.log(arrb);
+
+        /* 从某一个位置删除 或者插入数组 splice  会改变原数组  返回值是被删除的值所新建的数组*/
+        //                   从索引号1开始删，删除3个，并插入'hui', 'hihi'进到这个被删除的区间内
+        var aaro = arrg.splice(1, 3, 'hui', 'hihi')
+        /* 这个是仅插入的意思 */
+        arrg.splice(2, 0, 'rururu')
+
+        console.log(arrg);
+        /* 这个是被删除的值所组成的数组 */
+        console.log(aaro);
+
+        //字符串不可变 拼接字符串的时候 或者是用同一个函数名赋两个值时 原来的值还会再内存种不会被删除，只是修改了索引（指向心新的值）
+        var ll = 156;
+        var ll = 112;
+        //虽然最后的结果是等于112但 156还是在内存中，所以不要写大量的字符串拼接，会大量占用内存的
+
+        //substr ('截取的起点','截取几个字')  作用就是截取一段，写索引号
+        var str = '重新认识你自己'
+        var yiduan = str.substr(3, 2)
+        console.log(yiduan);
+
+
+        //replace('被换的字符'，'替换的字符') 替换字符  可以替换某个字符 且只会替换第一个
+        var tihuan = str.replace('认识', '救赎')
+        console.log(tihuan); //并且会输出替换后的整句
+
+        //当需要替换所有相同的字符的时候这么写
+        var zimu = 'sdjpwoqkpAAAAksanBBBBidjpoas;ld'
+        while (zimu.indexOf('o') !== -1) {
+            //这里不用设置起点是因为原来位置上的o已经被替换 
+            //所以下一个就一直是第一个 
+            zimu = zimu.replace('o', '--')
+        }
+        console.log(zimu);
+
+        //split('分隔符') 把字符转换为数组  意思是以什么作为一个节点分割前后分割成数组
+        var str2 = 'red,bule,while'
+        var str3 = 'red&bule&while'
+        console.log(str2.split(','))
+        console.log(str3.split('&'))
+
+
+        //把所有字母都变成大写 
+        console.log(zimu.toUpperCase())
+        //把所有字母都变成小写 
+        console.log(zimu.toLowerCase())
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 随机生成一个数 random()  */
+        //不跟参数 ,生成数在 [0-1）之间
+        console.log(Math.random())
+
+        /* 如果想要取两个闭区间[]这样写   这样写返回的是一个整数 */
+        function shuiji(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        console.log(shuiji(1, 9));
+        /* 点名器 用随机生成数用作索引号 */
+        var nameE = ['辉辉1', '辉辉2', '辉辉3', '辉辉4', '辉辉5', '辉辉6']
+        /* 减一是因为长度从1开始 而索引从0开始 */
+        console.log(nameE[shuiji(0, nameE.length - 1)]);
+    </script>
+
+
+</body>
+
+</html>

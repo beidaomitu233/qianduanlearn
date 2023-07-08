@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //数组方法  以循环的视角去看是执行循环程序的封装函数
+
+      //forEach（遍历数组） 返回修改后的元素组
+      /* array.forEach(function(currentvalue,index,arr)) */
+      // CurentValue 数组当前项的值， index数组当前的索引，arr数组对象本身
+      //需要什么参数就写什么进去
+      //foreach 遇到return true也不会停止
+      let arr = [1, 2, 3, 5];
+      let sum = 0;
+      arr.forEach(function (value, index, array) {
+        console.log(value);
+        console.log(index);
+        console.log(array);
+        sum += value;
+      });
+      //map() 更常用 与foreach基本一致，都是遍历数组 ，但是返回新的一个数组
+
+      //filter() 返回满足条件的元素 筛选数组，并且是直接返回一个新数组，返回的是全部满足的元素
+      //有数据返回的函数 或者方法就要用变量去接收它
+      let shou = arr.filter(function (value, index) {
+        return value > 2;
+      });
+      console.log(shou);
+
+      //some() 检查是否有满足条件的元素 ，返回的是布尔型，且只返回找到的第一个
+      let somee = arr.some(function (value) {
+        //是否存在大于8的元素，没有则返回flase
+        //遇见return会停止
+        return value > 8;
+      });
+      console.log(somee);
+      //every() 是检查是否完全满足条件，
+      let eve = arr.every(function (value) {
+        return value >= 2;
+      });
+      console.log(eve);
+
+      //清空数据用  innerhtml='' 就行
+    </script>
+  </body>
+</html>

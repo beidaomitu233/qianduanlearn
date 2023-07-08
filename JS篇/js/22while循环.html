@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- while 当。。。什么的时候  循环条件是是ture  如果是false则退出循环  -->
+    <!-- 要验证代码 否则会进到持续循坏 道死机 -->
+    <!-- while(条件表达式){循环体 计数器} -->
+    <!-- while循环相对于for来说能做更多复杂的功能 -->
+
+    <script>
+        var bbc = 1;
+
+        while (bbc <= 100) {
+            console.log('嘿嘿');
+            bbc++;
+        }
+
+        /* 小练习 */
+        var bala = prompt('拔不拔啦')
+        while (bala !== '拔') {
+            /* 赋值是要把输入的结果保存下来 ，要不然输入的值就会被释放掉 */
+            bala = prompt('拔不拔啦')
+        }
+        alert("使劲扒拉")
+
+        /* do while循环 基本用不到 执行思路是先循环一次 再进行判断 */
+        /* 写法    do {循环体} while(条件) */
+        do {
+            alert('dowhile循环的第一次')
+        } while (bbc == 2)
+    </script>
+
+
+
+</body>
+
+</html>

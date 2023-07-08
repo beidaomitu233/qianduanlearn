@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--  -->
+    <!--  所以可以用for一次性绑定多个button-->
+
+    <button>542</button>
+    <button>542</button>
+    <button>542</button>
+    <button>542</button>
+    <button>542</button>
+    <button>542</button>
+    <!-- 排他思想：触发点击事件时，把所有孩子的样式清除，清完之后再赋给我们点击的哪一个元素样式 用this -->
+
+    <script>
+        /* 加一个点击事件  点击以此就循环一次就循环绑定事件   */
+        let bli = document.querySelectorAll('button');
+        console.log(bli)
+
+        for (let i = 0; i < bli.length; i++) {
+            bli[i].onclick = function () {
+
+                //实现当点一个时其他就变回原样,就是要清空所有元素的样式
+
+                /* 这个呢是一键绑定事件 并且循环使用这个事件 */
+                for (let n = 0; n < bli.length; n++) {
+                    bli[n].style.backgroundColor = 'white';
+
+                }
+                this.style.backgroundColor = 'red';
+            }
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>

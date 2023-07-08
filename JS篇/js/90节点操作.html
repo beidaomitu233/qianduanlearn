@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 利用节点的层级关系获取元素更便捷简单 -->
+    <!-- 获取父标签即可使用子标签 ，兼容性稍微差一点 -->
+
+    <!-- 节点有  noneType=1节点类型  ，nonaName=2节点名词，noneValue=3节点值 -->
+    <!-- 文本节点包含文本 空格 换行等 -->
+
+    <div>
+        <div class="wei">
+            <li></li>
+            <li></li>
+            <li></li>
+        </div>
+    </div>
+
+    <script>
+        /* 用节点方法获取 */
+        let huoqu = document.querySelector('.wei')
+
+        /* 可以直接获得绑定标签的父标（离得最近的，如果找不到就会返回null */
+        console.log(huoqu.parentNode);
+
+        /* 2获取子节点  有childNodes（不用这个），children（用这个 */
+        /* 这个获取方式 只获取到元素 ，不获取到其他的东西 */
+        console.log(huoqu.children)
+        /* 可以则第几个 ，不存在兼容性问题哦，跟索引号一样的顺序   */
+        console.log(huoqu.children[2]);
+        console.log(huoqu.children[huoqu.children.length - 1]); /* 获取最后一个 */
+
+
+        /* 获取当前子标签中的第一个和最后一个 firstChile（也会返回文本节点），（firstElementChild 只会返回元素 */
+        console.log(huoqu.firstElementChild);
+        console.log(huoqu.lastElementChild);
+    </script>
+</body>
+
+</html>

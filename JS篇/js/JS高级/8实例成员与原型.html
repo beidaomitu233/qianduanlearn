@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sta(use, agee) {
+        this.use = use;
+        this.agee = agee;
+        this.say = function () {};
+      }
+      var lzz = new sta("zzz", 18);
+      var bzz = new sta("bzz", 18);
+      //实例成员就是构造函数用this添加的成员，比如use，只能通过实例化对象访问
+      console.log(lzz.use);
+      lzz.say();
+      //这个就不行，
+      console.log(sta.use);
+
+      //静态成员是在构造函数本身上添加的成员 例如
+      sta.sex = "man";
+      //静态成员智能通过构造函数来访问，不能通过对象访问
+      console.log(sta.sex);
+      console.log(lzz.sex);
+
+      //构造函数中的funtion这种是属于复杂数据类型，会重新开辟一个空间，如果调用两次就创建两个
+      //即使函数内容一样也会创建两个，就会照成内存浪费，
+      console.log(bzz.say === lzz.say);
+
+      //利用pretotype（原型对象）进行共享,这个对象是每个构造函数都有的属性
+      console.dir(lzz);
+      //把所有不变的函数方法，放到原型对象，然后统一执行这个对象
+      //这个是动态添加
+      sta.prototype.jump = function () {
+        console.log("singsong");
+      };
+      lzz.jump();
+      bzz.jump();
+      //调用显示true指向到同一个函数
+      console.log(bzz.jump === lzz.jump);
+
+      /* !!!!!!!!!!!!!!!!! 这个对象原型已经被弃用 */
+      //原本的构造函数中没有jump这个属性，但是实例化还是能调用
+      //是因为有 _proto_ (对象原型) 会自动添加的   它指向pretotype ，所以就是先调用proto>pretotype
+      console.log(lzz);
+      console.log(lzz._proto_ === sta.prototype);
+    </script>
+  </body>
+</html>

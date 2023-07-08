@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        /* 设置DOM元素大小 */
+        .box {
+            width: 500px;
+            height: 500px;
+            background-color: aquamarine;
+        }
+    </style>
+    <!-- 引入文件 -->
+
+</head>
+
+<body>
+
+
+
+    <div class="box">
+
+    </div>
+    <script src="./echarts.min.js"></script>
+    <script>
+        //初始化实例
+        var echarts = echarts.init(document.querySelector('.box'))
+
+        /* 输入数据 */
+        let option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data: ['销量']
+            },
+            yAxis: {
+                data: [' 衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+            },
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+        //设置为示例对象
+        echarts.setOption(option);
+    </script>
+
+
+</body>
+
+</html>

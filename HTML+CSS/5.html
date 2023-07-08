@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>表单</title>
+    <style>
+      .pro {
+        align-items: center;
+        background-color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 表单元素有 input输入元素，select下拉选择表单元素，textarea文本域元素 -->
+    <form action="y.php" method="POST" name="表单提交的名字">
+      <!-- form是表单域 action是表单提交地址或者格式 -->
+      <!-- 单复选选框要相同的name -->
+      <!-- value是可以编辑文本框中的值 -->
+      <!-- checked是默认中 -->
+      <!-- maxlength限制输入字符数 -->
+      <!-- button是可以自定义功能按钮 -->
+      <!-- file 文件预览按钮 -->
+      <!-- placeholder -->
+
+      <span> 用户名</span>
+      <input type="text" name="username" placeholder="输入用户名" /> <br />
+      <span> 密码</span>
+      <input type="password" name="password" />
+      <br />
+      <input type="radio" name="sex" checked /> nan
+      <input type="radio" name="sex" />nv
+      <br />
+      <input type="checkbox" /> 高 <input type="checkbox" /> 胖
+      <input type="checkbox" /> 123 <input type="checkbox" /> 胖2
+      <input type="checkbox" /> 胖3
+      <input type="checkbox" />
+      <br />
+      <input type="submit" value="注册" />
+      <br />
+      <input type="reset" value="重置" />
+      <br />
+      <input type="button" value="获取短信验证码" />
+      <br />
+      <input type="file" value="上传文件" />
+      <br />
+      <p>多文件上传</p>
+      <input type="file" multiple value="上传多文件" />
+      <!-- label元素可以让点击范围增加提高用户体验，和input标签绑定
+        相同的name即可 -->
+      <br />
+
+      <label for="sex">男</label>
+      <input type="radio" id="sex" name="sex3" />
+      <label for="se1x">女</label>
+      <input type="radio" id="se1x" name="sex3" />
+
+      <!-- 下拉表单 中selected表示默认选中 -->
+      <br />
+
+      <select>
+        <option value="" selected></option>
+        <option value="">中国</option>
+        <option value="">美国</option>
+        <option value="">英国</option>
+        <option value="">俄罗斯</option>
+      </select>
+
+      <!-- 文本表单 当需要输入大量文字时用这个，比如评论框等 -->
+      <!-- cols表示一行可以写的字数 row表示可以写多少行 -->
+      <!-- 后期通过css限制，属性不用记 -->
+      <textarea name="" id="" cols="10" rows="5">neirong</textarea>
+    </form>
+
+    <h1>作业</h1>
+
+    <form action="z，php">
+      <span>
+        <p>注册</p>
+      </span>
+
+      <span> 用户名 </span>
+      <input type="text" name="username" id="" placeholder="输入用户名" />
+      <br />
+      <span>密码</span>
+      <input type="password" placeholder="输入六位数" />
+      <br />
+
+      <span>性别</span>
+      <label for="sex0">男 </label>
+      <input type="radio" name="sex" id="sex0" />
+      <label for="sex3">女 </label>
+      <input type="radio" name="sex" id="sex3" />
+      <br />
+
+      <span> 地区</span>
+      <select name="" id="">
+        <option value="" selected></option>
+        <option value="">武汉</option>
+        <option value="">南宁</option>
+        <option value="">北海</option>
+        <option value="">北京</option>
+      </select>
+      <br />
+
+      <span>生日</span>
+      <select name="" id="">
+        <option value="年份" label="请选择年份"></option>
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+        <option value="">4</option>
+        <option value="">5</option>
+        <option value="">6</option>
+        <option value="">7</option>
+        <option value="">8</option>
+        <option value="">9</option>
+        <option value="">10</option>
+        <option value="">11</option>
+        <option value="">12</option>
+      </select>
+      <select name="" id="">
+        <option value="月份" label="请选择月份"></option>
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+        <option value="">4</option>
+        <option value="">5</option>
+        <option value="">6</option>
+        <option value="">7</option>
+        <option value="">8</option>
+        <option value="">9</option>
+        <option value="">10</option>
+        <option value="">11</option>
+        <option value="">12</option>
+      </select>
+      <select name="" id="">
+        <option value="" label="几号"></option>
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+        <option value="">4</option>
+        <option value="">5</option>
+        <option value="">6</option>
+        <option value="">7</option>
+        <option value="">8</option>
+        <option value="">9</option>
+        <option value="">10</option>
+        <option value="">11</option>
+        <option value="">12</option>
+        <option value="">13</option>
+        <option value="">14</option>
+        <option value="">15</option>
+        <option value="">16</option>
+        <option value="">17</option>
+        <option value="">18</option>
+        <option value="">19</option>
+        <option value="">20</option>
+        <option value="">21</option>
+        <option value="">22</option>
+        <option value="">23</option>
+        <option value="">24</option>
+        <option value="">25</option>
+        <option value="">26</option>
+        <option value="">27</option>
+        <option value="">28</option>
+        <option value="">29</option>
+        <option value="">30</option>
+        <option value="">31</option>
+      </select>
+
+      <br />
+
+      <span>性格</span>
+
+      <input type="checkbox" id="personalty" />
+      <label for="personalty"><span>哈哈</span></label>
+
+      <input type="checkbox" id="personalty1" />
+      <label for="personalty1"> <span>活泼</span></label>
+
+      <input type="checkbox" id="personalty2" />
+      <label for="personalty2"> <span>大方</span></label>
+
+      <input type="checkbox" id="personalty3" />
+      <label for="personalty3"> <span>冷静</span></label>
+
+      <br />
+      <span>自我介绍</span>
+      <textarea name="" id="" cols="10" rows="2"></textarea>
+
+      <br />
+      <input type="text" placeholder="请输入手机号" />
+
+      <input type="button" value="获取短信验证码" />
+
+      <br />
+      <br />
+      <input type="reset" value="重置" />
+      <br />
+      <br />
+      <input type="submit" value="注册" class="bpro" />
+      <a href="http://101.133.137.164.">已有账号？点这里登入</a>
+
+      <br />
+      <br />
+
+      <input type="checkbox" checked id="itmo" />
+      <label for="itmo">我同意注册条款</label>
+
+      <br />
+
+      <span>
+        <p>注册</p>
+      </span>
+      <span>
+        <p>注册</p>
+      </span>
+      <span>
+        <p>注册</p>
+      </span>
+    </form>
+  </body>
+</html>

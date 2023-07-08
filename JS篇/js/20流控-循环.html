@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 循环目的是为了重复执行某些代码 跟计数有关系  由循环体（重复执行的代码）和循环条件组成 -->
+    <!-- 写法 -->
+    <script>
+        /*操作表达式是让变量值增减以达到条件所需的值 运行或者停止循环    
+         for (初始化变量；条件表达式；操作表达式) {
+            循环体
+        } */
+        /* 执行顺序是 变量（只执行开头的一次） 再执行条件 然后执行循环体 再执行操作表达 */
+        /* 第二论是执行 条件如果满足就执行循环体，执行完再执行操作 */
+        for (var i = 1; i <= 20; i++) {
+            console.log('辉辉');
+
+        }
+        var cishu = prompt('输入次数')
+        for (var p = 1; p <= cishu; p++) {
+            console.log('是辉辉呀');
+        }
+
+        /* for循环嵌套 */
+        for (var o = 1; o <= 20; o++) {
+            if (o == 10) {
+                console.log('恭喜到达中简');
+
+            } else if (o == 5) {
+                console.log('到四分之一咯')
+            } else {
+                console.log('到第' + o + '次咯');
+            }
+
+        }
+
+        /* for循环的一些用法 */
+        /* 求1＋到100的平均值 */
+        var zhonghe = 0;
+        for (var z = 1; z <= 100; z++) {
+            zhonghe = zhonghe + z;
+        }
+
+        console.log(zhonghe / 100);
+        /* 求1到一百的奇数和偶数和 */
+        var odd = 0;
+        var even = 0;
+        for (var m = 1; m <= 100; m++) {
+            if (m % 2 == 0) {
+                odd = odd + m
+
+            } else {
+                even = even + m
+
+            }
+
+        }
+        console.log(odd);
+        console.log('奇数是' + even);
+
+        /* 求可变人数的成绩平均 */
+        var renshu = prompt('请输入人数');
+        var zhongheg = 0;
+        var pingjunn = 0;
+        for (var s = 1; s <= renshu; s++) {
+            var meici = prompt('请输入第' + s + '人的分数');
+            zhongheg = parseFloat(meici); + zhongheg;
+        }
+        pingjunn = zhongheg / renshu;
+        alert('平均分是' + pingjunn)
+    </script>
+
+
+</body>
+
+</html>

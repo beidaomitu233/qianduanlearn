@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //封装时弄成方法函数进行封装并且传参时以对象的形式进行封装，方便修改和查阅
+        //这个option是传递进来后对象名
+        function ajaxrequ(options) {
+            let ajaa = new XMLHttpRequest
+            //当post方式时，需要拼接成固定格式
+            let params = '';
+            //用循环体传递进来的对象参数格式
+            for (let ary in options.data) {
+                //把参数转换为字符串格式
+                params += ary + '=' + options.data[ary]
+            }
+            console.log(params);
+            ajaa.open(options.type, options.url);
+            if (options.type == 'post') {
+                ajaa.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+                ajaa.send(params)
+            } else {
+                ajaa.send()
+            }
+
+            ajaa.send();
+            ajaa.onload = function () {
+                options.done(ajaa.responseText)
+
+            }
+        }
+        //意思是传了一个对象进去，
+        ajaxrequ({
+            type: 'get',
+            /* 需要考虑当 type 是post时请求参数是放在send中  get是放在地址后面 */
+            /* 参数格式的问题 
+            post需要加 是application/x-www-form-urlencoded   ajaa.setRequestHeader('Content-type', '')
+            参数名称=参数值&参数名称=参数值  
+
+            get 格式是 application/json
+            {name：'zzzz',age:20}
+            
+            */
+            //使用对象作文默认存储格式
+            data: {
+                namee: 'san',
+                age: 30
+            },
+
+            url: 'http://localhost:3000/first',
+            //这里是讲服务器答应的信息获取过来后进行处理，因为后面处理方式是不一样的，可能要输出可能要存储等
+            //所以再运行完成是调用这个函数并且把答复结果作为实参传输进来 
+            done: function (dataaa) {
+                console.log('完成' + dataaa);
+
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>你将在5秒后跳转至主页</h1>
+    <h2>你好呀</h2>
+    <script>
+        //location属性是用于获取或者设置窗体url，并且可以用于解析url，
+        //这个属性返回的是一个对象，所以也叫做location对象。
+
+
+        /* 
+        在浏览器中输入location 就会有一个对象输出，里面包含很多属性 想要查询可以点开或者
+
+        location.href
+        location.host
+        location.port（如果没写就是返回空字符串
+        location.pathname（返回路径
+        location.search(返回的是参数)
+        location.hash（返回的是#后面的内容 一般是链接描点
+
+        可以在浏览器里玩一玩，输入location即可
+        
+        */
+
+
+        /* 可以通过herf获取并修改地址 ，实际效果就是 几秒后跳转 到某个页面 */
+
+        let h1 = document.querySelector('h1');
+        let h2 = document.querySelector('h2')
+
+        let timee = 50;
+
+        setInterval(function () {
+            if (timee == 0) {
+
+                //修改herf的地址实现跳转
+                location.href = 'http://www.shihuihuiya.fun/'
+            } else {
+                h1.innerHTML = '将在' + timee + '秒后转到首页'
+                timee--;
+            }
+
+        }, 1000)
+
+
+        /* 接收信息并修改 再url的最后添加?username=huihui   使用substr 修改拿到的字符串*/
+        /* 拿到的字符串是 ？username=xxx */
+
+        console.log(location.search);
+        //截取第一个字之后的内容
+        let changgee = location.search.substr(1)
+        //把username =  xxx 把属性名和属性值以=分为两端，在一个数组中，方便取用
+        let changg2 = changgee.split('=')
+        //去数组中索引号为1的字符串
+        h2.innerHTML = '你好呀' + changg2[1]
+    </script>
+
+</body>
+
+</html>

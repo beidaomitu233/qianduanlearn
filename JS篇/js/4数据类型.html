@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- js数据类型自动确定的，运行的时候才决定的 -->
+    <!-- 数据类型的作用就是区分所占大小不同用于分配的依据 -->
+    <!-- 在运行的时候通过值来确定变量的数据类型 -->
+    <!-- 在谷歌浏览器里的控制台可以显示不同数据类型的不同颜色 -->
+    <!-- 大致分为两种类型 ，一种是简单 一种是复杂 -->
+    <!-- 简单包括 1.数字型 2. -->
+    <script>
+        /* 数字型 */
+        var mun = '6'
+        console.log(mun);
+
+        /* 查看数字型的最大最小值查看 */
+        /* 最大值 */
+        console.log(Number.MAX_VALUE);
+        console.log(Number.MAX_VALUE);
+
+        /* 最小值 */
+        console.log(Number.MIN_VALUE);
+
+        /* 无穷大 */
+        console.log(Number.MAX_VALUE * 99);
+        /* 无穷小 */
+        console.log(-Number.MAX_VALUE * 99);
+
+        /* 非数字 会出现NAN  写+可以 因为+的本意是字符串拼接  */
+        console.log('huihui' * 99);
+        console.log("dzz" * 12);
+
+        /* isNaN()可以检验是否 是数字 是就返回false 不是就ture */
+        //这两行逻辑就可以组成检验用户所输入的数据
+        var userName = prompt('请输入账号');
+        //这个是写法  
+        console.log(isNaN(userName));
+        console.log(isNaN(mun));
+
+        var un = undefined
+        console.log(un + '测试');
+        console.log(un + 15);
+
+        var nu = null
+        console.log(nu + '测试2');
+        console.log(nu + 10);
+    </script>
+
+
+</body>
+
+</html>

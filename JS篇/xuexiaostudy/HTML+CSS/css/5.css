@@ -1,0 +1,127 @@
+li {
+    list-style: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    margin: 20px auto;
+}
+
+.top {
+
+    width: 1750px;
+    height: 100px;
+}
+
+.ioioio {
+    height: 80px;
+    width: 80px;
+    float: left;
+    background-color: slateblue;
+}
+
+
+
+.asd {
+    height: 80px;
+    width: 300px;
+    float: right;
+    background-color: slateblue;
+}
+
+.qwe {
+    height: 80px;
+    width: 300px;
+    float: right;
+    background-color: slateblue;
+    margin-right: 90px;
+}
+
+
+
+
+
+.box1 {
+    /* background-color; */
+    width: 1750px;
+    /* height: 6000px; */
+    height: 580px;
+    margin-top: 80px;
+
+}
+
+
+.box2 {
+
+
+    width: 1750px;
+    height: 250px;
+    margin: 20px auto;
+    margin-top: 80px;
+}
+
+
+
+
+.lp {
+    float: left;
+    width: 300px;
+    height: 580px;
+    background-color: darkgray;
+}
+
+.op {
+    float: left;
+    width: 1250px;
+    height: 580px;
+    background-color: skyblue;
+}
+
+.box2 li {
+    width: 400px;
+    height: 220px;
+    background-color: thistle;
+    float: left;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
+.box2 .lil {
+    margin-right: 0px;
+    margin-top: 15px;
+}
+
+.box2 .lip {
+    width: 300px;
+
+}
+
+.box3 {
+    width: 1750px;
+    height: 750px;
+    margin: 20px auto;
+}
+
+.ppp {
+    margin-top: 15px;
+    height: 750px;
+    width: 380px;
+    background-color: turquoise;
+    float: left;
+    margin-right: 12px;
+    /* margin-top: 80px; */
+}
+
+.ppy {
+    margin-top: 80px;
+}
+
+.box3 .ppy li {
+    float: left;
+    margin-right: 10px;
+    width: 290px;
+    height: 370px;
+    background-color: violet;
+
+}

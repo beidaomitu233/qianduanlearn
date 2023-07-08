@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="black.css">
+</head>
+
+<body>
+    <p>
+
+
+        yixiaoduan
+
+
+    </p>
+
+    <h1>
+
+
+        yixiaoduan
+
+
+    </h1>
+
+
+
+
+    <script>
+        /*  innerText和innerHTML的区别 */
+
+        /* 1.innerText 是不识别 内容中的标签的 */
+        let wenzi = document.querySelector('p')
+        wenzi.innerText = '<strong>gaigai </strong>';
+        wenzi.innerHTML = '<strong>gaigai </strong>';
+        console.log(wenzi.innerText);
+        console.log(wenzi.innerHTML);
+        //2.获取标签时 HTML是保留空格和换行的  text不保留
+
+        let hh1 = document.querySelector('h1')
+        console.log(hh1.innerHTML)
+        console.log(hh1.innerText)
+    </script>
+
+</body>
+
+</html>

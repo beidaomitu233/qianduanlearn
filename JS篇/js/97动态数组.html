@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td,
+        th {
+            border: 1px solid #333;
+        }
+
+        thead tr {
+            height: 40px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        // 数组里面可以存多个对象，
+        var datas = [{
+            name: '魏璎珞',
+            subject: 'JavaScript',
+            score: 100
+        }, {
+            name: '弘历',
+            subject: 'JavaScript',
+            score: 98
+        }, {
+            name: '傅恒',
+            subject: 'JavaScript',
+            score: 99
+        }, {
+            name: '明玉',
+            subject: 'JavaScript',
+            score: 88
+        }, {
+            name: '大猪蹄子',
+            subject: 'JavaScript',
+            score: 0
+        }];
+        //获取需要插入位置的标签
+        let tbody = document.querySelector('tbody')
+
+        /* 存数据先创建行再创建单元格*/
+
+        //要在tbody里创建对应个数的行，通过获取数组长度来得到要创建的行数，一个对象就是一行。
+        for (let i = 0; i < datas.length; i++) {
+
+            //创建元素
+            let trr = document.createElement('tr')
+
+            //插入元素到tbody里面
+            tbody.appendChild(trr)
+
+            //添加单元格，创建元素 ，用for遍历对象，检测每个对象的属性个数来创建相应的格子，用双重for是因为格子再列里面
+            for (let k in datas[i]) { //k是属性dates是,对象遍历对象的属性，对象不止一个所以要添加递增索引号
+                //添加i一个是i等于对象长度，
+
+                //创建元素 
+                let td = document.createElement('td')
+
+                //插入到列里
+                trr.appendChild(td);
+
+                //获取到属性值datas[i]获取到的是 属性名，datas[i][k]获取到的是属性值
+                console.log(datas[i][k]);
+
+                //把获取到的属性值插入到单元格中
+                td.innerHTML = datas[i][k] //为什么能一个数据对应一个格子，因为一次创建一个盒子，又把一个数据放进去，所以才能
+
+            }
+
+            //最后一列单独创建
+            let td = document.createElement('td')
+            trr.appendChild(td)
+            td.innerHTML = '<a href = "javascript:;" > 删除 </a>'
+
+        }
+
+        //给删除添加事件，删除的是整个行 tr，
+        //获取a元素
+        let a = document.querySelectorAll('a')
+        //添加事件
+        for (let z = 0; z < a.length; z++) {
+            a[z].onclick = function () {
+                //对于a来说tr是爷爷（爸爸的爸爸）  node.remove()
+                tbody.removeChild(this.parentNode.parentNode)
+                //节点            当前被点击元素的爸爸的 爸爸
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>

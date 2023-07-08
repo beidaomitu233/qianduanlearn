@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>调整文字和图片位置，与文字样式</title>
+    <style>
+        img {
+            /* 根据需要选位置 仅对行内和行内块元素起作用*/
+            /*并且能解决图片底部有空白缝隙的问题，只要不是基线对齐就可以解决
+            或者转成块级元素也可以 */
+            vertical-align: middle;
+        }
+
+        .op {
+            width: 50px;
+            height: 20px;
+            background-color: aqua;
+        }
+
+        .oop {
+            /* 单行 */
+            width: 50px;
+            height: 20px;
+            background-color: aqua;
+            /* 默认情况是会换行这样 */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            /* 多行文字的后面的时候加上这个就可以，clamp是行数 */
+            /* display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden; */
+        }
+
+        /* 还有多行 一般不用，要用就去百度就好 */
+        .lpp {
+            height: 20px;
+            width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    </style>
+
+</head>
+
+<body>
+    <img src="./img/mix4.webp" alt="">小米mix4
+
+    <!-- 当文字过多时会溢出可以用标签弄成省略号 -->
+    <!-- 弄成省略号先要把文字强制显示到一行 -->
+    <!-- 数字和英文单词默认不会换行 -->
+    <p class="op">231321321231321</p>
+    <p class="oop">哈哈哈哈哈哈哈和</p>
+    <p class="lpp">我是大聪明哈哈哈哈哈哈哈</p>
+
+
+
+</body>
+
+</html>

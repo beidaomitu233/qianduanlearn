@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Router Demo</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>欢迎来到我的网站</h1>
+        <nav>
+            <router-link to="/">首页</router-link>
+            <router-link to="/about">关于我们</router-link>
+        </nav>
+        <router-view></router-view>
+    </div>
+
+
+    <!-- 引入 Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <!-- 引入 Vue Router -->
+    <script src="https://unpkg.com/vue-router@3.5.2/dist/vue-router.min.js"></script>
+
+    <script>
+        const Home = {
+            template: '<div><h2>这是首页</h2></div>'
+        };
+        const About = {
+            template: `
+          <div>
+            <h2>关于我们</h2>
+            <ul>
+              <li><button @click="goToAboutChild(1)">切换1</button></li>
+              <li><button @click="goToAboutChild(2)">切换2</button></li>
+              <li><button @click="goToAboutChild(3)">切换3</button></li>
+              <li><button @click="goToAboutChild(4)">切换4</button></li>
+            </ul>
+            <router-view></router-view>
+          </div>
+        `,
+            methods: {
+                goToAboutChild(id) {
+                    this.$router.push(`/about/${id}`);
+                },
+                replaceWithAboutChild(id) {
+                    this.$router.replace(`/about/${id}`);
+                },
+            },
+        };
+        const AboutChild1 = {
+            template: '<div><p>这是切换1</p></div>'
+        };
+        const AboutChild2 = {
+            template: '<div><p>这是切换2</p></div>'
+        };
+        const AboutChild3 = {
+            template: '<div><p>这是切换3</p></div>'
+        };
+        const AboutChild4 = {
+            template: '<div><p>这是切换4</p></div>'
+        };
+
+        const router = new VueRouter({
+            routes: [{
+                    path: '/',
+                    component: Home
+                },
+                {
+                    path: '/about',
+                    component: About,
+                    children: [{
+                            path: '1',
+                            component: AboutChild1
+                        },
+                        {
+                            path: '2',
+                            component: AboutChild2
+                        },
+                        {
+                            path: '3',
+                            component: AboutChild3
+                        },
+                        {
+                            path: '4',
+                            component: AboutChild4
+                        },
+                    ],
+                },
+            ],
+        });
+
+        const app = new Vue({
+            router,
+            el: '#app',
+        });
+    </script>
+</body>
+
+</html>

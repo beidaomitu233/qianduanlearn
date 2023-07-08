@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: burlywood;
+        }
+
+        div {
+            position: absolute;
+        }
+
+        p {
+            display: none;
+            position: relative;
+            font-size: 24px;
+            top: 7px;
+            left: 3px;
+            background-color: white;
+            box-shadow: darkgray 1px 1px 1px 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 目的 实现在搜索框 输入（检测键盘输入情况）后（把input。value值赋值 将输入内容在上方加大字体显示（字体大小调整，innerHTML将输入的赋值，输入后改成block  -->
+    <div>
+        <p></p>
+        <input type="text">
+
+
+    </div>
+
+    <script>
+        let p = document.querySelector('p')
+        let input = document.querySelector('input')
+
+        //注意！！！这里只能用keyup ，用keydown 和press都会导致程序先执行后附值，就是会漏字，可以试试看x
+        //程序执行是按下就执行，而打字是键提起来才才完成一个过程才赋值，所以按下之后先执行了程序而里面还没有值（提起来才有值进去
+        input.addEventListener('keydown', function (e) {
+            //获取用户输入的值 ,获取的应该是input的value值，而不是e的key,
+
+            console.log('anxiala')
+
+            //判断用户输入了什么来显示和隐藏p标签
+            if (this.value == ' ') {
+                alert('请输入内容')
+            } else {
+                p.style.display = 'block'
+                p.innerHTML = this.value
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>

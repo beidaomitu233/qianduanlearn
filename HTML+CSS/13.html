@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/5.css">
+    <title>浮动</title>
+</head>
+<!-- 浮动是一种网页布局方式，
+    0被浮动的元素会飞起来，原来的位置可以被占用
+    具有行内块元素的特征 
+浮动的元素都会沿着盒子顶端边缘浮动
+
+布局的时候先用标准流布局从上到下，再用浮动定位每个模块左右
+例如小米官网
+
+-->
+
+<!-- 清理浮动 之前的设置都是固定的高，如果不固定会导致下面的盒子挤上来
+    ，以后加内容就被限制利用清理浮动，可以按照内容多少自动得到多少高度 
+    写法在css里 clear:both h5中用块级元素调用才行  
+方法二在父级元素上写overfowl
+方法三伪类 ::after
+具体代码百度有
+
+-->
+
+<body>
+    <div class="top">
+        <div class="ioioio">123</div>
+        <div class="asd">123</div>
+        <div class="qwe">123</div>
+
+    </div>
+
+    <div class="box1">
+
+        <div class="lp"></div>
+        <div class="op"></div>
+    </div>
+
+    <div class="box2">
+        <li class="lip"></li>
+        <li></li>
+        <li></li>
+        <li class="lil"></li>
+    </div>
+
+    <div class="box3">
+
+        <div class="ppp">
+            zuo
+        </div>
+
+
+        <div class="ppy">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+
+</html>

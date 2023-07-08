@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.js"></script>
+    <script>
+        //浅拷贝
+        const obj1 = {
+            name: "lisi",
+            age: 20,
+            city: "beijing",
+            arr: [1, 2, 3, 22, 5]
+        }
+        const shallowcopy = {
+            ...obj1
+        }
+        //arr数组是引用类型，所以浅拷贝只是拷贝了引用，而不是值
+        console.log(shallowcopy);
+
+        //深拷贝
+        var deepcopy = _.cloneDeep(obj1);
+        console.log(deepcopy);
+        //测试为false，是深拷贝
+        console.log(deepcopy.arr == obj1.arr);
+
+        //使用JSON来实现深拷贝
+        //首先转化成字符串，跟原本的对象就没有关系了。再将字符串转为对象就相当于创建了新的对象
+        console.log("---------JSON实现深拷贝----------");
+        JSON.parse(JSON.stringify(obj1))
+        console.log(JSON.parse(JSON.stringify(obj1)));
+    </script>
+
+
+</body>
+
+</html>

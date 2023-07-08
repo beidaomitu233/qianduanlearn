@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: black;
+        }
+
+        input {
+            width: 150px;
+            height: 150px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="text" id="input">
+    <button id="btn">点击发送请求</button>
+
+    <!-- 有时服务器会有问题 -->
+    <!-- 设置请求超时和请求异常的提示，提高用户体验 -->
+    <script>
+        let btn = document.querySelector('#btn')
+        let input = document.querySelector('#input')
+
+        btn.addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.responseType = 'json';
+
+            //超时设置，如果两秒内没有响应就取消请求并返回超时信息
+            xhr.timeout = 2000;
+            xhr.ontimeout = function () {
+                alert("网络超时")
+            }
+            //网络异常时提示
+            xhr.onerror = function () {
+                alert('网络已断开')
+            }
+
+            xhr.open('get', 'http://localhost:3000/ezk')
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 & xhr.status < 300) {
+                        input.value = xhr.response;
+                    }
+                }
+            }
+
+
+        })
+    </script>
+
+
+</body>
+
+</html>

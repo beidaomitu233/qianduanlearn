@@ -1,0 +1,106 @@
+.html {
+    width: 100%;
+
+}
+
+.body {
+    width: 100%;
+}
+
+.app {
+    width: 100%;
+    color: #333;
+}
+
+.top {
+    width: 100%;
+    height: 75px;
+}
+
+.padd {
+    padding: 30px;
+}
+
+
+.xueyuan1 {
+    margin: 0 auto;
+    width: 1400px;
+    height: 650px;
+    display: flex;
+    flex-direction: row;
+    border-top: 3px aqua solid;
+
+
+}
+
+.xueyuan1 h2 {
+    font-size: 22px;
+    text-align: center;
+}
+
+.xueyuan-img {
+    flex: 1;
+
+}
+
+.xueyuan-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.xueyuan-del {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.del-font {
+    flex: 1;
+    border-bottom: 3px solid rgb(180, 156, 156);
+    text-align: center;
+}
+
+.del-font h3 {
+    border-top: 2px solid greenyellow;
+}
+
+.neirong {
+    text-indent: 2em;
+    text-align: left;
+}
+
+.del-bot {
+    flex: 1;
+}
+
+.zhuanye {
+    float: left;
+    padding: 20px;
+    margin: 10px;
+    width: 250px;
+    height: 190px;
+    border-bottom: red 4px solid;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+
+}
+
+.zhuanye h3 {
+    text-align: center;
+}
+
+.bacc {
+    background-image: url(../img/bacc.jpeg);
+}
+
+.bacc2 {
+    background-image: url(../img/bacc.jpeg);
+}
+
+.all {
+    width: 100%;
+}
+
+.titlebacc {
+    background-image: linear-gradient(to right, #a6ddee, #fbc2c6);
+}

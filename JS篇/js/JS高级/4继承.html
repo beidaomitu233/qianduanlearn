@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--  -->
+    <script>
+      //继承中如果子类和弗雷有同一个函数名，并且创建的是子类的实例化，那么首先调用还是子类中的方法 就近原则
+      /* 如果子类没有这个方法，那么就去父类的方法super.xxx */
+
+      /* class fu {
+          constructor() {}
+          mony() {
+            console.log(23);
+          }
+        }
+        //继承另一个类的写法，+
+        class son extends fu {}
+
+        let son = new son();
+        son.mony(); */
+
+      //当需要使用另一个类中的传参函数，则需要super
+
+      class chuan {
+        constructor(mub, mub2) {
+          //写this的原因，在后面的构造函数中使用这个函数的变量时，要用this指向chuan这个类，后面就都能找到这个值
+          this.mub = mub;
+          this.mub2 = mub2;
+        }
+        summ() {
+          console.log(this.mub + this.mub2);
+        }
+        sya() {
+          console.log("被调用了");
+        }
+      }
+
+      //super配合extends chuan 一起用你，先继承后调用
+      class sonnn extends chuan {
+        constructor(mub, mub2) {
+          super(mub, mub2); //调用父级中的构造，也是吧sonnn的参数传递给了chuan
+          //调用父级方法
+          console.log(super.sya);
+          let summ = super.summ;
+        }
+      }
+
+      let jicheng = new sonnn(1, 6);
+      console.log(jicheng.summ);
+    </script>
+  </body>
+</html>

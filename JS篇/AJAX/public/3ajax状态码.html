@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //ajax状态码 readyState
+        //再创建ajax对象 配置 发送 接收响应的过程中，每一个步骤都会对应一个状态码
+        /* 0请求未初始化（没调用open
+        1请求已经建立但是还没有发送，（没有调用send
+        2请求已经发送
+        3请求正在处理中，响应中就已经有部分数据可以使用了
+        4响应已完成可以获取并使用服务器的响应了 */
+        let ajaa = new XMLHttpRequest
+        //创建了对象但是还没有配置 显示0
+        console.log(ajaa.readyState);
+        ajaa.open('get', 'http://localhost:3000/first')
+        //配置了对象但是没有发送请求send
+        console.log(ajaa.readyState);
+        //发送
+        ajaa.send();
+        //当ajax状态码发生变化的时候触发，可以用onload事件代替效率高一些兼容性查且只执行一次
+        ajaa.onreadystatechange = function () {
+            //易发生变化就打印一次，等于4就可以获取服务器的响应了
+            console.log(ajaa.readyState);
+            if (ajaa.readyState == 4) {
+                console.log(ajaa.readyState);
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>

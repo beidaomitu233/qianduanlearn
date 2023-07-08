@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 看80 -->
+
+    <!-- 失去焦点时，如果输入框内没有文字，就显示提示文字 -->
+    <!-- 获得焦点时如果已经有内容则就无操作，无文字时有提示，输入后无提示 -->
+
+    <input type="text" name="" id="show" placeholder="提示">
+
+</body>
+
+<script>
+    let inp = document.querySelector('#show')
+    inp.onfocus=function (){
+        console.log(inp.value)
+        if (!inp.value){
+            inp.placeholder='输入用户名'
+        }
+    }
+    inp.onblur=function (){
+        if(!inp.value){
+            inp.placeholder='输入用户名'
+        }
+    }
+</script>
+
+</html>

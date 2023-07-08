@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 150px;
+            width: 150px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 三个事件
+         touchstart  手指触摸到DOM元素时触发
+         touchmove     手指在dom上滑动时触发
+         touchend      手指从dom上移开时触发 
+        
+        触摸事件对象，有事件使用就会有相关的信息对象的产生，作用是返回一些信息方便操作
+        e.touches触摸的手指数，
+        targetTouches正在触摸在DOM元素上的列表,更常用
+        changedTouches 手指状态发生改变的列表，从无到有和从有到无的变化
+        
+        -->
+
+    <div></div>
+    <script>
+        let div = document.querySelector('div')
+        div.addEventListener('touchstart', function (e) {
+            console.log('touch');
+            console.log(e);
+        })
+        div.addEventListener('touchmove', function (e) {
+            console.log('moving');
+
+        })
+        div.addEventListener('touchend', function (e) {
+            console.log('out');
+
+        })
+    </script>
+
+</body>
+
+</html>

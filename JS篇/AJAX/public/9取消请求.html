@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        input {
+            width: 150px;
+            height: 150px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="canle">取消请求</button>
+    <button id="btn">点击发送请求</button>
+
+    <!-- 有时服务器会有问题 -->
+    <!-- 设置请求超时和请求异常的提示，提高用户体验 -->
+    <script>
+        let btn = document.querySelector('#btn')
+        let canle = document.querySelector('#canle')
+
+        //这里能吧两个按钮使用同一个变量并能关联到一起
+        //是因为，这些值或者是操作对象都存在这个变量依靠这个变量才能继续往下
+        //如果把这个变量给null就都能找到这个变量了，并且修改
+        let xhr = null;
+
+        btn.addEventListener('click', function () {
+            xhr = new XMLHttpRequest();
+            xhr.responseType = 'json';
+            xhr.open('get', 'http://localhost:3000/ezk')
+            xhr.send();
+        })
+        canle.addEventListener('click', function () {
+            xhr.abort();
+        })
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <select v-model="fontSize">
+            <option value="20">20px</option>
+            <option value="30">30px</option>
+            <option value="40">40px</option>
+        </select>
+        <p v-font-size="{ size: fontSize }">业精于勤而荒于嬉，行成于思而毁于随！</p>
+        <hr>
+        <p>21401070209 程崟</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    fontSize: '20'
+                }
+            },
+            directives: {
+                fontSize: {
+                    bind: function (el, binding) {
+                        el.style.fontSize = binding.value.size + 'px'
+                    },
+                    update: function (el, binding) {
+                        el.style.fontSize = binding.value.size + 'px'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

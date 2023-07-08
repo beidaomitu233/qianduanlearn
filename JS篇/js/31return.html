@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* return 是把函数中封装代码执行的结果返回给用户的操作*/
+        function backfole(backk) {
+            return '作者'
+        }
+
+        backfole();
+        /* 这里是必须要写调用否者就不会执行，执行后结果是再整个函数里面 */
+        console.log(backfole());
+
+        function comp(bijiao) {
+            var max = bijiao[0]
+            for (var o = 0; o < bijiao.length; o++) {
+                if (bijiao[o] > max) {
+                    max = bijiao[o];
+                }
+            }
+            return max;
+        }
+        var bacc = comp([5, 8, 6, 99, 14, 62, 45]);
+        console.log(bacc);
+
+        /* return还有终止功能 ，当执行到return，后面的语句就不会再执行了*/
+        /* 一次只能返回一个值 ，如果用逗号隔开的话只会输出最后一个值  */
+        /* 可以用数组进行多个值的返回 */
+        /* 无return时返回undefined */
+        function zongzhi(sstop, ppoo) {
+            return sstop + ppoo
+            console.log('在ruturn后面是不执行的');
+        }
+        zongzhi(22, 33)
+        console.log(zongzhi(22, 33));
+
+        function ige(one, ttow) {
+            return [one, ttow]
+        }
+        ige(44, 99);
+        console.log(ige(44, 99));
+    </script>
+
+</body>
+
+</html>

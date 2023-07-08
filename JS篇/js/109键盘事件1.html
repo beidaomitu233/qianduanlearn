@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 键盘按下和松开 触发事件 -->
+    <script>
+        //这里也可以用传统绑定事件，用传统时都要在前面加on
+        document.addEventListener('keyup', function () {
+            console.log('抬起啦');
+        })
+
+        //press不识别功能键 比如 ctrl等
+        document.addEventListener('keypress', function () {
+            console.log('按下啦,press');
+        })
+
+        //down的执行顺序比press高所以先输出 down
+        document.addEventListener('keydown', function () {
+            console.log('按下啦,down');
+        })
+    </script>
+
+</body>
+
+</html>

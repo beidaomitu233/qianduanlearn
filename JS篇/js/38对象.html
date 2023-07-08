@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- js对象是一组无序的相关 属性 和 方法 的集合 -->
+    <!-- 利用特性对象可以清晰完整的存储一堆信息  -->
+    <!-- 有三种创建对象的方式  字面量  new object(); 构造函数  -->
+
+    <script>
+        var duix = {
+            /* 字面量里面的属性或者方法 用键值对的形式赋值 键 属性名: 值 属性值 */
+            Username: '辉辉i',
+            /* 多个方法和属性用逗号隔开 */
+            age: 18,
+            /* 方法冒号后面跟的是一个匿名函数 ，莫得名字 */
+            fangfa: function () {
+                console.log('hi');
+            }
+
+
+        }
+
+        var redcars={
+            color:'red',
+            price:12000,
+            sizex:5770,
+            sizey:2770,
+            sudu:199
+        }
+
+        console.log(redcars.price);
+        /* 使用对像  */
+
+        /* 1.有两种方式都重要  
+        
+        调用属性 */
+        /* 用 对象名.属性名 这个点可以理解为 的 */
+        console.log(duix.Username);
+        /* 用 对象名['属性名'] */
+        console.log(duix['age'])
+
+
+        /* 调用方法 */
+        /* 用 对象名.方法名(); */
+        duix.fangfa();
+    </script>
+
+</body>
+
+</html>

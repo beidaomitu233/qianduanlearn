@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //面向对象再JS中的ES6中的实现，实际上是语法糖，底层还是原型链
+        //但是思想上跟后端语言更加相似，实现原理不同而已。
+
+
+
+        class person {
+            name;
+            age;
+            position;
+            //这是静态成员中的一种，直接在对象里就是静态成员
+            belong = "wuit"
+            do() {}
+            //在js的类中构造函数的名字和写法是固定的。且必须要实现构造函数。
+            constructor(name, age, position) {
+                this.name = name;
+                this.age = age;
+                this.position = position;
+            }
+        }
+
+        //实例化类
+        const student = new person("zhangsan", 12, "student")
+        console.log(student);
+        //重写类中的方法
+        student.do = () => {
+            console.log("i am student,i can  study");
+        }
+        student.do()
+
+        //类的继承
+        class teacher extends person {
+            //不仅继承了原有的属性和方法,但是不会继承构造函数，所以需要手动调用，继承需要调用父类构造器来实现初始化，还可以增加属于teacher专属的属性和方法
+            teachernumber;
+            constructor(name, age, position, teachernumber) {
+                //super关键字，调用父类的构造函数，必须放在子类的构造函数的第一行
+                super(name, age, position)
+                this.teachernumber = teachernumber
+            }
+        }
+
+        console.log(teacher);
+        //实例化teacher类
+        const teacher1 = new teacher("lisi", 30, "teacher", 123456)
+
+
+        class Component {
+            constructor() {
+                this._data = {};
+            }
+            get data() {
+                console.log('Getting data');
+                return this._data;
+            }
+            set data(value) {
+                console.log('Setting data');
+                this._data = value;
+            }
+        }
+
+        const comp = new Component();
+
+        // 获取属性值，会触发 get 方法
+        console.log(comp.data);
+
+        // 设置属性值，会触发 set 方法
+        comp.data = {
+            name: 'John',
+            age: 30
+        };
+
+        comp.data = [11233]
+        console.log(comp.data);
+    </script>
+    <script type="module">
+    </script>
+    <script src="./m2.js" type="module"></script>
+
+</body>
+
+</html>

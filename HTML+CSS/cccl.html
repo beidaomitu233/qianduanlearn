@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/chushi.css">
+    <title>c3lianxi</title>
+    <style>
+        body {
+            background-color: darkslategrey;
+        }
+
+        .map {
+            position: relative;
+            /* background: url(./img/beijing.jpg) no-repeat; */
+            width: 700px;
+            height: 700px;
+            margin: 200PX auto;
+        }
+
+        .city {
+            position: absolute;
+            top: 328px;
+            left: 193px;
+            color: darkturquoise;
+        }
+
+        .dotted {
+            width: 8px;
+            height: 8px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        /* 关键是把盒子做出正方形，然后把波放到正中间 */
+        div[class^=pulse] {
+            width: 8px;
+            height: 8px;
+            box-shadow: 0 0 12px red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            animation: pulse 1.2s linear infinite;
+        }
+
+        .pulse1 {
+            animation-delay: 0.5s !important;
+
+        }
+
+        @keyframes pulse {
+            0% {}
+
+            70% {
+                width: 40px;
+                height: 40px;
+                opacity: 1;
+            }
+
+            100% {
+                width: 70px;
+                height: 70px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="map">
+        <div class="city">
+            <div class="dotted"></div>
+            <div class="pulse"></div>
+            <div class="pulse1"></div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

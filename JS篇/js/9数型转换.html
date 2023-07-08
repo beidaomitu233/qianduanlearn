@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--数据类型转化 -->
+    <!-- 从表单和prompt取的值都是字符串的 所以没法进行运算 ，需要转化为数字性才能算 -->
+    <script>
+        /* 转换成字符串  有三种方法*/
+        /* 方法一 */
+        var mun = 10;
+        var strr = mun.toString();
+        console.log(strr)
+
+        //方法二
+        console.log(String(mun));
+
+        /* 方法三 利用+号拼接方法实现转换 主要用这种 */
+
+        console.log(mun + '');
+        1811126879
+
+        /* 转换成数字类型 一般是从字符型转成数字型  有四种*/
+        /* 方法一parseint  重要 */
+        var userAge = prompt('请输入年龄')
+        console.log(parseInt(userAge));
+        console.log(parseInt(3.66)); //这个方式取证会取证 没有进位 直接把小数点后面的去掉
+        console.log(parseInt('120px')); //后面可以去掉单位 配合cs使用
+
+        /* 方法二  parseFloat 和上面的基本一样，但是可以保留小数 浮点数  重要 */
+        console.log(parseFloat(3.99));
+
+        /* 方法三  用munber变量 */
+        var munbb = '1122'
+        console.log(Number(munbb));
+        console.log(Number('665z'));
+
+        /* 方法四  利用运算符 减乘除 隐式转换*/
+        console.log('12' - 0);
+
+
+        /* 布尔类型转换 只有一种方法 */
+        /* 除了 '' 0 null underfined Nan 之外其他都是true */
+
+        console.log(Boolean('hh'));
+        console.log(Boolean('Nan'));
+        console.log(Boolean('123'));
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            border: red 2px solid;
+
+        }
+    </style>
+</head>
+
+<body>
+    <button>发送请求</button>
+    <div class="box"></div>
+    <script>
+        let btn = document.querySelector('button')
+        let div = document.querySelector('.box')
+
+        btn.onclick = function () {
+            const xhr = new XMLHttpRequest;
+            xhr.open('GET', 'http://localhost:3000/cors')
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status < 300 && xhr.status >= 200) {
+                        console.log('zz');
+                        console.log(xhr.response);
+                    }
+
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

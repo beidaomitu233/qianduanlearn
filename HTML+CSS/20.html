@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H5新特性和css3新功能</title>
+    <link rel="stylesheet" href="./css/chushi.css">
+    <link rel="stylesheet" href="./css/8.css">
+    <style>
+        input::placeholder {
+            color: aqua;
+        }
+
+        * {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!--  新政语义化标签，让页面布局更清晰 
+    兼容性问题，不兼容id9以下，在ie9中要把这些变成块级元素 -->
+    <header></header>
+
+    <nav></nav>
+
+    <article>
+        <section></section>
+    </article>
+
+    <aside></aside>
+
+    <footer></footer>
+
+    <!-- 新功能标签  -->
+    <!-- 只支持mp4 和webm ogg -->
+    <!-- 谷歌浏览器实现自动播放 需要加muted属性和值 -->
+    <video src="./VID_20210829_204811.mp4" autoplay="autoplay" controls="controls" width="100%" height="600px"
+        loop="loop" poster="./img/mix4.webp"></video>
+    <!-- 支持 mp3 wav ogg -->
+    <audio src="./music/One Direction - Rock Me.mp3" controls="controls" loop="loop" autoplay="autoplay"></audio>
+    <!-- muted="muted"required="required"  -->
+    <!-- muted="muted" -->
+
+    <!-- 表单新功能 -->
+    <!-- 在form里面时可以验证是否是正确的格式 -->
+    <!-- required是必须写的意识 -->
+    <!-- autofocus 是自动点击，比如一打开百度就是已经选中输入框 -->
+    <!-- autofomplete是可以保存输入过的信息，要表单成功提交且需要加在表单内加name
+        ，就像存账号密码那样 -->
+    <form action="">
+        <input type="email" placeholder="邮箱" autofocus="autofocus" autocomplete="on" autocomplete="on">
+        <input type="url" placeholder="输入链接">
+        <input type="date" placeholder="">
+        <input type="time" placeholder="">
+        <input type="month" placeholder="">
+        <input type="week" placeholder="">
+        <input type="number" placeholder="只能输入数字" required="required" name="riqi">
+        <input type="tel" placeholder="只能输入手机号" required="required" autocomplete="on" name="haoma">
+        <input type="color" placeholder="生成一个颜色选着表单">
+        <input type="submit">
+
+    </form>
+
+
+
+    <!-- 过渡动画 -->
+    <style>
+        .boxlp {
+
+            width: 200px;
+            height: 200px;
+            background-color: cornflowerblue;
+            /* 属性： 变化的属性 花费的时间 运动的曲线 和延时时间 */
+            transition: width .7s ease, heigth .7s ease;
+            /* 可以直接加all 然后直接写要变的效果 */
+            margin: 0 auto;
+        }
+
+        .boxlp:hover {
+            width: 400px;
+            background-color: skyblue;
+        }
+
+        .boxop {
+            width: 200px;
+            height: 200px;
+            background-color: cornflowerblue;
+            /* 属性： 变化的属性 花费的时间 运动的曲线 和延时时间 */
+            transition: all .7s ease;
+            /* 可以直接加all 然后直接写要变的效果 */
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .boxop:hover {
+            width: 400px;
+            background-color: darkgray;
+            border: tomato 3px solid;
+            border-radius: 15px 15px;
+        }
+
+
+        /* .boxlp:visited {
+            width: 720px;
+            background-color: thistle;
+        } */
+
+        /* .boxlp a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        } */
+        /* <a href="http://www.baidu.com" target="blank"> */
+
+
+        .boxll {
+            width: 400px;
+            height: 40px;
+            margin-top: 15px;
+            border: solid 2px red;
+            border-radius: 20px;
+            /* 属性： 变化的属性 花费的时间 运动的曲线 和延时时间 */
+            /* transition: width .6s ease, heigth .7s ease; */
+            /* 可以直接加all 然后直接写要变的效果 */
+            /* margin: 0 auto; */
+        }
+
+        .bianhua {
+            width: 15%;
+            height: 100%;
+            /* margin-top: 15px; */
+            /* background-color: cornflowerblue; */
+            /* 属性： 变化的属性 花费的时间 运动的曲线 和延时时间 */
+            transition: all .7s ease;
+            /* 可以直接加all 然后直接写要变的效果 */
+            /* margin: 0 auto; */
+        }
+
+
+        .bianhua:hover {
+            width: 100%;
+            background-color: skyblue;
+            border-radius: 20px;
+
+        }
+    </style>
+    <div class="boxlp"></div>
+    <!-- 动画变形 -->
+    <div class="boxop"></div>
+
+    <!-- 进度条仿 -->
+    <div class="boxll">
+        <div class="bianhua"></div>
+    </div>
+
+    <!-- 小米logo 模仿 -->
+    <div class="logo"></div>
+
+    <!--  -->
+
+</body>
+
+</html>

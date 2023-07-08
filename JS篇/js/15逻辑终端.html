@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 这部分是重点 -->
+    <!-- 在逻辑运算中返回的值是布尔型  ， -->
+    <!-- 有一些数再布尔型中本来就是 false 比如 0 NAN ''等等  -->
+    <!-- 再逻辑与中 的运算 加入在运算的第一个就是false的话就不会再往后算
+    这就是逻辑中断，因为与有一个false就已经得出结果过来再计算后面的都没有意义了 -->
+
+    <script>
+        /* 中断思路就是 已经得结果就没必要再算了 */
+        /* 逻辑且 */
+        console.log(456 && 687 && 99); /* 如果第一个是真 则会返回下一个值 然后继续这样判断 知道最后一个 然后返回之后一个的值 */
+        console.log(0 && 5 < 15 && 6 > 3); //因为 0是false所以直接返回零  逻辑中断就是在这里体现
+
+        /* 逻辑或  */
+        console.log(44 || 66) /* 当第一个就是真的时候就直接返回第一个就完事了 */
+        console.log(0 || 99) /* 第一个是假的时候就会返回下一个，直到有真的，就返回真的 */
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0 0;
+            padding: 0 0;
+        }
+
+        .fu li {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 144px;
+            height: 237px;
+            font-size: 14px;
+            border-radius: 8px;
+            background-color: rgb(36, 38, 40);
+        }
+
+        .fu li {
+
+            height: 47.4px;
+            line-height: 47.4px;
+            list-style: none;
+            color: #999;
+            text-align: center;
+        }
+
+        .fu li li:hover {
+            background-color: rgb(47, 49, 52);
+            border-radius: 8px;
+        }
+
+
+        .fu ul {
+            display: none;
+            border: aqua 2px solid;
+        }
+
+        .xinxi {
+            transition: all 0.7s ease;
+            border: transparent 2px solid;
+            font-size: 18px;
+            width: 300px;
+
+
+        }
+
+        .fu {
+            margin: 100px 300px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 实现思路 下拉菜单一直都在 只不过是隐藏的 鼠标经过时 就会把显示出来 -->
+
+    <div class="fu">
+
+        <li>
+            <h3 class="xinxi">消息</h3>
+            <ul>
+                <li>回复我的</li>
+                <li>@我的</li>
+                <li>收到的赞</li>
+                <li>系统消息</li>
+                <li>我的消息</li>
+            </ul>
+        </li>
+    </div>
+
+    <script>
+        let xiala = document.querySelector('.fu')
+        let ull = xiala.children[1]
+
+        for (let i = 0; i < ull.length; i++) {
+            xiala.onmouseover = function () {
+                ull.style.display = 'block'
+                console.log('213');
+            }
+
+            xiala.onmouseout = function () {
+                ull.style.display = 'none'
+            }
+
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>哇LOL哇咯哇咯</button>
+    <input type="text" name="" id="inp">
+
+    <div class="box1">盒子1
+        <div class="box2">
+            盒子2
+        </div>
+
+    </div>
+
+    <a href="z.html">阻止默认事件</a>
+
+    <script>
+        let btn = document.querySelector('button')
+        let inp = document.querySelector('#inp')
+
+        let box1 = document.querySelector('.box1')
+        let box2 = document.querySelector('.box2')
+        let a1 = document.querySelector('a')
+        // btn.addEventListener('click', funn)
+        // //这里的 e就是事件对象 有事件才会有事件对象，事件对象是一些列相关数据的集合 这信息包含在对象里 ，也会根据事件改变返回的信息
+        // //
+        // //这里的参数一般填 event evt e
+        // function funn(e) {
+        //     console.log(e);
+        //
+        // }
+
+        btn.addEventListener('click', function (e) {
+            console.log(e)
+            console.log(e.screenX)
+            //this是当前的事件绑定的元素
+            console.log(this)
+            //返回的是触发事件的对象
+            console.log(e.target)
+        })
+
+        inp.addEventListener('blur', function (e) {
+            console.log(e)
+        })
+
+        box1.addEventListener('click', function (e) {
+            //点击的是box2所以target是box2
+            console.log(e.target)
+            //触发时间就会输出当前的事件源
+            console.log(this)
+        })
+
+        a1.addEventListener('click', function (e) {
+            e.preventDefault();
+        })
+    </script>
+</body>
+
+</html>

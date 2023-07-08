@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li {
+        width: 50px;
+        height: 20px;
+        border: 1px solid black;
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 使用insertAdjacentHTML -->
+    <!-- 可以使用字符串标签，当遇到要插入比较复杂的票钱时候 -->
+
+    <li class="zz"><span></span></li>
+    <script>
+      let lis = document.querySelector("li");
+      //创建要的元素，可以写更复杂的嵌套标签，相比creat
+      let li = '<li class="zz"><span></span></li>';
+      //这里写的是插入位置和插入元素
+      //包含这些
+      /* 'beforebegin'：元素自身的前面。
+        'afterbegin'：插入元素内部的第一个子节点之前。
+        'beforeend'：插入元素内部的最后一个子节点之后。
+      ' afterend'：元素自身的后面。 */
+      lis.insertAdjacentHTML("afterend", li);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 目的：禁用倒计时按钮，时间完了之后又可用
+        1点击后禁用
+        2修改按钮内容添加倒计时
+        添加时间间隔执行刷新倒计时
+        3判断是否到时间
+    
+    -->
+
+    <button>发送</button>
+
+
+    <script>
+        let shi = 5;
+
+        let btn = document.querySelector('button')
+        btn.addEventListener('click', function () {
+
+            //禁用标签
+            this.disabled = 'true'
+
+            //修改内容
+
+            let dao = setInterval(function () {
+                //会减成负数,所以要加个判断条件
+                if (shi == 0) {
+                    btn.disabled = 'false'
+                    btn.innerHTML = '发送'
+
+                } else {
+                    shi--
+                    btn.innerHTML = shi + '秒后再次发送'
+                }
+
+
+            }, 1000);
+
+
+        })
+    </script>
+
+</body>
+
+</html>

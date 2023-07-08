@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+        * {
+            margin: 0;
+        }
+
+        /* 这里描述的是一个区间，三个加起来就是说 0-359 360-720  720网上 这上个区间对应的情况 */
+        /* @media screen and (max-width:359px) {
+            html {
+                font-size: 60px;
+            }
+
+
+        }
+
+        @media screen and (min-width:360px) {
+            html {
+                font-size: 80px;
+            }
+
+
+        }
+
+        @media screen and (min-width:720px) {
+            html {
+                font-size: 100px;
+            }
+
+
+        } */
+
+        .top {
+            /* 这里不要给宽 */
+            height: 1rem;
+            font-size: .5rem;
+            text-align: center;
+            line-height: 1rem;
+            background-color: skyblue;
+            /* 真正写的时候不要加动画，因为手机是固定大小的， */
+            transition: all 0.1s ease;
+        }
+    </style> -->
+
+    <!-- 媒体资源引入  -->
+    <!-- 目的是对不同的屏幕大小调用不同的css文件，一般在页面布局发生较大变化的时候用 -->
+    <link rel="stylesheet" href="../css/st320px.css" media="srceen and (min-width:360px)">
+    <link rel="stylesheet" href="../css/st640px.css" media="srceen and (min-width:760px)">
+</head>
+
+<body>
+
+    <!-- <section class="top">大小测试</section> -->
+    <div>2</div>
+    <div>1</div>
+</body>
+
+</html>

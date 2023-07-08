@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 做倒计时是用设定的时间减去当前的时间 得到剩余时间 但是分秒时不能直接减 
+    要不然会有负数 ，所以用毫秒数来相减然后再转成分秒时 -->
+
+    <script>
+        /* 是一个功能函数 后面也方便调用 */
+        function countdown(aimtime) {
+            var nowtime = +new Date /* 获取现在的毫秒 */
+            var aimmtime = +new Date(aimtime) /* 这个是把设置的目标时间转成毫秒 */
+            var shengxia = (aimmtime - nowtime) / 1000 /* 除1000是转成秒方便后面计算 */
+
+            /* 这里要取整 直接去掉小数 */
+            var day = parseInt(shengxia / 60 / 60 / 24) // 天数可以不用补0
+
+            var hour = parseInt(shengxia / 60 / 60 % 24) //这里的算法是把天数用24模掉了 只剩下去不了模的24小时之内
+            hour = hour < 10 ? '0' + hour : hour //补零
+
+            var mins = parseInt(shengxia / 60 % 60) //这里是类似的把小时都给模掉
+            mins = mins < 10 ? '0' + mins : mins //补零
+
+            var secc = parseInt(shengxia % 60)
+            secc = secc < 10 ? '0' + secc : secc //补零
+
+            return day + '天' + hour + '小时' + mins + '分种' + secc + '秒'
+        }
+
+        console.log('距离30号：' + countdown('2022-12-30 12:00:00'))
+    </script>
+
+
+
+</body>
+
+</html>

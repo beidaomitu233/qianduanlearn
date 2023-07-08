@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>登录</h2>
+        <form>
+            <div>
+                <label for="username">用户名：</label>
+                <input type="text" id="username" v-model="username">
+            </div>
+            <div>
+                <label for="password">密码：</label>
+                <input type="password" id="password" v-model="password">
+            </div>
+            <div>
+                <p>您输入的用户名是：{{ username }}</p>
+                <p>您输入的密码是：{{ password }}</p>
+            </div>
+            <button type="submit" @click.prevent>提交</button>
+
+        </form>
+
+
+    </div>
+    <hr>
+    <br>
+    <p style="color: brown;">21401070207 李长辉</p>
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                username: '',
+                password: '',
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

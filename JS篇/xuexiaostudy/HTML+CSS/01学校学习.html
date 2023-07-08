@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a[class^="qian"] {
+        background-color: aqua;
+      }
+      a[class$="hou"] {
+        background-color: greenyellow;
+      }
+      a[class*="xing"] {
+        background-color: lightcoral;
+      }
+      div a:nth-of-type(5) {
+        background-color: darkgoldenrod;
+      }
+
+      ol li {
+        font-size: 28x;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      ol a {
+        font-size: 22px;
+        font-weight: normal;
+      }
+
+      ol li:first-child {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      <li><a href="#">辉超帅的</a></li>
+      <li><a href="#">辉超帅的</a></li>
+      <li><a href="#">辉超帅的</a></li>
+    </ol>
+
+    <!-- <div>
+      <a href="#" class="qianzz">辉辉超帅的</a>
+      <a href="#" class="zzhou">辉辉超帅的</a>
+      <a href="#" class="xxing">辉辉超帅的</a>
+      <a href="#" class="">辉辉超帅的</a>
+    </div> -->
+  </body>
+</html>

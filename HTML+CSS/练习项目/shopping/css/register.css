@@ -1,0 +1,32 @@
+body {
+    background-image: url(../images/zhuchi.png);
+}
+
+
+/* 注册框整体 */
+.register {
+    margin: 100px 900px 0;
+    border-radius: 15px;
+    border: red 2px solid;
+    width: 350px;
+    height: 450px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* 这个写法是垂直居中对齐的方法之一 */
+
+.hd h1 {
+    font-size: 42px;
+    color: skyblue;
+    margin-left: 130px;
+    margin-bottom: 20px;
+}
+
+.register input {}
+
+
+.register input:last-child {}
+
+.register input:last-child:hover {}
+
+.fmbd {}

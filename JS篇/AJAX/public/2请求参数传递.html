@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 实现按下按钮后把数据提交到服务器，并返回提交值 -->
+    <input type="text" id="namee">
+    <input type="text" id="requestt">
+    <!-- 没用form表单就不需要先sumit类型 -->
+    <input type="button" id="summit" value="提交">
+
+
+    <script>
+        let namee = document.querySelector('#namee')
+        let requestt = document.querySelector('#requestt')
+        let summitt = document.querySelector('#summit')
+
+        //利用get方式请求传递参数
+        /*   summitt.addEventListener('click', function () {
+              //创建ajax对象
+              var ajaa = new XMLHttpRequest
+              //拼接请求参数
+              let pee = 'usernamee=' + namee.value + ',want=' + requestt.value
+              //配置ajax对象 设置 请求地址和请求方式        问好后面就是请求的参数
+              ajaa.open('get', 'http://localhost:3000/gete?' + pee);
+              //发送请求
+              ajaa.send();
+              //获取服务器的响应
+              ajaa.onload = function () {
+                  console.log(ajaa.responseText);
+              }
+          }) */
+
+        //利用post
+        summitt.addEventListener('click', function () {
+            //创建ajax对象
+            var ajaa = new XMLHttpRequest
+            //拼接请求参数
+            let pee = 'usernamee=' + namee.value + '&want=' + requestt.value
+            //配置ajax对象 设置 请求地址和请求方式       
+            ajaa.open('post', 'http://localhost:3000/post');
+            //设置请求参数的格式类型（post请求必须要设置
+            ajaa.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+            //发送请求 请求的参数写到send里
+            ajaa.send('a=0&b=3', pee);
+
+            //获取服务器的响应
+            ajaa.onreadystatechange = function () {
+                if (ajaa.readyState == 4) {
+                    if (ajaa.status >= 200 & ajaa.status <= 300) {
+                        alert('succeeful')
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

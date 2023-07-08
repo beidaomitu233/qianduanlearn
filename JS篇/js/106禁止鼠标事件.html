@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>禁用效果的文字</p>
+    <script>
+        let jinzhi = document.querySelector('p')
+
+        //禁止右键，（禁止默认事件，菜单事件就禁止 
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        })
+        //根据事件进行变化，选择事件禁止选
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault();
+        })
+    </script>
+</body>
+
+</html>

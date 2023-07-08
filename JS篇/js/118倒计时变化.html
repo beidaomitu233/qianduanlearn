@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            background-color: darkgray;
+            width: 40px;
+            height: 40px;
+            float: left;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hour"></div>
+    <div class="min"></div>
+    <div class="second"></div>
+
+    <button class="stop"> 停止刷新</button>
+    <button class="beginn">开始刷新</button>
+
+    <script>
+        //实现倒计时效果，（获取当前时间并显示） 用间隔调用来刷新
+        let hours = document.querySelector('.hour')
+        let minss = document.querySelector('.min')
+        let seconds = document.querySelector('.second')
+        let inputtime = +new Date('2022-2-4 12:00:00')
+        let tingzhi = document.querySelector('.stop')
+        let kaishi = document.querySelector('.beginn')
+        //再开始倒计时之前会有一个小闪烁 之后才开始倒计时 解决方法 先调用一次 在进行倒计时
+        countdown();
+
+        let shuaxin = setInterval(countdown, 1000)
+
+        /* 是一个功能函数 后面也方便调用 */
+        function countdown() {
+            var nowtime = +new Date /* 获取现在的毫秒 */
+            var shengxia = (inputtime - nowtime) / 1000 /* 除1000是转成秒方便后面计算 */
+
+            /* 这里要取整 直接去掉小数 */
+            var day = parseInt(shengxia / 60 / 60 / 24) // 天数可以不用补0
+
+            var hour = parseInt(shengxia / 60 / 60 % 24) //这里的算法是把天数用24模掉了 只剩下去不了模的24小时之内
+            hour = hour < 10 ? '0' + hour : hour //补零
+
+            hours.innerText = hour;
+
+            var mins = parseInt(shengxia / 60 % 60) //这里是类似的把小时都给模掉
+            mins = mins < 10 ? '0' + mins : mins //补零
+
+            minss.innerText = mins;
+
+            var secc = parseInt(shengxia % 60)
+            secc = secc < 10 ? '0' + secc : secc //补零
+
+            seconds.innerText = secc;
+        }
+
+        /*   console.log('距离30号：' + countdown('2022-1-30 12:00:00')) */
+
+        //停止间隔定时器
+        tingzhi.addEventListener('click', function () {
+            clearInterval(shuaxin)
+        })
+
+        //再次开始
+        kaishi.addEventListener('click', function () {
+            setInterval(countdown, 1000)
+
+        })
+    </script>
+
+
+</body>
+
+</html>

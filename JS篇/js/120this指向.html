@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div></div>
+    <script>
+        let div = document.querySelector('div')
+
+        //this指向 ，默认情况下指向的是调用者（对象方法这些
+
+        //在全局或者普通用函数中指向的是全局对象window(还有定时器中的this也指向window)
+        console.log(this);
+
+        function funn() {
+            console.log(this);
+        }
+        funn();
+
+        setTimeout(function () {
+            console.log(this);
+        }, )
+
+        //函数里存对象，并且调用函数里的对象,this指向的是这个对象
+
+        var duix = {
+            ces: function () {
+                console.log(this);
+            }
+        };
+        duix.ces();
+
+        //事件函数中this指向的是事件源
+
+        div.addEventListener('click', function () {
+            console.log(this);
+        })
+
+        //构造函数的指向  指向的是这个对象
+        function fffz() {
+            console.log(this);
+        }
+
+        let ffffz = new fffz();
+    </script>
+
+
+
+</body>
+
+</html>

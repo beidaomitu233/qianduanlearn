@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 实现翻转数组 */
+        function reverse(arr1) {
+            /* 原理就是用两个数组的索引号进行调换 */
+            /* 得先从最大的索引号开始 给新的数组赋值  */
+            var arr2 = [];
+            for (var i = arr1.length - 1; i >= 0; i--) {
+                /* 赋一个值就让数组索引号增加  */
+                arr2[arr2.length] = arr1[i]
+            }
+            return arr2
+        }
+        reverse(1, 2, 3)
+
+        function resver2(arr3) {
+
+            var arr4 = [];
+            for (var f = arr3.length - 1; f >= 0; f--) {
+                arr4[arr4.length] = arr3[f]
+            }
+            return arr4
+        }
+        console.log(resver2([1, 5, 6]));
+
+        /* 当输入的数据不是数组时会返回 0 */
+        console.log(resver2(1, 5, 6));
+
+        /* 检测是否为数值 */
+        /* instanceof 和 isArray
+           当检测Array实例时, Array.isArray 优于 instanceof,因为Array.isArray能检测iframes. */
+        /* instanceof 运算符  如果是数组返回true 不是则反会false */
+        var arr6 = [];
+        var obj1 = {};
+        console.log(arr6 instanceof Array)
+        console.log(obj1 instanceof Array)
+
+        /* array.isarray 也可以检测 IE9以上支持*/
+        console.log(Array.isArray([1, 2, 3]));
+    </script>
+
+</body>
+
+</html>

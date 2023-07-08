@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        .sq {
+            width: 200px;
+            height: 200px;
+            background-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="sq" :style="color"></div>
+        <button @click="color = 'background-color:red'">红色</button>
+        <button @click="color = 'background-color:green'">绿色</button>
+        <button @click="color= 'background-color:blue'">蓝色</button>
+    </div>
+
+
+    <hr>
+    <p>21401070209 程崟/p>
+
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    color: ""
+                }
+            });
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>透视和Z轴，旋转</title>
+    <link rel="stylesheet" href="css/chushi.css">
+    <style>
+        body {
+            /* 透视越小可观察到的效果越明显 */
+            /* 透视能看到距离感 */
+            /* 开三D可以看到立体感 */
+            perspective: 500px;
+        }
+
+        .dome1 {
+            /* 透视写到被观察的物体的父盒子上 */
+            perspective: 100px;
+        }
+
+        .dome2 {
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+            /*  加减z轴可观测到 */
+            transform: translate3d(400px, 500px, -150px);
+
+        }
+
+        .dome3 {
+            display: block;
+            /* 可以沿着XYZ轴旋转 */
+            /* transform: rotate(); */
+            transition: all 1s;
+
+        }
+
+        .dome3:hover {
+            /* transform: rotateX(180deg); */
+            /* transform: rotateY(180deg); */
+            /* transform: rotateZ(180deg); */
+            /* xyz的旋转角度 0表示没有 1表示有 */
+            transform: rotate3d(0, 1, 1, 180deg)
+        }
+
+
+
+
+
+
+        .dome4 {
+            position: relative;
+            margin: 200px auto;
+            width: 200px;
+            height: 200px;
+            transform: rotateY(60deg);
+        }
+
+
+        /* 没开启3D立体空间的效果 默认是flat */
+        .dome4 div {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            background: lightcoral;
+        }
+
+        .dome4 div:last-child {
+            background: lightseagreen;
+            /* transform-style: preserve-3d; */
+
+        }
+
+        .dome4 div:last-child:hover {
+            transform: rotateX(60deg);
+        }
+
+        /* 开启3D立体空间的效果  3D空间效果给的是父级盒子 */
+        .dome5 {
+            position: relative;
+            margin: 200px auto;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transform: rotateY(60deg);
+        }
+
+        .dome5 div {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            background: lightcoral;
+        }
+
+        .dome5 div:last-child {
+            transition: all 1s;
+            background: lightseagreen;
+
+
+        }
+
+        .dome5 div:last-child:hover {
+            transform: rotateX(60deg);
+        }
+
+
+        /* 正反面效果 */
+        .dome6 {
+            position: relative;
+            margin: 400px auto;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transition: all .4s;
+            /* background-color: indigo; */
+        }
+
+
+        /* 因为背景文字都是只有前面的一面，所以先把后面的翻转180度然后再完全贴合，再旋转外面的大盒子，就实现效果了 */
+        /* 重合的时候一定要写死位置 */
+        .fonrt,
+        .back {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            line-height: 200px;
+            text-align: center;
+            font-size: 34px;
+            color: gold;
+        }
+
+        .fonrt {
+            background-color: aqua;
+            z-index: 2;
+        }
+
+        /* 先把后面的盒子旋转180，整个盒子转过去才会有效果 */
+        /* 后面的tran会把前面的覆盖，不管有没有相同的效、 */
+        .back {
+            transform: translate(-50%, -50%) rotateY(180deg);
+            background-color: darkorchid;
+        }
+
+        .dome6:hover {
+            transform: rotateY(180deg);
+        }
+
+
+        .ddome7 {
+            width: 700px;
+            height: 90px;
+            margin: 400px auto;
+        }
+
+        /* 翻转导航栏效果 */
+        .dome7 {
+            position: relative;
+            transform-style: preserve-3d;
+            width: 180px;
+            height: 40px;
+            transition: all 0.4s;
+            transform: rotateY(-5deg);
+            float: left;
+            margin-left: 50px;
+
+        }
+
+        .qian,
+        .bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .qian {
+            z-index: 2;
+            background-color: khaki;
+            /* 向前移是因为后面旋转的时候是围绕正方体的中线点旋转，所以把前这个面从中心点移到正方体的前面 */
+            /* 记住Z轴要用像素 */
+            transform: translateZ(20px);
+        }
+
+        /* 实现一个正方体的形状 */
+        .bottom {
+            background-color: lawngreen;
+            transform: translateY(50%) rotateX(-90deg);
+        }
+
+        .dome7:hover {
+            transform: rotateX(90deg);
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- z轴效果展示 -->
+    <div class="dome1">
+        <div class="dome2"></div>
+    </div>
+    <!-- 旋转效果暂时 -->
+    <img src="./img/mix4.webp" alt="" class="dome3">
+
+    <!-- 关三维效果展示 -->
+    <div class="dome4">
+        <div></div>
+        <div></div>
+    </div>
+    <!-- 开启三维效果展示 -->
+    <div class="dome5">
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- 正反面效果 -->
+    <div class="dome6">
+        <div class="fonrt">前面的盒子</div>
+        <div class="back">后面的盒子</div>
+    </div>
+
+    <div class="ddome7">
+        <ul class="dome7">
+            <li class="qian">前面的盒子</li>
+            <li class="bottom">xia面的盒子</li>
+        </ul>
+
+        <ul class="dome7">
+            <li class="qian">前面的盒子</li>
+            <li class="bottom">xia面的盒子</li>
+        </ul>
+
+        <ul class="dome7">
+            <li class="qian">前面的盒子</li>
+            <li class="bottom">xia面的盒子</li>
+        </ul>
+
+    </div>
+
+    <!-- 渐变背景色 -->
+    <style>
+        .dome99 {
+            margin: 40px auto;
+            width: 400px;
+            height: 100px;
+            /* 里面的方位名词是渐变方向 从左到右 颜色 也是按顺序来 */
+            /* background: -webkit-linear-gradient(top left red blue); */
+            background-image: linear-gradient(to top left, rgb(250, 143, 143), rgb(84, 84, 253));
+            /* box-shadow: 1px 1px 1px 1px aqua; */
+        }
+    </style>
+    <div class="dome99"></div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 作用域是让 代码名字（变量名）在某个起效果作用 
+        ，目的是提高可靠性 ，可减少命名减少-->
+    <!-- js 的作用域在es6之前 有全局和 局部作用域 -->
+    <!-- 全局作用域是整个script -->
+    <!-- 从执行效率来看，全局和局部-->
+    <!-- 全局是关闭浏览器才关闭，暂用内存会比较多
+        局部变量是在关闭某个程序的时候就关闭了省内存 -->
+    <script>
+        /* 这是全局作用域 在script标签的第一子标签 在全部地方都能用*/
+        /* 当函数内部不声明直接复制的变量会变成全局变量 */
+        var mun = 5;
+
+
+        /* 这是局部作用域（函数作用域，只在这个函数内起作用 */
+        /* 形参也是局部变量， */
+        function zz() {
+            var mun = 8;
+            return mun;
+        }
+        zz();
+        console.log(mun);
+        console.log(zz());
+        /* 这两者不起冲突 ，因为一个是局部一个是全局 */
+    </script>
+</body>
+
+</html>

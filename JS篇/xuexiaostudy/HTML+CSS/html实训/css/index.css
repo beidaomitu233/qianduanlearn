@@ -1,0 +1,303 @@
+html {
+    width: 100%;
+}
+
+body {
+    width: 100%;
+}
+
+.app {
+    width: 100%;
+}
+
+/* 头部导航栏部分 */
+.header-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 73px;
+    z-index: 999;
+    opacity: 0.6;
+    border-radius: 15px;
+    background-color: aqua;
+    transition: all .15s linear;
+}
+
+.nav-container {
+    width: 900px;
+    margin: 0 auto;
+}
+
+
+.header-container:hover {
+    height: 93px;
+    opacity: 0.9;
+    background-color: black;
+}
+
+.nav-lis li a {
+    color: #3e4346;
+    font-size: 20px
+}
+
+.header-container:hover .nav-lis li a {
+    color: aqua;
+    font-size: 20px
+}
+
+.nav-lis {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.nav-lis li {
+    flex: 1;
+    font-size: 14px;
+    line-height: 70px;
+}
+
+/* 导航栏中的logo */
+
+.logo img {
+    height: 70px;
+}
+
+/* banner部分 */
+
+.banner-container {
+    margin: 0 auto;
+    width: 1620px;
+    height: 600px;
+    position: relative;
+
+}
+
+
+/* banner的切换按钮 */
+.banner-button {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    bottom: 0;
+    left: 44%;
+    width: 130px;
+    height: 25px;
+}
+
+.banner-button li {
+    width: 30px;
+    height: 100%;
+    line-height: 20px;
+    background-color: orange;
+
+}
+
+/* 细节新闻部分 */
+.detl-container {
+    margin: 0 auto;
+    padding-top: 35px;
+    width: 1519px;
+    height: 500px;
+    background-color: rgb(243, 242, 242);
+
+}
+
+.del-new-cont {
+    display: flex;
+    justify-content: center;
+    width: 1370px;
+    margin: 0 auto;
+
+}
+
+.tittlee {
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+
+.bottom-border {
+    border-bottom: 3px red solid;
+}
+
+
+.detl-new1 {
+    flex: 1;
+    height: 350px;
+}
+
+.detl-new2 {
+    flex: 1;
+}
+
+.martop {
+    margin-top: 14px;
+}
+
+.floatleft ul li {
+    float: left;
+}
+
+.detl-new2 li {
+    float: right;
+    margin-left: 33px;
+    padding: 50px;
+    width: 302px;
+    height: 168px;
+    opacity: 0.8;
+    border-bottom: rgb(248, 8, 8) 4px solid;
+    background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+    transition: all .6s linear;
+}
+
+.detl-new2 li:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transform: translate3d(0, -6px, 0);
+}
+
+/* 翻转flex  */
+.reserv {
+    flex-direction: row-reverse;
+}
+
+/* 专题网站模块 */
+.Topics-container {
+    margin: 0 auto;
+    width: 1519px;
+    height: 640px;
+    padding: 15px;
+
+}
+
+.Topics-divs {
+    margin: 0 auto;
+    width: 1370px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.topice-item {
+    flex: 1;
+    position: relative;
+    padding: 20px;
+    height: 600px;
+    transition: all 0.2s linear 0s;
+
+}
+
+.topice-item:nth-of-type(even) {
+    background: url(../img/topic1.jpg) 600px;
+}
+
+.topice-item:nth-of-type(odd) {
+    background: url(../img/topic2.jpg) 600px;
+}
+
+.topice-item:first-child {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    background-image: none;
+}
+
+.topice-item:first-child .wenzi {
+    color: #333;
+    font-size: 44px;
+}
+
+.topice-item:hover {
+    z-index: 2;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transform: translate3d(0, -2px, 0);
+}
+
+.wenzi {
+    width: 28px;
+    height: 100%;
+    font-size: 24px;
+    /* 强行让数字换行 */
+    word-wrap: break-word;
+}
+
+.wenzi2 {
+    position: absolute;
+    width: 24px;
+    right: 20px;
+    bottom: 20px;
+}
+
+/* 学校风景展示区 */
+
+.maximg {
+    width: 100%;
+    height: 100%;
+}
+
+.map-container {
+    margin: 0 auto;
+    width: 1519px;
+    height: 500px;
+    background-color: whitesmoke;
+}
+
+.detl-map li {
+    position: relative;
+    float: left;
+    margin-left: 10px;
+    margin-top: 12px;
+    width: 302px;
+    height: 161px;
+    background-color: #3e4346;
+    border-bottom: rgb(42, 181, 223) 4px solid;
+}
+
+.detl-map ul {
+    display: flex;
+    justify-content: center;
+}
+
+.imgfont {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 24px;
+    z-index: 8;
+    background-color: #3e4346;
+    opacity: 0.7;
+    transition: all .15s linear;
+}
+
+.detl-map li:hover .imgfont {
+    border-radius: 5px;
+    line-height: 160px;
+    width: 300px;
+    height: 160px;
+    background-color: #26a8e4;
+    opacity: 0.8;
+
+}
+
+/* 网站底部 */
+/* 共享的网站底部 */
+
+.fooder-container {
+    margin: 0 auto;
+    margin-top: 60px;
+    width: 1519px;
+    height: 70px;
+    border-radius: 15px;
+    background-image: linear-gradient(to right, rgb(147, 88, 215), rgb(208, 30, 173))
+}
+
+.foooder-nav {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.fooder-lis {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    line-height: 30px;
+    border-radius: 15px;
+}

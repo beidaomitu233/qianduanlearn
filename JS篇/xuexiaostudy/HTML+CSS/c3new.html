@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3新特性</title>
+    <link rel="stylesheet" href="css/chushi.css">
+
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .domebox1 {
+            background-color: aqua;
+            width: 270px;
+            height: 400px;
+            transform: translate(50px, 50px);
+        }
+
+        .dom2 {
+            width: 410px;
+            height: 400px;
+            background-image: url(./img/mix4.webp);
+            border-radius: 50%;
+            border: cornflowerblue 5px solid;
+            transition: all 3s ease;
+            /* 这里的百分比是基于自身的宽高的50% 向x和y轴移动距离，前面是x轴*/
+
+
+
+        }
+
+        /* 2D效果 */
+        /* rotate是旋转属性。可以开发很多有趣的玩法 */
+        /*transform-origin是旋转中心点 ，值可以是（x y） 也可以是方位名词 top等等*/
+        /* scale是缩放属性s 会进行缩放  */
+        /* transform:scale: (2,2)宽高 里面的数字单位是倍数，如果要缩就写比零小的数; */
+        /* 相对之前的hovre，scale的缩放不会影响其他的盒子，而且还可以设置缩放的中心点 */
+        /*  css新特性 
+             transform: 优点是移动自身位置的时候不会影响其他盒子，就像小米官网一方鼠标上去就会往前的那种效果; 
+           盒子移动有三种方法 定位 内外边距 还有tra（转换类似于定位）
+            对行内标签没作用  */
+
+
+
+
+        .dom2:hover {
+            /* 这个是旋转的角度 可以是正也可以是负 */
+            transform: rotate(1004deg);
+        }
+
+        .dome3 {
+            margin: -500px auto;
+            width: 255px;
+            height: 42px;
+            border: springgreen 2px solid;
+            position: relative;
+        }
+
+        /* 可以实现下划栏的小三角旋转 */
+
+        /* 制作小三角，背景色的透明给两条边框，然后旋转 */
+        .dome3::after {
+
+            content: "";
+            /* 伪元素是行内元素 */
+            display: block;
+            transform: rotate(45deg);
+            position: absolute;
+            right: 10px;
+            top: 12px;
+            width: 8px;
+            height: 8px;
+            color: beige;
+            border-right: beige 2px solid;
+            border-bottom: beige 2px solid;
+            transition: all 0.15s ease;
+        }
+
+        /* 思路，鼠标放到div上里面的小三角转角度 */
+        .dome3:hover::after {
+            width: 14px;
+            height: 14px;
+            border-right: rgb(0, 183, 255) 2px solid;
+            border-bottom: rgb(0, 17, 255) 2px solid;
+            transform: rotate(225deg);
+        }
+
+        .dome4 {
+            margin: 600px auto;
+            width: 200px;
+            height: 200px;
+            border: 2px solid red;
+            border-radius: 8px;
+
+            /* 隐藏before */
+            overflow: hidden;
+        }
+
+        /* 只能用before */
+        .dome4::before {
+            content: "日出";
+            display: block;
+            width: 200px;
+            height: 200px;
+            background-color: springgreen;
+            transform: rotate(180deg);
+            transform-origin: left bottom;
+            transition: all 0.2s ease;
+        }
+
+        .dome4:hover::before {
+            transform: rotate(0deg);
+        }
+
+        /* scale练习 */
+
+        /* 实现在固定盒子内图片放大的的效果 */
+        .dome5 {
+            width: 320px;
+            height: 400px;
+            margin: 500px auto;
+            /* 这样图片放大盖过盒子的就会被隐藏，视觉上是放大效果 */
+            overflow: hidden;
+        }
+
+        .dome5 img {
+            transition: all 0.2s ease;
+        }
+
+        .dome5 img:hover {
+            transform: scale(2, 2);
+        }
+
+        .dome6 li {
+            width: 50px;
+            height: 50px;
+            border: hotpink 2px solid;
+            /* 可以变成一个圆 */
+            border-radius: 50%;
+            float: left;
+            list-style: none;
+            transition: all 0.2s ease;
+            margin-left: 15px;
+            color: #f7f7f7;
+            line-height: 50px;
+            text-align: center;
+        }
+
+
+        .dome6 li:hover {
+            /* 只写一个数的时候就宽高放大这个数 */
+            transform: scale(1.5);
+        }
+
+
+        /* transform复合写法 */
+        .dome7 {
+            background-color: hotpink;
+            width: 250px;
+            height: 250px;
+            float: left;
+            /* overflow: hidden; */
+        }
+
+        .dome7 img {
+            transition: all 0.2s ease;
+        }
+
+        /* 先写位移的属性 */
+        .dome7 img:hover {
+            transform: translate(120px, 120px) rotate(180deg);
+        }
+
+        /* scale(2) */
+
+        /* 3D效果 可以实现更多复杂的效果和变化，更多的控制，包括控制等 */
+        /* 做动画之前先分析动画完成需要几个步骤然后再给相应的百分比 */
+        @keyframes move {
+
+            /* 开始状态 */
+            0% {
+                transform: translate(0px);
+            }
+
+            /* 结束状态 */
+            100% {
+                transform: translate(1500px, -1800px);
+            }
+        }
+
+        .dome8 {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            transform: translate(50px);
+            /* 调用名称 */
+            animation-name: move;
+            /* 持续时间 */
+            animation-duration: 2s;
+            /* 结束停留位置 */
+            animation-fill-mode: forwards;
+
+        }
+
+        .dome8:hover {
+            /* 鼠标放上去的状态 暂停*/
+            animation-play-state: paused;
+        }
+
+        @keyframes loor {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(1200px, 0);
+            }
+
+            50% {
+                transform: translate(1200px, 800px);
+            }
+
+            75% {
+                transform: translate(0, 800px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        .dome9 {
+            margin-top: -1500px;
+            width: 200px;
+            height: 200px;
+            background-color: cornflowerblue;
+            /* 调用名称 */
+            animation-name: loor;
+            /* 持续时间 */
+            animation-duration: 2s;
+            /* 运动方式 liner是匀速  steps是步，值是步数，完成的步数  */
+            /* 可以实现一些打字效果 用overfolw hidden 和一行显示实现 */
+            animation-timing-function: steps(10);
+            /* 开始时间 */
+            animation-delay: 1s;
+            /* 重复次数 iteration重复 数量 可以写无线 */
+            animation-iteration-count: 3;
+            /* 倒叙播放，结束后倒着回来 ，需要多次循环配合才能实现*/
+            /* 默认是normal，alternate是倒 */
+            animation-direction: alternate;
+
+            /* 结束后的状态2可以停在结束的地方，也可以回到起点，默认是回到起点backwards   停在终点forwards*/
+            /* animation-fill-mode: backwards; */
+
+            /* 运动停止，鼠标放上去就停止 默认是runing运动 暂停是paused*/
+            /* 需要再hover里 */
+            /* animation-play-state: paused; */
+            /* 自动提示的格式，就是按照这个顺序来写 前面两个肯定要写 */
+            animation: name duration timing-function delay iteration-count direction fill-mode;
+        }
+
+        .dome9:hover {
+            animation-play-state: paused;
+        }
+
+        /* 3D移动 */
+
+        .dome00 {
+            /* XYZ轴  Z轴一般用像素表示 就算xy没有也要写0 */
+            transform: translate3d(100px, 100px, 100px);
+        }
+
+        /* 透视 */
+    </style>
+</head>
+
+<body>
+    <!-- tr定位效果 -->
+    <div class="domebox1"></div>
+
+    <!-- 旋转效果 -->
+    <div class="dom2"></div>
+
+    <!-- 旋转小三角效果 -->
+    <div class="dome3"></div>
+
+    <!-- 2d翻转效果 -->
+    <div class="dome4">321231</div>
+
+    <!-- 2D图片缩放效果 -->
+    <div class="dome5"><img src="./img/mix4.webp" alt=""></div>
+
+    <!-- 2D缩放效果 -->
+    <div class="dome6">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </div>
+
+    <!-- 2D效果复合写法 -->
+    <div class="dome7"><img src="./img/mix4.webp" alt=""></div>
+
+
+    <!-- 3D动画效果 -->
+    <div class="dome8"></div>
+
+    <!-- 3D绕圈 -->
+    <div class="dome9"></div>
+</body>
+
+</html>

@@ -1,0 +1,258 @@
+/* 以后直接做版型，而不是用继承的方式，做好版型在调用 */
+.w {
+    width: 1200px;
+    margin: 15px auto;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+
+}
+
+body {
+    background-color: dimgray;
+}
+
+/* part header */
+
+.header {
+    height: 42px;
+    /* 覆盖继承 */
+    margin: 30px auto;
+    background-color: f3f5f7;
+}
+
+.logo {
+    float: left;
+    width: 198px;
+    height: 42px;
+    background-color: floralwhite;
+}
+
+.nav {
+    float: left;
+    margin-left: 60px;
+
+}
+
+/* 当需要给文字链接间隔是给li是最好的 */
+.nav ul li {
+    float: left;
+    margin: 0px 15px;
+
+}
+
+.nav li a {
+    display: block;
+    height: 42px;
+    /*不限宽度 用padding而不用mar的原因是，
+    盒子内的内容有多少就向外扩充多少 */
+    padding: 0 10px;
+    /* 用行高使得文字居中 */
+    line-height: 42px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nav li a:hover {
+    border-bottom: 2px solid #00a4ff;
+    color: cornflowerblue;
+}
+
+/* part search */
+.search {
+    float: left;
+    margin-left: 50px;
+    width: 412px;
+    height: 42px;
+    background-color: skyblue;
+}
+
+.search input {
+    float: left;
+    width: 360px;
+    height: 40px;
+    border: 1px solid skyblue;
+    border-right: none;
+}
+
+.search button {
+    float: left;
+    width: 51px;
+    height: 42px;
+    background-color: skyblue;
+    border: none;
+
+}
+
+/* part user */
+.user {
+    float: right;
+    margin-right: 50px;
+}
+
+.user img {
+    float: right;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+}
+
+.user p {
+    float: right;
+    line-height: 42px;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* bannner */
+.banner {
+    margin-top: 15px;
+    background: url(../img/banner1.png);
+    height: 425px;
+    margin: 15px auto;
+}
+
+.subnav {
+    width: 190px;
+    height: 420px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+.subnav a {
+    /* display: inherit; */
+    /* float: left; */
+    color: seashell;
+    font-size: 14px;
+    line-height: 45px;
+    height: 45px;
+}
+
+.subnav li {
+    padding: 0px 20px;
+}
+
+.subnav li a:hover {
+    color: skyblue;
+}
+
+.subnav li a span {
+    float: right;
+}
+
+.course {
+    float: right;
+    width: 230px;
+    height: 300px;
+    background-color: #c5aaa6;
+    margin-top: 50px;
+
+}
+
+.course .box1 {
+    /* float: right; */
+    height: 48px;
+    background-color: skyblue;
+    line-height: 48px;
+    text-align: center;
+    color: white;
+}
+
+.course li {
+    margin: 20px 10px;
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.course h6 {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.course .more {
+    display: block;
+    height: 40px;
+    width: 200px;
+    background-color: white;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid skyblue;
+    margin-left: 16px;
+
+}
+
+/* goods */
+.gs {
+    height: 50px;
+    background-color: #fff;
+    margin-top: 10px;
+    margin: 10px auto;
+    box-shadow: 0 2 3 3 rgba(0, 0, 0, 0.1);
+}
+
+.gs p {
+    float: left;
+    line-height: 50px;
+    color: skyblue;
+    padding: 0 39px;
+
+}
+
+.gs a {
+    line-height: 50px;
+    padding: 0 39px;
+    border-left: 1px solid black;
+}
+
+.gs ul li {
+    float: left;
+
+
+}
+
+.gs .itm {
+
+    float: right;
+}
+
+.gs .itm a {
+    color: skyblue;
+}
+
+/* 核心部分 */
+.box {
+    margin-top: 40px;
+}
+
+.box-hd {
+    height: 35px;
+}
+
+.box-hd h3 {
+    float: left;
+}
+
+.box-hd a {
+    float: right;
+    color: cornflowerblue;
+
+}
+
+.box-bd li {
+    float: left;
+    width: 230px;
+    height: 270px;
+    background-color: crimson;
+    margin-right: 10px;
+    margin-top: 10px;
+}

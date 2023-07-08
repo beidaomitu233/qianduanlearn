@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const obj = {
+            name: "John",
+            age: 30,
+            city: "New York"
+        }
+        const key = Object.keys(obj)
+        const value = Object.values(obj)
+        console.log(key, value);
+        const obj2 = {}
+        Object.assign(obj2, obj)
+        console.log(obj2);
+
+        Object.assign(obj, {
+            con: "22111"
+        })
+        console.log(obj);
+
+        
+    </script>
+
+</body>
+
+</html>

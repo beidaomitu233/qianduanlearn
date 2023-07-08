@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>dasdas </div>
+
+    <script>
+        let div = document.querySelector('div')
+        //检测当前窗口变化
+        window.addEventListener('resize', function () {
+            console.log('窗口变化了');
+
+            //检测当前窗口的宽度，常用于做响应式布局
+            console.log(innerWidth) /* window.innerWidth */
+            console.log(innerHeight);
+
+            if (innerWidth <= 900) {
+                console.log('xiaoyu800le ');
+                div.style.display = 'none'
+            } else {
+                div.style.display = 'block'
+            }
+        })
+    </script>
+</body>
+
+</html>

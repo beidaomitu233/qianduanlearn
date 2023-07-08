@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 在低版本的ie浏览器中输入ajax数据时，会输出之前的缓存，解释修改服务器端还是没法 ，输出新的数据，
+解决方案：在求请求后面加上一个函数，并且让函数值每次请求都不一样所以就不会沿用之前的缓存了 */
+        //方法二 给他添加时间戳
+        ajaa.open('get', 'http://localhost:3000/first?t=' + Math.random())
+        /*  ajaa.open('get', 'http://localhost:3000/first?t=' + Data.now) */
+    </script>
+
+
+
+</body>
+
+</html>

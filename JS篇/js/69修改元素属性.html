@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 实现点击按钮切换图片 并修改标题 -->
+
+    <button class="fengjing1">风景1</button>
+    <button class="fengjing2">风景2</button>
+    <img src="../img/Snipaste_2021-11-04_18-16-56.png" alt="">
+
+    <!-- 修改属性的时候  绑定名称.属性值   修改文字的时候  绑定名称.innerHTML   -->
+
+    <script>
+        //不仅能修改元素的内容 还能修改元素的属性 比如scr alt href id title
+        let anniu1 = document.querySelector('.fengjing1')
+        let anniu2 = document.querySelector('.fengjing2')
+        let tupian = document.querySelector('img')
+
+        anniu1.onclick = function () {
+            tupian.src = '../img/Snipaste_2021-11-02_22-52-50.png'
+            tupian.title = '11.2学习记录'
+        }
+        anniu2.onclick = function () {
+            tupian.src = '../img/Snipaste_2021-11-03_23-32-18.png'
+            tupian.title = '11.3学习记录'
+        }
+    </script>
+
+</body>
+
+</html>

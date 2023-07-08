@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        var item = [{
+                id: 1,
+                name: "苹果",
+                status: true,
+                count: 3,
+                price: 20,
+            }, {
+                id: 2,
+                name: "青苹果",
+                status: true,
+                count: 3,
+                price: 27,
+            },
+            {
+                id: 3,
+                name: "青葡萄",
+                status: true,
+                count: 3,
+                price: 30,
+            },
+
+        ]
+
+        /* 过滤并累加  arr.filter(item=>item.state).reduce(累加的结果，当前循环项)=>(，初始值)*/
+        /* reduce会循环前面过滤完的数组，然后将符合条件的数组进行累加，初始值是0 */
+        item.filter(arr => arr.status).reduce((allcount, arr) => {
+            //用return来实现循环
+            return allcount += arr.price * arr.count
+
+        }, 0)
+    </script>
+
+</body>
+
+</html>

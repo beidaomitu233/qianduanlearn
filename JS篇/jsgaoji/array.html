@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p></p>
+
+    <script>
+        const arr = [1, 2, 3, 4]
+        //使用reduce方法对数组进行累加.
+        const sum = arr.reduce((pre, cur) => {
+            return pre + cur
+        })
+        //分有两种情况一种是有初始值时，一种是无初始值
+        //arr.reduce(function (上一次值， 当前值){} 始值)
+        //有初始值时,会把初始值当作第一次的上次值。默认是0
+        const total = arr.reduce(function (perv, cur) {
+            return perv + cur
+        }, 2)
+        console.log(total);
+
+
+        //将字符串拆分转化为添加html标签并插入到网页中。
+        //思路就是将字符串拆分转化为数组然后通过数组方法map字符进行加工处理，然后再转化为模板字符串返回，最终用join转回字符串的格式
+        const gift = '茶叶, 沐浴露, 洗发水';
+        //首先需要将字符串拆分，规律是 ` ,  ` 使用split()返回值是数组。然后需要将返回的数组进行加工可以使用map，因为需要返回值
+        const gifts = gift.split(',').map((item) => {
+            return `<p>【赠品】${item}</p>` //返回的是字符串在数组里。
+        }).join('') //将数组转化为字符串
+        console.log(gift.split(','));
+        console.log(gift.split(',').map((item) => {
+            return `<p>【赠品】${item}</p>` //返回的是字符串在数组里。
+        }));
+
+        document.querySelector('p').innerHTML = gifts
+    </script>
+
+</body>
+
+</html>

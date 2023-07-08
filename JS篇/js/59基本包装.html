@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 返回值是字符串的字符数 */
+        var strr = 'anybody'
+        /* 对象才有属性和方法  
+        复杂的数据类型才有这些
+        可是这个也有  因为内部进行了一次包装 
+        
+        把这里简单的数据类型包装成复杂的数据类型
+        过程：
+        新建一个临时变量把简单类型包装成复杂类型
+        var temp =new string('anybody')
+        把临时变量给str
+        str=temp
+        销毁临时变量
+        temp=null
+
+        这里是string 是一种引用类型 ，还有两种是 Number BOOlean 这就是为什么可以对数组直接用length了
+        */
+        console.log(strr.length);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 案例 */
+        var input1 = prompt('请输入出生年份')
+        //写法一
+        alert('2021' - input1)
+        /* 最好是用下面这种方法 ，不要把算式卸载alert里面 */
+        var UserAge = 2021 - input1
+        alert('你的年龄是' + UserAge + '岁')
+
+        /* 加法器  弹出两次 每次输入数字相加*/
+        var mub1 = prompt('输入的第一个数字')
+        var mub2 = prompt('输入的第二个数字')
+        var plus = parseFloat(mub2) + parseFloat(mub1);
+        alert('结果是' + plus)
+
+        /* 案例二 */
+        var Useraage = prompt('年龄');
+        var Username = prompt('姓名');
+        var habit = prompt('爱好');
+        alert('年龄是' + Useraage +
+            '\n' +
+            '用户名' + Username +
+            '\n' +
+            '爱好' + habit);
+
+
+
+        /* 转化为数字型 */
+    </script>
+</body>
+
+</html>

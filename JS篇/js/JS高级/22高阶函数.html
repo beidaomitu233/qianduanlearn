@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //之前的回调函数就是高阶函数
+      //是对其他函数进行操作的函数，它接收的函数作为参数，或者是将函数作为返回值输出
+      //传递进来的不是简单的字符串或者数字，而是一个函数方法等
+      function fn(a) {
+        //返回的值是函数这些
+        return function () {}
+      }
+      fn(alert('asd'))
+    </script>
+  </body>
+</html>

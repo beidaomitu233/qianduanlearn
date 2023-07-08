@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 实现按下enter键（获取按下的键   就会把鼠标光标（聚焦给搜索框）定在搜索框 -->
+    <!-- 两部 获取按下的键 ，把光标给搜索框 -->
+
+    <input type="text" placeholder="按下回车可转到输入">
+    <script>
+        let search = document.querySelector('input')
+
+        //获取用户按下的键
+        document.addEventListener('keydown', function (e) {
+            console.log(e.key);
+            if (e.key == 'Enter') {
+                //注意获得光标是这么写的
+                search.focus();
+            }
+        })
+    </script>
+</body>
+
+</html>

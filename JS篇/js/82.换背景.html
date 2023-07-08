@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img {
+            width: 150px;
+            height: 110px;
+
+
+        }
+
+        li {
+            border: paleturquoise 2px solid;
+            float: left;
+            list-style: none;
+        }
+
+        .wo {
+            margin: 100px 250px;
+
+        }
+
+        body {
+            background-image: url(../img/Snipaste_2021-11-02_22-52-50.png);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <ul class="wo">
+        <li><img src="../img/Snipaste_2021-11-02_22-52-50.png" alt=""></li>
+        <li><img src="../img/Snipaste_2021-11-04_17-31-38.png" alt=""></li>
+        <li><img src="../img/Snipaste_2021-11-06_15-33-01.png" alt=""></li>
+        <li><img src="../img/Snipaste_2021-11-06_15-40-21.png" alt=""></li>
+    </ul>
+
+    <!-- 实现点击图片就会换成当前背景 -->
+
+    <script>
+        /* 写法一 */
+        let tupian = document.querySelectorAll('.wo img')
+
+        /* 写法2 */
+        let tupian2 = document.querySelector('.wo').querySelectorAll('img')
+
+        /*  console.log(tupian2); */
+
+
+        /* 利用循环一键绑定事件 */
+        for (let i = 0; i < tupian.length; i++)
+            tupian[i].onclick = function () {
+
+                /* this.src 获取当前点击图片的src  */
+                console.log(this.src);
+                document.body.style.backgroundImage = 'url(' + this.src + ')'
+            }
+    </script>
+
+
+</body>
+
+</html>

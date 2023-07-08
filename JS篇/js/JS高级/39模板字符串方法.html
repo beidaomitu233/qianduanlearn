@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //声明字符串的新方法  模板字符串 ，用的是反引号，tab上面 可以直接在字符串中拼接上其他变量
+    //并且给以给内容换行，普通字符串难以表示大量的文字，不能换行
+    //还能调用函数,
+    let arr4 = [123, 1, 1, 23, 5, {
+      id: 6
+    }]
+    let namee = `辉辉`
+    let sey = `welcome,${namee}`
+    console.log(sey)
+    let waib1i = ` 
+        个人信息 
+        姓名:${namee}
+        say:${sey}
+        方法:${arr4[5].id}
+        ` //也可以调用数组中的属性
+    console.log(waib1i)
+
+
+
+    //调用函数
+    const fn = () => {
+      return 'weqeqwe'
+    }
+    let hanshu = `模板字符串调用函数${fn()}`
+    console.log(hanshu)
+
+    //检测字符串是否存在原字符串的头部或者尾部，返回的是布尔值3
+    //startsWith(); endsWith();
+    let worldrrr = 'helloqqqq world'
+    console.log(worldrrr.startsWith('hello'))
+    console.log(worldrrr.endsWith('hello'))
+
+    //重复
+    console.log('asd'.repeat(5))
+  </script>
+</body>
+
+</html>

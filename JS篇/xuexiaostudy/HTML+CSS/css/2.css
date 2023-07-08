@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+.kp {
+    width: 500px;
+    height: 600px;
+    /* border: skyblue;
+    border-width: 10px;
+    border-style: solid; */
+    /* 复合写法  无顺序 程序从上往下执行，所以把特地的放在下面*/
+
+    border: 8px solid skyblue;
+    border-top: 5px solid red;
+}
+
+.lpo {
+    background-color: skyblue;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+}

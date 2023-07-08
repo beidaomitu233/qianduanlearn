@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class star {}
+      console.log(typeof star);
+      //类的本质还是一个函数。
+      //可以简单的认为类 是另一种构造函数的写法，并且类实现起来更加的简单 ，原理相似，都有原型对象 等
+      //这种更简单的方式称为语法糖 ，更清晰 更面向对象
+      //类的方法都定义在prototype属性上
+
+      function bz() {
+        console.log(213);
+      }
+
+      let bzz = new bz();
+    </script>
+  </body>
+</html>

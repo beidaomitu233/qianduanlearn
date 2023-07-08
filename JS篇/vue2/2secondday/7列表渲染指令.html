@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../../bootstrap4/bootstrap-4.6.1-dist/css/bootstrap.css">
+</head>
+
+<body>
+  <!-- 用vue控制这个元素，并把数据填充到里面 -->
+  <div id="app">
+    <table class="table table-bordered table-hover table-striped">
+      <thead>
+        <th>索引号</th>
+        <th>ID</th>
+        <th>名字</th>
+      </thead>
+      <tbody>
+        <!-- xxx in ooo 
+                    名字可以自定义 list 是数组的名字，
+                    item是接收过来的变量名
+                    ，但推荐用这个 -->
+        <tr v-for="item in list" :title="item.name" :key="item.id">
+          <td>0</td>
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+
+          <!-- 可选参数 索引号 -->
+        <tr v-for="(item,index) in list">
+          <td>{{index}}</td>
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+  </div>
+
+  <!-- 导入vue文件 ，在window全局下就有了vue这个构造函数 -->
+  <script src="./vue.js"></script>
+  <!-- 创建vue实例对象 -->
+  <script>
+    const vm = new Vue({
+      /* el是固定的写法，表示当前vm实例要控制页面上的哪个区域，接受指是一个选择器 */
+      el: '#app',
+      //data对象表示要渲染到页面上的数据
+      data: {
+        list: [{
+          id: 1,
+          name: '张三 '
+        }, {
+          id: 2,
+          name: '李四 '
+        }, {
+          id: 3,
+          name: '王五 '
+        }]
+
+      }
+
+    })
+  </script>
+</body>
+
+</html>

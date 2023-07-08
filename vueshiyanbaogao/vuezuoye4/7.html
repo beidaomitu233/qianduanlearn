@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Custom Component Example</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <text-enlarger @enlarge="enlargeText"></text-enlarger>
+        <p :style="{ fontSize: fontSize + 'px' }">文字文字文字文字</p>
+    </div>
+
+    <hr>
+    <p>21401070209 程崟</p>
+    <script>
+        Vue.component('text-enlarger', {
+            template: `
+                <button @click="emitEnlarge">增大字体</button>
+            `,
+            methods: {
+                emitEnlarge() {
+                    this.$emit('enlarge');
+                }
+            }
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                fontSize: 16
+            },
+            methods: {
+                enlargeText() {
+                    this.fontSize += 2;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

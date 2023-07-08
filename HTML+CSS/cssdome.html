@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>奔跑熊演示</title>
+    <link rel="stylesheet" href="css/chushi.css" />
+    <style>
+      .dome1 {
+        position: absolute;
+        /* 实现连切图效果 也可以实现奔跑效果 */
+        /* 这里的宽是一个画面的宽，然后用像精灵图里面的移动一样，让背景向左啦 */
+        width: 90px;
+        height: 90px;
+        background: url(./img/benpao.png) no-repeat;
+        /* 可以添加多个动画 用逗号隔开 */
+        animation: run 1s steps(5) infinite, move 2s forwards;
+        /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+      }
+
+      /* 让背景移动实现跑的效果 */
+      @keyframes run {
+        0% {
+          background-position: 0 0;
+        }
+
+        100% {
+          background-position: -500px 0;
+        }
+      }
+
+      /* 让整个图移动实现图跑再移动又会动 */
+      @keyframes move {
+        /* 这里的效果能实现是因为用绝对定位把整个盒子都移到中间 */
+        0% {
+          left: 0;
+        }
+
+        100% {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="dome1"></div>
+  </body>
+</html>

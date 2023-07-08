@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 构造函数里的this指向的是实例对象里面接收者 */
+      /* 原型对象里的this指向的也是实例对象接受者， */
+      /* this指向是调用者 */
+      function stz(un) {
+        this.un = un;
+      }
+      //this 实际指向的是bz实例化对象
+      let bz = new stz(16);
+      console.log();
+    </script>
+  </body>
+</html>
