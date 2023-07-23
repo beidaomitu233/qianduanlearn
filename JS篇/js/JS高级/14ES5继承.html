@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>点击</button>
+    <script>
+      //改变this指向 js又三种方法  利用call() apply() bind()   call用于继承 apply用于传递数组类的参数 bind用不调用于修改this指向
+      //call方法  有两个作用 调用函数 改变this指向
+      function btn(x, y) {
+        console.log(23);
+        //未修改前指向windo
+        console.log(this);
+        console.log(x + y);
+      }
+      let z = {
+        name: "az",
+      };
+      //把 this 指向 z  ，并能传递参数 语法：.call(thistarge，传参1，传参2)
+      btn.call(z, 1, 6);
+
+      //只需要了解就行 es5的继承利用call调用并把this指向子类中 来实现继承
+
+      //这里只继承了属性
+      function father(uessz, agee) {
+        this.usee = uessz;
+        this.agee = agee;
+      }
+      father.prototype.exz = function () {
+        console.log(1);
+      };
+      function sonn(uessz, agee, score) {
+        //修改this指向后才能用父级属性
+        father.call(this, uessz, agee, score);
+        this.score = score;
+      }
+
+      //这里继承方法,原理是把方法写到pro对象里再让子类的pro等于父级实例化整个对象，这样原型对象和实例对象里面的数据不冲突，
+      sonn.prototype = new father();
+      sonn.prototype.constructor = sonn;
+
+      let bzz = new sonn("bazz", 18, 100);
+      console.log(bzz);
+      console.log(sonn.prototype.exz);
+      console.log(sonn.prototype);
+
+      //apply() 方法 作用也是调用函数和改变this指向
+      // 调用函数时传递方式必须是数组（伪数组
+      let o = {};
+      //
+      btn.apply(o, [1, 2]);
+      //主要英语 利用apply调用数学内置对象求最值 Math.max
+      let arra = [12, 4, 2, 45];
+      //调用内置的数学方法   并且把指向指回调用者
+      let max = Math.max.apply(Math, arra);
+
+      //bind();最常用，只会改变this指向，不会调用，并且会返回一个只改变this的原函数
+      let bbind = btn.bind(z, 1, 3);
+
+      //点击按钮后禁用三秒后解开，这个是最优写法
+      let bttn = document.querySelector("button");
+      bttn.addEventListener("click", function () {
+        this.disabled = true;
+        setTimeout(
+          function () {
+            this.disabled = false;
+            //修改了这个定时器的this指向，指向按钮，并且是自适应更改
+          }.bind(this),
+          3000
+        );
+      });
+    </script>
+  </body>
+</html>

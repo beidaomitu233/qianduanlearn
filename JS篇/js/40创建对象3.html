@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 第三种方法 构造函数 -->
+    <!-- 之前的方式一次只能创建一个对象 -->
+    <!-- 构造函数：把相同的属性和方法拿出来封装成函数，
+        可以提高代码的复用率  -->
+    <!-- 它封装的是对象 不是普通代码 -->
+    <script>
+        /*  构造函数的语法格式 */
+        /*    functiond 函数名(形参1，形参2){
+            this.属性(名字)=值
+            this.方法=functiond(){
+
+            }
+        }
+        new 函数名(值1，值2，值3)
+        
+         */
+        /* 构造函数名首字母要大写 */
+        function Tstr(Username, Age, Work) {
+            this.Username1 = Username;
+            this.Age1 = Age;
+            this.Work1 = Work;
+            this.fangfa = function (aao) {
+                console.log(aao);
+            }
+            /* 这里可以不写return */
+        }
+
+        var xinxi = new Tstr('辉辉', 18, 'famm');
+        /* 返回来的是一个对象 */
+        console.log(xinxi);
+
+        console.log(xinxi.Username1);
+        console.log(xinxi['Work1']);
+        xinxi.fangfa('辉辉i');
+
+        /* 优点就是可以重复使用 ,就是用new Tstr 就能让函数又复制一遍 ，并附上这次的值*/
+        var hui = new Tstr('光军', 19, '帅')
+        console.log(hui.Username1)
+
+
+
+            class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            sayHello() {
+                console.log(`Hello, my name is ${this.name}, and I am ${this.age} years old.`);
+            }
+        }
+
+        let alice = new Person('Alice', 25);
+        let bob = new Person('Bob', 30);
+
+        alice.sayHello(); // 输出 'Hello, my name is Alice, and I am 25 years old.'
+        bob.sayHello(); // 输出 'Hello, my name is Bob, and I am 30 years old.'
+
+    </script>
+
+    <!-- new关键字执行过程
+1.new构造函数创建一个空的对象 
+2.this会指向刚才的空对象
+3执行构造函数里面的代码，添加属性和方法
+4返回对象 因为有这个属性可以不用谢returen -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令示例</title>
+    <script src="../vue.js"></script>
+    <style>
+        .box1 {
+            width: 400px;
+            height: 400px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo" class="box1" v-yellow>黄色</div>
+    <hr>
+    <p>21401070209 程崟</p>
+
+    <script>
+        new Vue({
+            el: '#demo',
+            directives: {
+                'yellow': {
+                    bind: function (el) {
+                        el.style.backgroundColor = 'yellow';
+                    }
+                }
+
+            }
+
+        });
+    </script>
+</body>
+
+</html>

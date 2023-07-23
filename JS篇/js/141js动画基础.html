@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pp {
+            position: absolute;
+            left: 0;
+            height: 50px;
+            width: 50px;
+            background-color: aquamarine;
+        }
+
+        span {
+            position: absolute;
+            left: 0;
+            height: 50px;
+            width: 50px;
+            background-color: aquamarine;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="pp"></div>
+    <!--    <span></span> -->
+    <script>
+        //js动画的原理就是用定时器间隔一段时间改变一点（位置等）然后持续的改变实现连贯的动作，跟电影原理一样是一张一张照片快速放
+
+        let div = document.querySelector('.pp')
+        let span = document.querySelector('span')
+
+        /*       let sildleft = setInterval(function () {
+
+                  //加一个终止条件
+                  if (div.offsetLeft >= 1000) {
+                      clearInterval(sildleft);
+                  } else {
+                      div.style.left = div.offsetLeft + 1 + 'px'
+                  }
+              }, 0.006)
+
+
+              //封装成函数
+
+              function animate(obj, target) {
+                  let sildleft = setInterval(function () {
+
+                      //加一个终止条件
+                      if (obj.offsetLeft >= target) {
+                          clearInterval(sildleft);
+                      } else {
+                          obj.style.left = obj.offsetLeft + 1 + 'px'
+                      }
+                  }, 0.006)
+
+              }
+              animate(span, 120) */
+
+        //改进  , 这样可以区别命名 ，就可以变成对象中的一个属性span。xxx div.xxx
+        //第二个节省内存不用每次都开辟一个空间，只需要添加属性
+
+        /* let obj = {}; */
+
+        function animate(obj, target) {
+            clearInterval(obj.offsetLeft);
+            obj.sildleft = setInterval(function () {
+
+                //加一个终止条件
+                //一运行就清楚之前的定时器，避免连续触发事件导致多个定时器同时运行出现问题
+
+                if (obj.offsetLeft >= target) {
+                    clearInterval(obj.sildleft);
+                } else {
+
+                    obj.style.left = obj.offsetLeft + 1 + 'px'
+                }
+            }, 0.006)
+
+        }
+
+        //
+        div.addEventListener('click', function () {
+            animate(div, 200)
+        })
+    </script>
+</body>
+
+</html>

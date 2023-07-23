@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本指令的使用</title>
+    <!-- 引入vue2 -->
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+
+    <!-- vue的跟标签只能有一个 -->
+    <div id="app">
+
+        <!-- 内容渲染指令1 插值表达式 -->
+        <h2 style="text-align: center;">{{saying}}</h2>
+        <!--方法2  v-html ，可以插入html标签-->
+        <h2 style="text-align: center;" v-html="show_vhtml_effect">The original content will be overwritten</h2>
+
+
+        <!-- 动态标签解析 更改数据源会让内容更改是单向绑定-->
+        <input type="text" v-bin:placeholder="tips_username">
+        <br>
+        <br>
+        <br>
+        <!-- 事件绑定，触发事件后就会设定的对应的函数 ，事件有很多种-->
+        <button @click="show_userinfo">点击事件触发提示</button>
+        <br> <br>
+        <br>
+
+
+        <!-- 事件修饰符 ，修饰事件指令用的。主要用于阻止默认行为 -->
+        <div class="propo" style="border: 1px solid red;">
+            <button @click.stop="show_userinfo">点击事件触发提示1</button>
+            <button @click.stop="show_userinfo2">点击事件触发提示2</button>
+            <a href="https:hui7.fun" @click.prevent>跳转到 慧思智能官网</a>
+        </div>
+
+        <!-- 键盘事件 -->
+
+    </div>
+
+    <script>
+        //实例化vue,传入的是配置对象
+        const vue = new Vue({
+            //绑定跟标签，是一个属性。
+            el: "#app",
+
+            //数据源 data可以写成也推荐写成函数的形式的形式
+            data() {
+                return {
+                    saying: "hello world",
+                    show_vhtml_effect: "<em>effec of v-html</em>",
+                    tips_username: "请输入用户名",
+
+
+                }
+            },
+            methods: {
+                show_userinfo() {
+                    alert("你好，我是慧思智能管家")
+                },
+                show_userinfo2() {
+                    alert("你好，我是慧思智能管家2")
+                }
+            },
+
+        })
+    </script>
+</body>
+
+</html>

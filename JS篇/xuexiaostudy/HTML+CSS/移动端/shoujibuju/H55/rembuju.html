@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rem布局</title>
+
+    <!--rem是一个单位   
+    首先前面的em单位是根据自身文字大小来变化的大小
+   rem是相对于html这个元素的文字大小来变化
+   写布局的时候只用写一个标准的一个固定数字rem 
+   把宽高的单位设置rem即可
+后面只需要根据不同设备来改变html中的文字大小
+就能实现整体缩放的效果 ，实现网页的整体控制-->
+
+    <!-- 实际上rem是固定的大小布局，只是能在不同的分辨率下调整大小而已 -->
+
+    <!-- 用cssrem自动计算的时候，要根据布局大小去修改文字的像素大小在 插件设置里面
+    文字大小等于布局像素除去等分数 -->
+    <!-- 用cssrem就可以直接在css里面写 -->
+    <!-- 媒体查询 -->
+    <!-- 就是实现检测不同设备的操作 从而修改html的文字大小 -->
+    <style>
+        /* 语法规范 */
+
+        /* @media mediatype and/not/only （media feature）{} */
+        /*        type有三种 all screen print  */
+        /* 意义就是实现对不同屏幕大小的样式修改 */
+        @media screen and (max-width:499px) {
+            body {
+                background-color: pink;
+            }
+
+        }
+
+        /* 这个写法是大于等于五百，后面能显示是因为层叠性 */
+        /* and (min-width:500px)  and (max-width:700px) 多个这样写 */
+        @media screen and (min-width:500px) {
+            body {
+                background-color: red;
+            }
+
+        }
+
+        @media screen and (min-width:800px) {
+            body {
+                background-color: aqua;
+            }
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+</body>
+
+</html>

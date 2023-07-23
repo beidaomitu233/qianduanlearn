@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>55</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .c-nav {
+            width: 900px;
+            height: 42px;
+            margin: 100px auto;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .c-nav ul {
+            position: absolute;
+        }
+
+        .c-nav li {
+            float: left;
+            width: 83px;
+            text-align: center;
+            line-height: 42px;
+        }
+
+        .c-nav li a {
+            color: #333;
+            text-decoration: none;
+            display: inline-block;
+            height: 42px;
+        }
+
+        .c-nav li a:hover {
+            color: white;
+        }
+
+        .c-nav li.current a {
+            color: #0dff1d;
+        }
+
+        .cloud {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 83px;
+            height: 42px;
+            background: url(./cloud.gif) no-repeat;
+        }
+    </style>
+    <script src="缓动回调动画.js"></script>
+    <script>
+        //实现背景跟随鼠标，鼠标放在上面就话过来，鼠标离开就回原位，点击之后定在点击的位置
+
+        /*     window.addEventListener('load', function () {
+                // 1. 获取元素
+                var cloud = document.querySelector('.cloud');
+                var c_nav = document.querySelector('.c-nav');
+                var lis = c_nav.querySelectorAll('li');
+                // 2. 给所有的小li绑定事件 
+                // 这个current 做为筋斗云的起始位置
+                var current = 0;
+                for (var i = 0; i < lis.length; i++) {
+                    // (1) 鼠标经过把当前小li 的位置做为目标值
+                    lis[i].addEventListener('mouseenter', function () {
+                        animate(cloud, this.offsetLeft);
+                    });
+                    // (2) 鼠标离开就回到起始的位置 
+                    lis[i].addEventListener('mouseleave', function () {
+                        animate(cloud, current);
+                    });
+                    // (3) 当我们鼠标点击，就把当前位置做为目标值
+                    lis[i].addEventListener('click', function () {
+                        current = this.offsetLeft;
+                    });
+                }
+            }) */
+
+
+        window.addEventListener('load', function () {
+            let nav = document.querySelector('.c-nav')
+            let lis = nav.querySelectorAll('li')
+            let cloud = document.querySelector('.cloud')
+            //这里再创建一个变量来当作默认位置，当我们点击到某个位置之后那个位置就是默认位置
+
+            let currentpos = 0;
+
+            //for循环的作用是给每个li都绑定事件，并且可以指定当前所选中的li
+            for (let i = 0; i < lis.length; i++) {
+
+                lis[i].addEventListener('mouseenter', function () {
+                    animate(cloud, this.offsetLeft)
+
+                });
+                lis[i].addEventListener('mouseleave', function () {
+                    animate(cloud, currentpos)
+
+                });
+                lis[i].addEventListener('click', function () {
+
+                    currentpos = this.offsetLeft
+                    animate(cloud, currentpos)
+
+                })
+
+
+
+            }
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <div id="c_nav" class="c-nav">
+        <span class="cloud"></span>
+        <ul>
+            <li class="current"><a href="#">首页新闻</a></li>
+            <li><a href="#">师资力量</a></li>
+            <li><a href="#">活动策划</a></li>
+            <li><a href="#">企业文化</a></li>
+            <li><a href="#">招聘信息</a></li>
+            <li><a href="#">公司简介</a></li>
+            <li><a href="#">我是佩奇</a></li>
+            <li><a href="#">啥是佩奇</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

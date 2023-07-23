@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <div id="app">
+
+        <div class="box1">
+            <ul>
+                <li v-for="item in Studentlis" :key="item.son" :title="item.sname">名字{{item.sname}}
+                    ,学号{{item.son}},年龄：{{item.age}}</li>
+            </ul>
+        </div>
+
+        <!-- 请求按钮 -->
+        <button @click="getStudent">点击请求学生列表</button>
+
+    </div>
+
+    <script>
+        const vm = new Vue({
+
+            el: '#app',
+            data() {
+                return {
+                    Studentlis: []
+                };
+            },
+            methods: {
+                getStudent() {
+
+                }
+            },
+
+        })
+    </script>
+
+
+</body>
+
+</html>

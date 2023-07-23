@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>techNews</h1>
+    <p class="list"></p>
+
+
+    <script>
+        //async await
+
+        async function getdata() {
+            return new Promise((resolve, reject) => {
+                resolve("hello");
+            })
+        }
+        console.log(getdata());
+
+
+        //配合使用
+        async function getnew() {
+            try { //只会拆解出返回的那部分的值.不是对象，就是值。
+                const data = await getdata();
+                console.log(data);
+
+            } catch (e) {
+                console.log(e);
+
+            }
+        }
+        getnew();
+
+        //原生ajax请求写法
+        function senajax(url) {
+            // 创建 XMLHttpRequest 对象
+            //前端要求返回promise对象，比较好处理
+            return new promise((resolve, reject) => {
+                const x = new XMLHttpRequest();
+                // 使用 GET 方法打开指定的 URL
+                x.open('GET', url);
+                // 发送请求
+                x.send();
+                // 监听 readyState 的变化事件
+                x.onreadystatechange = function () {
+                    // 当 readyState 为 4 时表示请求完成
+                    if (x.readyState === 4) {
+                        // 当 status 为 200 时表示请求成功
+                        if (x.status === 200) {
+                            // 调用 resolve 方法，并将响应作为参数传递给它。resolve返回的就是值
+                            resolve(x.response);
+                        } else {
+                            // 请求失败，创建一个错误对象并抛出
+                            reject(new Error('error'));
+                        }
+                    }
+                }
+            })
+
+        }
+
+        function ajaxget(url) {
+            //返回promise对象给调用者
+            return new Promise((resolve, reject) => {
+                //创建http对象
+                const x = new XMLHttpRequest();
+                //打开请求
+                x.open('GET', url);
+                //发送请求
+                x.send();
+                //监听是否成果
+                x.onreadystatechange = () => {
+                    //readyState 为 4 时表示请求完成
+                    if (x.readyState === 4) {
+                        //状态为200时表示请求成功。
+                        if (x.status === 200) {
+                            //成功就返回值
+                            resolve(x.response)
+                        } else {
+                            reject(new Error('请求错误'))
+                        }
+                    }
+                }
+
+
+
+
+
+
+            })
+        }
+
+
+        //调用ajax请求，并通过async await来处理promise对象
+        async function getnewlist() {
+            let data = await ajaxget(
+                    'https://www.fastmock.site/mock/d5676db29e9d85aaf6101253cf423499/newslist/newlist/tech')
+                //继续通过then方法来处理返回的值，再通过map遍历所有对象，然后进行进一步的处理
+                .then(JSON.parse)
+            console.log(data);
+
+            let str = ''
+
+            //遍历数组，将数据打印出来
+            const title = data.map((item) => {
+                console.log(item.title);
+                str += `<p>${item.title}</p>`
+                return item.title
+            })
+            document.querySelector('.list').innerHTML = str
+
+            console.log(title);
+
+        }
+        getnewlist();
+    </script>
+
+
+</body>
+
+</html>

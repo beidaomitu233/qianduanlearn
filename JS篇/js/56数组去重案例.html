@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //数组去重 核心思想 是用创建一个新数组 indexOf来查询 新数组中是否有这个元素，如果没有就push进去
+        function quchong(arr1) {
+            var arr2 = [];
+            //要遍历数组才能逐个查询
+            for (var i = 0; i < arr1.length - 1; i++) {
+                if (arr2.indexOf(arr1[i]) === -1) {
+                    arr2.push(arr1[i]);
+                }
+
+            }
+            return arr2;
+        }
+        var arr33 = quchong(['zz', 'qe', 'pa', 'zz', '22', '22', ])
+        console.log(arr33);
+    </script>
+</body>
+
+</html>

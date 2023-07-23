@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //创建对象的三种方式
+        //字面量
+        const obj = {
+            name: "lisi"
+        }
+        console.log(obj);
+        //利用new object()
+        const obj1 = new Object({
+            name: "wuang wu"
+        })
+        console.log(obj1);
+        //利用构造函数来创建,构造函数的首字母必须大写
+        function Pig(name, weigh) {
+            //可以不用声明这两个变量，且不需要写return。返回值是对象
+            this.name = name
+            this.weigh = weigh
+
+            function sayhi() {
+                console.log("hi");
+            }
+        }
+        //创建了三个Pig对象
+        const ltpig = new Pig("ltpig", 100)
+        const big = new Pig("ltpig", 200)
+        const normol = new Pig("ltpig", 150)
+        console.log(ltpig, big, normol);
+    </script>
+
+</body>
+
+</html>

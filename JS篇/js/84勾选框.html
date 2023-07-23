@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 300px;
+        }
+
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="j_cbAll" />
+                    </th>
+                    <th>商品</th>
+                    <th>价钱</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>iPhone8</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>iPad Pro</td>
+                    <td>5000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>iPad Air</td>
+                    <td>2000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>Apple Watch</td>
+                    <td>2000</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        /* 当选中表头的时候就会全选，取消选择表头的时候也会全部取消 */
+
+        /* 所以要查询当前的勾选状态checked，并且让其他的勾选框跟随着 */
+
+        /* 注册绑定表单 */
+        let biaotou = document.querySelector('#j_cbAll')
+        let biaodan = document.querySelectorAll('#j_tb input')
+
+        biaotou.onclick = function () {
+
+            /* 可以查询到当前表头的勾选状态，只需要让其他勾选框跟随表头即可 ，不需要再加if判断 */
+            console.log(biaotou.checked);
+
+            let o = 0;
+            /* 利用for循环把其他的勾选框选上（复制这个勾选状态 */
+            for (let i = 0; i < biaodan.length; i++) {
+                biaodan[i].checked = this.checked; //如果给this.checked加上引号则会不能取消全选，，？？？为什么呢  写变量可以不用引号
+
+            }
+        }
+        /* 当其他表单被全部选中时 表头也会被勾选，若没有则不会被勾选 */
+        /* 当我们勾选一次时就会查询一次全体勾选框的状态 */
+        for (let p = 0; p < biaodan.length; p++) {
+
+            biaodan.onclick = function () {
+                let flag = true;
+
+                for (let z = 0; z < biaodan.length; z++) {
+                    if (biaodan[p].checked) {
+                        flag = false
+                        break;
+                    }
+                }
+                biaodan.checked = flag;
+            }
+        }
+    </script>
+</body>
+
+</html>

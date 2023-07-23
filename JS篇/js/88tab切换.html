@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .tab {
+            width: 61.125rem;
+            margin: 6.25rem auto;
+        }
+
+        .tab_list {
+            height: 2.4375rem;
+            border: .0625rem solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        .tab_list li {
+            float: left;
+            height: 2.4375rem;
+            line-height: 2.4375rem;
+            padding: 0 1.25rem;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .tab_list .current {
+            background-color: #c81623;
+            color: #fff;
+        }
+
+        .red {
+            background-color: #c81623;
+        }
+
+
+        .item_info {
+            padding: 1.25rem 0 0 1.25rem;
+        }
+
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价（50000）</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">
+                商品介绍模块内容
+            </div>
+            <div class="item">
+                规格与包装模块内容
+            </div>
+            <div class="item">
+                售后保障模块内容
+            </div>
+            <div class="item">
+                商品评价（50000）模块内容
+            </div>
+            <div class="item">
+                手机社区模块内容
+            </div>
+
+        </div>
+    </div>
+    <script>
+        /* 第一步 我们点击某个选项时就变红，但是其他的还是原来的颜色 ，排他思想 */
+        /*     let hong = document.querySelectorAll('li'); */
+
+        /* 核心的思路就是把标题和内容绑定起来 点击哪个标题就显示哪个内容 */
+        /* 怎么确定点的是哪个标题呢，献给每个标题自定义一个索引号  */
+        /* 如何绑定 在这里标题和内容 有相同的索引号 所以用同一个索引号就能    */
+        /* 点第几个就出来第几个 */
+
+        let neirong = document.querySelectorAll('.item');
+        let tab = document.querySelector('.tab_list').querySelectorAll('li')
+
+
+        console.log(tab);
+
+
+        for (let i = 0; i < tab.length; i++) {
+
+            /* 给每个内容模块添加一个自定义属性，让我们可以找到对应的标题绑定 */
+            tab[i].setAttribute('index', i)
+
+            tab[i].onclick = function () {
+
+                /* 排除其他  */
+                for (let z = 0; z < tab.length; z++) {
+                    tab[z].className = ''
+                }
+                /* 被点的变红 */
+                this.className = 'red'
+
+                /* 获取当前点击的是第几个 */
+                let geshu = this.getAttribute('index')
+                console.log(geshu);
+
+                /* 排除其他内容 */
+
+                for (let y = 0; y < neirong.length; y++) {
+                    neirong[y].style.display = 'none'
+
+                }
+
+                /* 并且让我们点击到的那一个选项的内容显示出来 */
+                neirong[geshu].style.display = 'block';
+
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>

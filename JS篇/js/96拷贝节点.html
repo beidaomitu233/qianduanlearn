@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 拷贝节点 node.cloneNode() -->
+    <ul>
+        <li>123</li>
+        <li>33</li>
+        <li>44</li>
+    </ul>
+
+    <script>
+        let ul = document.querySelector('ul')
+
+        /* 克隆ul第一个子标签 */
+        /* cloneNode里面的参数 
+        为空时默认为 false 就是浅复制 只复制标签不复制内容
+        当参数为true 时是深复制  复制标签也复制内容 */
+        let li = ul.children[0].cloneNode(true) //这一步这是克隆并且把指放在内存中
+
+        /* 第二部添加该节点进去 ,并且会随之原标签修改 */
+        ul.appendChild(li)
+    </script>
+</body>
+
+</html>

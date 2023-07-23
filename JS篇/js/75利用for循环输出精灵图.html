@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./black.css">
+
+    <style>
+        li {
+            list-style: none;
+            width: 22px;
+            height: 20px;
+            float: left;
+            margin: 10px;
+            background: url(../img/20181104195913186.png) no-repeat;
+        }
+
+        .box1 {
+            width: 30px;
+            margin: 0 auto;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box1">
+        <ul>
+
+
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+
+    </div>
+    <script>
+        //关键是这里1.分析规律 上下两个图之间的距离是有规律的 ，相差20，所以我们只需要用js修改它的坐标position ，不止要输出一次
+        //而是要输出完，所以要用到循环 ，循环次数就是图的长度（li的个数）
+        //循环体：第一个小图标的位置是0 第二个是44 第三个是88 以此类推
+        //所以 公式是 i*44  i=0  i++  这个可以直接用循环次数 不需要再额外创建，也刚好是索引好相等
+
+
+        let jingling = document.querySelectorAll('li')
+        for (let i = 0; i < jingling.length; i++) {
+            let yzhou = i * 44
+            jingling[i].style.backgroundPosition = '0 -' + yzhou + 'px'
+        }
+    </script>
+
+
+
+</body>
+
+</html>

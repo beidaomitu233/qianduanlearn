@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="black.css">
+
+    <style>
+        button {
+            background-color: aqua;
+            outline: none;
+
+        }
+
+        img {
+            width: 500px;
+        }
+    </style>
+
+
+</head>
+
+
+
+<body>
+
+    <button>点击切日间模式</button>
+    <img src="../../../头条号运营/第二期/封面/heikediguo.png" alt="">
+
+
+
+    <!-- 目的：用同一个按钮实现两个 功能  比如 来回切换图片  -->
+    <!-- 分析  有按钮 有图片  点击按钮切换图片 2.要判断当前是什么状态（什么图片 -->
+    <!-- 创建一个变量 量化状态  在第一张图片时 等于1  第二章图片时等于2  切换完图片后就把值赋值成另一个图片的变量 -->
+
+    <script>
+        //绑定
+        let anniu = document.querySelector('button')
+        let tupian = document.querySelector('img')
+
+        let flag = 1;
+        //类型和结果
+        anniu.onclick = function () {
+            //判断状态 点击后修改变量值  就像是开灯 默认是关=1 点一下开关 检测了当前状态 发现=1 就打开
+            // 然后打开了 打开了值等于2  再点一下 检测当前是2 是开的 那么就要关掉 就赋值1
+            if (flag == 1) {
+                tupian.src = '../img/Snipaste_2021-11-04_18-16-56.png';
+                anniu.innerHTML = '点击切换夜间模式';
+                flag = 2;
+            } else if (flag == 2) {
+                tupian.src = '../../../头条号运营/第二期/封面/heikediguo.png';
+                anniu.innerHTML = '点击切日间模式';
+                flag = 1;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

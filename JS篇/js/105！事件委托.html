@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 面试重点 事件委托原理：不用给每个子节点单独设置监听（事件），而是用监听设置再其父节点上，用冒泡原理影响每个子节点-->
+    <div>
+        <li></li>
+        <li> <button>jhjhk</button> </li>
+        <li></li>
+    </div>
+    <script>
+        let yingx = document.querySelector('div')
+
+        yingx.addEventListener('click', function nn(e) {
+            alert('huihiu')
+            yingx.style.backgroundColor = 'blue'
+            e.target.style.backgroundColor = 'red'
+        })
+    </script>
+
+</body>
+
+</html>

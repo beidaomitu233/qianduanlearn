@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 设置页面居中 */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* 设置tab栏样式 */
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #eccaca;
+            padding: 10px;
+            margin-bottom: 40x;
+        }
+
+        /* 设置tab选项样式 */
+        .tab {
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        /* 设置商品展示容器样式 */
+        .products {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* 设置单个商品样式 */
+        .product {
+            width: 150px;
+            text-align: center;
+        }
+
+        /* 设置商品照片样式 */
+        .product img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .tabs a:active,
+        .tabs a:focus {
+            background-color: aqua;
+            color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="tabs">
+        <a href="javascript:;" data-index="1" class="tab ">100元以下</a>
+        <a href="javascript:;" data-index="2" class="tab">200-300元</a>
+        <a href="javascript:;" data-index="3" class="tab">300-400元</a>
+        <a href="javascript:;" class="tab">所有</a>
+    </div>
+
+    <div class="products">
+    </div>
+</body>
+
+<script>
+    const products = [{
+            name: "水杯",
+            photo: "1.png",
+            price: "99"
+        },
+        {
+            name: "电脑",
+            photo: "1.png",
+            price: "250"
+        },
+        {
+            name: "冰箱",
+            photo: "1.png",
+            price: "350"
+        },
+        {
+            name: "商品4",
+            photo: "1.png",
+            price: "200"
+        },
+        {
+            name: "冰箱2",
+            photo: "1.png",
+            price: "100"
+        }, ,
+        {
+            name: "冰箱3",
+            photo: "1.png",
+            price: "350"
+        }, ,
+        {
+            name: "冰箱5",
+            photo: "1.png",
+            price: "400"
+        },
+    ];
+
+    let prodiv = document.querySelector('.products')
+    console.log(prodiv);
+
+
+    let index = document.querySelector('.tabs').addEventListener('click', (e) => {
+        console.log("事件委托");
+        console.log(e.target.dataset);
+        const {
+            tagName,
+            dataset
+        } = e.target
+        console.log(tagName);
+        //这里使用了事件委托的原理，所以需要判断一下是否是点中里面的A标签
+        if (tagName === 'A') {
+            //判断点击了什么按钮
+            if (dataset.index == "1") {
+                //过滤数值中的数据，只要price低于100的数据。
+                let arr1 = products.filter(item => item.price < 100)
+                //渲染数据
+                render(arr1)
+            } else if (dataset.index == "2") {
+                //过滤数值中的数据，只要price低于100的数据。
+                let arr1 = products.filter(item => item.price >= 200 && item.price < 300)
+                //渲染数据
+                render(arr1)
+            } else if (dataset.index == "3") {
+                //过滤数值中的数据，只要price低于100的数据。
+                let arr1 = products.filter(item => item.price >= 300 && item.price < 400)
+                //渲染数据
+                render(arr1)
+            } else {
+                render(products)
+            }
+        }
+    });
+
+    //思路：需要获取到data-index的值判断需要过滤的条件，然后判断完成后进行渲染，渲染是会多次渲染所以可以封装成函数
+    //方便后续调rander函数
+
+    //封装渲染函数
+    function render(arr) {
+        let str = '';
+        arr.forEach(item => {
+            const {
+                name,
+                photo,
+                price
+            } = item
+            str += `  <div class="product">
+                        <img src="${photo}" alt="Product 1">
+                        <div>${name}</div>
+                        <div>${price}</div>
+                    </div>`
+            prodiv.innerHTML = str
+        });
+    }
+</script>
+
+</html>

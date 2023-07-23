@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="hui1">是辉辉</button>
+    <button class="b1">点击</button>
+
+    <script>
+        //js配合h5的思路就是 找到我们要给添加动态的元素（获取元素 2.给找到的元素添加函数（事件）
+
+        //事件是触发反应的一种机制，每个元素都可以有事件
+
+        /* 事件有三部分组成 事件源（元素） 事件类型 事件处理程序
+        事件源：事件被触发的对象 ，要获取我们对象
+        事件类型：触发方式 （ 鼠标点击（onclick ） 鼠标经过 键盘按下
+        事件处理程序： 触发什么事件   通过函数赋值的方式 
+        
+        
+        */
+
+        let ww = document.querySelector('#hui1');
+        //事件源.触发事件=执行函数（一般用函数来嵌套）
+        ww.onclick = function () {
+            alert('猜对了')
+            console.log('shi是');
+        }
+
+        let www=document.querySelector('.b1')
+        www.onclick=function (){
+            console.log('成功')
+        }
+
+        //三个步骤 d获取事件源 绑定事件（就是ww.onclick) 添加事件处理程序
+        //实现程序的时候 分析 被触发的对象  触发的方式  触发的结果
+    </script>
+
+
+
+</body>
+
+</html>

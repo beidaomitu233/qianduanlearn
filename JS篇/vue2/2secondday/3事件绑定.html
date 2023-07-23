@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 用vue控制这个元素，并把数据填充到里面 -->
+    <div id="app">
+        <!-- 动态修改里面的值 -->
+        <p>点赞数{{count}}</p>
+        <!-- 事件绑定吗，绑定了click，函数名叫add，函数内容在实例对象中添加 括号是传参   
+            ,这里的$event 是原生js中的e ，当需要传参且需要用e这个信息源时，就这么写-->
+        <button v-on:click="add(1,$event)">点赞</button>
+        <!-- 但是这个不常用$event -->
+        <button @click="sub">取消点赞</button>
+
+    </div>
+
+    <!-- 导入vue文件 ，在window全局下就有了vue这个构造函数 -->
+    <script src="./vue.js"></script>
+    <!-- 创建vue实例对象 -->
+    <script>
+        const vm = new Vue({
+
+            /* el是固定的写法，表示当前vm实例要控制页面上的哪个区域，接受指是一个选择器 */
+            el: '#app',
+            //data对象表示要渲染到页面上的数据
+            data: {
+
+                username: 'zs',
+                count: 0,
+
+            },
+            /* methods是放啊集合，定义处理函数的 */
+            methods: {
+
+                //函数方法内容,接收参数，这里还是用e来接收
+                add: function (n, e) {
+                    //vm是一个对象，data里面的值可以访问到，this也指向vm
+                    console.log(vm === this);
+                    this.count += n
+                    if (this.count % 2 == 0) {
+                        /* e中有个target的属性就是事件源，触发这个事件的标签 */
+                        e.target.style.backgroundColor = 'red'
+                    } else {
+                        e.target.style.backgroundColor = 'blue'
+                    }
+                },
+                /* 可以简写程这样 */
+                sub() {
+                    console.log('test ok');
+                    vm.count--
+
+                },
+                /* 当count是偶数的时候变色 */
+
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>

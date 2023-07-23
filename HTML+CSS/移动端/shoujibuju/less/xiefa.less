@@ -1,0 +1,26 @@
+@color:deeppink;
+//这么写方面后期统一修改大量的样式
+//命名规则不可以用数字开头 区分大小写 和特俗符号
+body{background-color: @color;}
+div{background-color: @color;}
+@oop:14px
+
+// a{font-size:@oop;}
+
+//less的嵌套是这么写的
+.opp{.uup{width: 250px;}}
+.opp{ a{background-color: @color;}}
+
+//less的伪类选法
+
+.opp{ a{color: @color;
+&::after{color: @color;}}}
+
+//运算写法
+@border:5px
+@beseforn{font-size:50px;}
+//如果后面是两个单位不同的进行运算取第一个的单位做最后的单位
+//只有一个有的就取哪一个
+.banner{width: 300px;height: 150px;border: @border;}
+.fouce{width: (80 / 50rem);height: (80 / 50rem);}
+

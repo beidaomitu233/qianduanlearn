@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="black.css">
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 目标：写一个根据时间不同 提示不同的字和图片 -->
+    <!-- 分析  首先是时间不同（五个个时间段  1获取时间 2判断时间范围  -->
+    <!--      然后是提示不同的字和图片操作元素内容即可  -->
+    <!--  上午 中午 下午 晚上 凌晨 -->
+
+    <p class="wenzi">早上好</p>
+    <button>点击切换图片</button>
+    <img class="tupian" src="../img/Snipaste_2021-11-02_22-52-50.png" title="早上">
+
+    <script>
+        let nowtime = new Date();
+        let hour = nowtime.getHours();
+
+        let tupian = document.querySelector('.tupian');
+        let wenzi = document.querySelector('.wenzi');
+        let anniu = document.querySelector('button')
+
+        if (hour < 12) {
+            wenzi.innerHTML = '早上好';
+            tupian.scr = '../img/Snipaste_2021-11-02_22-52-50.png';
+            tupian.title = '早上';
+        } else if (hour < 14) {
+            wenzi.innerHTML = '中午好';
+            tupian.title = '中午';
+            tupian.scr = '../img/Snipaste_2021-11-02_22-52-50.png';
+        } else if (hour < 18) {
+            wenzi.innerHTML = '下午好';
+            tupian.title = '下午';
+            tupian.scr = '../img/Snipaste_2021-11-02_22-52-50.png';
+        } else if (hour < 24) {
+            wenzi.innerHTML = '晚上好';
+            tupian.title = '晚上';
+            tupian.scr = '../img/Snipaste_2021-11-02_22-52-50.png';
+        } else if (hour > 1) {
+            wenzi.innerHTML = '凌晨好好';
+            tupian.title = '凌晨';
+            tupian.scr = '../img/Snipaste_2021-11-02_22-52-50.png';
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>

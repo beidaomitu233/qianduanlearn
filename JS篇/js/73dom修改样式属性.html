@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background-color: aqua;
+            outline: none;
+        }
+
+        body {
+            background-color: bisque;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- 使用dom修改样式写法 
+         绑定名.style.属性名='属性值'
+         
+         修改或添加的样式是内联样式 优先级大于内嵌 大于外联样式
+         并且属性名是采用 驼峰命名法
+        
+        -->
+
+    <button>点击切换夜间模式</button>
+
+    <script>
+        //绑定
+        let anniu = document.querySelector('button')
+        let beijing = document.body
+        let flag = 2;
+
+        //类型和结果
+        anniu.onclick = function () {
+            //判断状态 点击后修改变量值  就像是开灯 默认是关=1 点一下开关 检测了当前状态 发现=1 就打开
+            // 然后打开了 打开了值等于2  再点一下 检测当前是2 是开的 那么就要关掉 就赋值1
+
+            //日间
+            if (flag == 1) {
+                beijing.style.backgroundColor = 'bisque'
+                anniu.innerHTML = '点击切换夜间模式';
+                flag = 2;
+
+                //夜间
+            } else if (flag == 2) {
+                beijing.style.backgroundColor = 'black'
+                anniu.innerHTML = '点击切换日间模式';
+                flag = 1;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

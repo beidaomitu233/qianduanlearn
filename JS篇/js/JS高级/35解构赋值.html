@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //数组解构, 这么做的好处就是调用时不需要再声明数组，否则调用一次声明一次
+    // arr[0] 这种情况会导致重新声明
+    let arr = [1, 2, 3]
+    let [a, b, c, f, z] = arr
+
+    let [e, bl, cl, fl, zl] = [1, 2, 3]
+    console.log(a)
+    console.log(b)
+    console.log(c)
+    //如果解构的变量没有对应的值就会返回undefined
+    console.log(f)
+    console.log(z)
+
+    //对象解构 ,用原来的方法会重复声明变量，用解构方法解决
+    let preson = {
+      age: 20,
+      name: 'ch',
+      learn: function () {
+        console.log('learn learn');
+      }
+    }
+    //用age变量名字去匹配person中的对象属性，如果匹配到就赋值
+    let {
+      age,
+      nameee,
+      learn
+
+    } = preson
+    console.log(age)
+    console.log(name)
+    learn()
+
+    //写法2 是变量名字和属性名字不一样
+    // 左边的只用于匹配变量，右边的才是变量，最终赋值给myname 并且以后调用myname
+    let {
+      name: myname
+    } = preson
+    console.log(myname)
+    //
+  </script>
+</body>
+
+</html>

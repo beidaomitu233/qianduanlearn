@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //剩余参数
+      //当出现传递进来的参数多过接收形参时，把最后一个形参 写成 ...变量名
+      //这样就能把剩余没有匹配形参的实参给存到一个数组里
+      const sum = (bi, ...args) => {
+        console.log(bi)
+        //这里的...args以数组型式存储其他的实参
+        console.log(args)
+      }
+
+      sum(10, 20, 30)
+
+      // 可以配合解构数组进行使用
+      let arr1 = [123, 23, 4534, 67]
+      let [bq, ...bq2] = arr1
+      console.log(bq)
+      console.log(bq2)
+    </script>
+  </body>
+</html>

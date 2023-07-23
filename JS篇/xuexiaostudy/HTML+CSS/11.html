@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/2.css" />
+    <title>css盒子样式</title>
+  </head>
+
+  <body>
+    <!-- 可以给盒子随意设置，如只用上下边框等等 -->
+    <!-- table会有中间的边框叠加看着会变厚所以要用 
+    border-collapse会合并相邻边框
+    -->
+    <!-- margin是外边距  
+     border是边框厚度
+     padding是内边距-->
+
+    <!-- 遇到盒子里面的文字不一样多的时候，
+    不需要一一设置居中，直接用内边距设置固定值就可以了，让它
+自动撑开 -->
+
+    <!-- 实现盒子居中需要两种条件 一个是有宽度，且左右外边距是auto
+常见的写法有三种， masgin 0 auto 上下 左右 
+，margin auto 还有直接写左右 
+-->
+
+    <!-- 行内元素和行内块元素用text——ailgin center就行了 -->
+    <!-- 盒子中的盒子移动的时候会有塌陷， -->
+    <!-- 就是子盒子就带着父盒子移动 ，解决方法有三种一般用第三种-->
+    <!-- css中加上overflow:hidden -->
+
+    <!-- 清除内外边距防止因为浏览器
+        不同自动内外边距影响布局 
+    用* padding 0 margin0
+    -->
+
+    <!-- 盒子总大小，默认情况下盒子大小会因为内容而改变，从而会影响网页布局
+    可以通过限制让款度定死 -->
+    <style>
+      div.kp {
+        box-sizing: border-box;
+      }
+    </style>
+
+    <div class="kp"></div>
+    <div class="lpo"></div>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位</title>
+    <link rel="stylesheet" href="css/6.css">
+</head>
+
+<body>
+    <!-- 定位可以在某个盒子内移动位置
+        或者固定在屏幕中的某个位置 
+        并且可以压住其他盒子-->
+
+    <!-- 定位等于定位模式和边偏移 ，
+        模式是指定一个元素在文档中的定位方式 
+    边偏则决定了最终位置-->
+
+    <!-- position ，有相对定位，是相对于目前的位置进行移动
+    移动了之后原来的位置是保留的  top值和botmm同时存在的时候会先执行top值，所以前面的写了top后面想覆盖也用top -->
+
+    <!-- 静态定位少用 static -->
+
+    <!-- 绝对定位 是相对于父元素或者以最近一级的父来定位，如果父元素没有定位，
+        就会以浏览器标准定位一般是body  且移动之后不占原来的位置 -->
+    <!-- 写的方法一般是父标签是相对定位，子标签的绝对定位 ，因为父标签是做结构的
+需要固定在某个位置 -->
+
+    <!-- 固定定位是把一个东西固定顶在画面的某一位置，
+         即使移动也还是在那个位置，会跟随移动  ,不占有位置，
+         以浏览器的可视窗口来找位置  
+         与父级没什么关系，
+         也可以跟着版心方法：先定位left即可50% 再用mar left50%-->
+
+    <!-- 粘性定位 大概是可定位和相对定位的混合体，
+        例如京东官网右边那一条  占有原来的额位置-->
+
+    <!-- 布局时可能会有盒子重叠，可以用标签修改层次 z-index  （css）
+    只有定位的盒子才有这个属性 -->
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="ding"><img src="./img/service.png" alt=""></div>
+    <div class="wei">879</div>
+</body>
+
+</html>

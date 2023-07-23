@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- d -->
+    <script>
+      //Array是一个方法集合 所以有很多功能 包括翻转 排序数组
+      console.log(typeof Array);
+      //数组中的方法都存在原型对象里
+      console.log(Array.prototype);
+      //所以可以在原型里扩展方法   对象是由函数创建的 ，方法是存储为对象属性的函数。
+      console.log(typeof Array.prototype.push);
+      //追加方法的最好方式
+      Array.prototype.sum = function () {
+        let sum = 0;
+        for (let i = 0; i < this.length; i++) {
+          sum += this[i];
+        }
+        return sum;
+      };
+      //这里不用实例化，是因为数组是一个整体 不是某个变量，只要数组型式就会自动添加这些方法，所以可以直接调用
+      let arr = [1, 2, 3];
+      console.log(arr.sum());
+    </script>
+  </body>
+</html>

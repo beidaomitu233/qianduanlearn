@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p>倒计时：</p>
+
+    <button class="stop">停止计时器</button>
+    <button class="conti">继续计时器</button>
+
+    <script>
+        var ra = 5
+        let stopbtn = document.querySelector('.stop')
+        let continuebtn = document.querySelector('.conti')
+        //像轮播图这种就是这么做的
+        //setInterval()  间隔定时器，会隔一段时间嗲用一次函数
+        //性值和 setTimeout是一样的 三种写法 单位 是毫秒 默认是0，也经常给定义一个和变量（添加标识符） 
+
+        let jianke2s = setInterval(dayin, 2000)
+
+        function dayin() {
+            console.log('dasdas');
+        }
+
+
+        let neirong = document.querySelector('p')
+        var countdown = null
+
+        continuebtn.addEventListener('click', function () {
+            countdown = setInterval(changge, 1000)
+
+            function changge() {
+                if (ra > 0) {
+                    neirong.innerHTML = '倒计时：' + ra--
+                } else {
+                    neirong.innerHTML = '倒计时结束'
+                }
+
+            }
+        })
+        stopbtn.addEventListener('click', function () {
+            clearInterval(countdown)
+        })
+    </script>
+</body>
+
+</html>

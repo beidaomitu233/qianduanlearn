@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // <!-- 检测字符串长度length  -->
+        /* 下面这个写法可以返回用户所写字的字符串数量 */
+        var userName = prompt('请输入用户名')
+
+        /* 用法 */
+        console.log('字符串长度为' + userName.length);
+        /* 字符串的拼接 +号 不论是什么类型的字符串都能把两者连接到一起*/
+        /* 两个数字且没有引号 才是相加 */
+        alert('字符串长度为' +
+            userName.length)
+
+        /* 这种类似于一种调用式写法 只用把其他的字提前打好
+        然后把会变的量再给一个变量  再包一个总变量 然后后面直接调用输出即可 */
+        var backUserName = '用户名为' + userName + ",请立即实名认证"
+        alert(
+            backUserName)
+    </script>
+
+</body>
+
+</html>

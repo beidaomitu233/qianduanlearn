@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 之前写js 的时候都是要在html之后才能写，否则会导致有功能没标签，导致没效果 -->
+
+    <!-- 解决办法就是先让html标签加载完再加载js -->
+
+    <script>
+        /* 用传统方式会有和第二个有冲突并且只会执行最后一个 */
+        /*       window.onload = function () {
+
+                  let btn = document.querySelector('button')
+                  btn.onclick = function () {
+                      alert('dasd')
+                  }
+ 
+
+              } */
+
+        //用监听事件就不会重估能都执行
+        window.addEventListener('load', function () {
+            let btn = document.querySelector('button')
+            btn.onclick = function () {
+                alert('guang2')
+            }
+        })
+
+        window.addEventListener('load', function () {
+
+        })
+
+        //这个是事件是 当加载完html结构（不包括图片 flash css  ）完就马上加载js ，这样用户体验更好
+        document.addEventListener('DOMContentLoaded', function () {
+            let btn = document.querySelector('button')
+            btn.onclick = function () {
+                alert('guang')
+            }
+        })
+    </script>
+
+    <button>sadas </button>
+
+</body>
+
+</html>

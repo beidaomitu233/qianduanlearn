@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 字符串类型 是要加引号才是 最好用单引号 */
+        /* 'hui' */
+        /* '12'  这也是 因为用引号包这，不管里面的数字 就是一个大包裹的 */
+        var str = 'niuoi 辉辉牛逼'
+
+        /* 单引号有就近匹配原则    */
+        /* var strz = 'niuoi ' 辉辉 '牛逼' */
+        /*  当需要在字符串中写双引号的就这么写 用到引号嵌套*/
+        var zty = 'niuoi"辉辉"牛逼'
+        var zty = "niuoi'辉辉'牛逼"
+
+        //字符串转义符 就是特殊字符 空格这些 其他在截图里面
+        var zty = 'niuoi"辉辉"\n牛逼'
+        console.log(zty);
+
+        var ztyi = '哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈\n"哈哈哈"\n哈哈哈哈哈哈哈哈哈哈哈哈哈哈'
+        console.log(ztyi);
+
+        alert(' 这是第一句\n 这是第二段 \n “第三段”');
+        console.log();
+    </script>
+</body>
+
+</html>

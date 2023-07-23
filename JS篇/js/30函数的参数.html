@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 函数的参数  利用函数参数可以实现重复不同的代码 -->
+    <!-- function 函数名（形参,形参2）{} -->
+    <!-- 调用 函数名（实参1，实参2）； -->
+
+
+    <!-- 形参和实参的执行过程   先执行调用 再执行封装的代码-->
+    <!-- 参数可以有也可无 可有无限个 -->
+    <!-- 实参的个数大于形参的个数的时候只会接收形参对应的个数 -->
+    <!-- 实参少于形参会定义为undefined 显示为NaN-->
+    <script>
+        /* 第二步 */
+        function sentout(ori) {
+            console.log(ori);
+        }
+        /* 第一步 */
+        sentout('都要')
+
+        /* 多参使用 */
+        /* 实参和形参的位置一一对应 */
+        function cluat(mun1, mun2) {
+            /* 不能这么写 */
+            console.log(mun1 + mun2);
+            /* 要用ru */
+            return mun1 + mun2;
+        }
+        cluat(6, 8);
+        console.log(cluat(6, 8));
+
+        /* 计算两数之间的和 */
+        function sunnm(sttra, enddin) {
+            var sum = 0;
+            for (var i = sttra; i < enddin; i++) {
+                sum += i
+            }
+            console.log(sum);
+        }
+        sunnm(5, 8);
+
+        /*形参和实参的一一匹配 */
+        function pipei(can1, can2) {
+            console.log(can1 + can2);
+        }
+        /* 当实参多余形参的时候只给到对应位置的个数，后面的就给不到了 */
+        pipei(6, 8, 4);
+        /* 当实参少于的时候  can2未给值就是undefined   can1+can2=NaN */
+        pipei(6)
+    </script>
+
+</body>
+
+</html>

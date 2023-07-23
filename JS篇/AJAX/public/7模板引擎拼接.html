@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入模板引擎 -->
+    <script src="./template-web.js"></script>
+</head>
+
+<body>
+
+    <!-- 这个模板就是刚才封装ajax函数 ，在客户端的拼接-->
+    <div id="container"></div>
+
+    <!-- 准备模板 -->
+    <script type="text/html" id="tql">
+        <!-- 告诉模板拼接方式 -->
+    <h1> {{username}} {{age}}</h1>
+    </script>
+    <!-- 表明是javascr 内容-->
+    <script type="text/javascript">
+        /* 步骤：告诉引擎将哪个数据和哪个模板进行拼接
+        输入模板id 数据 对象类型
+        方法的返回值就是拼接好的html字符串
+
+        */
+        let html = template('tql', {
+            username: 'san',
+            age: 20
+        })
+        document.querySelector('#container').innerHTML = html
+    </script>
+
+
+</body>
+
+</html>

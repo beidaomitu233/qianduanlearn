@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>这是按钮</button>
+
+    <script>
+        const obj = {
+            name: "John",
+            age: 30,
+            city: "New York"
+        }
+
+        function fn1() {
+            console.log(this);
+        }
+
+        function fn() {
+            console.log(this);
+        }
+
+        function fn2(...args) {
+            console.log(this, ...args);
+        }
+        fn.call(obj)
+        fn1()
+        //apply调用
+        fn2.apply(obj, [1, 2, 3, 4, 5])
+
+        //bind的使用场景
+        //点击按钮之后就禁止点两秒之后开启。
+        const btn = document.querySelector("button").addEventListener('click', function () {
+            this.disabled = true
+            setTimeout(function (x) {
+                this.disabled = false
+                console.log(x);
+                //这里的this指向的是btn这个对象，因为，bind函数在匿名函数外，所以是指向btn。
+            }.bind(this, 10), 2000)
+        })
+    </script>
+
+</body>
+
+</html>

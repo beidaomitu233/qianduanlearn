@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 都会把字符串的数字转成数字型 */
+        /* abs是绝对值，会把字符串的转成数字的，如果是文字就放回NaN */
+        console.log(Math.abs(-1));
+        console.log(Math.abs(1));
+        console.log(Math.abs('-1'));
+        console.log(Math.abs('辉'));
+        console.log(Math.abs('123'))
+        console.log('-- -- -- -- -- -- -- - ');
+        /* 取整方式 */
+        /*Math.floor() 向下取整就是 把小数直接去掉， */
+        console.log(Math.floor(1.6));
+        console.log(Math.floor(1.9));
+        console.log(Math.floor('1.9'));
+        console.log(Math.floor(1.444))
+        console.log(Math.floor('123.123'))
+        console.log('-- -- -- -- -- -- -- - ');
+        /* Math.ceil() 往上取 ，就是有小数直接进一 */
+        console.log(Math.ceil(1.5));
+        console.log(Math.ceil('1.9'));
+        console.log(Math.ceil(1.2))
+        console.log(Math.ceil(1.6))
+        console.log('-- -- -- -- -- -- -- - ');
+        /* Math.round() 四舍五入  ，在负数情况下往大的取 -1.5取-1 */
+        console.log(Math.round(1.6));
+        console.log(Math.round(1.4));
+        console.log(Math.round('1.9'));
+        console.log(Math.round(-1.5))
+        console.log(Math.round(-1.3))
+    </script>
+</body>
+
+</html>

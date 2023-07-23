@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .head {
+            background-color: aqua;
+            height: 300px;
+            margin-bottom: 10px;
+        }
+
+        .bann {
+            background-color: greenyellow;
+            height: 1300px;
+            margin-bottom: 10px;
+        }
+
+        .food {
+            background-color: paleturquoise;
+            height: 990px;
+            margin-bottom: 10px;
+        }
+
+        .side {
+            position: absolute;
+            right: 10px;
+            top: 350px;
+            width: 30px;
+            height: 40px;
+            background-color: brown;
+        }
+
+        span {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 固定侧边栏 固定头顶都是这么做的 -->
+
+    <!-- 原理就是 用 滚动调函数 检测滚动量 然后根据量来修改定位形式  -->
+    <div class="head">head</div>
+    <div class="bann">bann</div>
+    <div class="food">food</div>
+
+    <div class="side">
+        <span class="backtop">回到顶部</span>
+    </div>
+
+    <script>
+        let side = document.querySelector('.side')
+        let head = document.querySelector('.head')
+        let bann = document.querySelector('.bann')
+        let food = document.querySelector('.food')
+        let backtop = document.querySelector('.backtop')
+        let banntop = bann.offsetTop
+        let foodtop = food.offsetTop
+        let sidetop = side.offsetTop - banntop
+        document.addEventListener('scroll', function () {
+
+            //pageYoffset是页面被卷上去的部分 ，用页面pageYOffset还是元素scrolltop的看情况来
+            //这里的数值就是 head的高 可以用offsettop 盒子高度包括边框获取过来这样写才对
+
+            if (window.pageYOffset >= banntop) {
+                side.style.position = 'fixed';
+                //当变成固定定位的时候会突然跳下来，这样不美观，所以把top值也重新修改 滑到bann的时候直接定在一个位置上 这个位置是用side的offsetTop减去离banntop的位置上
+                //实现那种推动的效果  就是滑到还剩30px的时我就直接给你一个30px定死
+                side.style.top = sidetop + 'px';
+
+                //显示出回到顶部
+                backtop.style.display = 'block';
+                //返回顶部
+                backtop.addEventListener('click', function () {
+                    animate(window, 0)
+                })
+
+
+            } else {
+                //如果又滑上去那么就变回原来的样子
+                side.style.position = 'absolute';
+                side.style.top = 300 + 'px';
+                //如果又滑上去那么就变回原来的样子    
+                backtop.style.display = 'none';
+            };
+
+        })
+
+
+        //需要做一些修改，因为对象是window 和移动方向改成Y，window.pageYoffset是再y轴上滚动了多少
+        function animate(obj, target, callback) {
+            clearInterval(obj.sildleft);
+            obj.sildleft = setInterval(function () {
+                //这里不能取整不知道为什么
+                let step = (target - window.pageYOffset) / 10
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (window.pageYOffset == target) {
+                    clearInterval(obj.sildleft);
+                    if (callback) {
+                        callback();
+                    }
+                } else {
+                    /* obj.style.left = obj.offsetLeft + step + 'px' */
+                    window.scroll(0, window.pageYOffset + step) //scroll不需要加px 
+                }
+            }, 15)
+        }
+
+        /*         goBack.addEventListener('click', function () {
+                    // 里面的x和y 不跟单位的 直接写数字即可
+                    // window.scroll(0, 0);
+                    // 因为是窗口滚动 所以对象是window
+                    animate(window, 0);
+                });
+                // 动画函数
+                function animate(obj, target, callback) {
+                    // console.log(callback);  callback = function() {}  调用的时候 callback()
+
+                    // 先清除以前的定时器，只保留当前的一个定时器执行
+                    clearInterval(obj.timer);
+                    obj.timer = setInterval(function () {
+                        var step = (target - window.pageYOffset) / 10;
+                        step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                        if (window.pageYOffset == target) {
+                            // 停止动画 本质是停止定时器
+                            clearInterval(obj.timer);
+                            // 回调函数写到定时器结束里面
+                            // if (callback) {
+                            //     // 调用函数
+                            //     callback();
+                            // }
+                            callback && callback();
+                        }
+                        // 把每次加1 这个步长值改为一个慢慢变小的值  步长公式：(目标值 - 现在的位置) / 10
+                        // obj.style.left = window.pageYOffset + step + 'px';
+                        window.scroll(0, window.pageYOffset + step);
+                    }, 15);
+                } */
+    </script>
+
+
+</body>
+
+</html>

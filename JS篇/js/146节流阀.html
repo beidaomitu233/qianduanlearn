@@ -1,0 +1,41 @@
+   <!DOCTYPE html>
+   <html lang="en">
+
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+   </head>
+
+   <body>
+       <!-- 利用回调函数实现节流阀，节流阀可以解决连续点击导致播放过快，
+让一个动画执行完再去执行下一个动画，
+
+先定义一个变量为true 然后进到判断条件里之后马上给取反false，然后执行动画，给动画的回调函数
+让false改成true
+
+
+
+-->
+       <button></button>
+       <script>
+           let flag = true
+           let btn = document.querySelector('button')
+           btn.addEventListener('click', function () {
+               flag = false
+               if (3 < 4) {
+                   Animation(btn, 100, function () {
+                       btn.style.color = 'red'
+                       //当函数执行完之后开始回调，回调时把flag改成true
+                       flag = true
+
+                   })
+               }
+
+           })
+       </script>
+
+   </body>
+
+   </html>

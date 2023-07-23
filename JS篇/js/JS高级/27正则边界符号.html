@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //边界符 ^ 匹配的开头    $ 匹配的结尾
+      let rg = /abc/ //里面不需要加引号，不管是字符还是什么
+      console.log(rg.test('abc')) //这里字符就需要加引号
+
+      console.log('-----------')
+      let rg2 = /^abc/
+      console.log(rg2.test('aabc'))
+      console.log(rg2.test('abc'))
+      console.log(rg2.test('aabcd'))
+      console.log('-----------')
+      let rg3 = /^abc$/ //精确匹配 ，开头和结尾都要对应，连字符数都要对应
+      console.log(rg3.test('aabc'))
+      console.log(rg3.test('abc'))
+      console.log(rg3.test('abcabc'))
+
+      //
+    </script>
+  </body>
+</html>

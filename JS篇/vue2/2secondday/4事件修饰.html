@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: black;">
+    <!-- 用vue控制这个元素，并把数据填充到里面 -->
+    <div id="app">
+        <!-- 事件修饰符，可以个事件添加一些操作 ，点后面的是阻止默认事件 -->
+        <a href="https://cn.bing.com" @click.prevent="show">必应</a>
+
+        <div @click="beidong"
+            style="width: 150px;height: 150px;background-color: aqua;padding-left: 150px;padding-top: 25px;">
+            <button @click.stop="zhudong">冒泡</button>
+        </div>
+
+        <!-- 键盘修饰符 -->
+        <input type="text" @keyup.esc="clearinput" @keyup.enter="shuru">
+
+    </div>
+
+    <!-- 导入vue文件 ，在window全局下就有了vue这个构造函数 -->
+    <script src="./vue.js"></script>
+    <!-- 创建vue实例对象 -->
+    <script>
+        const vm = new Vue({
+            /* el是固定的写法，表示当前vm实例要控制页面上的哪个区域，接受指是一个选择器 */
+            el: '#app',
+            //data对象表示要渲染到页面上的数据
+            data: {
+                username: 'zs'
+            },
+            methods: {
+                show() {
+                    console.log('点击了链接');
+                },
+                zhudong() {
+                    console.log('点击了按钮');
+                },
+                beidong() {
+                    console.log('被动冒泡');
+                },
+                clearinput(e) {
+                    console.log('清空输入框');
+                    //利用e信息源获取到源标签进行修改
+                    e.target.value = ''
+                },
+                shuru() {
+
+                }
+
+
+            },
+        })
+    </script>
+</body>
+
+</html>

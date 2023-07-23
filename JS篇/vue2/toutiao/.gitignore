@@ -1,0 +1,27 @@
+# 忽略目录
+/node_modules
+/bootstrap4
+/bootstrap
+_vscode/
+/dist
+/img/
+
+# 忽略文件
+.idea/
+.vscode/
+*.zip
+
+# 忽略日志文件
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 忽略编译产生的文件
+*.log
+*.bak
+*.swp
+*.tmp
+
+# 忽略自动生成的文件
+.DS_Store
+Thumbs.db

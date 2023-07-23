@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //
+      /*
+         \d匹配0-9之间的任一数字，相当于[0-9]
+         \D匹配所有0-9以外的字符，相当于[^0-9]
+         \w匹配任意的字母、数字和下划线，相当于[A-Za-z0-9_]
+         \W除所有字母、数字和下划线以外的字符，相当于 [^A-Za-z0-9_]
+         \s匹配空格（包括换行符、制表符、空格符等），相等于[ \t\r\n\w\]
+         \S匹配非空格的字符，相当于 [^ \t\r\n\v\f]
+         */
+      //  或者符号 |
+
+      //简单验证手机号
+      let rg = /^\d{11}|\d{10}$/;
+      //前面开头固定是 1  所以就直接写 1
+      let rg2 = /^1\d\d{9}$/;
+      console.log(rg.test('18277161378'));
+      console.log(rg2.test('18277161378'));
+
+      //这个正则的g表示匹配全局中的任意一个，match是匹配中的
+      /#|%|*|]|/g,
+        (match) => {
+          switch (match) {
+            case '#':
+              return '>';
+          }
+        };
+    </script>
+  </body>
+</html>

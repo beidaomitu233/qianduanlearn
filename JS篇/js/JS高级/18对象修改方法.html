@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //遍历对象,以数组形式返回属性 obj.keys(obj)
+      let obj = {
+        age: 16,
+        namee: 'asd',
+        high: 177,
+      }
+      console.log(Object.keys(obj))
+      //原来修改或添加属性的方法,没有就自动添加
+      obj.food = 44
+      obj.age = 18
+      console.log(obj)
+
+      //这个修改更详细，可以设置属性的一些行为
+      //利用Object.defineProperty(obj, prop, {
+      /*   value: 设置属性的值 默认为undefined
+          writable:值是否可以重写。true| false 默认为false
+         enumerable: 目标属性是否可以被枚举。true| false 默认为 false
+          configurable:目标属性是否可以被删除或是否可以再次修改特性truel false 默认为false})*/
+
+      //                   修改对象 修改属性
+      Object.defineProperty(obj, 'age', {
+        //修改值
+        value: 22,
+        //是否可以被枚举。就是是否能便利这个对象数组
+        enumerable: true,
+        //不允许删除这个属性,并且不允许在修改里面的特比如上面的枚举
+        configurable: false,
+      })
+
+      Object.defineProperty(obj, 'high', {
+        //不允许修改数据，默认值是false
+        writable: false,
+      })
+
+      Object.defineProperty(obj, 'age', {
+        //修改值
+        value: 22,
+      })
+      delete obj.age
+      console.log(obj)
+    </script>
+  </body>
+</html>

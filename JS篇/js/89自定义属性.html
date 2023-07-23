@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div class=" asdi" data-index="2" data-list-name="hui"></div>
+    <!-- html的标签中可以自定义属性 -->
+    <div ziding="12" id="dome" class="hui">asda</div>
+    <script>
+
+        /* 当我们需要获取标签已有属性时 */
+        let div = document.querySelector('div');
+        console.log(div.id);
+
+        /*当需要获取自定义属性时这么写 ,也可以用于更改自定义属性 */
+        console.log(div.getAttribute('ziding'));
+
+        //修改这么写
+        div.setAttribute('ziding', 233);
+
+        div.setAttribute('class', 'nav');
+
+        //移除属性
+        div.removeAttribute('ziding');
+
+
+        /* 为了名清楚是自定义属性还是，本来就有属性 命名方式： data-xxxx */
+        let ziding = document.querySelector('div')
+        console.log(ziding.getAttribute('data-index'));
+        ziding.setAttribute('data-time', 1810);
+        /* H5新增的获取自定属性的方法  只能获取data-开头的 */
+        console.log(ziding.dataset)
+        console.log(ziding.dataset.index)
+        console.log(ziding.dataset['index'])
+        /* 如果有多个名字则是这么写 */
+        console.log(ziding.dataset.listName)
+        console.log(ziding.dataset['listName'])
+    </script>
+
+</body>
+
+</html>

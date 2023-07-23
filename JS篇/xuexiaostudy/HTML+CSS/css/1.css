@@ -1,0 +1,182 @@
+.jpg {
+    text-align: center;
+    font-size: 30px;
+    color: coral;
+
+}
+
+
+/* 选择器的目的就是选出想要加或修改样式的标签，所有选择选择最方便的来用就行 */
+
+
+/* css中用快捷语法  只用输入首字母和要的数值即可快速打出全部 */
+
+/* css有层叠性：相同标签有两种相同属性，的时候会就近原则， 
+继承性： 对父级标签的样式会继承字的样式比如颜色字号等等 
+所以给body定属性就可以全局一样
+优先级：  */
+
+/* 执行样式会有优先级，具体看图片，！imp是最高级，是写在样式后面
+继承过来的权重是0继承是没有样式的时候才会得到， 
+
+复合选择器会有权重叠加问题，如li 和ul li 或直接加id 加class
+按照写的选择器类型进行叠加权重，谁大显示谁
+*/
+
+/* 字体设置 */
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    /* 设置服务端字体 ，即使用户没有这个字体。只需要在服务端设置就行 */
+    /* 内容包括 字体类型  字体名称（地址，需要上传字体到服务端） */
+    @font-face {
+        font-family: ;
+        src: url();
+    }
+
+}
+
+.po {
+    text-align: center;
+    line-height: 100px;
+    text-indent: 2em;
+    text-decoration: none;
+    width: 100px;
+    height: 352px;
+    /* 前面是文字大小，中间是行高单位默认是em 最后是字体 */
+    font: 68px/1.5"华文行楷";
+     !important;
+}
+
+/* 还可以这样写 */
+.nav .jpl {}
+
+/* 伪类选择器 就是一个东西被点击前后的变化，
+和鼠标放在上面的时候 */
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* 鼠标悬停时 */
+a:hover {
+    color: deepskyblue;
+}
+
+/* 点击之后 */
+a:visited {
+    color: red;
+}
+
+/* 被点击时 */
+a:active {
+    color: sandybrown;
+}
+
+/* cs3中的伪元素 */
+/* 必须要有conten属性 */
+/* 创建的标签是行内元素 无款无高 */
+/* ::before 是在该标签下面再加一个标签，且是css标签不属于html，然后是该标签下的第一个子标签 */
+/* ::after  是在该标签下面再加一个标签，且是css标签不属于html，然后是该标签下的最后一个子标签 */
+
+div p::before {
+    content: '哈哈';
+}
+
+/* 权重是2 */
+div p::after {
+    content: '123哈哈';
+}
+
+
+/* 属性选择器 */
+/* 可以选则标签里面的属性值 */
+input[value] {
+    color: blue;
+}
+
+input[type=text] {
+    color: darkorange;
+}
+
+/* 还可以选择class前几个字和后几个字 */
+/* 前 */
+div[class^=dome] {
+    width: 50px;
+    height: 50px;
+    background: darkturquoise;
+    /* float: left; */
+    margin-top: 10px;
+}
+
+/* 后 */
+div[class$=dabi] {
+    width: 50px;
+    height: 50px;
+    background: tomato;
+    /* float: left; */
+    margin-top: 10px;
+}
+
+div[class*=olz] {
+    width: 50px;
+    height: 50px;
+    background: darkorange;
+    /* float: left; */
+    margin-top: 10px;
+}
+
+/* 权重是12  */
+/* 任意选子元素的选择器  */
+ul li:first-child {
+    width: 50px;
+    height: 50px;
+    background: skyblue;
+    /* float: left; */
+    margin-top: 10px;
+}
+
+ul li:last-child {
+    width: 50px;
+    height: 50px;
+    background: khaki;
+    /* float: left; */
+    margin-top: 10px;
+}
+
+/* 数字就选第几个  */
+ul li:nth-child(3) {
+    background-color: lightcoral;
+}
+
+/* 上面都是只能一次选一个 */
+/* 下面是可以多选 */
+/* 括号里面可以写数字，写关键字，或者公式 */
+/* odd是奇数，even是偶数 */
+/* 选择的时候是从0开始的 */
+ul li:nth-child(2n) {}
+
+ul li:nth-child(odd) {}
+
+ul li:nth-child(even) {}
+
+/* 还有 ul li:nth-of-type() 与没of的区别就是 ，有of的可识别标签在排列，
+而没of的就全部标签都编号，然后选中第一个再去和选中的父子集对比是否是自己要的
+ */
+
+/* dome */
+div p:nth-child(1) {
+    width: 50px;
+    height: 50px;
+    background: red;
+    /* float: left; */
+    margin-top: 10px;
+}
+
+div p:nth-of-type(1) {
+    width: 50px;
+    height: 50px;
+    background: green;
+    /* float: left; */
+    margin-top: 10px;
+}

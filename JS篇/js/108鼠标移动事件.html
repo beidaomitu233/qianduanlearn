@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+
+        }
+
+        * {
+            cursor: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li>123</li>
+        <li>qwewqe </li>
+        <li>qwewqe </li>
+    </ul>
+
+    <img src="../img/001a.gif" alt="">
+
+    <!-- 制作一个随着鼠标移动的小图片，分析：鼠标移动不会影响到其他元素（绝对定位） ，图片位置跟着鼠标变化 需要获取位置 修改位置样式  -->
+
+    <script>
+        let img = document.querySelector('img')
+
+        document.addEventListener('mousemove', function (e) {
+
+            //mousemove鼠标移动事件，只要移动1px就会输出以此
+            /* console.log(1); */
+
+            let x = e.clientX
+            let y = e.clientY
+
+            //这里要注意，添加px单位 ，并且是要添加字符串的，发现问题 图片并不是完全再鼠标上，而是再一定距离内，所以要调一下距离
+
+            img.style.top = y - 40 + 'px'
+            img.style.left = x - 40 + 'px'
+
+
+        })
+    </script>
+</body>
+
+</html>

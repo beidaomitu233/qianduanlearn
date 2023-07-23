@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/chushi.css">
+  <title>flex布局</title>
+  <style>
+    .flexdome1 {
+      display: flex;
+      width: 500px;
+      height: 500px;
+      background-color: aquamarine;
+      /* 设置主轴是x轴 行 row  可以设置从左到右 
+            也可以反过来加-reverse 是包括内容都反过来不是从后面往前 */
+      flex-direction: row;
+      /* 设置主轴为y轴 */
+      /* flex-direction: column; */
+      /* 让子元素居左 默认是 */
+      /* justify-content: start; */
+      /* 让子元素居右排序 */
+      /* justify-content: end; */
+      /* 让子元素居中对齐排序  */
+      justify-content: center;
+      /* 平分剩余空间，很方便 */
+      justify-content: space-around;
+      /* 先两边贴边其他盒子在均分剩余位置 */
+
+      /* 子元素的内容会一直沿着主轴排列，
+            假如内容的宽度或高度超出父盒子之后 flex里面会把其他盒子缩放让后面的排成一排 */
+      /* 默认就是这个属性 */
+      /* flex-wrap: nowrap; */
+      /* 强制一行显示 */
+      flex-wrap: wrap;
+
+
+      /* 单项移动的时候基于用 */
+      align-self: center;
+
+      /* 设置主轴之后同时控制侧轴的元素 */
+      /* 和原来值是一样的，多了一个沿着侧轴拉伸 */
+      /* 且只能在子项为单行的时候用 ，多行就这操作没法居中*/
+      align-items: center;
+
+      /* 多行的时候用这个效果 */
+      align-content: space-around;
+
+      /* 复合写法 */
+      /* 就是把主轴和换行协议期 */
+      flex-flow: row wrap;
+
+      /* 分 分份数写法 ，极其简单方便且自适应*/
+      /* 里面跟着数子是子项目里面得到的份数，
+            假如里有四个子项目 ，里面每个得到1份 */
+      /* 也可以单独定义某一个得到的份数是几份，布局的时候极其方便 */
+      /* 甚至都不需要定义其他盒子的宽高，会自动分配，如果定义了就只缩无定义的 */
+      /* 分配的空间是剩余空间 */
+      /* 也可以写百分比，配合换行来使用 */
+      flex: 1;
+
+      /* 控制前后顺序 */
+      /* 就是控制单个盒子的位置 向前或者向后移动看数字大小*/
+      /* order: -1; */
+
+
+      /* flex布局就像搭积木，或者是把每一行填满就行，原理简单 */
+
+      /* 要在图片下面在写文字 
+            有两种写法，一种是加图片然后把文字设置成行级元素，然后就会因为占一行就得下来  
+            另一种是把主轴设置成y轴让东西沿y轴排在加ai itm居中*/
+    }
+
+    .flexdome3 {
+      display: flex;
+
+    }
+
+    span {
+      width: 100px;
+      height: 100px;
+      background-color: bisque;
+    }
+
+    .flexdome2 {
+      width: 600px;
+      height: 500px;
+      background-color: aquamarine;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+    }
+
+    .flexdome3 {
+      width: 500px;
+      height: 500px;
+      background-color: aquamarine;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row;
+      /* 不强制一行显示 */
+      flex-wrap: wrap;
+    }
+
+
+    .flexdome4 {
+      width: 600px;
+      height: 500px;
+      background-color: aquamarine;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+    }
+
+    /* flex演示 */
+    .flexdome5 {
+      display: flex;
+      width: 1000px;
+    }
+
+    .flexdome5 span {
+      background-color: brown;
+      flex: 1;
+    }
+
+    /* 京东项目的优化写法 */
+    .flexdome6 {
+      display: flex;
+      width: 700px;
+      height: 100px;
+      background-color: chartreuse;
+      margin: 0 auto;
+    }
+
+    .flexdome6 span:nth-child(1) {
+      width: 70px;
+      height: 100px;
+      background-color: darkorange;
+    }
+
+    .flexdome6 span:nth-child(2) {
+      flex: 1;
+      background-color: cornflowerblue;
+    }
+
+    .flexdome6 span:nth-child(3) {
+      width: 70px;
+      height: 100px;
+      background-color: darkorange;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--及其方便 是弹性布局  给父级元素flex属性 然后控制子元素-->
+  <!-- flex-direction 是设置主轴方向 就是X轴或者叫行 row  y轴就是侧轴 -->
+  <!-- 内容沿着主轴排列 -->
+  <div class="flexdome1">
+    <span>2</span>
+    <span>2</span>
+    <span>2</span>
+    <span>2</span>
+    <span>23</span>
+    <span>33</span>
+  </div>
+  <div class="flexdome2">
+    <span>2</span>
+    <span>2</span>
+    <span>2</span>
+    <span>2</span>
+    <span>23</span>
+    <span>33</span>
+  </div>
+  <div class="flexdome3">
+    <span>2</span>
+    <span>2</span>
+
+    <span>2</span>
+    <span>2</span>
+    <span>23</span>
+    <span>33</span>
+  </div>
+
+  <div class="flexdome4">
+    <span>2</span>
+    <span>2</span>
+    <span>2</span>
+    <span>2</span>
+    <span>2</span>
+    <span>23</span>
+    <span>33</span>
+  </div>
+
+  <div class="flexdome5">
+    <span>2</span>
+    <span>23</span>
+    <span>33</span>
+  </div>
+
+  <div class="flexdome6">
+    <span>2</span>
+    <span>23</span>
+    <span>33</span>
+  </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // set 类似于数组 存储的数据是不能重复的，是一个构造函数
+    const s = new Set(['b', 'a']);
+    //size是数量
+    console.log(s.size);
+
+    //利用set给数组去重
+    let shuz = new Set(['asd', 'asds', 'asd', '77']);
+
+    let shuzu = [...shuz];
+    console.log(shuzu);
+    console.log(shuz.size);
+    //数据解构会有一些方法
+    /* 
+    add(value) 返回某个数，返回set结构本身
+    delete(value)：删除某个值，返回一个布尔值，表示删除是否成功 
+    has(value)：返回一个布尔值，表示该值是否为Set的成员 
+    clear()：清除所有成员，没有返回值
+    */
+
+    shuz.add('66').add('b');
+    console.log(shuz.size);
+
+    let ba = shuz.delete('b');
+    console.log(shuz.size);
+
+    let pp = shuz.has('66');
+    console.log(pp);
+    //因为是类似于数组方法，所以也能用foreach 并且用箭头函数进行遍历
+    shuz.forEach((value) => {
+      console.log(value);
+    });
+
+    shuz.clear();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            background-color: cornflowerblue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 获取所在盒子内的相对位置 -->
+
+    <div class="box1">
+        <p></p>
+    </div>
+    <script>
+        let box1 = document.querySelector('.box1')
+        let p = document.querySelector('p')
+        box1.addEventListener('mousemove', function (e) {
+            let X = e.pageX;
+            let Y = e.pageY;
+            let x1 = X - this.offsetLeft
+            let y1 = Y - this.offsetTop
+            p.innerHTML = X + '+' + Y
+        })
+    </script>
+
+</body>
+
+</html>

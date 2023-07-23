@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //在继承函数的情况下，在子类中添加一些方法
+      //this指向的是调用者，总的来说
+      var that;
+      class father {
+        constructor(x, y) {
+          //这里的this指向的是father这个类
+          this.x = x;
+          this.y = y;
+          //把这个类给一个变量，后面调用就不会弄乱，也更方便
+          that = this;
+        }
+        sunm() {
+          console.log(this.x + this.y);
+        }
+      }
+      //先继承后调用
+      class sonn extends father {
+        constructor(x, y) {
+          //super必须要放在前面，得先调用父级函数才能往下执行
+          //super的作用  调用函数，传递参数
+          super(x, y);
+          this.x = x;
+          this.y = y;
+        }
+        sumsc() {
+          console.log(this.x * this.y);
+        }
+      }
+      let sonnz = new sonn(2, 4);
+      sonnz.sumsc();
+      sonnz.sunm();
+    </script>
+  </body>
+</html>
+z

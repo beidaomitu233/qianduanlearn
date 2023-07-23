@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .event-info {
+            margin-bottom: 10px;
+        }
+
+        .event-info p {
+            margin: 5px 0;
+        }
+
+        .id-label {
+            font-weight: bold;
+            color: blue;
+        }
+
+        .id-value {
+            color: green;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>事件：阿斯顿</h1>
+
+    <div class="event-info">
+        <p>时间：<span id="timeValue"></span></p>
+        <p>类型：<span id="typeValue"></span></p>
+        <p>金额：<span id="amountValue"></span></p>
+        <p>备注：<span id="noteValue"></span></p>
+        <p class="id-label">ID：</p>
+        <p class="id-value" id="idValue"></p>
+        <a href="/del">删除数据</a>
+    </div>
+
+    <a href="addbll.html">添加数据</a>
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/1.3.6/axios.js"></script>
+
+<script>
+    axios.get('/acountlist')
+        .then(function (response) {
+            console.log(response);
+            document.getElementById('timeValue').innerHTML = response.data.time
+            document.getElementById('typeValue').innerHTML = response.data.type
+            document.getElementById('amountValue').innerHTML = response.data.amount
+            document.getElementById('noteValue').innerHTML = response.data.note
+            document.getElementById('idValue').innerHTML = response.data.id
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+</script>
+
+</html>

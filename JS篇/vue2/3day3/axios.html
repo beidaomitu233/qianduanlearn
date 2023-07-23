@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 用vue控制这个元素，并把数据填充到里面 -->
+    <!--  <button class="postt">post请求</button> -->
+    <button class="gett">get请求</button>
+    <button class="postt">post请求</button>
+    <!-- 导入vue文件 ，在window全局下就有了vue这个构造函数 -->
+    <script src="./vue.js"></script>
+    <!-- 导入远程的axios库 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        //发起axios请求的方法
+        document.querySelector('.gett').addEventListener('click', async function () {
+            //调用axios方法的返回值是promise实例，则可以添加 await
+            //加上之后就会返回真实的数据，并且只能在 async修饰的方法中
+            await axios({
+                method: 'GET',
+                url: 'http://baidu.com',
+                data: {
+                    name: 'zs',
+                    age: 20
+                }
+
+                /* 
+                                传递参数get用
+                                params: {
+                                    id: 22
+                                },
+                                post用
+                                data: {},
+                 */
+
+            }).result.then(function (result) {
+                console.log(result);
+            })
+
+            //结构取值
+            const {
+                //意思是只要data里面的值，:是结构完成后重命名，res是名字
+                //以后都这么写
+                data: res
+            } = await axios({
+                method: 'GET',
+                url: 'http://baidu.com',
+                data: {
+                    name: 'zs',
+                    age: 20
+                }
+
+                /* 
+                                传递参数get用
+                                params: {
+                                    id: 22
+                                },
+                                post用
+                                data: {},
+                 */
+
+            })
+            console.log(res.data);
+
+
+            const {
+                data: zzda
+            } = await axios.get('http://baidu.com', {
+                params: {
+                    id: 12
+                }
+            })
+
+
+        })
+
+        /*post请求写法 */
+        document.querySelector('.postt').addEventListener('click', async function () {
+
+            /* 解构 */
+            const {
+                data: zz
+            } = await axios.post('http://hui7.top', {
+                //传递参数
+                name: zz
+            })
+
+        })
+    </script>
+</body>
+
+</html>

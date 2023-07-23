@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加或者删除数组元素</title>
+</head>
+
+<body>
+    <script>
+        var arr1 = [1, 2, 3];
+        /* push是添加数组元素  是从数组末尾再加上去*/
+        arr1.push(4, 'pidd')
+        arr1.push(5,123)
+        /*  console.log(arr1.push(4, 'pidd')) */
+        /* push完成之后的返回值就是新数组长度 */
+        console.log(arr1); /* 原数组也发生了变化 */
+
+        /* unshift 是从数组的头添加元素 和push的属性一样 */
+        arr1.unshift(6, 'bei')
+        arr1.unshift(7,3321)
+
+        console.log(arr1);
+
+        /* 删除数组元素 也有从头删 也有从未删 */
+
+        /* arr1.pop()是从尾删 ，是没有参数的，返回的是被删除的值*/
+        console.log(arr1.pop())
+        arr1.pop()
+        arr1.pop()
+
+        /* arr1.pop(); 删除最后一个元素 */
+        console.log(arr1);
+
+        /*  arr.shift 从头删 也没有参数 返回值也是被删除值   */
+        arr.shift(); /* 删除第一个元素 */
+        console.log(arr1);
+        console.log(arr1.shift());
+        console.log(arr1);
+    </script>
+
+</body>
+
+</html>

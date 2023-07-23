@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" class="ues">
+    <button class="cun">存取</button>
+    <button class="qu">取</button>
+    <button class="shan">删除</button>
+    <button class="qing">清除</button>
+
+    <script>
+        let userN = document.querySelector('.ues')
+        let cun = document.querySelector('.cun')
+        let qu = document.querySelector('.qu')
+        let shan = document.querySelector('.shan')
+        let qing = document.querySelector('.qing')
+
+        //生命周期是永久的存储在浏览器中，即使在其他窗口也能获取到多窗口，以键值对形式存储
+
+        cun.addEventListener('click', function () {
+            let value = userN.value
+            localStorage.setItem('UN', value)
+            localStorage.setItem('Um', value)
+        });
+        qu.addEventListener('click', function () {
+            console.log(localStorage.getItem('UN'));
+
+        });
+        shan.addEventListener('click', function () {
+            localStorage.removeItem('UN')
+        });
+        qing.addEventListener('click', function () {
+            //clear是把所有存储的数据都删除掉
+            localStorage.clear()
+        })
+    </script>
+
+
+
+
+</body>
+
+</html>

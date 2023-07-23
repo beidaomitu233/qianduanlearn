@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p><strong> 这是加粗</strong></p>
+    <p><em> 这是倾斜</em></p>
+    <p><del> 这是删除线</del></p>
+    <p><ins> 这是下划线</ins></p>
+
+    <div class="imggg">
+
+    </div>
+    <img style="  display: none;" id="wenzi" border="15" width="500px" src="../Snipaste_2022-07-14_22-32-14.png"
+        alt="当图片不显示的时候就会显示文字" title="当鼠标放上来的时候会显示这个文字z">
+
+    <br>
+    <a href="https://hui7.top" target="_blank">hiu7.top</a>
+    <a href="../01学校学习.html" target="_blank">学校学习的内部网页</a>
+    <a href="#wenzi">锚点</a>
+
+
+    <table align="centers" border="1" cellpadding="15" cellspeacing="50">
+        <thead>
+            <tr>
+                <th colspan="2"></th>
+                <th>内容</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>内容</td>
+                <td rowspan="2">内容</td>
+            </tr>
+            <tr>
+                <td>内容</td>
+                <td>内容</td>
+            </tr>
+        </tbody>
+
+
+
+    </table>
+
+
+    <form action="y.php" method="POST" name="表单提交的名字" style="  display: none;">
+
+        <span> 用户名</span>
+
+        <input type="text" name="username" placeholder="输入用户名" maxlength="20" /> <br />
+        <span> 密码</span>
+        <input type="password" name="password" />
+
+        <br />
+        <!-- 用相同的name来实现单选  radio是小圆点-->
+        <label for="sex1">男</label>
+        <input type="radio" name="sex" id="sex1" checked value="nan" />
+        <label for="sex2">女 </label>
+        <input type="radio" name="sex" id="sex2" value="nv" />
+        <br />
+        <!-- 多选实现 -->
+        <input type="checkbox" /> 高
+        <input type="checkbox" /> 胖
+        <input type="checkbox" /> 123
+        <input type="checkbox" /> 胖2
+        <input type="checkbox" /> 胖3
+        <input type="checkbox" />
+        <br />
+        <!-- 提交按钮 -->
+        <input type="submit" value="注册" />
+        <br />
+        <!-- 重置按钮 -->
+        <input type="reset" value="重置" />
+        <br />
+        <!-- 可自定义按钮 -->
+        <input type="button" value="获取短信验证码" />
+        <br />
+        <!-- 上传文件按钮 -->
+        <input type="file" value="上传文件" />
+        <br />
+
+        <!-- 下拉表单 中selected表示默认选中 -->
+        <select>
+            <option value=""> </option>
+            <option value="" selected>中国</option>
+            <option value="">美国</option>
+            <option value="">英国</option>
+            <option value="">俄罗斯</option>
+
+        </select>
+
+        <!-- 文本表单 当需要输入大量文字时用这个，比如评论框等 -->
+        <!-- cols表示一行可以写的字数 row表示可以写多少行 -->
+        <!-- 后期通过css限制，属性不用记 -->
+        <textarea name="" id="" cols="10" rows="5">neirong</textarea>
+
+
+        <!-- H5表单新功能 -->
+        <!-- 在form里面时可以验证是否是正确的格式 -->
+        <!-- required是必须写的意识 -->
+        <!-- autofocus 是自动点击，比如一打开百度就是已经选中输入框 -->
+        <!-- autofomplete是可以保存输入过的信息，要表单成功提交且需要加在表单内加name
+          ，就像存账号密码那样 -->
+        <form action="">
+            <input type="email" placeholder="邮箱" autofocus="autofocus" autocomplete="on" autocomplete="on">
+            <input type="url" placeholder="输入链接">
+
+            <!-- 时间控件 -->
+            <input type="date" placeholder="">
+            <input type="time" placeholder="">
+            <input type="month" placeholder="">
+            <input type="week" placeholder="">
+
+            <input type="number" placeholder="只能输入数字" required="required" name="riqi">
+            <input type="tel" placeholder="只能输入手机号" required="required" autocomplete="on" name="haoma">
+            <input type="color" placeholder="生成一个颜色选着表单">
+            <input type="submit">
+
+        </form>
+
+        <div class="texttest">
+
+
+            <h2>早年经历</h2>
+            <p class="sad">周杰伦出生于台湾省新北市，祖籍福建省泉州市永春县 [13]
+                。4岁的时候，母亲叶惠美把他送到淡江山叶幼儿音乐班学习钢琴。初中二年级时，父母因性格不合离婚，周杰伦归母亲叶惠美抚养。中考时，没有考上普通高中，同年，因为擅长钢琴而被淡江中学第一届音乐班录取。高中毕业以后，两次报考台北大学音乐系均没有被录取，于是开始在一家餐馆打工。
+                1997年9月，周杰伦在母亲的鼓励下报名参加了台北星光电视台的娱乐节目《超级新人王》，并在节目中邀人演唱了自己创作的歌曲《梦有翅膀》。当主持人吴宗宪看到这首歌曲的曲谱后，就邀请周杰伦到阿尔发音乐公司担任音乐助理。1998年，创作歌曲《眼泪知道》，公司把这首歌曲给到刘德华后被退歌，后为张惠妹创作的歌曲《双截棍》和《忍者》（后收录于周杰伦个人专辑《范特西》中）也被退回
+                [14] 。</p>
+            <h2>早年经历</h2>
+            <p>周杰伦出生于台湾省新北市，祖籍福建省泉州市永春县 [13]
+                。4岁的时候，母亲叶惠美把他送到淡江山叶幼儿音乐班学习钢琴。初中二年级时，父母因性格不合离婚，周杰伦归母亲叶惠美抚养。中考时，没有考上普通高中，同年，因为擅长钢琴而被淡江中学第一届音乐班录取。高中毕业以后，两次报考台北大学音乐系均没有被录取，于是开始在一家餐馆打工。
+                1997年9月，周杰伦在母亲的鼓励下报名参加了台北星光电视台的娱乐节目《超级新人王》，并在节目中邀人演唱了自己创作的歌曲《梦有翅膀》。当主持人吴宗宪看到这首歌曲的曲谱后，就邀请周杰伦到阿尔发音乐公司担任音乐助理。1998年，创作歌曲《眼泪知道》，公司把这首歌曲给到刘德华后被退歌，后为张惠妹创作的歌曲《双截棍》和《忍者》（后收录于周杰伦个人专辑《范特西》中）也被退回
+                [14] 。</p>
+            <h2>早年经历</h2>
+            <p>周杰伦出生于台湾省新北市，祖籍福建省泉州市永春县 [13]
+                。4岁的时候，母亲叶惠美把他送到淡江山叶幼儿音乐班学习钢琴。初中二年级时，父母因性格不合离婚，周杰伦归母亲叶惠美抚养。中考时，没有考上普通高中，同年，因为擅长钢琴而被淡江中学第一届音乐班录取。高中毕业以后，两次报考台北大学音乐系均没有被录取，于是开始在一家餐馆打工。
+                1997年9月，周杰伦在母亲的鼓励下报名参加了台北星光电视台的娱乐节目《超级新人王》，并在节目中邀人演唱了自己创作的歌曲《梦有翅膀》。当主持人吴宗宪看到这首歌曲的曲谱后，就邀请周杰伦到阿尔发音乐公司担任音乐助理。1998年，创作歌曲《眼泪知道》，公司把这首歌曲给到刘德华后被退歌，后为张惠妹创作的歌曲《双截棍》和《忍者》（后收录于周杰伦个人专辑《范特西》中）也被退回
+                [14] 。</p>
+            <h2>早年经历</h2>
+            <p>周杰伦出生于台湾省新北市，祖籍福建省泉州市永春县 [13]
+                。4岁的时候，母亲叶惠美把他送到淡江山叶幼儿音乐班学习钢琴。初中二年级时，父母因性格不合离婚，周杰伦归母亲叶惠美抚养。中考时，没有考上普通高中，同年，因为擅长钢琴而被淡江中学第一届音乐班录取。高中毕业以后，两次报考台北大学音乐系均没有被录取，于是开始在一家餐馆打工。
+                1997年9月，周杰伦在母亲的鼓励下报名参加了台北星光电视台的娱乐节目《超级新人王》，并在节目中邀人演唱了自己创作的歌曲《梦有翅膀》。当主持人吴宗宪看到这首歌曲的曲谱后，就邀请周杰伦到阿尔发音乐公司担任音乐助理。1998年，创作歌曲《眼泪知道》，公司把这首歌曲给到刘德华后被退歌，后为张惠妹创作的歌曲《双截棍》和《忍者》（后收录于周杰伦个人专辑《范特西》中）也被退回
+                [14] 。</p>
+            <h2>早年经历</h2>
+            <p>周杰伦出生于台湾省新北市，祖籍福建省泉州市永春县 [13]
+                。4岁的时候，母亲叶惠美把他送到淡江山叶幼儿音乐班学习钢琴。初中二年级时，父母因性格不合离婚，周杰伦归母亲叶惠美抚养。中考时，没有考上普通高中，同年，因为擅长钢琴而被淡江中学第一届音乐班录取。高中毕业以后，两次报考台北大学音乐系均没有被录取，于是开始在一家餐馆打工。
+                1997年9月，周杰伦在母亲的鼓励下报名参加了台北星光电视台的娱乐节目《超级新人王》，并在节目中邀人演唱了自己创作的歌曲《梦有翅膀》。当主持人吴宗宪看到这首歌曲的曲谱后，就邀请周杰伦到阿尔发音乐公司担任音乐助理。1998年，创作歌曲《眼泪知道》，公司把这首歌曲给到刘德华后被退歌，后为张惠妹创作的歌曲《双截棍》和《忍者》（后收录于周杰伦个人专辑《范特西》中）也被退回
+                [14] 。</p>
+            <h2>早年经历</h2>
+            <p>周杰伦出生于台湾省新北市，祖籍福建省泉州市永春县 [13]
+                。4岁的时候，母亲叶惠美把他送到淡江山叶幼儿音乐班学习钢琴。初中二年级时，父母因性格不合离婚，周杰伦归母亲叶惠美抚养。中考时，没有考上普通高中，同年，因为擅长钢琴而被淡江中学第一届音乐班录取。高中毕业以后，两次报考台北大学音乐系均没有被录取，于是开始在一家餐馆打工。
+                1997年9月，周杰伦在母亲的鼓励下报名参加了台北星光电视台的娱乐节目《超级新人王》，并在节目中邀人演唱了自己创作的歌曲《梦有翅膀》。当主持人吴宗宪看到这首歌曲的曲谱后，就邀请周杰伦到阿尔发音乐公司担任音乐助理。1998年，创作歌曲《眼泪知道》，公司把这首歌曲给到刘德华后被退歌，后为张惠妹创作的歌曲《双截棍》和《忍者》（后收录于周杰伦个人专辑《范特西》中）也被退回
+                [14] 。</p>
+            <h2>早年经历</h2>
+            <p>周杰伦出生于台湾省新北市，祖籍福建省泉州市永春县 [13]
+                。4岁的时候，母亲叶惠美把他送到淡江山叶幼儿音乐班学习钢琴。初中二年级时，父母因性格不合离婚，周杰伦归母亲叶惠美抚养。中考时，没有考上普通高中，同年，因为擅长钢琴而被淡江中学第一届音乐班录取。高中毕业以后，两次报考台北大学音乐系均没有被录取，于是开始在一家餐馆打工。
+                1997年9月，周杰伦在母亲的鼓励下报名参加了台北星光电视台的娱乐节目《超级新人王》，并在节目中邀人演唱了自己创作的歌曲《梦有翅膀》。当主持人吴宗宪看到这首歌曲的曲谱后，就邀请周杰伦到阿尔发音乐公司担任音乐助理。1998年，创作歌曲《眼泪知道》，公司把这首歌曲给到刘德华后被退歌，后为张惠妹创作的歌曲《双截棍》和《忍者》（后收录于周杰伦个人专辑《范特西》中）也被退回
+                [14] 。</p>
+
+        </div>
+
+        <div class="boxshadow">
+            <br>
+
+        </div>
+
+        <div class="bigbox">
+            <div class="dome1"></div>
+            <div class="dome1"></div>
+            <div class="dome1"></div>
+            <!--  <div class="clear"></div> -->
+        </div>
+
+        <style>
+            .clear {
+                clear: both;
+            }
+
+            .bigbox {
+                overflow: hidden;
+                border: 1px solid yellow;
+            }
+
+            .bigbox .dome1 {
+                float: left;
+                width: 300px;
+                height: 300px;
+                background-color: aqua;
+                border: 1px solid red;
+            }
+
+            .boxshadow {
+                display: none;
+                width: 300px;
+                height: 300px;
+                background-color: aqua;
+                box-shadow: 10px 10px 6px red;
+            }
+
+
+
+            .texttest {
+                display: none;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: 25px;
+                font-style: inherit;
+                font-weight: 400;
+                color: aqua;
+                text-align: center;
+                line-height: 2em;
+                text-indent: 2em;
+                letter-spacing: 5px;
+
+
+            }
+
+            .sad {
+                display: none;
+                width: 500px;
+                height: 100px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            a:focus {
+                display: none;
+                color: red;
+                text-indent: 3em;
+            }
+
+            .imggg {
+                display: none;
+                width: 500px;
+                height: 300px;
+                background-color: aqua;
+                background-image: url(../Snipaste_2022-07-14_22-32-14.png);
+                background-size: 150px;
+                background-repeat: no-repeat;
+                background-position: center center;
+
+            }
+        </style>
+
+
+
+</body>
+
+</html>

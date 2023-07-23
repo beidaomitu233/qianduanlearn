@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- 创建类 ,类必须要实例化
+        class name {
+            class body
+        }
+        let xx= new name();
+     -->
+    <script>
+      class Starr {
+        //在类里面函数不需要加function
+        //constructor 可以返回实例对象不写return ，这个函数是自动生成的
+        constructor(uname, age) {
+          this.uname = uname;
+          this.age = age;
+        } //两个函数之间也不用加逗号
+        play(games) {
+          console.log(this.uname + games);
+        }
+      }
+      //每个对象都有这些个属性，都要编辑，所以直接把这些属性拿出来做一个类，后面直接填写属性值就够了
+      let ldh = new Starr("辉辉", 16);
+      let zz = new Starr("辉3", 18);
+      console.log(ldh.uname);
+      console.log(zz.uname);
+      zz.play("lol");
+      //constructor 构造函数，用于传递参数，返回实例对象，用new生成实例对象时自动调用，
+    </script>
+  </body>
+</html>

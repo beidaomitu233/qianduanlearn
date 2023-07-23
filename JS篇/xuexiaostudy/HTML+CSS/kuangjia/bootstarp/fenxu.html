@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+  <title>简易新闻网</title>
+  <link rel="stylesheet" href="css/lianxi.css">
+  <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.min.css">
+</head>
+
+<body>
+  <!-- 响应式布局分析 先分析在每个大小下的布局样式  然后决定采用 col-md 还是lg 等等  后面超小屏只用做一些修改即可不需要重新写 -->
+  <!-- 布局超小屏的时候时用隐藏和可见来更替布局样式 -->
+  <!-- 盒子盒子之家有个白色的缝隙 是用一个盒子里的pad实现的，这样又能响应右不影响布局 -->
+  <div class="container">
+    <div class="row">
+      <!-- 里面的元素会自用沿着y轴排序 因为像是一个数学本的线， -->
+      <header class="col-md-2  col-lg-2col-xs-12 col-sm-12">
+        <nav>
+          <ul>
+            <!-- 用字体图标时最好加个span标签后期好设置 -->
+            <li> <a href="#">简亦导航栏 </a></li>
+            <li> <a href="#"> <span class="glyphicon glyphicon-phone"></span> 科技区</a></li>
+            <li> <a href="#"> <span class="glyphicon glyphicon-phone"></span>生活日常</a></li>
+            <li> <a href="#"> <span class="glyphicon glyphicon-phone"></span>全球新闻</a></li>
+            <li> <a href="#"> <span class="glyphicon glyphicon-phone"></span>科技区</a></li>
+          </ul>
+        </nav>
+        <div class="nav">123</div>
+      </header>
+
+      <article class="col-md-7 col-lg-7">123</article>
+
+      <aside class="col-md-3 col-lg-3  col-xs-12 col-sm-12">
+
+        <div class="logo hidden-xs hidden-md">
+          <h1>简亦联盟旗下新闻网</h1>
+          <!-- 图片大小写w100%这样就能跟着响应变化大小 -->
+          <img src="./img/背景拷贝@3x.png" alt="">
+        </div>
+        <!-- 超小屏幕时的替换图片 -->
+        <div class="logo2 visible-xs"> <span>简亦新闻</span></div>
+
+      </aside>
+    </div>
+
+
+
+
+  </div>
+
+
+
+</body>
+
+</html>

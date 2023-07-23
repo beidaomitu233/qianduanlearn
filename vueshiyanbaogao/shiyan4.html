@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Router Example</title>
+    <style>
+        .box1 {
+            width: 500px;
+            height: 300px;
+            margin: 0 auto;
+            margin-top: 100px;
+            border: 1px solid #000;
+        }
+
+        .box2 {
+            width: 100%;
+            height: 50px;
+            background: #ccc;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="app">
+        <div class="box1">
+            <h2 style="text-align: center;">电视剧-xxxx</h2>
+            <div class="box2">
+                <router-link to="/">主页</router-link>
+                <router-link to="/two">第二集</router-link>
+                <router-link to="/three">第三集</router-link>
+
+            </div>
+            <div class="box2">
+                <router-view></router-view>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- 引入 Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <!-- 引入 Vue Router -->
+    <script src="https://unpkg.com/vue-router@3.5.2/dist/vue-router.min.js"></script>
+
+    <!-- 引入自定义 JavaScript 文件 -->
+    <script>
+        // 定义 Home 组件
+        const Home = {
+            template: `
+    <div>
+      <h1>主页</h1>
+      <p>这里是主页</p>
+    </div>
+  `
+        }
+
+        // 定义 About 组件
+        const two = {
+            template: `
+    <div>
+      <h1>第一集</h1>
+      <p>欢迎观看第一集</p>
+    </div>
+  `
+        }
+        const three = {
+            template: `
+    <div>
+      <h1>第二集</h1>
+      <p>欢迎观看第二集</p>
+    </div>
+  `
+        }
+
+        // 定义路由规则
+        const routes = [{
+                path: '/',
+                name: 'Home',
+                component: Home
+            },
+            {
+                path: '/two',
+                name: 'two',
+                component: two
+            },
+            {
+                path: '/three',
+                name: 'three',
+                component: three
+            }
+        ]
+
+        // 创建 router 实例
+        const router = new VueRouter({
+            routes
+        })
+
+        // 创建 Vue 实例,并挂载到vue上
+        new Vue({
+            el: '#app',
+            router
+        })
+    </script>
+</body>
+
+</html>

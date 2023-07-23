@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--  在运算里面有加 减 乘 除 取模（算除的时候 取的是剩余的数）   -->
+    <script>
+        /* 判断是否能被整除 用取余 取到零就是能整除 */
+        console.log(5 % 3);
+        console.log(3 % 5);
+
+        console.log(6 + 9);
+
+        console.log(9 * 9);
+
+        console.log(9 - 8);
+
+        console.log(9 / 3);
+
+
+        /* 对于浮点数（小数的运算 有一些问题）
+        在以前会显示在后7位小数 导致结果不精准
+        现在已经修复 */
+        var mun = console.log(0.2 + 0.5);
+
+        /* == 双等于号是判断符号 意识是是否等于 
+        但是在这里会显示fales 因为底层转换运算没法更改 */
+        //所以一般不用两个浮点数进行比较
+        var mun = console.log(0.2 + 0.5);
+        console.log(mun == 0.7);
+
+        /* 表达式（数字运算符和变量组成）和返回值 */
+        console.log(9 - 5)
+        var mubb = 6 - 3 //这里是先运算后面 得到结果后才赋值，而不是赋值等式
+    </script>
+
+
+
+
+
+</body>
+
+</html>

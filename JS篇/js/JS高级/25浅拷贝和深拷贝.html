@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //浅拷贝只拷贝一层，更深层次对象级别的只拷贝引用地址，如果原对象发生变化，浅拷贝里的对象也会变化
+      //深拷贝是拷贝多层，每一级别数据都会拷贝
+
+      let waibi = {
+        nameee: 'asdas',
+        id: 16,
+        good: [
+          {
+            id: 211,
+            me: 'asdas',
+          },
+        ],
+      }
+      let p = {}
+      //这里的k是宏观上的属性名 waibi[k]是宏观上的属性值。
+      //就是 k对应一个属性名 [k]对应属性值 ，然后遍历到下一个就继续变换
+      for (let k in waibi) {
+        p[k] = waibi[k]
+      }
+      console.log(p)
+
+      //ES6中新增的浅拷贝写法，但是原理还是不变,深层对象还是只拷贝地址
+      Object.assign(p, waibi)
+      console.log(p)
+
+      //深拷贝 是每层都拷贝，就是拿过来 重新开辟空间 重新赋值，修改原来的值也不会影响拷贝后的值
+      //主流实现方式，实现原理就是多次利用遍历数组浅拷贝，一层一层的拷贝，如果是对象这种复杂类型就进入到对象里再进行拷贝
+      let z = {}
+      function shen(newobj, oldobj) {
+        for (let k in oldobj) {
+          //判断属性是那种数据类型
+          let item = oldobj[k]
+          //如果是数组就进入数组，这里并没有拷贝而是进入而已，然后再递归，在判断还有没有更深层次的，如果没有了就开始赋值了，
+          //array必须要写在前面，因为 array属于objec的一种，这样得到的结果就是不对了
+          if (item instanceof Array) {
+            newobj[k] = []
+            //这里将进入到深层的属性名属性值传出去，在这里进入的方式就是把深层次是对象里的值和属性名 传递出去
+            shen(newobj[k], item)
+            //进入对象，进入后如果没有更深则递归一次然后赋值
+          } else if (item instanceof Object) {
+            newobj[k] = {}
+            shen(newobj[k], item)
+            //真正的赋值是在这一笔
+          } else {
+            newobj[k] = item
+          }
+        }
+      }
+      shen(z, waibi)
+      console.log(z)
+
+      let q = {}
+
+      function deepcopy(newpobj1, oldobj2) {
+        //遍历
+        for (let k in oldobj2) {
+          let jiu = oldobj2[k]
+          //判断值的数据类型,如果是简单就直接赋值，复杂就需要进入对象（数组）再赋值
+          //如果是数组就定义一个数组，然后进入
+          if (jiu instanceof Array) {
+            newpobj1[k] = []
+            deepcopy(newpobj1[k], jiu)
+          } else if (jiu instanceof Object) {
+            newpobj1[k] = {}
+            deepcopy(newpobj1, jiu)
+          } else {
+            //真正开始赋值
+            newpobj1[k] = jiu
+          }
+        }
+      }
+
+      deepcopy(q, waibi)
+      console.log(q)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /* 获得总的毫秒数 ，是距离1970.1.1到现在过的毫秒数 可以作为时间戳 有唯一的  */
+        /* 方式一 通过valueOf() getTime() */
+        var haomiao = new Date()
+        console.log(haomiao.valueOf());
+        console.log(haomiao.getTime());
+
+        /* 方式二 简单也比较常用 */
+        var shijian2 = +new Date
+        console.log(shijian2);
+
+        /* 方式三 H5新增特性 有一点兼容问题对ie 6789这种都不支持 */
+        console.log(Date.now())
+        console.log(Date.now())
+        console.log(Date.now())
+    </script>
+
+
+</body>
+
+</html>

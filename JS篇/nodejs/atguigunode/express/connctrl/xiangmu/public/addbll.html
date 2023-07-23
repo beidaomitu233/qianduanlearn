@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>xxx的记账本</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            border: 2px solid #ccc;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 5px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 3px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>李彪的记账本</h1>
+
+    <!-- 账单列表 -->
+    <div id="bill-list">
+        <!-- 这里通过JavaScript生成已有账单列表 -->
+    </div>
+
+    <!-- 添加账单表单 -->
+    <form action="./acountlist/create" method="post">
+
+        <label for="event">消费事件:</label>
+        <input type="text" id="event" name="event" required><br />
+
+        <label for="time">时间:</label>
+        <input type="datetime-local" id="time" name="time" required><br />
+
+        <label for="type">类型:</label>
+        <select id="type" name="type">
+            <option value="餐饮">餐饮</option>
+            <option value="购物">购物</option>
+            <option value="交通">交通</option>
+            <!-- 添加更多选项 -->
+        </select>
+        <br />
+        <label for="amount">金额:</label>
+        <input type="text" id="amount" name="amount" required>
+        <br />
+
+        <label for="note">备注: </label>
+        <br>
+        <textarea id="note" name="note"></textarea>
+        <br>
+        <input type="submit" value="添加账单">
+
+    </form>
+
+</body>
+
+</html>

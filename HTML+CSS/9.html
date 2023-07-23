@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- html有两种元素。块和行级元素 -->
+
+    <!--块级一个占一排 注意块级元素里面 不能放其他的块级元素，
+    常见的块级有 h1~h6 p div ul ol li等等，
+    宽度默认是父标签的宽度 -->
+
+    <!-- 行级元素不能设置宽高，宽高就是内容大小。
+        且只能放行内元素， 常见的有 a  等等，且a比较特殊可以放块 -->
+
+    <!-- 还有几个具有双重属性的行内块元素 img input td
+    可以自定宽高 且多个可放在一排 -->
+
+    <!-- 几种之间可以相互转换，  -->
+    <style>
+        a {
+            display: block;
+        }
+
+        div {
+            display: inline;
+
+        }
+
+        h {
+            display: inline-block;
+        }
+    </style>
+
+    <a href="#">12</a>
+    <div>23</div>
+    <h>234</h>
+
+    <div></div>
+    <p></p>
+
+
+</body>
+
+</html>

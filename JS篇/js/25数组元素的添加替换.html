@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 数组中的元素增加和替换 -->
+
+    <!-- 第一个是修改length的长度让他添加元素 -->
+    <script>
+        var toto = ['慧辉1', '惠2'];
+        console.log(toto);
+        toto.length = 5;
+        console.log(toto);
+        console.log(toto[3]); /* 会显示undefined 因为只开辟了空间，没有放元素 */
+
+        /* 这是第二种方法  */
+        var toyo = ['啦啦', '巴拉', '芜湖']
+        console.log(toyo)
+        /* 这里没有3所以会新增 */
+        toyo[3] = '是辉辉'
+        console.log(toyo)
+        /* 如果1已经有了后面再写就会替代 */
+        toyo[1] = '会替代'
+        console.log(toyo)
+        /* 如果不写具体第几个的话会把整个变量都变成这个 */
+        toyo = '咯咯'
+        console.log(toyo)
+    </script>
+
+
+
+
+</body>
+
+</html>

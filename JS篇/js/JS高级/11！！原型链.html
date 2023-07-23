@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 原型链 -->
+    <!-- 
+既然有对象就会有prototype._proto_这个属性，而原型对象的这个属性又会指向object原型对象的prototype，又指向object构造函数，然而object_proto_指向null
+
+所以每个对象下面又会自动生成 原型对象 构造函数
+
+对象里自动有prototype（原型） 原型指向object对象  constructor（直译建造者）构造函数指向实例化的function  
+
+原型链就是从实例化对象中寻找某属性，未找到就去自己生成的原型对象2中找，如果没有生成原2又会去obj对象中找，而obj对象又会去自己生成的原型中找，这就是原型链
+
+     -->
+    <script>
+      function stz(namee, agee) {
+        this.namee = namee;
+        this.agee = agee;
+      }
+      let bzz = new stz("Dzz", 16);
+      console.log(bzz);
+      //返回null 其实就是obj
+      console.log(typeof bzz.Prototype);
+    </script>
+  </body>
+</html>

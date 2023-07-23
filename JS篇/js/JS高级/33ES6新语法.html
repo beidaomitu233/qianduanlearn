@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //let 是es6新增的声明变量的关键字
+      /* 
+      1.let声明的变量只在块级作用域中有效，对于for循环很适合
+      2.let 没有变量提升，需要先声明在使用
+      3.展示性死区
+
+      只在大括号中起作用
+      { }
+      
+      */
+
+      //1.只在块级作用域起作用,就是这个花括号
+      if (true) {
+        let c = 0
+      }
+      //这里会undefin
+      console.log(c)
+
+      //2.没有变量提升
+      console.log(b)
+      let b = 3
+
+      //3.展示死区,如果在块级作用域中 也有一个同名的且用let声明的变量
+      //则就会把let 和块级绑定，无视外部的全局变量
+
+      var p = 76
+      if (true) {
+        console.log(p)
+        let p = 33
+      }
+
+      //let 和for在循环中的不同
+
+      //用var 的话会输出两个2
+      //这里是先把函数赋值给数组  ，然后循环执行完再调用数组
+      //并且存的是console.log(i); 而再调用的时候 i已经=2
+      //这里的i是全局作用域 所以输出的i也是全局的 ，是只有一个作用域
+      var arr = []
+      for (var i = 0; i < 2; i++) {
+        arr[i] = function () {
+          console.log(i)
+        }
+      }
+      arr[0]()
+      arr[1]()
+
+      //输出 0 和1  ，而用let 就产生两个 作用域  ，两个并不互相关联 ，所以一个输出 0  1
+      var arr1 = []
+      for (let i = 0; i < 2; i++) {
+        arr1[i] = function () {
+          console.log(i)
+        }
+      }
+      arr1[0]()
+      arr1[1]()
+    </script>
+  </body>
+</html>

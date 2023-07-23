@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>品牌列表案例</title>
+    <link rel="stylesheet" href="../../../bootstrap4/bootstrap-4.6.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/brandlist.css">
+
+</head>
+
+<body>
+
+    <!-- 将要被vue所控制 -->
+    <div id="app">
+        <!-- 卡片区域 -->
+        <div class="card">
+            <div class="card-header">
+                添加品牌
+            </div>
+            <div class="card-body">
+                <!-- 添加品牌的表单区域 -->
+                <!-- form表单元素有submit事件 点击之后就会刷新网页,所以要阻止默认行为 -->
+                <form @submit.prevent="add">
+                    <div class="form-row align-items-center">
+                        <div class="col-auto">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">品牌名称</div>
+                                </div>
+                                <input type="text" class="form-control" placeholder="请输入品牌名称" v-model.trim="brand">
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-2">添加</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 表格区域 -->
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">品牌名称</th>
+                    <th scope="col">状态</th>
+                    <th scope="col">创建时间</th>
+                    <th scope="col">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="list in lists" :key="list.id">
+                    <td>{{ list.id }}</td>
+                    <td>{{ list.name }}</td>
+                    <td>
+                        <div class="custom-control custom-switch">
+
+                            <!-- 用数据中的status的true和false来表示状态，在绑定v-if来显示不同状态下的显示结果 -->
+                            <!-- 用v-model双向绑定是因为 我们需要修改数据源并且立即渲染出来 -->
+                            <!-- 这里id是给label绑定使用 -->
+                            <input type="checkbox" class="custom-control-input" :id="'cd'+list.id"
+                                v-model="list.status">
+                            <!-- 利用 v-if 按需显示展示， -->
+                            <!-- <label class="custom-control-label" for="customSwitch1">{{list.status ? '已启用':'已禁用'}}</label> -->
+                            <!-- 这里的for是绑定的input 表单,而绑定的需要是一个动态的值,因为后面还会生成,所以用id作为这个动态绑定的值 -->
+                            <label class="custom-control-label" :for="'cd'+list.id" v-if="list.status">已启用</label>
+                            <label class="custom-control-label" :for="'cd'+list.id" v-else="list.status">已禁用</label>
+                        </div>
+                    </td>
+                    <td>{{ list.time|geshihua}}</td>
+                    <td>
+                        <a href="javascript:;" @click="remove(list.id)">删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="./vue.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script>
+        var valueid = 4;
+        Vue.filter('geshihua', function (time) {
+            const da = dayjs(time).format('YYYY-MM-DD HH:mm:ss')
+            return da
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                brand: '',
+
+                // 品牌数据列表
+                lists: [{
+                        id: 1,
+                        name: '宝马',
+                        status: true,
+                        time: new Date()
+                    },
+                    {
+                        id: 2,
+                        name: '奥迪',
+                        status: false,
+                        time: new Date()
+                    },
+                    {
+                        id: 3,
+                        name: '奔驰',
+                        status: true,
+                        time: new Date()
+                    },
+                ]
+            },
+            methods: {
+                // 点击链接删除对应的品牌
+                remove(id) {
+                    console.log(id);
+                    //把传进来的id和list里面对应的id 所在的那一列,给过滤掉然后再重新赋值
+                    this.lists = this.lists.filter(list => list.id !== id);
+                },
+                // 阻止表单提交后添加品牌的功能
+                add() {
+
+                    //当提交空值的时候就提示
+                    if (this.brand === '') {
+                        alert('请填写品牌名称!');
+                        return;
+                    } else {
+                        // 准备一个对象
+                        const obj = {
+                            id: valueid,
+                            name: this.brand,
+                            status: true,
+                            time: new Date()
+                        }
+                        // 将obj对象添加到数组当中
+                        this.lists.push(obj);
+                        this.brand = '';
+                        valueid++;
+                    }
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

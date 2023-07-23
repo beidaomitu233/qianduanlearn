@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 在实际开发中 并不能确定用户发来的实参是个数 
+        所以用arguments 来自适应形成对于的形参个数，用arguments对象存储了传递的所有实参 */
+        /* 只有函数有这个东西，且每个函数都是内置了这个 */
+
+        function findself() {
+            console.log(arguments);
+        }
+        findself(6, 8, 4)
+
+        /* 在输出的结果中发线是以数组的形式输出结果 */
+        /* argumens是一个伪数组  */
+        /* 有length的属性 */
+        /* 也是再按照索引号的方式存储 */
+
+        /* 求数组中的最大值  */
+        function bigshu() {
+            var max = arguments[1];
+            for (var v = 0; v < arguments.length; v++) {
+                if (max < arguments[v]) {
+                    max = arguments[v]
+                }
+            }
+            return max
+
+        }
+        var shuru = bigshu(99, 68, 45, 13);
+        console.log(shuru);
+    </script>
+
+</body>
+
+</html>

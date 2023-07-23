@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bigbox {
+
+            width: 600px;
+            height: 400px;
+            border: 1px solid aqua;
+        }
+
+        .bigbox .dome1 {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 1px solid red;
+        }
+
+        .dome2 {
+            position: relative;
+            top: 10px;
+            width: 150px;
+            height: 150px;
+            border: 1px solid yellow;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bigbox">
+        <div class="dome1">1</div>
+        <div class="dome2">2</div>
+        <div class="dome1">3</div>
+    </div>
+
+
+</body>
+
+</html>

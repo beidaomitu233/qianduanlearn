@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\..\\HTML"
+		},
+		{
+			"name": "tmallfe.github.io",
+			"path": "..\\..\\..\\..\\计网\\tmallfe.github.io"
+		},
+		{
+			"path": "..\\..\\.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "HTML"
+	}
+}

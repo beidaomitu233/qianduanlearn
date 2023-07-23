@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0, 
+    minimum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="../css/chushi.css">
+
+    <title>流式布局(也是百分比布局)
+    </title>
+    <style>
+        .dome1 {
+            margin: 0 auto;
+            width: 100%;
+            /* 限制最大和最小防止内容坍塌 */
+            max-width: 1500px;
+            min-width: 400px;
+            height: 400px;
+
+        }
+
+        .dome1 div {
+            float: left;
+            width: 50%;
+            height: 400px;
+            background-color: aqua;
+            /* 加边框会导致大小出问题，会掉下来 */
+            /* border: 2px solid brown; */
+        }
+
+        .dome1 div:last-child {
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 百分比布局，主要是定义宽的百分比，高一般还是用像素。
+    优点就是不论在什么设备上都能按照比例大小显示，不会太大也不会太小 -->
+
+    <!-- 因为可以任意放大和缩小，但是这样会导致结构会崩塌，所以需要定义最大和最小的宽 -->
+    <!-- 一排布局盒子的个数最好是能整除100%。或者是百分比相加能等于100 -->
+
+
+    <!-- 写项目之前先分析，需要用什么布局方式，然后完成初始化 -->
+    <section class="dome1">
+        <div></div>
+        <div></div>
+    </section>
+
+</body>
+
+</html>

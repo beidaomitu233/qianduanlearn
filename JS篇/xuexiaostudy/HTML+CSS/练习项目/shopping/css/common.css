@@ -1,0 +1,281 @@
+/* 网页公共部分放这里，比如说上下导航栏 */
+/* 目前先用浮动布局 */
+/* 先确定版心和大小 */
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.fl {
+    float: left;
+}
+
+.red {
+    color: red;
+}
+
+
+/* 登入按钮 */
+.style_red {
+    width: 80px;
+    height: 30px;
+    margin-top: 4px;
+    border-radius: 8px;
+    line-height: 30px;
+    color: white;
+    background-image: linear-gradient(to right, skyblue, rgb(69, 243, 121));
+
+}
+
+.style_red li {}
+
+.fr {
+    float: right;
+}
+
+/* 用lien hei */
+/* .pd-top {
+    padding: 7px 0;
+} */
+
+/* 快捷导航栏 */
+.shortcut {
+    height: 38px;
+    background-image: linear-gradient(to right, white, rgb(201, 241, 235));
+    line-height: 38px;
+
+}
+
+.textcenter {
+    text-align: center;
+}
+
+/* 顶部导航栏中的文字 */
+.shortcut .fr ul li:nth-child(even) {
+
+    width: 1px;
+    height: 23px;
+    background-color: #666;
+    margin: 8px 15px;
+    /* background-image: linear-gradient(to right, skyblue, rgb(69, 243, 121)); */
+}
+
+.shortcut .fr ul li:nth-child(odd) {
+    float: right;
+    border-radius: 8px;
+    padding: 0px 10px;
+    background-image: linear-gradient(to right, skyblue, rgb(69, 243, 121));
+
+}
+
+.shortcut .fr ul li:nth-child(n) {
+    float: right;
+}
+
+
+.shortcut .fl ul li:nth-child(1) {
+    margin-left: 55px;
+}
+
+.shortcut .fr ul:last-child {
+    margin-right: 13px;
+}
+
+/* .shortcut div:first-child {
+    padding: 6px;
+    line-height: 20px;
+    background-color: red;
+    border-radius: 15px;
+} */
+
+
+/* 头部 */
+.header {
+    position: relative;
+    height: 170px;
+    background-image: linear-gradient(to bottom right, white, rgb(201, 241, 235));
+
+}
+
+/* logo样式 */
+.header .logo {
+    color: wheat;
+    position: absolute;
+    top: 35px;
+    left: 55px;
+    height: 70px;
+    width: 220px;
+    /* background-color: black; */
+}
+
+.logo a {
+    display: block;
+    position: absolute;
+    /* top: 4px; */
+    width: 50px;
+    height: 50px;
+    background: url(../images/logo.png) no-repeat;
+    /* 提高seo的做法 */
+    /* 方法1 */
+    font-size: 0px;
+    /* 方法二 */
+    text-indent: -99999999px;
+    overflow: hidden;
+}
+
+/*  搜索栏*/
+.search {
+    position: absolute;
+    top: 37px;
+    left: 270px;
+    width: 500px;
+    height: 50px;
+    border: solid 2px red;
+    /* z-index: 100; */
+}
+
+
+/* 搜索框和搜索按钮 */
+.search input {
+    float: left;
+    /* 让搜索框内的文字缩进 */
+    text-indent: 15px;
+    width: 430px;
+    /* 这里的高度是因为用cs3顶死盒子高度，然后加上上下边框只剩46 */
+    height: 46px;
+}
+
+.search button {
+    float: left;
+    /* border-radius: none; */
+    list-style: none;
+    width: 66px;
+    height: 46px;
+    background-color: red;
+    color: white;
+}
+
+/* 搜索框下面的热词 */
+.hotword {
+    position: absolute;
+    top: 92px;
+    left: 280px;
+}
+
+.hotword a {
+    margin-right: 20px;
+}
+
+/* 购物车模块 */
+.shopcar {
+    position: absolute;
+    top: 37px;
+    left: 930px;
+    width: 160px;
+    height: 55px;
+    color: black;
+    font-size: 17px;
+    line-height: 55px;
+    border: solid 1px skyblue;
+    border-radius: 7px;
+    background-image: linear-gradient(to right, rgb(238, 163, 228), rgb(129, 137, 243));
+    transition: all 0.4s ease;
+
+}
+
+.shopcar:hover {
+
+    border: solid 3px rgb(235, 54, 41);
+
+}
+
+
+.shopcar a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* 购物车消息 */
+.count {
+    position: absolute;
+    top: 36px;
+    /* 这里用left是因为内容会向右边写出去 */
+    left: 1050px;
+    padding: 8px;
+    height: 25px;
+    color: white;
+    background-color: red;
+    border-radius: 10px;
+    line-height: 10px;
+}
+
+/* 底部 */
+.footer {
+    height: 415px;
+    background-color: rgb(255, 255, 255);
+}
+
+.mod_service {
+    height: 88px;
+    border-bottom: 2px solid rgba(0, 231, 243, 0.56)
+}
+
+.mod_service ul li img {
+    float: left;
+
+}
+
+/* 像li这种无语义的盒子需要定宽高才能用mar 和pad */
+.mod_service ul li {
+    float: left;
+    width: 350px;
+    height: 50px;
+    padding-left: 70px;
+}
+
+.mod_service ul li div {
+    float: left;
+    /* margin: 0 auto; */
+
+}
+
+.mod_help {
+    height: 200px;
+    border-bottom: 2px solid rgba(170, 221, 224, 0.411);
+    padding: 5px;
+
+}
+
+.mod_help dl {
+    float: left;
+    margin-left: 100px;
+    border: 2px solid rgba(170, 221, 224, 0.411);
+    border-radius: 8px;
+    height: 185px;
+    padding: 8px;
+
+}
+
+.mod_help dl dt {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.mod_help dl dd a {
+    margin-top: 5px;
+}
+
+.mod_copyright {
+    height: 100px;
+}
+
+.mod_copyright li {
+    float: left;
+    margin-left: 70px;
+    margin-top: 20px;
+    /* height: 35px; */
+    border-right: 2px solid rgba(185, 165, 165, 0.753);
+    /* padding-left: 40px; */
+    padding-right: 40px;
+}

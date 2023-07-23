@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="black.css">
+
+    <style>
+        div {
+            box-sizing: border-box;
+
+        }
+
+        .box1 {
+            width: 350px;
+            height: 200px;
+        }
+
+        .box1 img {
+            width: 250px;
+            height: 200px;
+            line-height: center;
+
+        }
+
+        .box1 div {
+            border: transparent 2px solid;
+            font-size: 30px;
+            width: 46px;
+
+        }
+
+        /* 使用hover添加边框时 即使是用了固定和合作大小 也还是会顶开  解决思路就是 让边框本就有 只是没有颜色而且 */
+
+        .box1 div:hover {
+
+            border: cyan 2px solid;
+            transition: all .7s ease;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 做一个可关闭的小盒子  原理就是 css样式里面的 display：bolck 变成none -->
+
+    <div class="box1">
+        <div class="closee">XX</div>
+        <img src="../img/Snipaste_2021-11-04_17-30-52.png" alt="">
+    </div>
+
+    <script>
+        let dahe = document.querySelector('.box1')
+        let closee = document.querySelector('.closee')
+
+        closee.onclick = function () {
+            dahe.style.display = 'none'
+        }
+    </script>
+
+</body>
+
+</html>

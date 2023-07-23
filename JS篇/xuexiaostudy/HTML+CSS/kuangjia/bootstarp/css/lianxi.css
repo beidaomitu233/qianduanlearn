@@ -1,0 +1,104 @@
+/* 现在设定设计稿为1280px */
+/* 所以要把最大像素设为1280px，其他自适应 */
+@media screen and (min-width:1280px) {
+    .container {
+        width: 1280px;
+    }
+}
+
+/* 让图片在985px下固定为36%不影响布局 */
+@media screen and (max-width:985px) {
+    .logo img {
+        width: 25% !important;
+    }
+
+
+
+}
+
+@media screen and (max-width:720px) {
+
+    /* 在720px下让导航栏变成横向排列 */
+    nav li {
+        width: 20%;
+        float: left;
+        font-size: 14px;
+    }
+}
+
+.logo {
+    background-color: rgb(255, 165, 0);
+}
+
+.logo2 {
+    display: block;
+    font-size: 24px;
+    text-align: center;
+    height: 40px;
+    background-color: rgb(255, 165, 0);
+}
+
+/*图片大小写w100%这样就能跟着响应变化大小  */
+.logo img {
+    max-width: 100%;
+    transform: translateX(114%);
+}
+
+/* 取消掉原有的pad */
+header {
+    padding: 0;
+}
+
+/* 顶部简亦联盟区域 */
+aside h1 {
+    font-size: 20px;
+}
+
+aside h1 {
+    text-align: center;
+}
+
+
+nav {
+    background-color: rgb(246, 246, 246);
+}
+
+nav ul {
+    padding: 0;
+}
+
+/* 想要实现文字在中间 然后鼠标放上去 一个区域都变色的话就加pad值*/
+nav li {
+    height: 44px;
+    list-style: none;
+    padding: 15px;
+    margin-top: 8px;
+
+}
+
+nav li:hover {
+    background-color: white;
+}
+
+nav li a {
+    display: block;
+    width: 100%;
+    color: black;
+    font-size: 18px;
+    /* padding-left: 15px; */
+    line-height: 18px;
+    /* text-align: center; */
+}
+
+a:hover {
+    color: black !important;
+    list-style: none !important;
+    text-decoration: none !important;
+}
+
+/* 字体图标的设置 */
+nav li a span::after,
+::before {
+    vertical-align: top;
+    /* padding-right: -19px; */
+}

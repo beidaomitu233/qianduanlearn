@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../black.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 遍历对象无法用for 因为没有索引号 就没法 
+        用  for (变量 in 对象） 可以遍历对象 */
+
+        var duixiang = {
+            name: '辉辉',
+            age: 18,
+        }
+        /* 一般喜欢用k  和key */
+        for (var k in duixiang) {
+            /* 这个会输出变量名 */
+            console.log(k);
+            /* 这个会输出变量值 */
+            console.log(duixiang[k]);
+        }
+
+        var phone={
+            pname:'xiaomi',
+            price:1999,
+            show:function (){
+                console.log('123')
+            }
+        }
+        for (const phoneKey in phone) {
+            console.log(phoneKey)
+            console.log(phone[phoneKey])
+            
+        }
+    </script>
+
+</body>
+
+</html>

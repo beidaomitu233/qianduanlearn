@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Router动态路由</title>
+    <style>
+        #app {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        li:last-child {
+            margin-right: 0;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+        }
+
+        a:hover {
+            background-color: #ddd;
+        }
+
+        .detail {
+            margin-top: 40px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+        }
+
+        .detail h3 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .detail p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>新闻</h2>
+        <ul>
+            <li>
+                <router-link :to="{name: 'NewsDetail', params: {name: '张三', age: 18}}">新闻1</router-link>
+            </li>
+            <li>
+                <router-link :to="{name: 'NewsDetail', params: {name: '李四', age: 20}}">新闻2</router-link>
+            </li>
+        </ul>
+
+        <h2>娱乐</h2>
+        <ul>
+            <li>
+                <router-link :to="{name: 'EntertainmentDetail', params: {name: '王五', age: 22}}">娱乐1</router-link>
+            </li>
+            <li>
+                <router-link :to="{name: 'EntertainmentDetail', params: {name: '法外狂徒', age: 25}}">娱乐2</router-link>
+            </li>
+        </ul>
+
+        <router-view></router-view>
+    </div>
+
+    <!-- 引入 Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <!-- 引入 Vue Router -->
+    <script src="https://unpkg.com/vue-router@3.5.2/dist/vue-router.min.js"></script>
+
+    <script>
+        // 定义 NewsDetail 组件
+        const NewsDetail = {
+            template: `
+        <div>
+          <h3>新闻页面</h3>
+          <p>Name: {{ $route.params.name }}</p>
+          <p>Age: {{ $route.params.age }}</p>
+        </div>
+      `
+        }
+
+        // 定义 EntertainmentDetail 组件
+        const EntertainmentDetail = {
+            template: `
+        <div>
+          <h3>娱乐页面</h3>
+          <p>Name: {{ $route.params.name }}</p>
+          <p>Age: {{ $route.params.age }}</p>
+        </div>
+      `
+        }
+
+        // 定义路由规则
+        const routes = [{
+                path: '/news/:name/:age',
+                name: 'NewsDetail',
+                component: NewsDetail
+            },
+            {
+                path: '/entertainment/:name/:age',
+                name: 'EntertainmentDetail',
+                component: EntertainmentDetail
+            }
+        ]
+
+        // 创建 router 实例
+        const router = new VueRouter({
+            routes
+        })
+
+        // 创建 Vue 实例
+        new Vue({
+            el: '#app',
+            router
+        }).$mount('#app')
+    </script>
+</body>
+
+</html>

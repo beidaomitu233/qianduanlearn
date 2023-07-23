@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单样式修改</title>
+</head>
+<style>
+    .zinput {
+        /* 可以去掉样式 */
+        outline: none;
+    }
+
+    .zp {
+        /* 在用户端禁止让文本输入域随意调大小 */
+        resize: none;
+    }
+</style>
+
+<body>
+    <!-- 在点击文本框的时候会有样式出来，可以去掉 -->
+    <input type="text" placeholder="请输入" class="zinput">
+    <input type="text" name="" id="" placeholder="这个不一样哦">
+    <br>
+    <textarea name="" id="" cols="30" rows="10" class="zp zinput"></textarea>
+    <textarea name="" id="" cols="30" rows="10" class=""></textarea>
+
+</body>
+
+</html>

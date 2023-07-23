@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            width: 250px;
+            height: 40px;
+            position: relative;
+        }
+
+        input {
+            width: 200px;
+            height: 40px;
+        }
+
+        div p {
+            position: absolute;
+            right: 0;
+            top: 2px;
+        }
+
+        .right {
+            color: greenyellow;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 用户输入的值就是存在 value中 所以可以判断 value的长度来判断用户输入的字数 -->
+    <!-- 目标：做一个 输入框  检测输入的字数 如果少于 6个字提示错误 大于16个提示错误 在6-16之间则提示正确 -->
+    <div>
+        <input type="text" value="d">
+        <p>请输入6-16个数字</p>
+    </div>
+
+    <script>
+        let sea = document.querySelector('input')
+        let pp = document.querySelector('p')
+
+        /* 判断时间 */
+
+        sea.onblur = function () {
+            if (sea.value.length < 6 || sea.value.length > 16) {
+                pp.className = 'red'
+                pp.innerHTML = '输入错误'
+            } else {
+                pp.innerHTML = '输入正确'
+                pp.className = 'right'
+            }
+        }
+    </script>
+
+</body>
+
+</html>

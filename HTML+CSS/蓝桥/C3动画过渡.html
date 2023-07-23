@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            perspective: 500px;
+            transform-style: preserve-3d;
+        }
+
+        .changge {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+
+            transform: translate3d(0, 0, 100)
+        }
+
+        .changge:hover {
+            width: 300px;
+            transition: all .3s ease;
+            transform: translate(20px, 120px);
+            transform: rotate(100deg);
+            transform-origin: bottom;
+            transform: translateZ(100px);
+        }
+
+        .changge2 {
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+
+        .changge2:hover {
+            width: 300px;
+            transition: all .3s ease;
+            transform: scale(2);
+
+        }
+
+        @keyframes move {
+
+            /* 开始状态 */
+            0% {
+                transform: translate(0px);
+            }
+
+            65% {
+                transform: translate(160px);
+            }
+
+            100% {
+                transform: translate(560px);
+            }
+        }
+
+        .changge3 {
+
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            /* 调用动画 */
+            /* animation-name: move; */
+            /* 持续时间 */
+            /*             animation-duration: 2s; */
+            animation: move 2s ease 0s 2 alternate;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="changge"></div>
+    <div class="changge2"></div>
+    <div class="changge3"></div>
+
+
+</body>
+
+</html>

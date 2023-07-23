@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>子元素，吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱</li>
+        <li>子元素，吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱</li>
+        <li>子元素，吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱</li>
+        <li>子元素，吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱</li>
+    </ul>
+
+    <div class="font1">这是一段不想被右键的文字</div>
+    <div class="font2">这是一段不愿意被选中的文字</div>
+</body>
+<script>
+    let uls = document.querySelector('ul')
+    uls.addEventListener('click', function (e) {
+        alert('触发了事件')
+        console.log(this);
+        console.log(e.target);
+
+    })
+    let font1 = document.querySelector('.font1')
+    let font2 = document.querySelector('.font2')
+
+    font1.addEventListener('contextmenu', function (e) {
+        e.preventDefault()
+    })
+    font2.addEventListener('selectstart', function (e) {
+        e.preventDefault()
+    })
+</script>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //为了后期更好跟上版和与别人合作最好是开启养个模式
+      //严格模式是弥补之前的一些代码逻辑缺点，比如不声明就能赋值。
+      //开启后 可以消除不严谨，提高安全性 提高运行速度 禁用某些未来可能定义的关键之，。
+      //只在ie10以后支持
+      //开启可以分为整个函数 或者某个函数
+      'use strict'
+    </script>
+    <script>
+      //立即执行
+      ;(function nn() {
+        'use strict'
+      })()
+    </script>
+    <script>
+      //单独开启某个函数的严格模式
+      function f() {
+        'use strict'
+      }
+    </script>
+  </body>
+</html>

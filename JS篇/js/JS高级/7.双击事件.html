@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <li>sdasdas</li>
+    <script>
+      var lival;
+      let li = document.querySelector("li");
+
+      li.addEventListener("dblclick", function () {
+        //禁止双击后选中文字
+        window.getSelection
+          ? window.getSelection().removeAllRanges()
+          : document.selection.empty();
+
+        /*   alert("qwe"); */
+        li.innerHTML = '<input type="text">';
+        let input = li.children[0];
+        input.value = li.textContent;
+        //把文本内容选中
+        input.select();
+
+        input.onblur = function () {
+          li.innerHTML = input.value;
+        };
+        input.addEventListener("keydown", function (e) {
+          console.log(e.key);
+          let keyy = "Enter";
+          if (e.key == "Enter") {
+            /*   alert("g"); */
+            input.onblur();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

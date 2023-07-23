@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //量词符规定了某个模式出现的次数
+      //简单来说就是限定某个字符重复次数
+
+      // * 允许出现 >=0 次大于等于0次
+      let rg1 = /^a*$/
+      console.log(rg1.test('aa'))
+      console.log(rg1.test('')) //空的也算在 a里面 因为是0次
+      console.log(rg1.test('aaaaaaa'))
+      console.log('-----------')
+
+      // +  出现次数 大于等于 1
+      let rg2 = /^a+$/
+      console.log(rg2.test(' '))
+      console.log(rg2.test('aaaa'))
+      console.log(rg2.test('a'))
+      console.log('-----------')
+
+      // ?  出现次数 0 次或者1 次
+      let rg3 = /^a?$/
+      console.log(rg3.test(''))
+      console.log(rg3.test('aaaa'))
+      console.log(rg3.test('a'))
+      console.log('-----------')
+
+      // {}  自定出现次数 {3}等于   {3，} 3到正无穷  {3，10} 3>=x<=10
+      let rg4 = /^a{3,}$/
+      console.log(rg4.test(' '))
+      console.log(rg4.test('aaaa'))
+      console.log(rg4.test('a'))
+      console.log('-----------')
+
+      //  用量词限定 模式 出现次数  这里的模式是一个整体
+      let rg5 = /^[A-z0-9]{6,16}$/
+      console.log(rg5.test('aaaa'))
+      console.log(rg5.test('3123asdas'))
+      console.log(rg5.test('ppzpzpzppzzpzpzpzpzpzpzpzpp'))
+      console.log('-----------')
+    </script>
+  </body>
+</html>

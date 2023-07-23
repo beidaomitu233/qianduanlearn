@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>4</div>
+    <div>42</div>
+    <div>46</div>
+    <div>49</div>
+
+    <script>
+      //扩展运算符，把数组或者对象转化为用逗号分隔的参数序列
+      let arr = [1, 2, 3]
+      //输出时 逗号被当作分隔符，不输出逗号
+      console.log(...arr)
+      console.log(1, 2, 3)
+
+      //利用运算符 合并数组，就是先拆分再合并
+      let arr1 = [4, 5, 6]
+      let arr3 = [55, 66, 77]
+      let zu = [...arr, ...arr1]
+
+      //第二种方式 ，利用push
+      arr3.push(...arr1)
+
+      //
+      console.log(arr3)
+      console.log(zu)
+
+      //利用运算符把伪书组转化为真正的数组 ，其实原理都一样把内容（字符串 数字等等） 拿过来拆分 再返回
+      //所以就是拆分了，再放到数组了里就变成真数组了，就能调用数组方法
+      var div = document.querySelectorAll('div')
+      console.log(div)
+      var divarr = [...div]
+      console.log(divarr)
+
+      //方法二 利用数组内置方法 ,并且还能跟参数 处理内部数据
+      let shu = ['14', 'qwe123'] //对每个数都进行处理
+      let divarr2 = Array.from(shu, (item) => item * 2)
+      console.log(divarr2)
+
+      //数组查找方法，只找到第一个，找到并返回,没找到就是undefined
+      let arr4 = [
+        1,
+        2,
+        4,
+        5,
+        {
+          id: 1,
+          nameme: 'asd',
+        },
+        {
+          id: 2,
+          nameme: 'wab',
+        },
+      ]
+      //arr.find(callback[, thisArg])
+      //arr.findIndex(callback[, thisArg])  ，找到位置，如果没找就返回 -1
+      let target = arr4.find((item) => item == 2)
+      console.log(target)
+      let target2 = arr4.findIndex((item) => item > 1)
+      console.log(target2)
+
+      //includes 查找数组中是否包含某个元素 右就返回true 是个布尔型的返回值
+      //查找时区分字符串和数字
+      let target3 = arr4.includes(5)
+      console.log(target3)
+    </script>
+  </body>
+</html>

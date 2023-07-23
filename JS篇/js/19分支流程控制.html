@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* switch 也是多分枝语句 也可以实现多个判断语句 */
+        /* 写法 */
+        /*         switch (表达式) {
+                    case 匹配值:
+                        trans = trans + 10; 执行语句
+                        break; //跳出语句
+                    case 9:
+                        trans = trans + 19;
+                        break;
+                        /* 当表达式都不符合上面的时候，执行default */
+        /*     default:
+            alert(texx + '无匹配的数字'); */
+
+
+
+        /* }  */
+        /* 执行思路是表达式的值与case 中的（这个是自己写的）value 匹配上时执行这个 如果都不匹配就执行最后一个*/
+
+        /* 和if的区别 */
+        /* swicth是直接跳转然后执行语句 而if是逐个判断 所以swicth效率更高 */
+        /* swi通常用于确定的值等于多少，而if用于一个范围的值比如大于多少小于多少 */
+
+
+        /* 注意 这里的表达式的值和数据类型和case中 的值和数据类型完全相同才会执行 */
+        /* 如果不写break的话就会继续执行下一个case不论是否匹配 知道遇见break为止，如果一直没有就执行到def */
+        var texx = prompt('698');
+        var trans = parseFloat(texx);
+        console.log(trans);
+        /* 表达式 */
+        switch (trans) {
+            case 6:
+                trans = trans + 10;
+                alert(trans);
+                break; //跳出语句
+            case 9:
+                trans = trans + 19;
+                alert(trans);
+                break;
+                /* 当表达式都不符合上面的时候，执行default */
+            default:
+                alert(texx + '无匹配的数字');
+
+
+
+        }
+    </script>
+
+
+</body>
+
+</html>

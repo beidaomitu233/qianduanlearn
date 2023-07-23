@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function add() {
+            console.log(arguments);
+            let sum = 0;
+            for (let a = 0; a < arguments.length; a++) {
+                sum += arguments[a];
+            }
+            console.log(sum); // 输出求和结果
+        }
+
+        add(123, 465, 7, 4, 5, 6);
+
+        //扩展运算符
+        let arr1 = [1, 2, 3, 4, 7]
+        //求最大值,数组中并没有这个方法，需要调用Math.max方法
+        //但是这个方法只支持(1,2,3)这种形式而不支持数组，所以需要拆分
+        console.log(Math.max(...arr1));
+        console.log(...arr1);
+
+        let a = 10;
+        let b = 20;
+        console.log("-----交换前是--------");
+        console.log(`a是${a}`);
+        console.log(`b是${b}`);
+
+        [b, a] = [a, b]
+        console.log("-----交换后是--------");
+
+        console.log(`a是${a}`);
+        console.log(`b是${b}`);
+    </script>
+
+</body>
+
+</html>

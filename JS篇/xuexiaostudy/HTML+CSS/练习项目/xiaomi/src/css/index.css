@@ -1,0 +1,460 @@
+/* 头部顶端样式 */
+
+.app {
+    margin: 0 auto;
+    max-width: 1226px;
+
+}
+
+li {
+    border: 1px solid aqua;
+}
+
+
+.head_top {
+    height: 40px;
+    font-size: 12px;
+    line-height: 40px;
+    background-color: #333;
+    color: #b0b0b0;
+}
+
+.top_left,
+.top_left li,
+.top_right li,
+.head_nav li,
+.new_item li,
+.show_phone li {
+    float: left;
+    border: 1px solid aqua;
+    margin-left: 8px;
+}
+
+dt,
+dd {
+    border: 1px solid aqua;
+}
+
+
+.top_left {
+    height: 40px;
+    width: 720px;
+    border: 1px solid red;
+}
+
+
+
+.top_right {
+    float: right;
+    height: 40px;
+    width: 258px;
+    border: 1px solid red;
+
+}
+
+/* 购物车 */
+.shopping_car {
+    position: relative;
+    float: right;
+    padding-left: 15px;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    background: rgb(54, 58, 60);
+    border: 1px solid greenyellow;
+}
+
+.shopping_car img {
+    vertical-align: top;
+    margin-top: 9px;
+    width: 20px;
+    height: 20px;
+    background-color: orange;
+}
+
+
+.shopping_car:hover {
+    color: rgb(249, 118, 31);
+    background-color: rgb(29, 31, 32);
+}
+
+.down_shopping {
+    display: none;
+    width: 316px;
+    height: 100px;
+    border: 1px solid aqua;
+    background-color: #333;
+}
+
+.shopping_car:hover .down_shopping {
+    display: block;
+    position: absolute;
+    top: 43px;
+    right: 0px;
+
+}
+
+
+
+/* 头部内容部分 */
+
+.head_main {
+    width: 1226px;
+    height: 100px;
+    border: 1px solid red;
+}
+
+.logo {
+    float: left;
+    margin-left: 17px;
+    margin-top: 17px;
+    width: 56px;
+    height: 56px;
+    border: 1px solid red;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+/* 头部导航栏 */
+.head_nav {
+    float: left;
+    margin-top: 15px;
+    margin-left: 60px;
+    padding-left: 90px;
+    width: 794px;
+    height: 80px;
+    border: 1px solid red;
+}
+
+.head_nav li {
+    line-height: 80px;
+    height: 80px;
+    margin-left: 15px;
+    border: 1px solid green;
+}
+
+/* 头部搜索框 */
+.head_search {
+    float: right;
+    margin-top: 29px;
+    width: 296px;
+    height: 50px;
+    border: 1px solid red;
+}
+
+.head_search input {
+    line-height: 50px;
+    height: 48px;
+    width: 235px;
+    background-color: rgb(61, 64, 67);
+}
+
+.head_search img {
+    height: 50px;
+    width: 52px;
+}
+
+/* 轮播图部分内容 */
+
+.swiper {
+    height: 460px;
+    /*    border: 1px solid red; */
+}
+
+/* 左侧文字区 */
+.swiper_left {
+    float: left;
+    position: relative;
+    height: 460px;
+    width: 234px;
+    border: 1px solid red;
+}
+
+.swiper_left li {
+    height: 42px;
+    line-height: 42px;
+}
+
+
+.swiper_left li:first-child {
+    margin-top: 15px;
+}
+
+
+.swiper_left li img {
+    position: absolute;
+    right: 10px;
+    margin-top: 5px;
+    width: 16px;
+    height: 16px;
+}
+
+
+
+
+.swiper_right {
+    position: relative;
+    float: left;
+    height: 460px;
+    width: 990px;
+    border: 1px solid red;
+    background: url(../../upload/bannerlunbo.jpg) no-repeat;
+    background-size: cover;
+}
+
+.left_toward img,
+.right_toward img {
+    position: absolute;
+    top: 201px;
+    width: 52px;
+    height: 47px;
+    transform: rotate(180deg);
+
+}
+
+.right_toward img {
+    right: 0;
+    transform: rotate(0deg);
+}
+
+
+
+
+/* 新品推荐部分 */
+
+.new_item {
+    margin-top: 15px;
+    height: 170px;
+    border: 1px solid red;
+}
+
+
+.new_item .server-item {
+    margin-left: 5px;
+    width: 234px;
+    height: 170px;
+
+}
+
+.new_item li {
+    margin-left: 11px;
+    width: 316px;
+    height: 170px;
+}
+
+.new_item li img {
+    width: 100%;
+    height: 100%;
+}
+
+.new_item .server-item li {
+    text-align: center;
+    padding-top: 8px;
+    margin: 0;
+    width: 77px;
+    height: 84px;
+}
+
+.new_item .server-item img {
+
+    width: 37px;
+    height: 37px;
+}
+
+/* 主要内容展示部分 */
+.item_main div {
+    margin-top: 15px;
+    height: 686px;
+    border: 3px solid rgb(3, 247, 48);
+}
+
+.item_main div h2 {
+    position: relative;
+    height: 58px;
+    line-height: 58px;
+}
+
+
+.item_main div span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 16px;
+}
+
+
+
+
+/* 展示区 */
+
+/* 每个展示区格子的大小 */
+.show_phone li {
+    text-align: center;
+    margin: 0px 0px 14px 10px;
+    width: 234px;
+    height: 300px;
+}
+
+.show_phone a {
+    width: 100%;
+    height: 100%;
+    margin: 10px 0px 10px 0px;
+}
+
+/* 手机展示图片大小 */
+
+.show_phone li div {
+    margin: 0 auto;
+    width: 160px;
+    height: 160px;
+}
+
+.show_phone img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* 品牌名称 */
+.show_phone li h4 {
+    margin: 15px 0px 6px 0px;
+}
+
+/* 价格文字 */
+.show_phone li p:last-child {
+    margin-top: 15px;
+    color: orange;
+}
+
+/*  */
+.show_phone li:first-child {
+    width: 234px;
+    height: 614px;
+}
+
+/* 两列展示区的单项 */
+#show_tworow {
+    text-align: center;
+    margin: 0px 0px 14px 10px;
+    width: 234px;
+    height: 300px;
+}
+
+#show_tworow a {
+    margin: 0;
+}
+
+#show_tworow img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* 小型展示图 */
+div[class^=banner] {
+    margin-top: 10px;
+    height: 120px;
+    border: 1px solid red;
+
+}
+
+div[class^=banner] img {
+    width: 100%;
+    height: 100%;
+
+}
+
+/* 底部往期视频部分 */
+
+.even_video {
+    margin-top: 15px;
+    height: 357px;
+    border: 1px solid red;
+}
+
+.even_video li {
+    float: left;
+    text-align: center;
+    margin-left: 9px;
+    width: 296px;
+    height: 285px;
+}
+
+
+.even_video li div {
+    margin-bottom: 20px;
+}
+
+
+.even_video li img {
+    width: 100%;
+    height: 100%;
+}
+
+/* 网站底部 */
+
+.site_food {
+    height: 80px;
+    font-size: 20px;
+}
+
+.site_food li {
+    float: left;
+    text-align: center;
+    width: 242px;
+    margin-left: 2px;
+}
+
+.server {
+    padding: 25px 0px 25px 0px;
+
+}
+
+
+/* 底部信息链接 */
+
+.food_link {
+    padding: 40px 0px 40px 0;
+}
+
+/* 自定义a链接列表 */
+.server_dl {
+    float: left;
+    font-size: 16px;
+    width: 165px;
+    height: 116px;
+}
+
+.server_number {
+    text-align: center;
+    height: 111px;
+}
+
+/* 底部电话 */
+.number {
+    font-size: 24px;
+    color: orange;
+}
+
+/* 人工客服按钮 */
+.server_human {
+    width: 120px;
+    height: 30px;
+    border: 1px solid orange;
+    text-align: center;
+    color: orange;
+}
+
+.server_human:hover {
+    color: white;
+    background-color: orange;
+}
+
+.site-info img {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //闭包是指有权访问另一个函数作用域中变量的  函数   根本是函数
+      //作用是可以访问其他作用域的变量延伸了变量的作用范围 和时间范围
+      //被访问的函数时就创建了一个闭包函数，并且可以利用闭包从函数外调用函数内的变量
+      function bz() {
+        let unb = 8
+        function ba() {
+          console.log(unb)
+        }
+        bz()
+      }
+      bz()
+
+      //实例闭包 全局作用域访问局部作用域，原理是返回函数，在全局下调用
+      function pa() {
+        let un = 2
+        function wa() {
+          console.log(un)
+        }
+        return wa
+      }
+      let fn = pa()
+      fn()
+    </script>
+  </body>
+</html>

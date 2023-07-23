@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 如何从一个数组中筛选一部分符合条件的元素并存到另一个数组 -->
+    <script>
+        var munn = [15, 22, 16, 6, 5, 9, 14];
+        var opop = [];
+        var o = 0;
+        for (var i = 1; i < munn.length; i++) {
+            if (munn[i] > 10)
+                /* 这么写的话会有空值，因为o是递增的但是不满足调节就没法存数据进去 */
+                opop[o] = munn[i];
+            o++;
+            /* 改进版，可以去掉空值，
+            实现原理是数组长度的值会比数组元素大1 所以可以用来做索引*/
+
+            opop[opop.length] = munn[i];
+        }
+        console.log(opop)
+        /* 把数组倒过来排序 */
+        var zifuchuan = ['辉辉1',
+            '辉辉2',
+            '辉辉3',
+            '辉辉4'
+        ]
+        var tihuan = [];
+        for (i = zifuchuan.length - 1; i <= 0; i--) {
+            tihuan[tihuan.length] = zifuchuan[i]
+        }
+        console.log(tihuan)
+    </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="black.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <!-- 这里的顺序是有要求的  得先有html中的元素出现 并且有id 才能被DOM找到 所以script写在下面 -->
+    <div id="kuang">
+    </div>
+    <li>dlksaj1</li>
+    <li>dlksaj2</li>
+    <li>dlksaj3</li>
+    <li>dlksaj4</li>
+    <li>dlksaj5</li>
+
+    <ul id="kuang3">
+        <p>dlksaj12</p>
+        <p>dlksaj3213</p>
+        <p>dlksaj4123</p>
+    </ul>
+
+    <ul class="kuang4">
+        <p>dlksaj12222222222222</p>
+        <p>dlksaj3213</p>
+        <p>dlksaj4123</p>
+    </ul>
+
+    <button class="lz">asdsa </button>
+
+    <script>
+        let kz = document.getElementsByClassName('lz')
+        console.log(kz);
+        kz.onclick = function () {
+            console.log('sadas');
+        }
+
+        let kzz = document.querySelector('.lz')
+        console.log(kzz);
+        kzz.onclick = function () {
+            console.log('sadas');
+        }
+
+        //和css标签选择器相似
+
+        //1.通过id获取元素
+        /* 用驼峰命名法 里面的参数是对大小写敏感的字符串  返回的是一个对象*/
+        //翻译过来就是通过id 获取元素
+        var shi = document.getElementById('kuang')
+        //会输出整个html元素
+        console.log(shi);
+        /* 输出结果是对象 */
+        console.log(typeof shi)
+        //可以方便的查看里面的属性和方法  会输出这个元素的相关信息
+        console.dir(shi)
+
+
+        //2.根据标签名获取元素 也用伪数组的形式存储 不管有没有内容
+        var shi2 = document.getElementsByTagName('li')
+        //以伪数组的形式输出
+        console.log(shi2);
+        /* 也可以指定某一个输出  */
+        console.log(shi2[1])
+        /* 可以遍历数组打印全部内容 */
+        for (var i = 0; i < shi2.length; i++) {
+            console.log(shi2[i]);
+        }
+
+        //当需要选定比如 ul li的情况 等 这么写  
+        //写法1 从 ul中的子标签中选p
+        let shi3 = document.getElementsByTagName('ul')
+        //这里的[0]是索引号 要调用第二组就写1
+        console.log(shi3[0].getElementsByTagName('p'))
+        //写法二：有id时  从kuang3 id的子元素 选p （用这个
+        let shi4 = document.getElementById('kuang3');
+        console.log(shi4.getElementsByTagName('p'));
+
+
+        //3.根据标签class来获取元素（属于h5 对ie 678不兼容
+        let boxs = document.getElementsByClassName('kuang4')
+        console.log('11111111111111111111111111111---------');
+        console.log(boxs);
+        boxs.onclick = function () {
+            console.log(2132);
+        }
+
+
+        //4.也属于h5新增选择器 但是可以当作其他的选择器用 变得只是参数
+        //简化写法  要用 id选择器时 在参数前加# class时加. 选标签时 直接写标签名  这个写法只会选择第一个 不会选择所有的标签
+        let shi5 = document.querySelector('.kuang4')
+        let shi6 = document.querySelector('#kuang')
+        let shi7 = document.querySelector('li')
+        let zd=document.querySelector('.kuang4')
+        let asd=document.querySelector('#kuang3')
+        console.log(shi5, shi6, shi7);
+
+        //选择所有的li标签 等
+        let shi9 = document.querySelectorAll('p')
+        console.log(shi9);
+
+
+        /* 获取特殊标签 */
+        //获取body元素
+        let bodyele = document.body;
+        //获取html元素
+        let htmlele = document.documentElement;
+
+        console.log(bodyele);
+        console.log(htmlele);
+        console.dir(bodyele);
+        console.dir(htmlele);
+    </script>
+</body>
+
+</html>

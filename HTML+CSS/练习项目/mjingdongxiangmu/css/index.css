@@ -1,0 +1,172 @@
+body {
+    margin: 0 auto;
+    width: 100%;
+    min-width: 460px;
+    /* 目前的最大宽度我感觉限制再2K最大， */
+    max-width: 720px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* 由于个个部分没定高所以，都是会随着内容的加减二变大 */
+/* 顶部部分介绍 */
+header {
+    width: 100%;
+    height: 45px;
+    background-color: black;
+}
+
+header ul {
+    height: 45px;
+
+}
+
+header ul li {
+    float: left;
+    height: 45px;
+
+}
+
+.shout {
+    width: 10%;
+}
+
+.logo {
+    width: 10%;
+    background: url(../images/logo.png) no-repeat;
+}
+
+.intro {
+    width: 50%;
+    text-align: center;
+    line-height: 45px;
+    font-size: 18px;
+}
+
+.dow {
+    width: 30%;
+    background-color: darkred;
+}
+
+.dow a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    line-height: 45px;
+}
+
+/* 主体内容区 */
+
+/* 把两个按钮定位到左右两侧 然后搜索框用标准流就行，
+然后不设置宽继承100%，用bozing的属性，设置mar 或者pad让搜索框
+不档这按钮，然后就能实现只有搜索框放大缩小的效果
+ */
+
+.maincont {
+    position: relative;
+    width: 100%;
+}
+
+.seacher {
+    /* position: fixed; */
+
+    position: fixed;
+    width: 100%;
+    min-width: 360px;
+    max-width: 720px;
+}
+
+/* overflow: hidden; */
+
+.seacher_left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: violet;
+    width: 35px;
+    height: 45px;
+}
+
+
+/* 不设置搜索框的宽然后让它距离两边一定距离，缩小的时候 */
+.seacher_main {
+    height: 45px;
+    margin: 0 45px;
+    border-radius: 25px;
+    background-color: white;
+}
+
+.seacher_main::after {
+    content: "搜索图标";
+    position: absolute;
+    top: 3px;
+    left: 76px;
+    background-color: yellow;
+    width: 45px;
+    height: 40px;
+}
+
+.seacher_main input {
+    border-radius: 25px;
+    border: none;
+    width: 100%;
+    height: 45px;
+}
+
+
+.seacher_right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: violet;
+    width: 35px;
+    height: 45px;
+}
+
+/*焦点图  */
+.slide {}
+
+.slide img {
+    width: 100%;
+}
+
+/* 多广告图片 */
+.moreadv {
+    height: 150px;
+    width: 100%;
+}
+
+.moreadv div {
+    float: left;
+    width: 33.3%;
+}
+
+.moreadv div a img {
+    width: 100%;
+}
+
+/* 图标导航部分 */
+
+nav {
+    margin-top: 10px 0;
+    width: 100%;
+    min-width: 360px;
+    max-width: 720px;
+    height: 160px;
+}
+
+nav ul {}
+
+nav ul li {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+/* 把spna转换成块级元素是因为让span在盒子内换行显示， */
+nav ul li a span {
+    display: block;
+}

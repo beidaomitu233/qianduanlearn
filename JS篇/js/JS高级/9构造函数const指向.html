@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //默认情况下constructor指向这个实例化对象的构造函数
+
+      function baz(use, agrs) {
+        this.use = use;
+        this.agrs = agrs;
+      }
+      //这个意思是在对象里创建一个方法（属性）
+      baz.prototype.sing = function () {
+        console.log("zdsa");
+      };
+      //所以也能这么写，这么写会导致原本指向构造函数的constructor 现在被覆盖了就导致调用失败，所以需要再次手动添加回去
+      //因为修改了原来的原型对象，重新赋值了所有，所以要重新把指向值回来
+      baz.prototype = function () {
+        constructor: baz;
+        ssay = function () {
+          console.log("dad");
+        };
+      };
+    </script>
+  </body>
+</html>

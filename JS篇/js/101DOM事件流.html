@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+        }
+
+        .son {
+            width: 300px;
+            height: 300px;
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">son盒子</div>
+    </div>
+
+    <div>
+        <div>
+            <p></p>
+        </div>
+    </div>
+    <script>
+        //DOM事件流分为三个阶段
+        /* 
+        第一阶段 事件捕获阶段，
+        找一个事件并不是直接能找到某个标签，而是从document 往下到HTML 到body 直到找到目标,并且找到之前会一直执行经过的事件不管是否点击
+
+        第二阶段 找到目标阶段
+        
+        第三阶段 事件冒泡阶段 向上执行的一个过程 从当前的目标阶段 到body html   ，不论是否触发该事件，只要是点击事件的子标签 ， 就会带着父标签的事件一起执行
+        */
+
+        /* 为何要关注 这三个阶段  ，因为当我们子元素添加事件的时候 ，冒泡时 就连父级标签也会执行  捕获阶段一般不会有  */
+
+        // dom 事件流 三个阶段
+        // 1. JS 代码中只能执行捕获或者冒泡其中的一个阶段。
+        // 2. onclick 和 attachEvent（ie） 只能得到冒泡阶段。
+        // 3. 捕获阶段 如果addEventListener 第三个参数是 true 那么则处于捕获阶段  document -> html -> body -> father -> son
+        var son = document.querySelector('.son');
+        son.addEventListener('click', function () {
+            alert('son');
+        }, true);
+        var father = document.querySelector('.father');
+        father.addEventListener('click', function () {
+            alert('father');
+        }, true);
+        // 4. 冒泡阶段 如果addEventListener 第三个参数是 false 或者 省略 那么则处于冒泡阶段  son -> father ->body -> html -> document
+        /*        var son = document.querySelector('.son');
+               son.addEventListener('click', function () {
+                   alert('son');
+               }, false);
+               var father = document.querySelector('.father');
+               father.addEventListener('click', function () {
+                   alert('father');
+               }, false);
+               document.addEventListener('click', function () {
+                   alert('document');
+               }) */
+    </script>
+
+
+
+
+
+</body>
+
+</html>

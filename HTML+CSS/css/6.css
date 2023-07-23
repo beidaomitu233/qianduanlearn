@@ -1,0 +1,78 @@
+.box {
+    position: relative;
+    top: 98px;
+    left: 70px;
+    width: 238px;
+    height: 234px;
+    background-color: cyan;
+}
+
+.box1 {
+    position: relative;
+    top: 78px;
+    left: 60px;
+    width: 238px;
+    height: 234px;
+    background-color: greenyellow;
+}
+
+/* body {
+    height: 2000px;
+} */
+
+body {
+    background-color: black;
+}
+
+.ding img {
+    position: fixed;
+    right: 50px;
+    top: 300px;
+
+}
+
+.wei {
+    position: sticky;
+    /* 这个的意思是离顶部还有20px就开始变成固定的 */
+    top: 20px;
+    background-color: burlywood;
+    width: 300px;
+    height: 400px;
+    /*值越大越越在前面上 */
+    z-index: 5;
+}
+
+.box2 {
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    position: absolute;
+    left: 50%;
+    margin-left: -90px;
+    top: 50%;
+    margin-top: -90px;
+}
+
+.box3 {
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    position: absolute;
+    left: 50%;
+    /* 相对于现在的位置 */
+    margin-left: -100px;
+    top: 50%;
+    margin-top: -100px;
+}
+
+.box4 {
+    width: 200px;
+    height: 200px;
+    background-color: skyblue;
+    position: absolute;
+    left: 50%;
+    margin-left: -110px;
+    top: 50%;
+    margin-top: -110px;
+    z-index: 1;
+}

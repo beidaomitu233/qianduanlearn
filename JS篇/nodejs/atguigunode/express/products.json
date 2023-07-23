@@ -1,0 +1,28 @@
+[
+  {
+    "name": "iPhone 12",
+    "id": "1001",
+    "price": 999.99
+  },
+  {
+    "name": "Samsung Galaxy S21",
+    "id": "1002",
+    "price": 899.99
+  },
+  {
+    "name": "Sony PlayStation 5",
+    "id": "1003",
+    "price": 499.99
+  },
+  {
+    "name": "MacBook Pro",
+    "id": "1004",
+    "price": 1499.99
+  },
+  {
+    "name": "Nike Air Max",
+    "id": "1005",
+    "price": 129.99
+  }
+
+]

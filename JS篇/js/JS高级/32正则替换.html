@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" /> <button>提交</button>
+    <div></div>
+    <script>
+      //替换  利用replace配合正则来替换    正则后面也可以跟参数  g表示全局匹配，i表示忽略大小写 gi就是组合起来
+      let input = document.querySelector('input')
+      let button = document.querySelector('button')
+      let div = document.querySelector('div')
+      button.addEventListener('click', function () {
+        div.innerHTML = input.value.replace(/激情|牛逼/g, '**')
+      })
+
+      //
+    </script>
+  </body>
+</html>

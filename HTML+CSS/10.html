@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字居中和图片摆放</title>
+</head>
+<!-- 实现文字居中的方法有两种 ，一种是定义里面的标签在中间  一种是直接限制行高，然后把他顶在中间 行高是包括上下空隙和文字  -->
+
+<body class="boy">
+    <style>
+        /* div a {
+            text-align: center;
+            ;
+        } */
+
+        .pdiv {
+            background-color: pink;
+            width: 500px;
+            height: 50px;
+        }
+
+        div a {
+            line-height: 50px;
+        }
+
+
+        .op {
+            height: 300px;
+            width: 300px;
+            background-image: url(./img/service.png);
+            background-repeat: no-repeat;
+            background-color: red;
+            background-position: center center;
+        }
+
+        /* repea是平铺方式 可以沿x或y周平铺，或者不平铺
+          position 的两个值是x周和y轴位置 
+          可以是上下左右，也可以是具体像素值
+          也可以混合用 */
+
+        /* <!-- 背景图片滚动和固定 -->        */
+        /* 背景可以用复合写法 */
+        body {
+            /* background-attachment: fixed; */
+            /* background-attachment: scroll;
+            background-image: url(./img/1628442582568.jpg); */
+
+            background: url(./img/1628442582568.jpg) scroll no-repeat center center;
+
+        }
+
+        /* rgba是自选颜色，最后的a是透明度  */
+        .tr {
+            background-color: rgba(0, 0, 0, 0.1);
+            height: 300px;
+            width: 320px;
+        }
+    </style>
+    <div class="pdiv">
+        <a href="#">miya</a>
+    </div>
+
+    <div class="op"></div>
+    <br>
+    <img src="./img/1.jfif" alt="" class="boy">
+    <br>
+    <img src="./img/2.jfif" alt="" class="boya">
+    <br>
+    <img src="./img/4).jfif" alt="" class="boy">
+
+    <div class="tr"></div>
+
+
+</body>
+
+</html>

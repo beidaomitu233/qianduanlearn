@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 这行代码的意思是适配手机端， 视窗 宽随设备变化 原始大小是一倍 最大缩放倍数和最小，和用户是否可以缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0, 
+    minimum-scale=1.0,user-scalable=no">
+    <title>适配手机端</title>
+</head>
+
+<style>
+    .dome1 {
+        width: 700px;
+        height: 700px;
+        margin: 50px auto;
+        background: url(../../img/beijing.jpg) no-repeat;
+        /* 只写宽的时候，高就等比例缩放，只写高也一样  单位还有% */
+        /* background-size: 500px 500px; */
+        /* 百分比是相对于父盒子大小 */
+        /* cover是全覆盖，宽和高都要全覆盖 也是属于等比例缩放 和contain是宽或者高有一边能达到就性 也是属于等比例缩放 */
+        background-size: cover;
+    }
+</style>
+
+<body>
+    <!--在手机端中的像素比是 一比二  意思是 pc端的1px 就是手机上的2px 这就是物理像素比 ，谷歌浏览器上显示的是我们开发像素是真实像素比，1比1
+    在不同的手机上可能有不同  -->
+    <h1>适配大小</h1>
+
+    <!-- 二倍图 ，就是把原本要显示50px的图片导入一个100px的图片，然后再设置成50px ，手机打开的时候会放大两倍，所以就刚好大小就不会模糊
+    也有三倍或者四倍 -->
+    <!-- 也可以设置背景图片大小 但是要给盒子指定宽高之后背景大小才能设置-->
+    <div class="dome1"><img src="" alt=""></div>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            background-color: pink;
+            width: 290px;
+            height: 40px;
+            border: solid 2px red;
+        }
+
+        .change {
+            background-color: purple;
+            width: 130px;
+            height: 30px;
+            transition: all 0.7s ease;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- 当需要js里面动态修改的样式较多时，可以直接调用css的class -->
+    <!-- 被改变者.className='css的名字' -->
+    <div> 哈哈哈</div>
+
+    <script>
+        let bangding = document.querySelector('div')
+
+        //注意 这样 会完全修改之前的样式 不仅是覆盖，不会保留之前的样式
+        bangding.onclick = function () {
+            /*  bangding.className = 'change' */
+            /* 如果想要保留之前的这样写  ，就是并列 */
+            bangding.className = 'div change'
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //简单数据类型和复杂数据类型 （也叫引用类型）
+        /*JavaScript中没有堆栈的概念
+        
+         简单数据类型大概 ：string mumber 布尔 等  
+         复杂数据类型是对象 数组 方法这种
+
+       有一个栈和堆的概念  栈是用来存放简单数据类型的值，
+       复杂数据类型的值是存放在堆里面，
+       但是栈里面有个十六进制的索引号指向堆里面的数据
+
+
+        */
+
+        //当需要创建一个暂时不需要放值的空对象的时候这么些
+        var zz = null; //原本应该返回的是 NULL这个值，由于各种问题就返回下面这个
+        console.log(typeof zz); //返回的是一个空的对象 
+
+
+        //简单数据类相关传递参数  
+
+        var ee = 10;
+        ee++;
+
+        //这种传递参数不会改变原来的值，只会复制一份给a 
+        console.log(ee);
+
+        function chuan(a) {
+            a++;
+            console.log(a);
+            //return a
+        }
+        var xz = 14;
+        chuan(xz);
+        console.log(xz);
+
+        //复杂数据类型传参数，两个复杂类型传参数的时候 会有一部 把x=y2（另一个函数的形参）
+        //实际上并没有完全的复制一份，只是把指针地址复制一份并指向同一个值，
+        /* 所以即使后面改的是函数2的值 函数1的值也会变 */
+    </script>
+
+</body>
+
+</html>

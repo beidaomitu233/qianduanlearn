@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+</body>
+
+<script>
+    var num1 = 11;
+    var zz2 = 23;
+    var zz3 = 321
+    var zz4='123'
+    console.log(typeof num1);
+    console.log(typeof zz2);
+
+    /* 转化为字符串类型 */
+    var snum1= num1.toString()
+    console.log(typeof snum1)
+    console.log('-----------------')
+    // 类型二
+    var szz2=String(zz2)
+    console.log(typeof szz2);
+    console.log(typeof zz2)
+    console.log('-----------------')
+    // 类型三
+    console.log(zz3 + '');
+    console.log(typeof (zz3+''))
+    console.log('-----------------')
+//    转化为数字型 需要接收结果
+     var nnum=parseInt(snum1)
+    console.log("类型是"+typeof nnum+"值为")
+    console.log(nnum)
+    console.log('-----------------')
+//     转化为数字型的方式二 保留小数点 需要接收结果
+    var nzz2=parseFloat(szz2)
+    console.log("转前"+szz2+"，转后"+typeof nzz2)
+    console.log(nzz2)
+
+    console.log('-----------------')
+    //可以去除px单位
+    var pxz='123px'
+    var npxz=parseFloat(pxz)
+    console.log(npxz)
+
+    console.log('-----------------')
+//     方式三 用number方法
+    var nzz3=Number(zz4)
+    console.log(typeof nzz3)
+    console.log('-----------------')
+    var inzz5=parseFloat(prompt('输入数字'))
+    console.log(typeof inzz5+"值是"+inzz5)
+</script>
+
+</html>

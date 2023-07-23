@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "dayjs": "^1.11.1",
+    "i5ting_toc": "^1.1.5",
+    "init": "^0.1.2",
+    "jquery": "^3.7.0",
+    "then-fs": "^2.0.0"
+  },
+  "name": "webpacktest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

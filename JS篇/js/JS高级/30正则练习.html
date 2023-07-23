@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      span {
+        color: darkgray;
+      }
+      .red {
+        color: red;
+      }
+      .gree {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="ru" /> <span> 请输入用户名</span>
+
+    <script>
+      let input = document.querySelector('input')
+      let span = document.querySelector('span')
+      let rg = /^[A-z0-9]{6,16}$/
+      input.addEventListener('blur', function () {
+        if (rg.test(this.value)) {
+          span.className = 'gree'
+          span.innerHTML = '输入正确'
+        } else {
+          span.className = 'red'
+          span.innerHTML = '输入错误'
+        }
+      })
+    </script>
+  </body>
+</html>

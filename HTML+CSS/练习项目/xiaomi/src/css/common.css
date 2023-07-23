@@ -1,0 +1,55 @@
+/* 共享的网站底部 */
+
+.site_food {
+    height: 330px;
+}
+
+/* 服务内容 */
+
+.server {
+    height: 80px;
+    border: 1px solid red;
+}
+
+.food_link {
+    height: 252px;
+    border: 1px solid red;
+}
+
+/* 站点信息 */
+.site-info {
+    height: 266px;
+    border: 1px solid red;
+}
+
+/* 口号 */
+.slogan {
+    margin-bottom: 15px;
+    height: 19px;
+
+}
+
+/* 右侧栏 */
+.right_fixnav {
+    position: fixed;
+    top: 160px;
+    right: 0;
+    width: 84px;
+    height: 561px;
+}
+
+.right_fixnav li {
+    text-align: center;
+    width: 84px;
+    height: 92px;
+
+}
+
+.right_fixnav img {
+    width: 30px;
+    height: 30px;
+}
+
+.top_mar {
+    margin-top: 16px;
+}

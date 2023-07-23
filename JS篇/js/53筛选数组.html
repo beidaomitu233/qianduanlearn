@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 从一个数组中筛选出想要的值 -->
+    <script>
+        /* 把低于九百的筛掉 */
+        var arr1 = [1550, 900, 800, 600, 700, 850, 1200, 1300];
+        var arr2 = [];
+        /* 遍历数组 把复合条件值从第一个数组添加到第二个数组 */
+        for (var i = 0; i < arr1.length; i++) {
+            if (arr1[i] >= 900)
+                arr2.push(arr1[i])
+        }
+        console.log(arr2);
+    </script>
+
+</body>
+
+</html>

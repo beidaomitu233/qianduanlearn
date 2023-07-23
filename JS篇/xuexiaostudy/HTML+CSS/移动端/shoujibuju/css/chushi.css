@@ -1,0 +1,101 @@
+/* css初始化 ，每个都要初始化，这样可以直接取消很多不需要和默认的东西 */
+
+* {
+    margin: 0;
+    padding: 0;
+    /* 让pad和mar不撑大盒子 */
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: none;
+}
+
+body {
+    /*     max-width: 720px;
+    min-width: 360px; */
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+.clearfix:after {
+    /*伪元素是行内元素 正常浏览器清除浮动方法*/
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    *zoom: 1;
+    /*ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行*/
+}
+
+
+.clearfix:after,
+.clearfix:before {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+li {
+    list-style: none;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+
+button {
+    /* 鼠标变手 */
+    cursor: pointer;
+}
+
+button,
+input {
+    /*可以用编码代替字体名字 */
+    font-family: Microsoft YaHei;
+    -webkit-touch-callout: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+input {
+    list-style: none;
+    border: none;
+}
+
+a:hover {
+    /* color: chartreuse; */
+}
+
+body {
+    font-size: 12px/1.5;
+    background: darkgray;
+}
+
+/* 取消按钮圆角 */
+button {
+    border-radius: 0;
+}
+
+button::after {
+    border-radius: 0;
+}

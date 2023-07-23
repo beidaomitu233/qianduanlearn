@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 第一种 .writen -->
+    <button>Dddd</button>
+    <p>132</p>
+
+    <script>
+        let but = document.querySelector('button')
+        but.onclick = function () {
+            document.write('<div>辉</div>') //用这个会导致画面重绘，就是新建一个颜面里面只有一个div标签
+        }
+
+        //第二种innerHTML  ,当不用字符串拼接以此存储的时候 ，用数组形式拼接创建，innerHTML效率比Cre 更高
+        let arr = [];
+        for (let i = 0; i < 10; i++) {
+            arr.push('<a href="javascript:;">hui</a>')
+        }
+        // 写join是要转换成字符串
+        inner.innerHtml = arr.join('');
+
+        //第三种createElement 
+        document.createElement
+    </script>
+</body>
+
+</html>

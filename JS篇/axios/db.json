@@ -1,0 +1,21 @@
+{
+  "posts": [
+    {
+      "id": 4
+    },
+    {
+      "title": "天气晴朗",
+      "auther": "zhenbucuo",
+      "id": 5
+    },
+    {
+      "title": "天气晴朗",
+      "auther": "zhenbucuo",
+      "id": 6
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

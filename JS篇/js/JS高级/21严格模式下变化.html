@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      'use strict'
+      //根本上 改变的还是es5之前的不严谨写法 和逻辑
+      //未声明就赋值 被禁止
+      let b = 6
+      console.log(b)
+      //这里会直接报错，声明的变量不能随意删除
+      /*  delete b; */
+
+      /* this 指向在全局作用域函数中变变成undefined0  ,加上new 变成实例对象后 会指向对象 */
+      function z() {
+        console.log(this)
+      }
+      z()
+      let zz = new z()
+
+      //定时器的this还是指向window
+      setTimeout(function bzz() {
+        console.log(this)
+      }, 1000)
+      //时间对象还是指向调用者
+
+      //不能再块级作用域下写函数
+      if (1 < 4) {
+        /*严格模式下 这样是错误的 */
+        function name(params) {}
+      }
+    </script>
+  </body>
+</html>

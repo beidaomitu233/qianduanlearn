@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入 ECharts 文件 -->
+    <script src="./echarts.min.js"></script>
+</head>
+
+
+<!-- echats使用方法：第一步引入文件，第二部设置给元素宽高 第三步初始化实例，第四步执行配置项（用什么表格）和数据（option-->
+<!-- 第五步把把配置项给实例对象 -->
+
+<!-- 大部分的笔记可以不需要记在网站中有详细说明，部分解释可能难理解一些，这些才做笔记提高效率 -->
+
+<!-- stack数据堆叠， 如果设置相同值，数据就会堆叠，比如第三个数据值就等于：第三个数据值+ ＋ 第二个＋.... -->
+
+
+
+<body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script>
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'), null, {
+            width: 300,
+            height: 400
+        });
+
+
+        // 指定图表的配置项和数据
+        var option = {
+            xAxis: {
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: [150, 230, 224, 218, 135, 147, 260],
+                type: 'line'
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+
+
+
+
+</body>
+
+
+
+</html>

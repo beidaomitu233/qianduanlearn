@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2800px;
+            background-color: burlywood;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 当我们再function参数里写e 就是获取一些信息，然后根据需要来调用 -->
+    <script>
+        document.addEventListener('click', function weizhi(e) {
+            //相对于当前显示区的位置，点击同一个位置，就不管怎么滑滚动条都会显示一样的值
+            console.log(e.clientX);
+            console.log(e.clientY);
+            console.log('Fengexian---------------------');
+
+            //相对于整个网页的位置，点哪里就是哪里，
+            console.log(e.pageX);
+            console.log(e.pageY);
+            console.log('Fengexian111---------------------');
+
+            //相对于桌面（屏幕）到点击的位置
+            console.log(e.screenX)
+            console.log(e.screenY)
+            console.log('Fengexian222---------------------');
+
+
+        })
+    </script>
+</body>
+
+</html>

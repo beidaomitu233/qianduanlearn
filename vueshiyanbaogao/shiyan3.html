@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+    </style>
+
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in num">{{ index }}. {{ item }}</li>
+            <br>
+            <li v-for="(value, key) in obj">{{ key }}: {{ value }}</li>
+            <br>
+            <li v-for="(item, index) in fruit">{{ index }}. {{ item.name }} - {{ item.color }}</li>
+            <br>
+            <li v-for="num in 10">{{ num }}</li>
+            <br>
+            <p v-if="seen">你现在能看到我了</p>
+            <br>
+            <p v-if="seen">你现在能看到我了</p>
+            <p v-else>你现在看不到我了</p>
+            <br>
+            <button @click="temp = '1'">1</button>
+            <button @click="temp = '2'">2</button>
+            <button @click="temp = '3'">3</button>
+            <p v-if="temp === '1'">1</p>
+            <p v-else-if="temp === '2'">2</p>
+            <p v-else-if="temp === '3'">3</p>
+
+
+        </ul>
+
+
+    </div>
+
+
+    <script>
+        new Vue({
+            el: "#app",
+            data() {
+                return {
+                    temp: 1,
+                    seen: true,
+                    num: ['吃饭', '睡觉', '敲代码'],
+                    obj: {
+                        name: '小明',
+                        age: '21',
+                        sex: '男'
+                    },
+                    fruit: [{
+                            name: '苹果',
+                            color: '红色'
+                        },
+                        {
+                            name: '梨子',
+                            color: '黄色'
+                        },
+                        {
+                            name: '橘子',
+                            color: '橘色'
+                        },
+                        {
+                            name: '西瓜',
+                            color: '绿色'
+                        }
+                    ]
+
+
+
+                }
+            },
+            methods: {
+
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>

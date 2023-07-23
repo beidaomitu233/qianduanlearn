@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <a href="#"></a>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+
+</body>
+
+<!-- 获取兄弟节点 ，就是当前节点的上一个或下一个 -->
+<script>
+    let div = document.querySelector('a')
+    /* 获取下一个 */
+    let xia = div.nextElementSibling
+    /* 获取上一个 */
+    let shang = div.previousElementSibling
+
+    console.log(xia)
+    console.log(shang)
+</script>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入axios ,crossorigin="anonymous”防止报文警告-->
+    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.0/axios.js"></script>
+</head>
+
+<body>
+
+    <button id="get">get</button>
+    <button id="post">post</button>
+    <button id="ajax">ajax</button>
+
+    <!-- 用axios更清晰明了 -->
+    <script>
+        let btnget = document.querySelector('#get')
+        let btnpsot = document.querySelector('#post')
+        let btnajax = document.querySelector('#ajax')
+        //利用axios  get请求
+
+        //可以直接外部配置baseURL 如果需要再次使用这个url就不需要重复写
+        axios.defaults.baseURL = 'http://localhost:3000'
+        //GET
+        btnget.addEventListener('click', function () {
+            axios.get('/axios', {
+                // 传递 url参数
+                params: {
+                    id: 60,
+                    vip: 3,
+                },
+                //请求头信息
+                Headers: {
+                    'Name': 'axios',
+                }
+
+            }).then(value => {
+                console.log(value);
+            })
+        })
+        //POST
+        /*         btnpsot.addEventListener('click', function () {
+                    //post请求,可设置请求体
+                    axios.post('/axios', {
+                            //请求体
+                            username: 'admin',
+                            password: 'zzz',
+                        }, {
+                            params: {
+                                id: 200,
+                                vip: 1,
+                            }
+                        }
+
+
+
+                    )
+
+
+                }) */
+        //通用请求
+        btnajax.addEventListener('click', function () {
+            axios({
+                //请求方法
+                method: 'post',
+                //URL
+                params: {
+                    vip: 999
+                },
+                //请求头
+                Headers: {
+                    a: 100
+                },
+                //请求体参数
+                data: {
+                    username: 'ad'
+                }
+                //想要处理返回结果的话就这么写
+            }).then(response => {
+                console.log(response.data)
+            })
+
+
+
+        })
+    </script>
+
+</body>
+
+</html>

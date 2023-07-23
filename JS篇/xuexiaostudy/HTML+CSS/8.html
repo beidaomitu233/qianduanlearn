@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/1.css">
+
+
+    <title>伪类选择器，光标选择器，以及其他的选择器</title>
+
+    <style>
+        .red {
+            background-color: hotpink;
+            height: 250px;
+            width: 250px;
+        }
+
+        .green {
+            background-color: greenyellow;
+            height: 250px;
+            width: 250px;
+        }
+
+        .forn {
+            font-size: 35px;
+        }
+
+        .gr {
+            color: red;
+        }
+
+        #ol {
+            color: teal;
+            font-size: 69px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="green">1</div>
+    <div class="red">1</div>
+    <div class="green">1</div>
+
+    <!-- 内联多类名使用 一件修改，把相同属性的放到一个类里 -->
+
+    <p class="gr forn"> 样式</p>
+
+    <p class="red forn"> 样式</p>
+    <p class="green forn"> 样式</p>
+
+    <!-- id选择器 只能调用一次 -->
+
+    <p id="ol">起飞</p>
+
+    <!-- 后代选择器 可以选中一个标签里面的子标签 -->
+
+    <style>
+        ol li {
+            color: hotpink;
+        }
+    </style>
+
+    <ol>
+        <li>1</li>
+        <li>231</li>
+        <li>321</li>
+    </ol>
+
+    <!-- 如果有相同标签相同情况 但是只想改一个 就用class区分 -->
+
+    <style>
+        .nbc li {
+            color: blue;
+        }
+    </style>
+
+    <ol>
+        <li>1</li>
+        <li>231</li>
+        <li>321</li>
+    </ol>
+
+
+    <ol>
+        <li>1</li>
+        <li>231</li>
+        <li>321</li>
+    </ol>
+
+    <ol class="nbc">
+        <li>1</li>
+        <li>231</li>
+        <li>321</li>
+    </ol>
+
+    <!-- 子选择器 只会选择子集的第一个 -->
+    <style>
+        .nbv>li {
+            color: lawngreen;
+        }
+    </style>
+
+    <ol class="nbv">
+        <li>1999</li>
+        <span>
+            <li>231</li>
+        </span>
+        <li>321</li>
+    </ol>
+
+    <!-- 并集选择器，可以把几种选择器一起用  -->
+    <style>
+        .klc>li,
+        p,
+        h1,
+        .klc span li {
+            color: lightskyblue;
+        }
+    </style>
+    <div class="klc">
+        <li>1999</li>
+        <span>
+            <li>231</li>
+        </span>
+        <li>321</li>
+    </div>
+    <p>7788</p>
+    <h1>9988</h1>
+    <h4>887</h4>
+
+    <!-- css标签选择器  -->
+    <!-- 可以用 .op .lp这样就可以选择父标签下的class再下的lp 
+还有 .op lo标签和class名的混用都是可以实现的 -->
+
+
+    <a href="http://baidu.com" target="blank">544123伪类</a>
+
+    <!-- 鼠标点中谁就会出现变化，一般只用于input -->
+    <style>
+        input:focus {
+            background-color: hsl(143, 85%, 79%);
+        }
+    </style>
+    <input type="text">
+    <p class="po">dadsaadsad</p>
+    <input type="text" value="输入账号">
+
+    <!-- 开头几个字选择的选择器， -->
+    <div class="dome1"></div>
+    <div class="dome2"></div>
+    <div class="dome3"></div>
+    <div class="dome4"></div>
+
+    <!-- 结尾几个字 -->
+    <div class="ypzi-dabi"></div>
+    <div class="ypzo-dabi"></div>
+    <div class="ypzo-dabi2"></div>
+
+    <!-- 只要包含这几个字就选 -->
+    <div class="domeolz1"></div>
+    <div class="domeolz2"></div>
+    <div class="domeolz3"></div>
+
+    <!-- 任意选子元素的选择器,更方便，可以不用加class -->
+    <ul>
+        <li>2123</li>
+        <li>1221223</li>
+        <li>1231</li>
+        <li>123</li>
+        <li>213</li>
+    </ul>
+
+    <!-- 选择器区别dome -->
+    <div>
+        <img src="" alt="">
+        <p></p>
+        <h4></h4>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+
+    <duv class="domel1"></duv>
+
+</body>
+
+</html>

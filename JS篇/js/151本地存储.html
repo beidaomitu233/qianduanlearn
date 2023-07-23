@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 本地存储特性 -->
+    <!-- 数据存储在用户浏览器中，设置读取方便，甚至页面刷新数据不丢失，容量较大 sessionSrorage (5M)  localStorage 约20M  
+    只能存储字符串 可以把对象JSON.stringify()编码后存储 -->
+
+
+    <!-- sessionStorage  生命周期是关闭浏览器，在同一个页面下可以共享数据，以键值的相识存储使用 -->
+
+
+    <input type="text" class="ues">
+    <button class="cun">存取</button>
+    <button class="qu">取</button>
+    <button class="shan">删除</button>
+    <button class="qing">清除</button>
+
+    <script>
+        let userN = document.querySelector('.ues')
+        let cun = document.querySelector('.cun')
+        let qu = document.querySelector('.qu')
+        let shan = document.querySelector('.shan')
+        let qing = document.querySelector('.qing')
+
+        var i = 1;
+
+        //存数据
+        cun.addEventListener('click', function () {
+            /* sessionStorage.setItem('键名', 值) */
+            sessionStorage.setItem('username' + i, userN.value);
+            userN.value = ''
+            i++
+        })
+
+        //取数据
+        qu.addEventListener('click', function () {
+            console.log(sessionStorage.getItem('username'));
+        })
+
+        //删除数据
+        shan.addEventListener('click', function () {
+            sessionStorage.removeItem('username')
+        })
+
+        //删除全部数据
+        qing.addEventListener('click', function () {
+            sessionStorage.clear()
+        })
+    </script>
+
+
+
+</body>
+
+</html>

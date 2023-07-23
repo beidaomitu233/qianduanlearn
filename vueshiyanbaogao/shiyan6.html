@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <!--4.设置样式-->
+    <style>
+        table {
+            width: 500px;
+            border: 1px solid #ccc;
+        }
+
+        table tr td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!--2.搭建浏览器框架-->
+        <table width="60%" border="1px" bgcolor="pink">
+            <caption>我的购物车</caption>
+            <tr>
+                <!--4.实现全选-->
+                <th><input type="checkbox" v-model="isCheckAll" @click="checkAll"></th>
+                <th>编号</th>
+                <th>名称</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小计</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="(ele,idx) in goodsList" align="center">
+                <!--5.实现单行选择-->
+                <td><input type="checkbox" v-model="ele.isChecked" @click="rowCheckBox(ele)"></td>
+                <td>{{ele.id}}</td>
+                <td>{{ele.goodsName}}</td>
+                <td>{{ele.price}}</td>
+                <td>
+                    <!--3.实现商品数量的加减-->
+                    <button @click="reduceNum(ele)">-</button>
+                    {{ele.num}}
+                    <button @click="addNum(ele)">+</button>
+                </td>
+                <td>{{ele.amount}}</td>
+                <td>{{ele.remark}}</td>
+                <!--7.实现删除功能-->
+                <td><button @click="delRow(idx)">删除</button></td>
+            </tr>
+            <tr align="right">
+                <td colspan="8">应付{{totalAmount}}元 <button @click="calcTotalAmount">结算</button></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                goodsList: [
+                    //1.设置数据对象
+                    {
+                        isChecked: false,
+                        id: 1,
+                        goodsName: '小霸王1',
+                        price: 200,
+                        num: 1,
+                        amount: 200,
+                        remark: '良好'
+                    },
+                    {
+                        isChecked: false,
+                        id: 2,
+                        goodsName: '小霸王2',
+                        price: 300,
+                        num: 1,
+                        amount: 300,
+                        remark: '良好'
+                    },
+                    {
+                        isChecked: false,
+                        id: 3,
+                        goodsName: '小霸王3',
+                        price: 200,
+                        num: 1,
+                        amount: 200,
+                        remark: '良好'
+                    },
+                    {
+                        isChecked: false,
+                        id: 4,
+                        goodsName: '小霸王4',
+                        price: 100,
+                        num: 1,
+                        amount: 100,
+                        remark: '良好'
+                    },
+                    {
+                        isChecked: false,
+                        id: 5,
+                        goodsName: '小霸王5',
+                        price: 50,
+                        num: 1,
+                        amount: 50,
+                        remark: '良好'
+                    },
+                    {
+                        isChecked: false,
+                        id: 6,
+                        goodsName: '小霸王6',
+                        price: 10,
+                        num: 1,
+                        amount: 10,
+                        remark: '良好'
+                    },
+                ],
+                //是否全选
+                isCheckAll: false,
+                //应付多少钱
+                totalAmount: 0
+            },
+            methods: {
+                //减少数量
+                reduceNum(ele) {
+                    //判断
+                    if (ele.num == 1) {
+                        return;
+                    }
+                    //数量的减少
+                    ele.num--;
+                    //统计小计
+                    ele.amount = ele.price * ele.num;
+                    //累计
+                    this.calcTotalAmount();
+                },
+                //增加数量
+                addNum(ele) {
+                    //数量的增加
+                    ele.num++;
+                    //统计小计
+                    ele.amount = ele.price * ele.num;
+                    //累计
+                    this.calcTotalAmount();
+                },
+                checkAll() {
+                    this.isCheckAll = !this.isCheckAll;
+                    //将所有商品编变成选中
+                    this.goodsList.filter((ele, idx) => {
+                        ele.isChecked = this.isCheckAll;
+                    });
+                    //计算总金额
+                    this.calcTotalAmount();
+                },
+                //行的选中与不选
+                rowCheckBox(ele) {
+                    ele.isChecked = !ele.isChecked;
+                    //alert(ele.isChecked)
+                    //代表商品被全选了
+                    let flag = true;
+                    //循环遍历
+                    this.goodsList.filter((ele, idx) => {
+                        if (!ele.isChecked) {
+                            //商品未被选中
+                            flag = false;
+                        }
+                    })
+                    //将flag最终的结果，赋值给isCheckAll
+                    this.isCheckAll = flag;
+                    //
+                    this.calcTotalAmount();
+                },
+                //6.计算所有选中商品的总价格
+                calcTotalAmount() {
+                    //目标总金额
+                    this.totalAmount = 0;
+                    //循环遍历，选中的商品，获取其小计数据
+                    this.goodsList.filter((ele, idx) => {
+                        //判断选中的商品
+                        if (ele.isChecked) {
+                            this.totalAmount += ele.amount;
+                        }
+                    })
+                },
+                //删除一行记录
+                delRow(idx) {
+                    this.goodsList.splice(idx, 1)
+                    //计算应付金额
+                    this.calcTotalAmount();
+                }
+            },
+            watch: {
+                isCheckAll(newVal, oldVal) {
+                    console.info(newVal, oldVal)
+                }
+            }
+        })
+    </script>
+</body>
+
+
+
+</html>

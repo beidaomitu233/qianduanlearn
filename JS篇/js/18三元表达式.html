@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 三元表达式只有两个值  用于只有两种结果的时候
+写法  条件 ？ 返回值1 返回值2 
+如果条件为真就会返回 第一个  假则会返回第二个 -->
+
+    <script>
+        var comp = prompt('输入一个值比大小')
+        var fanhui = comp > 50 ? '大于' : '小于50';
+        console.log(fanhui);
+        alert(fanhui);
+
+        var addtit = prompt('输入')
+        var shuchu = addtit < 10 ? '0' +
+            addtit : addtit;
+        alert(shuchu)
+    </script>
+</body>
+
+</html>

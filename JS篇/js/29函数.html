@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 函数是为了更好的封装，封装是为了更好的复用 */
+        /* 函数就是封装的一段代码 是可以重复使用的 */
+
+        /* 使用函数分为两步  声明和调用  需要调用才能执行 */
+        /* 声明 名字最好是动词*/
+        function whatt() {
+            console.log('嘿');
+
+        }
+        /* 调用函数 */
+        whatt();
+
+        function getSum(a, b){
+            return  a+b
+            console.log("这段代码不会被执行")
+        }
+        console.log(getSum(10,15))
+        console.log(getSum(23,321))
+
+        function dome2(a){
+            return 'test'
+            console.log('后面不会被执行')
+        }
+        dome2(1)
+
+    </script>
+
+</body>
+
+</html>

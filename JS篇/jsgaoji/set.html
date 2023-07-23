@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const set = new Set();
+
+        //添加任意类型的元素。
+        set.add('zifu')
+        set.add(213)
+        set.add({
+            name: 'lis'
+        })
+        set.add(3123)
+
+        //查看元素是否在集合中存在
+        console.log(set.has('zifu'));
+        console.log(set.has(22233));
+
+        //删除元素
+        set.delete(213)
+        console.log(set);
+        console.log("--------------");
+
+        //遍历set中的元素，
+        set.forEach((value) => {
+            console.log(value);
+        });
+        console.log("--------------");
+        //因为是可迭代对象所以可以用 v of  来遍历
+        for (const v of set) {
+            console.log(v);
+        }
+
+        //清空集合
+        set.clear()
+        console.log(set);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="black.css">
+</head>
+
+<style>
+    .ddiv {
+        height: 20px;
+        width: 150px;
+        background-color: antiquewhite;
+    }
+
+    p {
+        background-color: antiquewhite;
+    }
+</style>
+
+<body>
+    <!-- 
+    innerText innerHTML -->
+
+    <!-- 目的 ：点击按钮  让p里面修改成时间   （需要获取两个元素 因为按钮和p标签都会被使用
+      三要数 获取元素 触发条件 触发结果 
+       1.获取p标签
+       2.鼠标点击
+       3.把p元素gaibian 变成当前时间 并输出当前时间
+
+       还要分析谁是被改变的谁是被点击的要不然写乱了
+    -->
+
+    <div class="ddiv">gaibian
+        <p class="shijian2">时间2</p>
+    </div>
+
+    <button class="anniu">打印时间</button>
+
+
+
+    <script>
+        let timee = new Date()
+
+        //获取事件源
+        let shijian1 = document.querySelector('.ddiv')
+        let shijian2 = document.querySelector('.anniu')
+        console.log(shijian1); //就是直接把整个标签给拿过来
+
+
+        //触发方式
+        shijian2.onclick = function () {
+            shijian1.innerText = nowtime(); //把拿过来的标签惊醒修改
+        }
+
+        function nowtime() {
+            var shujian = new Date();
+
+            var hou = shujian.getHours()
+            /* 当小于10的时候需要在前面补零 */
+            hou = hou < 10 ? '0' + hou : hou
+
+            var minn = shujian.getMinutes()
+            minn = minn < 10 ? '0' + minn : minn
+
+            var secc = shujian.getSeconds()
+            secc = secc < 10 ? '0' + secc : secc
+            /* return可以选择性的返回我们想要的结果 */
+            return hou + ':' + minn + ':' + secc
+        }
+
+
+        let hui = document.querySelector('.shijian2');
+        //可以直接处理程序 不需要触发条件的话 直接就显示
+        hui.innerText = 'cesces';
+    </script>
+
+
+</body>
+
+</html>

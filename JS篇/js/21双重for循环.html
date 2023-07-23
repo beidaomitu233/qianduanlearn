@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 双重for循环 -->
+    <script>
+        /* 写法就是再循环里面套循环*/
+        /* 就是外面的循环运行一次，里面的循环运行全部，就是可以现时 
+        我输入一个东西就能得到一个星星形状或者一个正方形  */
+        /* 打印五排五列星星 */
+        var str = ''
+        for (var brin = 1; brin <= 5; brin++) {
+
+            for (var mast = 1; mast <= 5; mast++) {
+                str = str + "+"
+
+            }
+            str = str + "\n"
+        }
+        console.log(str);
+
+        /* 可由用户自定输出几行几列 */
+        var strz = ''
+        /* 第一个for是行数 第二个for是列数 */
+        var hangshu = parseFloat(prompt('请输入行数'));
+        var lieshu = parseFloat(prompt('请输入列数'));
+        for (var brin = 1; brin <= hangshu; brin++) {
+
+            for (var mast = 1; mast <= lieshu; mast++) {
+                strz = strz + "+"
+
+            }
+            strz = strz + "\n"
+        }
+        alert(strz)
+
+        var strzp = ' '
+        /* 外层控制 行数 内层可以控制个数 个数和外成数有关系 随着行数变多，个数也减少 其实就是把个数量额行数建立关系 */
+        for (var lp = 1; lp <= 6; lp++) {
+            for (var uu = lp; uu <= 6; uu++) {
+                strzp = strzp + "+"
+
+
+            }
+            strzp = strzp + "\n"
+        }
+        console.log(strzp)
+
+        /* 乘法表 */
+        var jieguo = ''
+        for (var wai = 1; wai <= 9; wai++) {
+            for (var nei = 1; nei <= wai; nei++) {
+
+                /* 1 x 2=2 */
+                jieguo += wai + 'x' + nei + '=' +
+                    nei * wai + '\t'
+            }
+            jieguo += '\n'
+        }
+        console.log(jieguo);
+    </script>
+</body>
+
+</html>

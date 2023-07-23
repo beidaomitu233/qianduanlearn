@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>大学生消费水平调查问卷</title>
+    <!-- 引入 Bootstrap CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <!-- 自定义样式 -->
+    <style>
+        body {
+            background-color: #f5f5f5;
+            /* 设置页面背景色 */
+        }
+
+        .title {
+            font-family: "华文行楷";
+            /* 设置题目文字的字体 */
+            font-size: 40px;
+            /* 设置题目文字的大小 */
+            margin: 30px 0;
+            /* 设置题目文字的上下边距 */
+            text-align: center;
+            /* 设置题目文字居中对齐 */
+        }
+
+        .shadow {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            /* 设置表格阴影效果 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-5">
+        <form action="toa.jsp">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title">大学生消费水平调查问卷</h1>
+                    <p>亲爱的同学，你好！
+                        为了研究大学生群体的消费状况，我们正在进行一项关于在校大学生消费情况的问卷调查，请您协助回答几个问题，需要耽误您几分钟的时间，谢谢您的配合和支持。</p>
+                </div>
+            </div>
+            <!-- 第一道填空题 -->
+            <!--  -->
+            <div class="row  mt-3">
+                <div class="col-12">
+                    <table class="table shadow">
+                        <thead>
+                            <tr>
+                                <th>1. 请问您的月消费支出大概是多少元？</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" class="form-control"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- 第二道单选题 -->
+            <div class="row mt-1">
+                <div class="col-12">
+                    <table class="table shadow">
+                        <thead>
+                            <tr>
+                                <th>2. 您最常去的购物场所是哪里？</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="shopping_place" id="mall"
+                                            value="mall">
+                                        <label class="form-check-label" for="mall">
+                                            商场
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="shopping_place"
+                                            id="supermarket" value="supermarket">
+                                        <label class="form-check-label" for="supermarket">
+                                            超市
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="shopping_place" id="online"
+                                            value="online">
+                                        <label class="form-check-label" for="online">
+                                            网购
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- 第三道单选题 -->
+            <div class="row mt-1">
+                <div class="col-12">
+                    <table class="table shadow">
+                        <thead>
+                            <tr>
+                                <th>3. 你的休闲娱乐消费主要在那些方面</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="shopping_place" id="game"
+                                            value="mall">
+                                        <label class="form-check-label" for="game">
+                                            游戏充值
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="shopping_place" id="face"
+                                            value="supermarket">
+                                        <label class="form-check-label" for="face">
+                                            化妆品护肤品
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="shopping_place" id="colsed"
+                                            value="online">
+                                        <label class="form-check-label" for="colsed">
+                                            衣物
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="shopping_place" id="outside"
+                                            value="online">
+                                        <label class="form-check-label" for="outside">
+                                            游山玩水
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- 第四道多选题 -->
+            <div class="row mt-1">
+                <div class="col-12">
+                </div>
+            </div>
+            <table class="table shadow">
+                <thead>
+                    <tr>
+                        <th>3. 您会因为以下哪些原因而购物？（可多选）</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="reasons[]" id="need" value="need">
+                                <label class="form-check-label" for="need">
+                                    有需求
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="reasons[]" id="want" value="want">
+                                <label class="form-check-label" for="want">
+                                    想要
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="reasons[]" id="discount"
+                                    value="discount">
+                                <label class="form-check-label" for="discount">
+                                    打折
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="reasons[]" id="social"
+                                    value="social">
+                                <label class="form-check-label" for="social">
+                                    社交
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <div style="text-align:center">
+            <input type="submit" value="提交" style="width:80px; height:40px;">
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

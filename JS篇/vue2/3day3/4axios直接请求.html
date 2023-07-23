@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="gett">
+        GET
+    </button>
+
+    <button id="postt">post</button>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        //直接发起get和post请求
+
+        let btm = document.querySelector('#gett')
+        btm.addEventListener('click', function () {
+            //是否需要传递get参数是可选的
+            /*             axios.get('url', {
+                            //get参数
+                            params: {
+
+                            }
+                        }) */
+
+            axios.get('http://127.0.0.1/gete', {
+                //get参数
+                params: {
+                    id: 1
+
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

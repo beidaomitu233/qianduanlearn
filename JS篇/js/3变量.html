@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //这是声明变量 告诉cpu要在内存中个房出来 （variable）
+        /* 声明 变量名 */
+        var age;
+        //赋值
+        age = 18;
+        //输出结果
+        console.log(age)
+        //赋值和输出统称初始化
+
+        var myname = '是辉辉呀'
+        var address = 'nanning'
+        var salary = '2k'
+        var age2 = '22'
+        console.log(myname)
+        console.log(address)
+        console.log(age2)
+        console.log(salary)
+
+        //让用户输入的数据保存下来 ，并输出
+        //第一个逻辑是 弹出对话框 第二个是把输入的内容保存起来 第三个输出保存起来的数据
+        //name是保留字 最好不要用
+        var name = prompt('请输入用户名');
+        alert(name)
+
+        //变量覆盖 后面再给变量赋值会覆盖前面的值
+
+        var age2 = '22'
+        var age2 = '23'
+        //同时声明多个变量
+        var mou = '12',
+            daily = 'eat',
+            whatdo = 'haha'
+        //当只声明但是不给出值 会出现结果 ’未定义的‘
+        //因为js是逐渐解析如果有一句是错的，后面的将会不执行
+        //js里可以不声明直接给值并使用,但是不建议这杨
+        qq = 123;
+        console.log(qq)
+
+        //临时变量 当需要两个变量相互交换数据时 就需要第三个变量来暂时存放 然后进行交换
+        var userName = '9988',
+            passWord = 'beidao',
+            tem = ''
+        tem = userName;
+        userName = passWord;
+        passWord = tem;
+        alert(userName);
+        alert(passWord);
+
+        //typeof 获取变量数据类型
+        var munb = 109;
+        console.log(typeof munb);
+        var strz = '辉辉';
+        console.log(typeof strz);
+        var wu = null;
+        console.log(typeof wu); //输出的是objet
+
+        //prompt 取过来的值是 字符型  即使输入的是数字 这个对于后面的运算很重要
+        var textt = prompt('请输入数字');
+        console.log(typeof textt);
+        var shuchu = (typeof textt);
+        alert(shuchu)
+    </script>
+
+
+</body>
+
+</html>

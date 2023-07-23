@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            position: relative;
+        }
+
+        li {
+            list-style: none;
+            background-color: aqua;
+
+        }
+
+        li a {
+            position: absolute;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 目的 写评论功能 ，后面发的内容在上面 ， -->
+    <!-- 1.创建节点 添加点击发布事件按钮 后 添加元素 ，并且把input的value复制给添加进去的元素  -->
+
+    <div>
+        <input type="text">
+        <button>评论</button>
+
+        <!-- 留言区 -->
+        <ul class="ull">
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        //绑定操作元素
+        let wenben = document.querySelector('input')
+        let anniu = document.querySelector('button')
+        let ull = document.querySelector('.ull')
+
+        let shijian = new Date()
+        //创建要添加的元素节点 
+
+
+        //添加事件实现评论功能
+        let i = 0;
+        anniu.onclick = function () {
+            //因为只能用一次 ，所以要 点一个创建一次
+            let lili = document.createElement('li')
+            /* 不能空评论所以添加条件 */
+            if (wenben.value == '') {
+                alert('请输入内容')
+
+            } else {
+                i++;
+                //把评论内容取过来添加进 创建元素中
+                lili.innerHTML = wenben.value + '这是第' + i + '条评论' + shijian + '<a href=javascript:;>删除 </a>'
+                lili.setAttribute('date-index', i)
+                //插入元素
+                /* ull.appendChild(li) */
+                ull.insertBefore(lili, ull.children[0])
+                wenben.value = ''
+                //留言删除，获取删除按钮
+                let nui = document.querySelectorAll('a')
+                for (let z = 0; z < nui.length; z++) {
+                    nui[z].onclick = function () {
+                        ull.removeChild(this.parentNode)
+
+                    }
+
+                }
+
+
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

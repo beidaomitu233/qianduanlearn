@@ -1,0 +1,15 @@
+
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      .bax {
+        position: absolute;
+        left: 50px;
+        top: 20px;
+        height: 100px;
+        width: 100px;
+        background-color: aqua;
+      }
+    

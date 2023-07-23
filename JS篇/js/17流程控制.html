@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 有三种 第一是顺序流程  第二种是判断流程 第三种是循环流程 -->
+    <!-- 就是高中课本上学过的三种 -->
+
+    <!-- 第二种判断流程  if else   if中的值是ture就会执行 ，如果是false就执行else-->
+    <script>
+        /* 写法  
+        （这是如果的意思）if（条件{执行语句}  
+        
+        （这是否则的意思 ，只有一个否则是可以不用写条件）双分支不用写
+        多分支个时用写 
+         else{执行语句} */
+        var userAge = prompt('请输入年龄');
+        if (userAge >= 18) {
+            alert('成年啦，去享受大好年华把')
+        } else {
+            alert('还没成年哦，好好学习把')
+
+        };
+        /* 判断语句小案例 闰年判断 闰年是能被4整除并且不能整除100或者能被400整除 */
+        var dateyearrun = prompt('年份');
+        /* 取模的作用就是判断能不能被整除 */
+        if (dateyearrun % 4 == 0 && dateyearrun % 100 != 0 || dateyearrun % 400 == 0) {
+            alert('是闰年哦')
+
+        } else {
+            alert('是平年哦')
+        };
+
+
+        /* 多分枝语句写法 */
+        var userSpanding = prompt('输入消费值')
+        if (userSpanding >= 9000) {
+            alert('本年消费已达到9k以上，恭喜成为简亦购至尊会员')
+
+        } else if (userSpanding < 9000 && userSpanding >= 8000) {
+            alert('本年消费已达到8k-9k，恭喜成为简亦购豪华会员')
+        } else if (userSpanding < 8000 && userSpanding >= 4000) {
+            alert('本年消费已达到4k-8k，恭喜成为简亦购华贵会员')
+        }
+        /* 当上面的条件都不成立的时候就执行这个 */
+        else {
+            alert('本年消费，恭喜成为简亦购普通会员')
+        }
+
+        /*  */
+    </script>
+
+</body>
+
+</html>

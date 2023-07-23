@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 查询某个字符在字符串种出现的位置 和次数  
+        第一步 用indexof 查询位置，查到之后继续往下查看看有没有第二个，有两种情况 查到了从当前位置继续 或者是没有查到返回-1就结束程序
+        第二步把位置输出   */
+
+        var str = 'sadpoasdapapsoiodadapoduajsoilkdqw'
+        var index = str.indexOf('i')
+        var cishu = 0;
+        /* 循环条件 */
+        while (index !== -1) {
+            cishu++;
+            console.log(index);
+            index = str.indexOf('i', index + 1)
+        }
+        console.log(cishu + '---------------');
+
+
+        //写法二 
+        /* 循环次数 */
+
+        var qu = jin.indexOf('o')
+        console.log(qu);
+        for (var i = 0; i < jin.length; i++) {
+            if (qu !== -1) {
+                console.log(qu);
+                qu = jin.indexOf('o', qu + 1)
+            }
+
+        }
+        console.log(i);
+    </script>
+
+</body>
+
+</html>

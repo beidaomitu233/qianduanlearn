@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>刷新</button>
+
+
+    <!-- location属性 -->
+
+    <script>
+        let btn = document.querySelector('button')
+
+        // 也称为重定向页面  效果和href一样 也可以跳转页面，有历史记录，可以后退页面
+        /*   location.assign('http://www.shihuihuiya.fun/') */
+        //replace 特换当前页面 不保存历史记录，无法后退也面
+        location.replace('http://www.baidu.com/')
+        //重新加载页面，强制刷新可以清楚缓存重新加载按 ctrl+f5
+        btn.onclick = function () {
+            location.reload(true);
+
+        }
+    </script>
+
+
+</body>
+
+</html>

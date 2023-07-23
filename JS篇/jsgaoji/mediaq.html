@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media (max-width: 700px) {
+            body {
+                background-color: lightblue;
+            }
+        }
+
+        @media (min-width: 701px) and (max-width: 1400px) {
+            body {
+                background-color: rgb(226, 226, 136);
+            }
+        }
+
+        @media (min-width: 1401px) {
+            body {
+                background-color: blueviolet;
+            }
+        }
+    </style>
+</head>
+
+<script>
+    function closeuredome() {
+        let a = 1
+
+        function b() {
+            a++
+            console.log(`a被调用了第${a}次`);
+        }
+        b()
+        //将b函数返回出去，闭包的用法之一，
+        return b
+    }
+    const fun = closeuredome() //实际的返回值是b函数，从而获取到局部变量a，实际上还是内部函数b在访问。
+    console.log(fun);
+
+
+    console.log(a);
+    var a = 5;
+
+    impfunc();
+
+    function impfunc() {
+        console.log("函数被提升了");
+    }
+</script>
+
+<body>
+
+
+</body>
+
+</html>

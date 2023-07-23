@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: aqua;
+            width: 250px;
+            height: 150px;
+            border-radius: 2px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+
+    <script>
+        //想要执行一次事件之后就把事件删除掉
+        let div = document.querySelectorAll('div')
+        //传统方式,这种写法是用匿名函数
+        div[0].onclick = function () {
+            alert('zzz')
+            //就是调用完就禁止
+            div[0].onclick = null
+        }
+
+        //监听事件方式
+        div[1].addEventListener('click', fnn)
+
+        function fnn() {
+            alert('msg');
+            div[1].removeEventListener('onclick', fnn)
+        }
+    </script>
+</body>
+
+</html>

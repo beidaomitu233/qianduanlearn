@@ -1,0 +1,13 @@
+div {
+    width: 50%;
+    height: 100px;
+    float: left;
+}
+
+div:nth-child(1) {
+    background-color: burlywood;
+}
+
+div:nth-of-type(2) {
+    background-color: darkorange;
+}
