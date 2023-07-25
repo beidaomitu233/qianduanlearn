@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let class1='class4'
+        let person={
+            age:15,
+            name:class1
+        };
+
+        Object.defineProperty(person,'name',{
+            // value:"张三",
+            // enumerable:true,//是否可枚举，默认false
+            // Writable:true,//是否可修改，默认false
+            // configurable:true,//控制属性是否可被删除，默认false
+
+            get:function(){
+                console.log("name值被修改");
+                return "李四";
+            },  
+        
+            set:function(newValue){
+                console.log("name值被修改");
+                console.log(newValue);
+            }
+                },
+        );
+
+        console.log(person);
+
+    </script>
+    
+</body>
+</html>

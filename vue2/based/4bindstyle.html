@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .darkmode {
+            background-color: rgb(0, 0, 0);
+            color: white;
+            transition: all 1.2s;
+
+        }
+
+        .lightmode {
+            background-color: antiquewhite;
+            color: black;
+            transition: all 1.2s;
+        }
+
+        .yuanjiao {
+            width: 50px;
+            height: 20px;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 3px 4px 15px 1px black;
+            background-color: rgb(255, 255, 255);
+            position: relative;
+        }
+
+        .kaiguan {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(45, 215, 207);
+            position: absolute;
+            left: 1px;
+            top: 0px;
+            transition: all 0.7s;
+        }
+
+        .moveleft {
+            left: 30px;
+
+        }
+
+        .moveright {
+            right: 30px;
+
+        }
+
+        .box {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <div id="app">
+
+
+        <div :class="styleObject" class="box">
+
+            这是内容
+        </div>
+
+        <div class="yuanjiao" @click="switchmode()">
+            <div class="kaiguan" :class="styleObject.move"></div>
+        </div>
+
+
+
+
+    </div>
+
+
+    <script src="../vue.js"></script>
+
+
+    <script>
+        //切换成颜色模式切换
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    //对象写法的绑定style样式
+                    styleObject: {
+                        darkmode: false,
+                        lightmode: true,
+                        //默认下不移动
+                        move: "",
+
+                    }
+                };
+            },
+
+            methods: {
+                switchmode() {
+                    const _lightmode = this.styleObject.lightmode
+                    let _move = this.styleObject.move
+                    if (_lightmode) {
+                        this.styleObject.darkmode = true;
+                        this.styleObject.lightmode = false;
+                        this.styleObject.move = "moveright";
+                    } else {
+                        this.styleObject.darkmode = false;
+                        this.styleObject.lightmode = true;
+                        this.styleObject.move = "moveleft";
+
+                    }
+                }
+            },
+
+        })
+    </script>
+</body>
+
+</html>
