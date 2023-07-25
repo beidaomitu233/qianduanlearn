@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+
+
+    <div id="app">
+    <!-- 使用插值表达式 。插值表达式的内是JS表达式-->
+    <h1>这是插值表达式</h1>
+    <p>{{message}}</p>
+
+    <!-- 指令语法  指令语法中的JS代码会被当做JS表达式来执行，有返回值  -->
+    <a v-bind:href="xingchuangAI.URL">{{xingchuangAI.Description}}</a>
+
+    <!-- 调用方法时，会按照表达式标准去执行，执行完后返回值，包括调用放啊 -->
+    <p>show {{agc.toUpperCase()}}</p>
+
+    <!-- v-model双向数据绑定 -->
+    <input type="text" name="username" id="zz" v-model="username" />
+
+    </div>
+
+    <div id="app2">
+        {{message}}
+    </div>
+
+    <script>
+        const vm =new Vue({
+            el:"#app",
+            data() {
+                return {
+                    message:"插值表达式",
+                    agc:"abcd",
+                    xingchuangAI:{
+                        URL:"https://www.baidu.com",
+                        Description:"百度一下，你就知道"             
+                    },
+                    username:""
+                };
+            },
+        })
+
+        const vm2 =new Vue({
+            data() {
+                return {
+                    message:"插值表达式",
+                    agc:"abcd",
+                    xingchuangAI:{
+                        URL:"https://www.baidu.com",
+                        Description:"百度一下，你就知道"             
+                    },
+                    username:""
+                };
+            },
+        }).$mount("#app2")
+        console.log(vm);
+
+    </script>
+    
+</body>
+</html>
