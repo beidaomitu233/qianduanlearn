@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../vue.js"></script>
+    
+    <div id="app">
+        <h3>列表</h3>
+
+        <ul>
+            <li v-for="(item,index) in list" :key="item.id">
+                {{item.name}}--{{item.age}}--{{index}}
+            </li>
+        </ul>
+
+        <!-- 实现搜索效果 ,默认是列出全部。-->
+        <input type="text" name="search" v-model="keywords" id="">
+        <ul v-for="item in personlist" :key="item.id">
+            <li>{{item.name}}</li>
+               <li>{{item.age}}</li>
+        </ul>
+    </div>
+
+    <script>
+        const vm=new Vue({
+            el:"#app",
+            data(){
+                return{
+                    keywords:"",
+                    list:[
+                        {id:1,name:"张三",age:18},
+                        {id:2,name:"李四",age:19},
+                        {id:3,name:"王五",age:20},
+                        {id:4,name:"赵六",age:21},
+                    ]
+                }
+            },
+            computed:{
+                //将输入的值作为判断去过滤原数组，返回新数组。
+                personlist(){
+                    //返回的是一个数组对象。
+                     return   this.list.filter(item=>{
+                        //当匹配到对应的字符串，就返回true
+                     return item.name.includes(this.keywords)
+                      } 
+                    )
+                    //将新数组返回给页面
+                 
+                }
+
+            }
+
+            
+        })
+
+    </script>
+</body>
+</html>
