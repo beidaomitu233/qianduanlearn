@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <h2>用户信息</h2>
+    <!-- 通过vue管理，提交时就会触发这个方法并且阻止刷新，开发中就是直接无刷新提交2 -->
+    <form @submit.prevent="submitForm">
+      <label for="name">姓名：</label>
+      <input type="text" id="name" v-model.tram.lazy="formData.name" required >
+
+      <br>
+      <label for="email">邮箱：</label>
+      <input type="email" id="email" v-model.tram.lazy="formData.email" required lazy>
+
+      <br>
+      <label for="age">年龄：</label>
+      <!-- 设置为number属性，并且v-model.number的二次检测确保数据准确 -->
+      <input type="number" id="age" v-model.number.tram.lazy="formData.age" required>
+
+      <br>
+      <label for="gender">性别：</label>
+      <select id="gender" v-model="formData.gender" required>
+        <option value="">请选择</option>
+        <option value="male">男</option>
+        <option value="female">女</option>
+      </select>
+
+      <br>
+      <!-- 单个复选框只需管关注true -->
+      <label for="subscribe">订阅：</label>
+      <input type="checkbox" id="subscribe" v-model="formData.subscribe">
+<br>
+<!-- 多复选框需要绑定数组 -->
+        <label for="hobby">爱好：</label>
+        <br>
+        <input type="checkbox" id="sing" value="唱歌" v-model="formData.hobby">
+        <label for="sing">唱歌</label>
+        <input type="checkbox" id="dance" value="跳舞" v-model="formData.hobby">
+        <label for="dance">跳舞</label>
+        <input type="checkbox" id="rapsinger" value="rap" v-model="formData.hobby">
+        <label for="rapsinger">rap</label>
+      <br>
+      <button type="submit">提交</button>
+      
+      <br>
+    </form>
+  </div>
+
+<script>
+const vm=new Vue({
+    el:"#app",
+    data() {
+    return {
+      formData: {
+        name: '',
+        email: '',
+        age: null,
+        gender: '',
+        subscribe: false,
+        hobby:[]
+      }
+    };
+  },
+  methods: {
+    submitForm() {
+      // 在这里处理表单提交逻辑
+      console.log(this.formData);
+     const userinfojson= JSON.stringify(this.formData)
+      console.log(userinfojson);
+    }
+  }
+}) 
+ 
+
+</script>
+
+    
+</body>
+</html>

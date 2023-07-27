@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../vue.js"></script>
+
+    <div id="app">
+      <h1>修改信息演示</h1>
+
+      <p>名字：{{wuitStuend[0].name}}，爱好：{{ wuitStuend[0].hobby}}</p>
+      <!-- 当属性不存在时就不显示 -->
+      <p v-if="wuitStuend[0].age">{{wuitStuend[0].age}}</p> 
+      <button @click="sethobby()">添加年龄属性</button>
+      <button @click="setarr()">添加兴趣</button>
+
+    </div>
+
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data() {
+          return {
+            wuitStuend: [
+              { id: 1, name: "华明", hobby: ["唱", "跳", "rap"] },
+            ],
+          };
+          
+        },
+        methods:{
+          sethobby(){
+            //使用set方法改变给对象在后续添加值
+            //this指向vm实例
+            console.log(vm);
+            //在vm上这个方法叫$se
+            this.$set(this.wuitStuend[0],"age",19)
+            console.log(this.wuitStuend[0]);
+          },
+          setarr(){
+            //添加属性
+            this.wuitStuend[0].hobby.push("打游戏")
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
