@@ -648,6 +648,8 @@ vm2.$mount("#app2")
 
 date的第二种写法 函数式。以后都使用这种方式
 
+在多组件开发时，存在都需要调用同一个数据，在其他组件中需要引用，然而JS一般都会将对象的地址传输过去而不是拷贝对象，就导致了在其他组件中会修改到源数据
+
 ```JavaScript
           data() {
                 console.log(this);
@@ -656,6 +658,16 @@ date的第二种写法 函数式。以后都使用这种方式
                 }
             }
 ```
+
+使用函数式写法是直接返回一个新的对象，新的地址。从而不会影响其他数据
+
+‍
+
+‍
+
+引用关系
+
+​![image](assets/image-20230728181916-9an0jwj.png)​
 
 ‍
 
@@ -1877,17 +1889,369 @@ get方法具有缓存效果。所以调用时机是 fullname第一次被调用�
 
 ![image.png](assets/image 4-20230723124605-2rv6l2g.png)
 
-# 组件与生命周期
+# 生命周期
 
-### 组件化开发
+生命周期(Life Cycle)是指一个组件从创建->运行->销毁的整个阶段，强调的是一个时间段。
 
-> 每个vue文件都是一个组件，而每个组件就是可复用的ui结构
+在开发过程中，我们需要一些东西在vue加载的过程中就执行，而不是vue完成后再调用。后续调用有屏闪，时间节点不对等问题。
 
-每个组件中都包含下面三个
+‍
 
-- template模板
-- js 行为
-- style样式
+> * 生命周期中的回调函数一般被称为(hook)钩子函数
+>
+> * 生命周期中的this指向是vm或组件实例对象
+>
+> * 生命周期中中的函数名不可更改
+
+‍
+
+‍
+
+控制生命周期中各个节点的函数 ，每个函数都会去执行，即使没有内容也会执行空函数
+
+![image_Mw8_jzsgoD.png](assets/image_Mw8_jzsgoD-20230723124605-u9c3ro5.png)
+
+每当一个节点完成就会自动调用对应的节点函数。（官方图）
+
+![image_LqLc56tKGC.png](assets/image_LqLc56tKGC-20230723124605-zej25re.png)
+
+‍
+
+注释图
+
+​![生命周期](assets/生命周期-20230728152733-dc0xhyj.png)​
+
+‍
+
+#### 通过debugger来查看各阶段情况
+
+‍
+
+```js
+
+    <script src="../vue.js"></script>
+
+
+    <div id="app">
+      
+
+    </div>
+  
+    <script>
+        const vm=new Vue({
+            el:"#app",
+            data() {
+                return {
+                    property: 'value',
+                };
+            },
+            //使用debugger来检测生命周期不同阶段
+            beforeCreate() {
+                debugger;
+                console.log(this);
+            },
+            //创建完成后，但是未挂载到页面上
+            created() {
+                debugger;
+                console.log(this);
+            },
+            //挂载到页面上后
+            beforeMount() {
+                debugger;
+                console.log(this);
+            },
+        })
+
+
+    </script>
+```
+
+‍
+
+### 创建(初始化阶段)阶段
+
+![image_j9lyaMEYZo.png](assets/image_j9lyaMEYZo-20230723124605-n2cvi5y.png)
+
+created生命周期函数，非常常用。
+经常在它里面，调用methods中的方法，请求服务器的数据，并且把请求到的数据，转存到data中，供template模板渲染的时候使用！
+
+当有el时渲染el中的template 没有时渲染mout中的
+
+![image_SByCvS0DBS.png](assets/image_SByCvS0DBS-20230723124605-xa1a9lv.png)
+
+​​
+
+#### Template
+
+vue配置中有template时就会将template中的h5模板进行解析然后挂载。而不是回去使用el。
+
+> 如何el和template同时存在会优先使用template去覆盖el中的内容
+
+‍
+
+```js
+
+    <div id="app">
+        <div>{{property}}</div>
+    </div>
+  
+    <script>
+        const vm=new Vue({
+            el:"#app",
+            template: '<div>{{property}}</div>',
+```
+
+​![image](assets/image-20230728155352-w72xb85.png)​
+
+‍
+
+#### 创建vm.$el的意义
+
+在beforeMount就算大致的初始化完成了。
+
+‍
+
+vue中为了节省资源提高性能等方面考虑。在实际的场景中每次dom的更新并不是完全变化的，只是有一部分变化，**所以只用修改变化的部分。**
+
+‍
+
+> 使用diff去对比，vm.$el就是存储了新的DOM，使用$$el去对比旧的DOM从而去更新DOM。
+
+​![image_bEbMDPNuj5.png](assets/image_bEbMDPNuj5-20230723124605-cpykasg.png)​
+
+‍
+
+### 运行阶段
+
+#### Mounte挂载
+
+当数据变化之后就会开始挂载的流程。
+
+​![image](assets/image-20230728162234-7tp67mq.png)​
+
+在beforUpdate阶段DOM和数据是不同步的。为了能够操作到最新的DOM结构，必须把代码写到updated生期函数中。否则可能会操作未在DOM出现的元素等出现报错。
+
+​​
+
+### 销毁流程
+
+销毁后vue之前渲染到页面上的DOM还是存在的。调用[vm.$destroy()](https://v2.cn.vuejs.org/v2/api/#vm-destroy "vm.$destroy()")摧毁vm实例。
+
+‍
+
+#### [vm.$destroy()](https://v2.cn.vuejs.org/v2/api/#vm-destroy "vm.$destroy()")
+
+* **用法**：  
+  完全销毁一个实例。清理它与其它实例的连接，解绑它的全部指令及事件监听器。  
+  触发 `beforeDestroy`​ 和 `destroyed`​ 的钩子。  
+  在大多数场景中你不应该调用这个方法。最好使用 `v-if`​ 和 `v-for`​ 指令以数据驱动的方式控制子组件的生命周期。
+* **参考**：[生命周期图示](https://v2.cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA)
+
+‍
+
+会销毁自定义事件，而vue的指令都会存在在dom上。
+
+‍
+
+摧毁时也会摧毁监听器，子组件，事件监听器。但是method和data都是写到了页面的dom中的所有是存在的。
+
+‍
+
+在beforeDestroy阶段，可以读数据调用数据，但是不能改数据。此阶段不要去修改数据。因为不会再去触发Mounte更新流程了
+
+‍
+
+​![image](assets/image-20230728162620-2aknknz.png)​
+
+‍
+
+‍
+
+‍
+
+### 全部hook函数在开发中承载的功能
+
+一共是8个hook。
+
+​![image_ERcr8F55TQ.png](assets/image_ERcr8F55TQ-20230723124605-vbbl961.png)​
+
+‍
+
+Vue的生命周期钩子函数（Lifecycle Hooks）提供了在组件不同阶段执行代码的机会。这些钩子函数可以用来处理组件的初始化、数据更新、销毁等操作。下面是Vue中常用的8个生命周期钩子函数以及它们一般承载的功能：
+
+1. ​`beforeCreate`​：在实例被创建之初，数据观测和事件配置之前调用。一般用于初始化非响应式的数据、引入插件或库等。
+2. ​`created`​：在实例创建完成后调用。一般用于进行异步操作、发送网络请求、初始化数据等。
+3. ​`beforeMount`​：在挂载开始之前调用，即将把模板渲染到真实的DOM节点上。一般用于准备数据、计算属性等。
+4. ​`mounted`​：在挂载完成后调用，模板已经渲染到真实的DOM节点上。一般用于操作DOM、添加事件监听器、启动定时器等。
+5. ​`beforeUpdate`​：在数据更新之前调用，可以在更新之前访问现有的DOM。一般用于在更新之前做一些准备工作。
+6. ​`updated`​：在数据更新后调用，对更新后的DOM进行操作。一般用于操作DOM、更新插件或库等。
+7. ​`beforeDestroy`​：在实例销毁之前调用，此时实例仍然完全可用。一般用于清理定时器、取消事件监听器、解绑全局事件等。
+8. ​`destroyed`​：在实例销毁后调用，此时实例所有的指令和事件监听器都已经解绑，子组件也被销毁。一般用于清理资源、释放内存等。
+
+下面是一个简单的示例代码，演示了这些生命周期钩子函数的使用：
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Lifecycle Hooks Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ message }}</h1>
+    <button @click="updateMessage">Update Message</button>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          message: 'Hello, Vue!'
+        };
+      },
+      beforeCreate() {
+        console.log('beforeCreate hook');
+        // 初始化非响应式数据
+        this.customData = 'Custom Data';
+      },
+      created() {
+        console.log('created hook');
+        // 发送网络请求、初始化数据等
+      },
+      beforeMount() {
+        console.log('beforeMount hook');
+        // 准备数据、计算属性等
+      },
+      mounted() {
+        console.log('mounted hook');
+        // 操作DOM、添加事件监听器等
+      },
+      beforeUpdate() {
+        console.log('beforeUpdate hook');
+        // 在更新之前做一些准备工作
+      },
+      updated() {
+        console.log('updated hook');
+        // 操作DOM、更新插件或库等
+      },
+      beforeDestroy() {
+        console.log('beforeDestroy hook');
+        // 清理定时器、取消事件监听器等
+      },
+      destroyed() {
+        console.log('destroyed hook');
+        // 清理资源、释放内存等
+      },
+      methods: {
+        updateMessage() {
+          this.message = 'Updated message';
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+```
+
+请注意，`beforeCreate`​和`created`​钩子函数在组件实例创建之初被调用，而`beforeMount`​和`mounted`​钩子函数在模板渲染到真实DOM之前和之后被调用。`beforeDestroy`​和`destroyed`​钩子函数在组件销毁之前和之后被调用。`beforeUpdate`​和`updated`​钩子函数在数据更新之前和之后被调用。
+
+‍
+
+# 组件化开发
+
+> JS是模块化（只针对js），vue是组件化
+
+组件化开发是什么：实现应用中局部功能代码和资源的集合
+
+为什么要组件化开发：
+
+* 复用性差。
+* 文件全都揉在一起，依赖关系混乱。
+* 各个文件之间是散落的
+
+​​![image](assets/image-20230728174106-qtiu0j3.png)​​
+
+‍
+
+使用组件化思维
+
+每个组件都是一个独立完整的模块，包含（html,css,js等全部功能），在那个页面需要调用即可，复用性高，并且管理方便，列表清晰。
+
+​![image](assets/image-20230728174915-k0xbrun.png)​
+
+‍
+
+## 组件类型
+
+非单文件组件：1个vue文件中包含多个组件
+
+```js
+    <script src="../vue.js"></script>
+    <div id="app">
+       <h1>这是父组件</h1> 
+       <!-- 3.使用组件 -->
+         <!-- 组件名字是注册组件时定义的名字,以标签的形式使用 -->
+         <websiteheader></websiteheader>
+            <websitefooter></websitefooter>
+    </div>
+    <script>
+        Vue.config.productionTip=false;
+        //1.创建组件
+        //extend配置项几乎跟vue实例一样，可以直接写。
+        const header=Vue.extend({
+            //不使用el配置而使用template配置，因为组件不需要挂载到某个元素上
+            template:`<h2>这是子组件1,{{message}}</h2>`,
+            data(){
+                return{
+                    message:"hello world"
+                }
+            }
+        })
+        //创建组件2
+        const footer=Vue.extend({
+            template:`<h2>这是子组件2,{{message}}</h2>`,
+            data(){
+                return{
+                    message:"hello world"
+                }
+            }
+        })
+        const vm=new Vue({
+            el:"#app",
+            data:{
+            },
+            components:{
+                //2.注册组件
+                //右边是创建组件时定义的名字，左边是注册组件时定义的名字
+                websiteheader:header,
+                //如果定义的名字和注册的名字一样，可以简写
+                websitefooter:footer
+            }
+        })
+    </script>
+```
+
+‍
+
+单文件组件：1个vue文件中只包含1个组件
+
+开发时绝大多数使用单文件组件
+
+‍
+
+## 组件基本内容
+
+> 而每个组件就是可复用的ui结构
+
+每个组件中都至少包含下面三个部分
+
+* template模板 。（没有htmk结构，因为是子组件。）
+* js 行为
+* style样式
+
+可根据需要引入其他类型资源
 
 #### template模板
 
@@ -1906,7 +2270,7 @@ get方法具有缓存效果。所以调用时机是 fullname第一次被调用�
 
 否则会报错
 
-![image_VhBZ20tfmV.png](assets/image_VhBZ20tfmV-20230723124605-acvrm5s.png)
+​![image_VhBZ20tfmV.png](assets/image_VhBZ20tfmV-20230723124605-acvrm5s.png)​
 
 #### js行为
 
@@ -1916,8 +2280,8 @@ get方法具有缓存效果。所以调用时机是 fullname第一次被调用�
 script>
 //固定写法 因为外部需要访问就得暴露出去
 export default {
-    
-    
+  
+  
 //zai vue 组件中不能指向对象，需要指向函数
 /*     data:{
         username:'zs'
@@ -1956,7 +2320,7 @@ filters:{
 }
 
 
-    
+  
 }
 </script>
 ```
@@ -1978,48 +2342,235 @@ style lang="less">
 
 ```
 
-#### 组件之间的关系
+## 组件之间的关系
 
 > 把组件封装好之后，各组件之间是相互独立的，当在项目中使用的时候根据嵌套来确定关系
 
-![image_xq13iZ6m0s.png](assets/image_xq13iZ6m0s-20230723124605-cf40wo9.png)
+​![image](assets/image-20230728175127-mclb75e.png)​
 
-组件使用的方法
+‍
 
-1. 再app.vue中导入需要的组件
+​![image_xq13iZ6m0s.png](assets/image_xq13iZ6m0s-20230723124605-cf40wo9.png)​
 
-```JavaScript
-//@是基于src目录开始的位置
-import left from'@/components/left.vue';
-import right from'@/components/right.vue';
+‍
 
+### 组件嵌套
+
+在Vue中，组件的嵌套关系通常被称为"组件嵌套"（Component Nesting）。这意味着一个组件可以包含其他组件作为其子组件，形成层级结构。这种层级结构可以是单层的，也可以是多层的，类似于树状结构。
+
+它允许你构建复杂的应用程序并将功能模块化。通过组件的嵌套，你可以将应用程序拆分为更小的可重用组件，并通过父组件和子组件之间的数据传递和通信来实现整体功能。
+
+所以，"组件嵌套"是描述Vue中组件之间层级关系的常用术语。
+
+‍
+
+例如：AI聊天组件-》+对话组件+显示组件+。。。
+
+	绘画组件-》提示词组件+头组件+展现画面组件
+
+‍
+
+非单页面组件的一个父组件包含了三个子组件的演示。
+
+```ts
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Component Nesting Example</title>
+  <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+  <!-- 定义子组件A -->
+  <div id="component-a">
+    <h2>Component A</h2>
+    <p>This is Component A.</p>
+  </div>
+
+  <!-- 定义子组件B -->
+  <div id="component-b">
+    <h2>Component B</h2>
+    <p>This is Component B.</p>
+  </div>
+
+  <!-- 定义子组件C -->
+  <div id="component-c">
+    <h2>Component C</h2>
+    <p>This is Component C.</p>
+  </div>
+
+  <!-- 定义父组件 -->
+  <div id="app">
+    <h1>Parent Component</h1>
+    <component-a></component-a>
+    <div id="component-a-child">
+      <h3>Child Component of Component A</h3>
+      <component-b></component-b>
+      <component-c></component-c>
+    </div>
+  </div>
+
+  <script>
+    // 注册子组件A
+    Vue.component('component-a', {
+      template: '#component-a'
+    });
+
+    // 注册子组件B
+    Vue.component('component-b', {
+      template: '#component-b'
+    });
+
+    // 注册子组件C
+    Vue.component('component-c', {
+      template: '#component-c'
+    });
+
+    // 创建Vue实例
+    new Vue({
+      el: '#app'
+    });
+  </script>
+</body>
+</html>
 
 ```
 
-#### Path Autocomplete
+‍
 
-自动补齐@路径插件
+‍
 
-下载插件
+## 组件的使用
 
-配置sitting.json文件
+1. 创建组件
+2. 引入组件
+3. 使用组件
 
-![image_l_Y8knI10G.png](assets/image_l_Y8knI10G-20230723124605-kyawhqf.png)
+‍
 
-输入
+组件中的变量是不冲突的。都是单独的作用域。
 
-```JavaScript
-  //导入文件时是否携带文件的扩展名
-    "path-autocomplete.extensiononImport": true,
-    //配置©的路径提示
-    "path-autocomplete.pathMappings": {
-        "@": "$(folder)/src"
-    },
+‍
+
+### 创建组件
+
+> 子组件不需要写el标签。因为vm实例会将父组件的el作为根标签，子组件只能在父组件的跟标签内。所以无需定义。
+
+‍
+
+#### 基于HTML文件中非单组件
+
+在html文件中使用Vue.extend来创建组件，所创建的组件跟的配置项跟vue实例的配置项是几乎一样的。
+
+> vue3 已经弃用extend了
+
+基于extend创建组件的
+
+```ts
+        const header=Vue.extend({
+            //不使用el配置而使用template配置，因为组件不需要挂载到某个元素上
+            template:`<h2>这是子组件1,{{message}}</h2>`,
+            data(){
+                return{
+                    message:"hello world"
+                }
+            }
+        })
 ```
 
-需要只打开当前工作目录，如果还有其他目录可能会出问题
+‍
 
-![image_2Do_XmiPPH.png](assets/image_2Do_XmiPPH-20230723124605-qvu4nsx.png)
+简写方式创建组件
+
+作为对象传入到vue中。 vue在注册组件时进行处理。
+
+```ts
+        const header={
+            //不使用el配置而使用template配置，因为组件不需要挂载到某个元素上
+            template:`<h2>这是子组件1,{{message}}</h2>`,
+            data(){
+                return{
+                    message:"hello world"
+                }
+            }
+    }
+
+```
+
+‍
+
+非单组件代码演示
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../vue.js"></script>
+
+    <div id="app">
+       <h1>这是父组件</h1> 
+       <!-- 3.使用组件 -->
+         <!-- 组件名字是注册组件时定义的名字,以标签的形式使用 -->
+         <websiteheader></websiteheader>
+            <websitefooter></websitefooter>
+
+    </div>
+
+    <script>
+        Vue.config.productionTip=false;
+
+        //1.创建组件
+        //extend配置项几乎跟vue实例一样，可以直接写。
+        const websiteheader=Vue.extend({
+            name:"websiteheader",
+            //不使用el配置而使用template配置，因为组件不需要挂载到某个元素上
+            template:`<h2>这是子组件1,{{message}}</h2>`,
+            data(){
+                return{
+                    message:"hello world"
+                }
+            }
+        })
+
+        //创建组件2
+        const websitefooter=Vue.extend({
+             name:"websitefooter",
+            template:`<h2>这是子组件2,{{message}}</h2>`,
+            data(){
+                return{
+                    message:"hello world"
+                }
+            }
+        })
+        Vue.component("websiteheader",websiteheader)
+        const vm=new Vue({
+            el:"#app",
+            data:{
+            },
+            components:{
+                //2.注册组件
+                //右边是创建组件时定义的名字，左边是注册组件时定义的名字
+                websiteheader,
+                //如果定义的名字和注册的名字一样，可以简写
+                websitefooter
+            }
+        })
+
+        console.log(vm);
+
+    </script>
+</body>
+</html>
+```
+
+‍
+
+#### 基于vue文件中
 
 1. 使用component节点注册私有组件  哪里需要用就要在哪里导入
 
@@ -2044,7 +2595,7 @@ import right from'@/components/right.vue';
   
 ```
 
-![image_Bg1VX3qOWX.png](assets/image_Bg1VX3qOWX-20230723124605-6y7puh3.png)
+​![image_Bg1VX3qOWX.png](assets/image_Bg1VX3qOWX-20230723124605-6y7puh3.png)​
 
 注册全局组件
 
@@ -2056,13 +2607,155 @@ Vue.component('mycontent',content);
 
 全局组件被其他组件调用时，各调用时变化的值没有关系
 
-![image_AjwDzcH3rq.png](assets/image_AjwDzcH3rq-20230723124605-t8t4mtj.png)
+​![image_AjwDzcH3rq.png](assets/image_AjwDzcH3rq-20230723124605-t8t4mtj.png)​
 
-#### 组件的props
+‍
+
+在Vue中，组件的`name`​属性是可选的，它用于提供组件的名称。设置`name`​属性可以在开发者工具中更好地显示组件层级关系和调试信息。它对于调试、性能优化和组件通信等方面都有一定的作用。
+
+下面是一些关于给组件设置`name`​属性的原因：
+
+1. 调试：在开发者工具中，组件的名称将显示为其`name`​属性的值，这有助于识别和跟踪组件的层级关系。当你在应用程序中有多个相似的组件时，通过设置不同的`name`​属性，你可以更轻松地区分它们。
+2. 性能优化：Vue在进行组件更新时，会使用`name`​属性来生成唯一的key，以便进行高效的组件重用和渲染优化。如果你的组件没有设置`name`​属性，Vue将使用组件的定义对象或组件的文件路径作为默认的key，这可能会导致不必要的组件销毁和重新创建，影响性能。
+3. 组件通信：在某些情况下，你可能需要在组件之间进行通信，例如通过事件或`$refs`​。给组件设置`name`​属性可以使得组件更容易被其他组件识别和引用。
+
+总结起来，组件的变量名和组件的`name`​属性是两个不同的概念。
+
+变量名用于在代码中引用和实例化组件，而`name`​属性用于调试、性能优化和组件通信等方面。
+
+注册组件时，你可以选择使用变量名或自定义的组件名称，它们之间没有直接的关联。
+
+‍
+
+‍
+
+‍
+
+### 注册组件
+
+全局注册：在所有的组件中都可以直接使用无需引入
+
+```ts
+        Vue.component("websiteheader",websiteheader)
+```
+
+‍
+
+局部注册：引入后只能在单个组件中使用。
+
+在vue配置对象中配置
+
+```js
+            components:{
+                //2.注册组件
+                //右边是创建组件时定义的名字，左边是注册组件时定义的名字
+                websiteheader:header,
+                //如果定义的名字和注册的名字一样，可以简写
+                websitefooter:footer
+            }
+```
+
+‍
+
+组件的命名
+
+多单词的组件名字：website-header，但是这在JS中是解析不了的，所以使用字符串形式。让vue来解析。
+
+驼峰命名法：WebsiteHeader，需要基于脚手架才能解析。
+
+‍
+
+‍
+
+‍
+
+‍
+
+### 使用组件
+
+组件名字是注册组件时定义的名字,以标签的形式使用
+
+```ts
+    <div id="app">
+       <h1>这是父组件</h1> 
+         <websiteheader></websiteheader>
+            <websitefooter></websitefooter>
+
+    </div>
+```
+
+组件之间的数据是不互相影响。
+
+在开发者工具中的组件名会自动更改为驼峰命名标准。
+
+​![image](assets/image-20230728184832-ibms2zb.png)​
+
+‍
+
+‍
+
+## 组件冲突
+
+默认情况下，写在Vue组件中的样式会全局生效，因此很容易造成多个组件之间的样式冲突问题。
+
+导致组件之间样式冲突的根本原因是：  
+
+①单页面应用程序中，所有组件的DOM结构，都是基于唯一的index.html页面进行呈现的,,html放在一起，css放在一起，就会导致一边写的样式两边一起用。  
+
+②每个组件中的样式，都会影响整个index.html页面中的DOM元素
+
+用来解决组件样式冲突
+
+原理：给每个vue模块的html标签加上自定义属性
+
+​![image_Cv6p427bhd.png](assets/image_Cv6p427bhd-20230723124605-qsntnzu.png)​
+
+```CSS
+<style lang="less" scoped>
+
+
+ </style>
+```
+
+并且会给less自动添加这个属性选择器 不需要手动写
+
+​![image_pKBfoo99IU.png](assets/image_pKBfoo99IU-20230723124605-rq11688.png)​
+
+用scoped的时候不会给导入的其他vue模块添加这个自定义属性，
+
+​![image_gQqU4EFehq.png](assets/image_gQqU4EFehq-20230723124605-js6gwn5.png)​
+
+deep
+
+要在当前模块修改其他导入的组件样式时使用
+
+```CSS
+/deep/ h6{
+    color: aqua;
+}
+```
+
+然后vue会自动生成子代选择器
+
+​![image_pLYEPPhIK4.png](assets/image_pLYEPPhIK4-20230723124605-dcct7sq.png)​
+
+总结：
+
+从mian中开始打包构建，并寻找导入的组件和依赖的组件逐级打包，形成vue的结构树，vue中写的代码都是模板字符串，都会通过vue-template-compiler这个包编译成js文件然后交给浏览器去渲染，组件有全局作用域和局部，写vue组件，在其他组件调用时就叫做组件实例化
+
+‍
+
+‍
+
+## 组件之间的通讯（数据共享）
+
+‍
+
+### 组件的props
 
 prop是组件的**只读**自定义属性，在封装通用组件的时候，合理地使用props可以极大的提高组件的复用性！ 就是调用同一个组件但是希望传递不同的值进行显示
 
-- 定义props为对象形式可以使用更多的配置项
+* 定义props为对象形式可以使用更多的配置项
 
 ```JavaScript
 
@@ -2093,91 +2786,7 @@ data(){
 }
 ```
 
-#### 组件冲突
-
-默认情况下，写在Vue组件中的样式会全局生效，因此很容易造成多个组件之间的样式冲突问题。
-
-导致组件之间样式冲突的根本原因是：
-①单页面应用程序中，所有组件的DOM结构，都是基于唯一的index.html页面进行呈现的,,html放在一起，css放在一起，就会导致一边写的样式两边一起用。
-②每个组件中的样式，都会影响整个index.html页面中的DOM元素
-
-用来解决组件样式冲突
-
-原理：给每个vue模块的html标签加上自定义属性
-
-![image_Cv6p427bhd.png](assets/image_Cv6p427bhd-20230723124605-qsntnzu.png)
-
-```CSS
-<style lang="less" scoped>
-
-
- </style>
-```
-
-并且会给less自动添加这个属性选择器 不需要手动写
-
-![image_pKBfoo99IU.png](assets/image_pKBfoo99IU-20230723124605-rq11688.png)
-
-用scoped的时候不会给导入的其他vue模块添加这个自定义属性，
-
-![image_gQqU4EFehq.png](assets/image_gQqU4EFehq-20230723124605-js6gwn5.png)
-
-deep
-
-要在当前模块修改其他导入的组件样式时使用
-
-```CSS
-/deep/ h6{
-    color: aqua;
-}
-```
-
-然后vue会自动生成子代选择器
-
-![image_pLYEPPhIK4.png](assets/image_pLYEPPhIK4-20230723124605-dcct7sq.png)
-
-总结：
-
-从mian中开始打包构建，并寻找导入的组件和依赖的组件逐级打包，形成vue的结构树，vue中写的代码都是模板字符串，都会通过vue-template-compiler这个包编译成js文件然后交给浏览器去渲染，组件有全局作用域和局部，写vue组件，在其他组件调用时就叫做组件实例化
-
-### 组件的生命周期
-
-> 生命周期(Life Cycle)是指一个组件从创建->运行->销毁的整个阶段，强调的是一个时间段。
-
-控制生命周期中各个节点的函数 ，每个函数都会去执行，即使没有内容也会执行空函数
-
-![image_Mw8_jzsgoD.png](assets/image_Mw8_jzsgoD-20230723124605-u9c3ro5.png)
-
-每当一个节点完成就会自动调用对应的节点函数。
-
-![image_LqLc56tKGC.png](assets/image_LqLc56tKGC-20230723124605-zej25re.png)
-
-### 创建阶段
-
-![image_j9lyaMEYZo.png](assets/image_j9lyaMEYZo-20230723124605-n2cvi5y.png)
-
-created生命周期函数，非常常用。
-经常在它里面，调用methods中的方法，请求服务器的数据，并且把请求到的数据，转存到data中，供template模板渲染的时候使用！
-
-当有el时渲染el中的template 没有时渲染mout中的
-
-![image_SByCvS0DBS.png](assets/image_SByCvS0DBS-20230723124605-xa1a9lv.png)
-
-![image_txdciRUK_f.png](assets/image_txdciRUK_f-20230723124605-idm9y0b.png)
-
-![image_bEbMDPNuj5.png](assets/image_bEbMDPNuj5-20230723124605-cpykasg.png)
-
-### 运行阶段
-
-当数据变化之后，为了能够操作到最新的DOM结构，必须把代码写到updated生期函数中
-
-![image_kLjcMd_Hno.png](assets/image_kLjcMd_Hno-20230723124605-2t6fwqu.png)
-
-函数流程
-
-![image_ERcr8F55TQ.png](assets/image_ERcr8F55TQ-20230723124605-vbbl961.png)
-
-### 组件之间的通讯（数据共享）
+‍
 
 目标：
 
@@ -2192,7 +2801,7 @@ created生命周期函数，非常常用。
 - 父子关系
 - 兄弟关系
 
-#### 父子之间数据传递
+### 父子之间数据传递
 
 父向子传递
 
@@ -2200,7 +2809,7 @@ created生命周期函数，非常常用。
 
 父组件中调用子标签并传递参数
 
-```Plain
+```js
 <!--向子组件传递数据 传递数据 -->
   <tansl :mes="message" :objz="obj"></tansl>
 
@@ -2208,7 +2817,7 @@ created生命周期函数，非常常用。
 
 子组件中利用props接收
 
-```Plain
+```js
 export default {
 /* 父向子传递:接收传递过来的参数，但只是可读状态 */
     props:['mes','objz']
@@ -2222,15 +2831,15 @@ export default {
 
 子组件创建事件，并传递参数，触发条件是数据改变
 
-```Plain
+```js
     methods: {
         add(){
             this.count+=1,
-            
+          
             /* 创建自定义事件，当数据发生改变时触发，并传递参数 */
             this.$emit('changge',this.count)
         }
-        
+      
     },
 ```
 
@@ -2249,7 +2858,7 @@ this.coutson=newval
 },
 ```
 
-#### 兄弟之间传输数据
+### 兄弟之间传输数据
 
 > 在vue2.x版本中利用EventBus,js模块共享实例对象。
 
@@ -2258,6 +2867,75 @@ this.coutson=newval
 ③ 在数据接收 调用bu5.$o('事件名称'，事件处理函数)方法注册一个自定义事件
 
 ![image_qwYJ8364ME.png](assets/image_qwYJ8364ME-20230723124605-trtjn8t.png)
+
+‍
+
+## VueComponent深入了解
+
+vm中包含的内容vc中也基本包含有，但是两者不是完全相等。因为vc是vm的一个方法而已。其他方面还有差异。
+
+‍
+
+1.组件本质是一个名为VueComponent的构造函数，且不是程序员定义的，是Vue.extend生成的。
+
+2,我们在页面中使用组件,Vue解析时会帮我们创建组件的实例对象，即Vue帮我们执行的：new,VueComponent(options)。
+
+3.特别注意：每次调用Vue.extend,返回的都是一个全新的VueComponent!I!I  
+
+4.关于this指向：  
+
+(1),组件配置中：data函数、methods中的函数、watch中的函数、computed中的函数，它们的this均是【VueComponent实例对象】。
+
+(2).new.Vue(options)配置中：data函数、methods中的函数、watch中的函数、computed中的函数它们的this均是【Vue实例对象】。
+
+5.VueComponent的实例对象，以后简称vc(也可称之为：组件实例对象)。Vue的实例对象，以后简称vm。
+
+‍
+
+### VC组件是由vue实例管理
+
+‍
+
+​![image](assets/image-20230728203259-cwf41h1.png)​
+
+‍
+
+‍
+
+## 小工具插件
+
+#### Path Autocomplete
+
+自动补齐@路径插件
+
+下载插件
+
+配置sitting.json文件
+
+​![image_l_Y8knI10G.png](assets/image_l_Y8knI10G-20230723124605-kyawhqf.png)​
+
+输入
+
+```JavaScript
+  //导入文件时是否携带文件的扩展名
+    "path-autocomplete.extensiononImport": true,
+    //配置©的路径提示
+    "path-autocomplete.pathMappings": {
+        "@": "$(folder)/src"
+    },
+```
+
+需要只打开当前工作目录，如果还有其他目录可能会出问题
+
+​![image_2Do_XmiPPH.png](assets/image_2Do_XmiPPH-20230723124605-qvu4nsx.png)​
+
+‍
+
+‍
+
+‍
+
+‍
 
 # 第五天：ref&购物车案例
 

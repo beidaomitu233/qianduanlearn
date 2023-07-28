@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="../vue.js"></script>
+
+
+    <div id="app">
+        <div>{{property}}</div>
+    </div>
+    
+    <script>
+        const vm=new Vue({
+            el:"#app",
+            template: '<div>{{property}}</div>',
+            data() {
+                return {
+                    property: 'value',
+                };
+            },
+            //使用debugger来检测生命周期不同阶段
+            beforeCreate() {
+                debugger;
+                console.log(this);
+            },
+            //创建完成后，但是未挂载到页面上
+            created() {
+                debugger;
+                console.log(this);
+            },
+            //挂载到页面上后
+            beforeMount() {
+                debugger;
+                console.log(this);
+            },
+        })
+
+
+    </script>
+</body>
+</html>

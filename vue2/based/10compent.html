@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../vue.js"></script>
+
+    <div id="app">
+       <h1>这是父组件</h1> 
+       <!-- 3.使用组件 -->
+         <!-- 组件名字是注册组件时定义的名字,以标签的形式使用 -->
+         <websiteheader></websiteheader>
+            <websitefooter></websitefooter>
+
+    </div>
+
+    <script>
+        Vue.config.productionTip=false;
+
+        //1.创建组件
+        //extend配置项几乎跟vue实例一样，可以直接写。
+        const websiteheader=Vue.extend({
+            name:"websiteheader",
+            //不使用el配置而使用template配置，因为组件不需要挂载到某个元素上
+            template:`<h2>这是子组件1,{{message}}</h2>`,
+            data(){
+                return{
+                    message:"hello world"
+                }
+            }
+        })
+
+        //创建组件2
+        const websitefooter=Vue.extend({
+             name:"websitefooter",
+            template:`<h2>这是子组件2,{{message}}</h2>`,
+            data(){
+                return{
+                    message:"hello world"
+                }
+            }
+        })
+        Vue.component("websiteheader",websiteheader)
+        const vm=new Vue({
+            el:"#app",
+            data:{
+            },
+            components:{
+                //2.注册组件
+                //右边是创建组件时定义的名字，左边是注册组件时定义的名字
+                websiteheader,
+                //如果定义的名字和注册的名字一样，可以简写
+                websitefooter
+            }
+        })
+
+        console.log(vm);
+
+    </script>
+</body>
+</html>
