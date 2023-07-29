@@ -2570,44 +2570,98 @@ style lang="less">
 
 ‍
 
-#### 基于vue文件中
+#### 基于vue文件中非脚手架
 
-1. 使用component节点注册私有组件  哪里需要用就要在哪里导入
+1.创建vue文件，并添加基础框架。
 
-```JavaScript
-  components: {
-    //原本 的写法 当键和值一样时
-   'left':left,
-   //简写
-    right
+设置app为级别最高的组件，把需要用到的组件都引入到这里面来。
+
+```js
+<template>
+    <h1>这是vue组件
+
+    </h1>
 
 
-  }
+</template>
+
+
+<script>
+import nav from './nav.vue';
+import home from './home.vue';
+export default {
+    name: 'app',
+    components:{
+        nav,
+        home
+    },
+    data() {
+        return {
+            property: 'value',
+        };
+    },
+
+}
+
+</script>
+
+<style></style>
 ```
 
-1. 注册完成后再模块中以标签的形式去使用
+‍
 
-```JavaScript
- //组件的内容会自动加到里面去
- 
-  <left></left>
-<right></right>
+2.实例化vue对象
+
+再`main.js`​​中单独配置实例化对象和挂载和指定渲染区域。
+
+只需要引入最大的app组件即可。其他组件间的互相引用vue会处理
+
+```js
+//引入vue
+import app from 'app.vue'
+
+new Vue({
+    el:'#app',、
+//替换#app里的内容
+    template:'<app/>',
+//注册组件
+    components:{app}
+})
+```
+
+‍
+
+> main.js也叫入口文件。这是vue的开端。
+
+‍
+
+3.创建html容器
+
+为了保持容器的整洁，不在容器里直接的使用组件，而是通过template配置项去替换`<div id="app"></div>`​里的内容。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="app"></div>
   
+<script src="../vue.js"></script>
+<script src="./main.js"></script>
+</body>
+</html>
 ```
 
-​![image_Bg1VX3qOWX.png](assets/image_Bg1VX3qOWX-20230723124605-6y7puh3.png)​
+‍
 
-注册全局组件
+> 引入的顺序是有要求的，main中的代码是vue的实例对象，所以必须要先引进vue。而html结构的必须要先有才能挂载和容纳内容。
 
-```JavaScript
-//在main.js中配置
-import content from'@/components/content.vue'
-Vue.component('mycontent',content);
-```
-
-全局组件被其他组件调用时，各调用时变化的值没有关系
-
-​![image_AjwDzcH3rq.png](assets/image_AjwDzcH3rq-20230723124605-t8t4mtj.png)​
+​
 
 ‍
 
@@ -2624,10 +2678,6 @@ Vue.component('mycontent',content);
 变量名用于在代码中引用和实例化组件，而`name`​属性用于调试、性能优化和组件通信等方面。
 
 注册组件时，你可以选择使用变量名或自定义的组件名称，它们之间没有直接的关联。
-
-‍
-
-‍
 
 ‍
 
@@ -2662,12 +2712,6 @@ Vue.component('mycontent',content);
 多单词的组件名字：website-header，但是这在JS中是解析不了的，所以使用字符串形式。让vue来解析。
 
 驼峰命名法：WebsiteHeader，需要基于脚手架才能解析。
-
-‍
-
-‍
-
-‍
 
 ‍
 
@@ -2872,7 +2916,15 @@ this.coutson=newval
 
 ## VueComponent深入了解
 
-vm中包含的内容vc中也基本包含有，但是两者不是完全相等。因为vc是vm的一个方法而已。其他方面还有差异。
+vm中包含的内容vc（可复用的vue实例）中也基本包含有，但是两者不是完全相等。因为vc是vm的一个方法而已。其他方面还有差异。
+
+‍
+
+区别：
+
+	vm实例不能有el，因为只是小组件只能被添加到vue实例中 。被管理，而vc不能再去管理子组件。
+
+	data只能写函数时。
 
 ‍
 
@@ -2897,6 +2949,16 @@ vm中包含的内容vc中也基本包含有，但是两者不是完全相等。�
 ‍
 
 ​![image](assets/image-20230728203259-cwf41h1.png)​
+
+‍
+
+Vue重新设置了原型链。
+
+使得以下原型链成立，目的是让子组件都能访问的vue原型对象的里的内容。
+
+VueComponent.prototype._proto_===Vue.prototype
+
+​![image](assets/image-20230729112333-29g2w6y.png)​
 
 ‍
 
@@ -2932,6 +2994,211 @@ vm中包含的内容vc中也基本包含有，但是两者不是完全相等。�
 ‍
 
 ‍
+
+# 脚手架
+
+Vue脚手架是Vue官方提供的标准化开发工具（开发平台）。简化项目创建过程，并且将项目中的最佳实践为我们设置好。只需要注重页面的呈现即可。
+
+‍
+
+Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统，提供：
+
+* 通过 `@vue/cli`​ 实现的交互式的项目脚手架。
+* 通过 `@vue/cli`​ + `@vue/cli-service-global`​ 实现的零配置原型开发。
+* 一个运行时依赖 (`@vue/cli-service`​)，该依赖：
+
+  * 可升级；
+  * 基于 webpack 构建，并带有合理的默认配置；
+  * 可以通过项目内的配置文件进行配置；
+  * 可以通过插件进行扩展。
+* 一个丰富的官方插件集合，集成了前端生态中最好的工具。
+* 一套完全图形化的创建和管理 Vue.js 项目的用户界面。
+
+‍
+
+‍
+
+版本选择：脚手架版本可以使用最新版本，因为向下兼容可以解析vue各版本。
+
+‍
+
+## 安装
+
+‍
+
+```html
+npm install -g @vue/cli
+```
+
+‍
+
+可以用这个命令来检查其版本是否正确：
+
+```
+vue --version
+```
+
+‍
+
+## 升级
+
+如需升级全局的 Vue CLI 包，请运行：
+
+```
+npm update -g @vue/cli
+```
+
+‍
+
+#### 项目依赖
+
+上面列出来的命令是用于升级全局的 Vue CLI。如需升级项目中的 Vue CLI 相关模块（以 `@vue/cli-plugin-`​ 或 `vue-cli-plugin-`​ 开头），请在项目目录下运行 `vue upgrade`​：
+
+```
+用法： upgrade [options] [plugin-name]
+
+（试用）升级 Vue CLI 服务及插件
+
+选项：
+  -t, --to <version>    升级 <plugin-name> 到指定的版本
+  -f, --from <version>  跳过本地版本检测，默认插件是从此处指定的版本升级上来
+  -r, --registry <url>  使用指定的 registry 地址安装依赖
+  --all                 升级所有的插件
+  --next                检查插件新版本时，包括 alpha/beta/rc 版本在内
+  -h, --help            输出帮助内容
+```
+
+‍
+
+## 创建项目
+
+进入到想要创建的目录下，使用cmd创建
+
+```html
+vue create projectName
+
+
+
+
+```
+
+‍
+
+Vue项目的配置根据需要选。可以选择npm或者yarn作为包管理工具。
+
+‍
+
+这是一个基本的vue结构，使用了yarn作为包管理，并且支持ts语法
+
+​![image](assets/image-20230729124056-9b68iy2.png)​
+
+‍
+
+## 启动项目
+
+再package.json中
+
+这段是指运行项目。serve是运行，build是构建。
+
+```js
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+```
+
+这是编译器。包括css，vue，js，ts等
+
+​![image](assets/image-20230729124240-rizd2a6.png)​
+
+‍
+
+启动项目命令
+
+```js
+yarn serve
+```
+
+启动后在网页中的打开杰克
+
+​![image](assets/image-20230729124443-zq7pq2s.png)​
+
+‍
+
+## 脚手架文件解析
+
+‍
+
+### main
+
+main是整个项目的入口文件。
+
+​`import Vue from 'vue'`​这里引入的vue并非完整版的vue而是经过魔改或者其他 设置的vue，所以 必须要配置模板解析器`render`​
+
+```js
+import Vue from 'vue'
+//引入APP组件，因为他是所有组件的父组件
+import App from './App.vue'
+//关闭生产提示
+Vue.config.productionTip = false
+
+new Vue({
+  render: h => h(App),
+}).$mount('#app')
+
+```
+
+‍
+
+​`render: h => h(App)`​
+
+### index.html
+
+​`<%= BASE_URL %>`​是配置过的路径
+
+​`<%= htmlWebpackPlugin.options.title %>`​ 这个变量是再package.json中的name属性
+
+​`<noscript>`​是当浏览器不支持JS时提示。才会出现的一个标签
+
+​`<strong></strong>`​是提示内容，不支持时就会在页面中渲染这里的内容
+
+[桂ICP备20001992号-3](https://www.beian.gov.cn/)
+
+```html
+
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+//让IE浏览器以最高级别运行
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//让移动端以理想视窗运行
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+//引入图标。
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+//网页标题，webpack的插件配置的。
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
+
+```
+
+‍
+
+### 单页面应用
+
+单页面是指只有一个html文件，所有的vue组件都是渲染再这个页面上，极大的节省了资源
+
+‍
+
+多页面应用就是有多个html会渲染到多个html中。
 
 ‍
 
