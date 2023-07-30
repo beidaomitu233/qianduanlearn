@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <button @click="getdom()">获取当前标签的DOM元素</button>
+    <button> 获取HelloWorld组件的DOM元素</button>
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
   </div>
@@ -10,11 +12,15 @@ import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from './components/HelloWorld.vue';
 
 @Component({
+  name:"app",
   components: {
     HelloWorld,
   },
+
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+
+}
 </script>
 
 <style lang="less">
