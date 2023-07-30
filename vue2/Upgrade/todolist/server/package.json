@@ -1,5 +1,5 @@
 {
-  "name": "todolistserver",
+  "name": "test1",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -22,8 +22,8 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-todolistserver",
-    "stop": "egg-scripts stop --title=egg-server-todolistserver",
+    "start": "egg-scripts start --daemon --title=egg-server-test1",
+    "stop": "egg-scripts stop --title=egg-server-test1",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",

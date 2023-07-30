@@ -1,4 +1,5 @@
 {
   "extends": "eslint-config-egg",
+  "ignorePatterns": ["*"],
   "root": true
 }
