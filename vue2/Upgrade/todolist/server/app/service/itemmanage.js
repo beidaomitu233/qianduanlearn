@@ -19,9 +19,15 @@ class RequestService extends Service {
   //根据id来删除todoitem,。
   async delitem(id) {
     try{
-        const { app } = this;
-        const result = await app.mysql.delete('ToDoList',id);
-        return result
+        if(id){
+         
+            console.log(id);
+          const { app } = this;
+          const result = await app.mysql.delete("ToDoList", id);
+          return result;
+        }else{
+            return 'id不能为空'
+        }
     }catch(error){
         if(error) console.log(error);
         return '未能连接上数据库'

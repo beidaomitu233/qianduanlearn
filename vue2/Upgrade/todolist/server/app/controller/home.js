@@ -17,7 +17,7 @@ class HomeController extends Controller {
       data:result
     };
   }
-  //对todoitem进行增删改查
+  //对todoitem删chu 
   async delitemcon(){
     const { ctx } = this;
     //获取post请求的参数体

@@ -12,6 +12,8 @@ export default {
   name: 'showStatus',
   data() {
     return {
+      completed: 0,
+      uncompleted: 0,
       
     };
   },

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <button @click="getdom()">获取当前标签的DOM元素</button>
+    <button>获取当前标签的DOM元素</button>
     <button> 获取HelloWorld组件的DOM元素</button>
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
