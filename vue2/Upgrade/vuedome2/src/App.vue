@@ -4,29 +4,56 @@
     <button @click="getdom2()">点击获取helloworld组件的DOM</button>
     <img alt="Vue logo" src="./assets/logo.png">
     <h1>这是组件2 </h1>
+
+        <!-- 动画效果 -->
+        <button @click="madeShow=!madeShow">隐藏或显示组件</button>
+        <transition apppear>
+              <h1 v-show="madeShow" class="zujian">动画动画</h1>
+        </transition>
+
+        <!-- 过渡效果 -->
+        这是组件三
+        <adas></adas>
    
     <hellotes :username="username" :userage="age" :userclass="zclass" />
    <!-- 使用自定义事件进行传参  -->
     <comp4 @sendata="sendataz()"/>
+
+    <!-- 使用插槽 ,里面只有一点不同的时候使用-->
+    <slotcom> 
+      <em>这是内容1</em>
+    </slotcom>
+    <slotcom> 
+      <p>这是内容2</p>
+      <img src="../public/favicon.ico" alt="">
+    </slotcom>
+    <slotcom> 
+    <img src="./assets/logo.png" alt="">
+    </slotcom>
   </div>
 </template>
 
 <script>
 import hellotes from './components/hellotes.vue'
 import comp4 from './components/comp4.vue'
+import adas from './components/adas.vue'
+import slotcom from './components/slotcom.vue'
 
 export default {
   name: 'App',
   components: {
     hellotes,
-    comp4
+    comp4,
+    adas,
+    slotcom
   },
   data(){
     return {
       targe:null,
       username:'lisi',
       age:18,
-      zclass:'三年级'
+      zclass:'三年级',
+            madeShow: true
     }
   },
   
@@ -56,5 +83,42 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.zujian{
+  background-color: burlywood;
+}
+
+
+//使用动画
+//规定进入动画的名字
+.v-enter-active{
+  animation: madeslowin .5s linear ;
+
+}
+//离开的名字也是固定的
+.v-leave-active{
+  animation: madeslowleave 1s linear ;
+}
+
+
+
+//定义动画
+
+@keyframes madeslowleave{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-1800px);
+  }
+}
+
+@keyframes madeslowin{
+    from{
+    transform: translateX(1000px);
+  }
+     to{
+    transform: translateX(0px);
+  }
 }
 </style>

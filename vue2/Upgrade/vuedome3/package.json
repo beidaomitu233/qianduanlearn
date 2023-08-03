@@ -1,5 +1,5 @@
 {
-  "name": "vuedome2",
+  "name": "vuedome3",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,10 +7,9 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "animate.css": "^4.1.1",
-    "axios": "^1.4.0",
     "core-js": "^3.8.3",
-    "vue": "^2.6.14"
+    "vue": "^2.6.14",
+    "vuex": "3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",
