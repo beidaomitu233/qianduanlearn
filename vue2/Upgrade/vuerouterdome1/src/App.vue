@@ -6,10 +6,15 @@
         <!-- 路由导航 -->
         <div> <router-link to="/playStations">游戏模块</router-link></div>
         <div> <router-link to="/fastFood">快餐模块</router-link></div>
+        <div> <router-link to="/hotelService">酒店点餐服务</router-link>
+        </div>
       </div>
       <div class="right">
         <!-- 路由展示内容区 -->
-        <router-view></router-view>
+        <keep-alive :include="['FastFood','chFood']">
+          <router-view></router-view>
+        </keep-alive>
+
       </div>
 
     </div>
