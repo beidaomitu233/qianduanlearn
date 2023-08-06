@@ -6,13 +6,13 @@
     <!-- 需要到数据时可进行传参 -->
     <button @click="goHotelfoodService()">跳转到酒店服务页面</button>
     <!-- 前进 -->
-    <button @click="this.$router.forward()">前进</button>
+    <button @click="$router.forward()">前进</button>
     <!-- 前进2 -->
-    <button @click="this.$router.go(1)">前进</button>
+    <button @click="$router.go(1)">前进</button>
     <!-- 后退 -->
-    <button @click="this.$router.back()">后退</button>
+    <button @click="$router.back()">后退</button>
     <!-- 后退2 -->
-    <button @click="this.$router.go(-1)">后退</button>
+    <button @click="$router.go(-1)">后退</button>
     <!-- 也需要添加路由展示区 -->
     <router-view></router-view>
   </div>

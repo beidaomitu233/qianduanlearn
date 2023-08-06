@@ -33,6 +33,23 @@ export default {
   mounted () {
     console.log(this)
   },
+  //进入组件时就会被调用
+  beforeRouteEnter(to, from, next) {
+    //进入组件也要放行
+    console.log('进入组件');
+    console.log(to);
+    //符合条件才放行
+    if(1==1){
+      next();
+    // ...
+    }
+  },
+  //离开组件时就会被调用
+  beforeRouteLeave (to, from, next) {
+    // react to route changes...
+    // don't forget to call next()
+    console.log('离开组件');
+  }
 }
 </script>
 
